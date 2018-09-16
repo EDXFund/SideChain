@@ -380,6 +380,8 @@ func (t *TransactionsByPriceAndNonce) Pop() {
 //
 // NOTE: In a future PR this will be removed.
 type Message struct {
+	txType     uint8
+	tokenId    uint64
 	to         *common.Address
 	from       common.Address
 	nonce      uint64
@@ -390,8 +392,10 @@ type Message struct {
 	checkNonce bool
 }
 
-func NewMessage(from common.Address, to *common.Address, nonce uint64, amount *big.Int, gasLimit uint64, gasPrice *big.Int, data []byte, checkNonce bool) Message {
+func NewMessage(from common.Address, to *common.Address, nonce uint64, amount *big.Int, gasLimit uint64, gasPrice *big.Int, data []byte, checkNonce bool, txType uint8,tokenId uint64) Message {
 	return Message{
+		txType:		txType,
+		tokenId:	tokenId,
 		from:       from,
 		to:         to,
 		nonce:      nonce,
@@ -411,3 +415,5 @@ func (m Message) Gas() uint64          { return m.gasLimit }
 func (m Message) Nonce() uint64        { return m.nonce }
 func (m Message) Data() []byte         { return m.data }
 func (m Message) CheckNonce() bool     { return m.checkNonce }
+func (m Message) CheckMsgType() uint8  { return m.txType }
+func (m Message) CheckTokenId() uint64 { return m.tokenId }
