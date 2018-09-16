@@ -31,9 +31,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/ethereum/go-ethereum/crypto/secp256k1"
+	"github.com/MDCFund/SideChain/common"
+	"github.com/MDCFund/SideChain/crypto"
+	"github.com/MDCFund/SideChain/crypto/secp256k1"
 )
 
 const NodeIDBits = 512

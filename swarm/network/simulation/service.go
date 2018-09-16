@@ -17,9 +17,9 @@
 package simulation
 
 import (
-	"github.com/ethereum/go-ethereum/node"
-	"github.com/ethereum/go-ethereum/p2p/discover"
-	"github.com/ethereum/go-ethereum/p2p/simulations/adapters"
+	"github.com/MDCFund/SideChain/node"
+	"github.com/MDCFund/SideChain/p2p/discover"
+	"github.com/MDCFund/SideChain/p2p/simulations/adapters"
 )
 
 // Service returns a single Service by name on a particular node

@@ -20,13 +20,13 @@ import (
 	"context"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/bitutil"
-	"github.com/ethereum/go-ethereum/core"
-	"github.com/ethereum/go-ethereum/core/bloombits"
-	"github.com/ethereum/go-ethereum/core/rawdb"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/ethdb"
+	"github.com/MDCFund/SideChain/common"
+	"github.com/MDCFund/SideChain/common/bitutil"
+	"github.com/MDCFund/SideChain/core"
+	"github.com/MDCFund/SideChain/core/bloombits"
+	"github.com/MDCFund/SideChain/core/rawdb"
+	"github.com/MDCFund/SideChain/core/types"
+	"github.com/MDCFund/SideChain/ethdb"
 )
 
 const (

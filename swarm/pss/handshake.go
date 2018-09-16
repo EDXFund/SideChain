@@ -25,13 +25,13 @@ import (
 	"sync"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/hexutil"
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/ethereum/go-ethereum/p2p"
-	"github.com/ethereum/go-ethereum/rlp"
-	"github.com/ethereum/go-ethereum/rpc"
-	"github.com/ethereum/go-ethereum/swarm/log"
+	"github.com/MDCFund/SideChain/common"
+	"github.com/MDCFund/SideChain/common/hexutil"
+	"github.com/MDCFund/SideChain/crypto"
+	"github.com/MDCFund/SideChain/p2p"
+	"github.com/MDCFund/SideChain/rlp"
+	"github.com/MDCFund/SideChain/rpc"
+	"github.com/MDCFund/SideChain/swarm/log"
 )
 
 const (

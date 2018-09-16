@@ -24,10 +24,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core/rawdb"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/ethdb"
+	"github.com/MDCFund/SideChain/common"
+	"github.com/MDCFund/SideChain/core/rawdb"
+	"github.com/MDCFund/SideChain/core/types"
+	"github.com/MDCFund/SideChain/ethdb"
 )
 
 // Runs multiple tests with randomized parameters.

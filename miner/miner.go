@@ -22,15 +22,15 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/consensus"
-	"github.com/ethereum/go-ethereum/core"
-	"github.com/ethereum/go-ethereum/core/state"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/eth/downloader"
-	"github.com/ethereum/go-ethereum/event"
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/ethereum/go-ethereum/params"
+	"github.com/MDCFund/SideChain/common"
+	"github.com/MDCFund/SideChain/consensus"
+	"github.com/MDCFund/SideChain/core"
+	"github.com/MDCFund/SideChain/core/state"
+	"github.com/MDCFund/SideChain/core/types"
+	"github.com/MDCFund/SideChain/eth/downloader"
+	"github.com/MDCFund/SideChain/event"
+	"github.com/MDCFund/SideChain/log"
+	"github.com/MDCFund/SideChain/params"
 )
 
 // Backend wraps all methods required for mining.

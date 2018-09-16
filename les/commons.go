@@ -20,14 +20,14 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core"
-	"github.com/ethereum/go-ethereum/eth"
-	"github.com/ethereum/go-ethereum/ethdb"
-	"github.com/ethereum/go-ethereum/light"
-	"github.com/ethereum/go-ethereum/p2p"
-	"github.com/ethereum/go-ethereum/p2p/discover"
-	"github.com/ethereum/go-ethereum/params"
+	"github.com/MDCFund/SideChain/common"
+	"github.com/MDCFund/SideChain/core"
+	"github.com/MDCFund/SideChain/eth"
+	"github.com/MDCFund/SideChain/ethdb"
+	"github.com/MDCFund/SideChain/light"
+	"github.com/MDCFund/SideChain/p2p"
+	"github.com/MDCFund/SideChain/p2p/discover"
+	"github.com/MDCFund/SideChain/params"
 )
 
 // lesCommons contains fields needed by both server and client.

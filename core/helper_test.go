@@ -19,9 +19,9 @@ package core
 import (
 	"container/list"
 
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/ethdb"
-	"github.com/ethereum/go-ethereum/event"
+	"github.com/MDCFund/SideChain/core/types"
+	"github.com/MDCFund/SideChain/ethdb"
+	"github.com/MDCFund/SideChain/event"
 )
 
 // Implement our EthTest Manager

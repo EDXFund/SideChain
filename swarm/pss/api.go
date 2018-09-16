@@ -21,11 +21,11 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/ethereum/go-ethereum/common/hexutil"
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/ethereum/go-ethereum/p2p"
-	"github.com/ethereum/go-ethereum/rpc"
-	"github.com/ethereum/go-ethereum/swarm/log"
+	"github.com/MDCFund/SideChain/common/hexutil"
+	"github.com/MDCFund/SideChain/crypto"
+	"github.com/MDCFund/SideChain/p2p"
+	"github.com/MDCFund/SideChain/rpc"
+	"github.com/MDCFund/SideChain/swarm/log"
 )
 
 // Wrapper for receiving pss messages when using the pss API

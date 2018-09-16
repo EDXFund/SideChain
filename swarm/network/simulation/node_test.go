@@ -23,11 +23,11 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/ethereum/go-ethereum/node"
-	"github.com/ethereum/go-ethereum/p2p/discover"
-	"github.com/ethereum/go-ethereum/p2p/simulations/adapters"
-	"github.com/ethereum/go-ethereum/swarm/network"
+	"github.com/MDCFund/SideChain/log"
+	"github.com/MDCFund/SideChain/node"
+	"github.com/MDCFund/SideChain/p2p/discover"
+	"github.com/MDCFund/SideChain/p2p/simulations/adapters"
+	"github.com/MDCFund/SideChain/swarm/network"
 )
 
 func TestUpDownNodeIDs(t *testing.T) {

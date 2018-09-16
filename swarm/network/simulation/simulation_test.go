@@ -24,11 +24,11 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/ethereum/go-ethereum/node"
-	"github.com/ethereum/go-ethereum/p2p"
-	"github.com/ethereum/go-ethereum/p2p/simulations/adapters"
-	"github.com/ethereum/go-ethereum/rpc"
+	"github.com/MDCFund/SideChain/log"
+	"github.com/MDCFund/SideChain/node"
+	"github.com/MDCFund/SideChain/p2p"
+	"github.com/MDCFund/SideChain/p2p/simulations/adapters"
+	"github.com/MDCFund/SideChain/rpc"
 	colorable "github.com/mattn/go-colorable"
 )
 

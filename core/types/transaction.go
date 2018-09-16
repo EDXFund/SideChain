@@ -23,10 +23,10 @@ import (
 	"math/big"
 	"sync/atomic"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/hexutil"
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/ethereum/go-ethereum/rlp"
+	"github.com/MDCFund/SideChain/common"
+	"github.com/MDCFund/SideChain/common/hexutil"
+	"github.com/MDCFund/SideChain/crypto"
+	"github.com/MDCFund/SideChain/rlp"
 )
 
 //go:generate gencodec -type txdata -field-override txdataMarshaling -out gen_tx_json.go
@@ -44,7 +44,7 @@ type Transaction struct {
 }
 
 type txdata struct {
-	TxType:      byte            `json:"txType"   gencodec:"required"`
+	TxType      byte            `json:"txType"   gencodec:"required"`
 	AccountNonce uint64          `json:"nonce"    gencodec:"required"`
 	Price        *big.Int        `json:"gasPrice" gencodec:"required"`
 	GasLimit     uint64          `json:"gas"      gencodec:"required"`

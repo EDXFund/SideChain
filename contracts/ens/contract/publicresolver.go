@@ -7,12 +7,12 @@ import (
 	"math/big"
 	"strings"
 
-	ethereum "github.com/ethereum/go-ethereum"
-	"github.com/ethereum/go-ethereum/accounts/abi"
-	"github.com/ethereum/go-ethereum/accounts/abi/bind"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/event"
+	ethereum "github.com/MDCFund/SideChain"
+	"github.com/MDCFund/SideChain/accounts/abi"
+	"github.com/MDCFund/SideChain/accounts/abi/bind"
+	"github.com/MDCFund/SideChain/common"
+	"github.com/MDCFund/SideChain/core/types"
+	"github.com/MDCFund/SideChain/event"
 )
 
 // PublicResolverABI is the input ABI used to generate the binding from.

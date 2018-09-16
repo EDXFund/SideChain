@@ -21,11 +21,11 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/math"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/ethereum/go-ethereum/params"
+	"github.com/MDCFund/SideChain/common"
+	"github.com/MDCFund/SideChain/common/math"
+	"github.com/MDCFund/SideChain/core/types"
+	"github.com/MDCFund/SideChain/crypto"
+	"github.com/MDCFund/SideChain/params"
 )
 
 var (

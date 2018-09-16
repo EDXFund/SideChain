@@ -24,12 +24,12 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/ethereum/go-ethereum"
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/hexutil"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/rlp"
-	"github.com/ethereum/go-ethereum/rpc"
+	"github.com/MDCFund/SideChain"
+	"github.com/MDCFund/SideChain/common"
+	"github.com/MDCFund/SideChain/common/hexutil"
+	"github.com/MDCFund/SideChain/core/types"
+	"github.com/MDCFund/SideChain/rlp"
+	"github.com/MDCFund/SideChain/rpc"
 )
 
 // Client defines typed wrappers for the Ethereum RPC API.

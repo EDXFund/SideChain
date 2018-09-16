@@ -23,16 +23,16 @@ import (
 	"path/filepath"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/contracts/ens"
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/ethereum/go-ethereum/node"
-	"github.com/ethereum/go-ethereum/p2p/discover"
-	"github.com/ethereum/go-ethereum/swarm/log"
-	"github.com/ethereum/go-ethereum/swarm/network"
-	"github.com/ethereum/go-ethereum/swarm/pss"
-	"github.com/ethereum/go-ethereum/swarm/services/swap"
-	"github.com/ethereum/go-ethereum/swarm/storage"
+	"github.com/MDCFund/SideChain/common"
+	"github.com/MDCFund/SideChain/contracts/ens"
+	"github.com/MDCFund/SideChain/crypto"
+	"github.com/MDCFund/SideChain/node"
+	"github.com/MDCFund/SideChain/p2p/discover"
+	"github.com/MDCFund/SideChain/swarm/log"
+	"github.com/MDCFund/SideChain/swarm/network"
+	"github.com/MDCFund/SideChain/swarm/pss"
+	"github.com/MDCFund/SideChain/swarm/services/swap"
+	"github.com/MDCFund/SideChain/swarm/storage"
 )
 
 const (

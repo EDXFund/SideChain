@@ -22,11 +22,11 @@ import (
 	"sort"
 	"sync"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core/types"
-	"github.com/ethereum/go-ethereum/internal/ethapi"
-	"github.com/ethereum/go-ethereum/params"
-	"github.com/ethereum/go-ethereum/rpc"
+	"github.com/MDCFund/SideChain/common"
+	"github.com/MDCFund/SideChain/core/types"
+	"github.com/MDCFund/SideChain/internal/ethapi"
+	"github.com/MDCFund/SideChain/params"
+	"github.com/MDCFund/SideChain/rpc"
 )
 
 var maxPrice = big.NewInt(500 * params.GWei)

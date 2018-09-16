@@ -27,12 +27,12 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ethereum/go-ethereum/contracts/ens"
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/ethereum/go-ethereum/swarm/chunk"
-	"github.com/ethereum/go-ethereum/swarm/multihash"
-	"github.com/ethereum/go-ethereum/swarm/storage"
+	"github.com/MDCFund/SideChain/contracts/ens"
+	"github.com/MDCFund/SideChain/crypto"
+	"github.com/MDCFund/SideChain/log"
+	"github.com/MDCFund/SideChain/swarm/chunk"
+	"github.com/MDCFund/SideChain/swarm/multihash"
+	"github.com/MDCFund/SideChain/swarm/storage"
 )
 
 var (

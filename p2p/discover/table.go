@@ -32,10 +32,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/ethereum/go-ethereum/p2p/netutil"
+	"github.com/MDCFund/SideChain/common"
+	"github.com/MDCFund/SideChain/crypto"
+	"github.com/MDCFund/SideChain/log"
+	"github.com/MDCFund/SideChain/p2p/netutil"
 )
 
 const (

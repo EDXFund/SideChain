@@ -1,8 +1,8 @@
 package log
 
 import (
-	l "github.com/ethereum/go-ethereum/log"
-	"github.com/ethereum/go-ethereum/metrics"
+	l "github.com/MDCFund/SideChain/log"
+	"github.com/MDCFund/SideChain/metrics"
 )
 
 const (

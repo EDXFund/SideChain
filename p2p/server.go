@@ -26,14 +26,14 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/mclock"
-	"github.com/ethereum/go-ethereum/event"
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/ethereum/go-ethereum/p2p/discover"
-	"github.com/ethereum/go-ethereum/p2p/discv5"
-	"github.com/ethereum/go-ethereum/p2p/nat"
-	"github.com/ethereum/go-ethereum/p2p/netutil"
+	"github.com/MDCFund/SideChain/common"
+	"github.com/MDCFund/SideChain/common/mclock"
+	"github.com/MDCFund/SideChain/event"
+	"github.com/MDCFund/SideChain/log"
+	"github.com/MDCFund/SideChain/p2p/discover"
+	"github.com/MDCFund/SideChain/p2p/discv5"
+	"github.com/MDCFund/SideChain/p2p/nat"
+	"github.com/MDCFund/SideChain/p2p/netutil"
 )
 
 const (

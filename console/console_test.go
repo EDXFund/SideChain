@@ -26,12 +26,12 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/consensus/ethash"
-	"github.com/ethereum/go-ethereum/core"
-	"github.com/ethereum/go-ethereum/eth"
-	"github.com/ethereum/go-ethereum/internal/jsre"
-	"github.com/ethereum/go-ethereum/node"
+	"github.com/MDCFund/SideChain/common"
+	"github.com/MDCFund/SideChain/consensus/ethash"
+	"github.com/MDCFund/SideChain/core"
+	"github.com/MDCFund/SideChain/eth"
+	"github.com/MDCFund/SideChain/internal/jsre"
+	"github.com/MDCFund/SideChain/node"
 )
 
 const (

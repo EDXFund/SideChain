@@ -19,8 +19,8 @@ package vm
 import (
 	"math/big"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/core/types"
+	"github.com/MDCFund/SideChain/common"
+	"github.com/MDCFund/SideChain/core/types"
 )
 
 // StateDB is an EVM database for full state querying.

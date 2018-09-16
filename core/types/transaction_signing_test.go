@@ -20,9 +20,9 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/ethereum/go-ethereum/rlp"
+	"github.com/MDCFund/SideChain/common"
+	"github.com/MDCFund/SideChain/crypto"
+	"github.com/MDCFund/SideChain/rlp"
 )
 
 func TestEIP155Signing(t *testing.T) {

@@ -27,9 +27,9 @@ import (
 	"path/filepath"
 	"sync"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/swarm/log"
-	"github.com/ethereum/go-ethereum/swarm/storage"
+	"github.com/MDCFund/SideChain/common"
+	"github.com/MDCFund/SideChain/swarm/log"
+	"github.com/MDCFund/SideChain/swarm/storage"
 )
 
 const maxParallelFiles = 5

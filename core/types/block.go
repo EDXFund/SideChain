@@ -26,10 +26,10 @@ import (
 	"time"
 	"unsafe"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/common/hexutil"
-	"github.com/ethereum/go-ethereum/crypto/sha3"
-	"github.com/ethereum/go-ethereum/rlp"
+	"github.com/MDCFund/SideChain/common"
+	"github.com/MDCFund/SideChain/common/hexutil"
+	"github.com/MDCFund/SideChain/crypto/sha3"
+	"github.com/MDCFund/SideChain/rlp"
 )
 
 var (
@@ -68,10 +68,13 @@ func (n *BlockNonce) UnmarshalText(input []byte) error {
 
 // Header represents a block header in the Ethereum blockchain.
 type Header struct {
-	ShardId:    uint64         `json:"shardId"			gencodec:"required"`
-	HeaderType:    uint8       `json:"shardId"			gencodec:"required"`
+	ShardId    uint64         `json:"shardId"			gencodec:"required"`
 	ParentHash  common.Hash    `json:"parentHash"       gencodec:"required"`
+	UncleHash  common.Hash    `json:"uncleHash"       gencodec:"required"`
+
 	Coinbase    common.Address `json:"miner"            gencodec:"required"`
+	Root   common.Hash    `json:"stateRoot"       gencodec:"required"`
+	
 	ConseqHash  common.Hash    `json:"consequenceHash"       gencodec:"required"`
 	TxHash      common.Hash    `json:"transactionsRoot" gencodec:"required"`
 	ReceiptHash common.Hash    `json:"receiptsRoot"     gencodec:"required"`

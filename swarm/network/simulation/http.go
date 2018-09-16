@@ -20,8 +20,8 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/ethereum/go-ethereum/log"
-	"github.com/ethereum/go-ethereum/p2p/simulations"
+	"github.com/MDCFund/SideChain/log"
+	"github.com/MDCFund/SideChain/p2p/simulations"
 )
 
 // Package defaults.

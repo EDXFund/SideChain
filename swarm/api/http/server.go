@@ -36,12 +36,12 @@ import (
 	"strings"
 	"time"
 
-	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/metrics"
-	"github.com/ethereum/go-ethereum/swarm/api"
-	"github.com/ethereum/go-ethereum/swarm/log"
-	"github.com/ethereum/go-ethereum/swarm/storage"
-	"github.com/ethereum/go-ethereum/swarm/storage/mru"
+	"github.com/MDCFund/SideChain/common"
+	"github.com/MDCFund/SideChain/metrics"
+	"github.com/MDCFund/SideChain/swarm/api"
+	"github.com/MDCFund/SideChain/swarm/log"
+	"github.com/MDCFund/SideChain/swarm/storage"
+	"github.com/MDCFund/SideChain/swarm/storage/mru"
 
 	"github.com/rs/cors"
 )

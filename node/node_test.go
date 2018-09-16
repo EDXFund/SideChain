@@ -24,9 +24,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ethereum/go-ethereum/crypto"
-	"github.com/ethereum/go-ethereum/p2p"
-	"github.com/ethereum/go-ethereum/rpc"
+	"github.com/MDCFund/SideChain/crypto"
+	"github.com/MDCFund/SideChain/p2p"
+	"github.com/MDCFund/SideChain/rpc"
 )
 
 var (
