@@ -32,16 +32,20 @@ import (
 const (
 	eth62 = 62
 	eth63 = 63
+	mdc10 = 80  //子链协议
+
+	mdc11 = 81  //主链协议
 )
 
 // ProtocolName is the official short name of the protocol used during capability negotiation.
 var ProtocolName = "eth"
 
 // ProtocolVersions are the upported versions of the eth protocol (first is primary).
-var ProtocolVersions = []uint{eth63, eth62}
+var ProtocolVersions = []uint{mdc10,mdc11} //,eth63, eth62}
 
 // ProtocolLengths are the number of implemented message corresponding to different protocol versions.
-var ProtocolLengths = []uint64{17, 8}
+//TODO mdc10 和 mdc11 的协议内容将会扩展
+var ProtocolLengths = []uint64{21,21} //,17, 8}
 
 const ProtocolMaxMsgSize = 10 * 1024 * 1024 // Maximum cap on the size of a protocol message
 
@@ -62,6 +66,13 @@ const (
 	NodeDataMsg    = 0x0e
 	GetReceiptsMsg = 0x0f
 	ReceiptsMsg    = 0x10
+
+	//Protocol message belonging to mdc10
+	GetAccountBalanceMsg = 0x11
+	AccoutBalanceMsg     = 0x12
+	GetContractDataMsg   = 0x13
+    ContractDataMsg      = 0x14
+	//Protocol message belonging to mdc11
 )
 
 type errCode int
@@ -76,6 +87,7 @@ const (
 	ErrNoStatusMsg
 	ErrExtraStatusMsg
 	ErrSuspendedPeer
+	ErrShardIdMismatch
 )
 
 func (e errCode) String() string {
@@ -115,6 +127,7 @@ type statusData struct {
 	TD              *big.Int
 	CurrentBlock    common.Hash
 	GenesisBlock    common.Hash
+	ShardId			uint16
 }
 
 // newBlockHashesData is the network packet for the block announcements.
@@ -137,6 +150,39 @@ type hashOrNumber struct {
 	Number uint64      // Block hash from which to retrieve headers (excludes Hash)
 }
 
+
+// 请求账户数据，这个暂时不用.
+type getAccountBalance struct {
+	Origin  hashOrNumber // Block from which to retrieve headers
+	TokenId  common.Hash          //TokenId for the account
+	Account  common.Address       // Maximum number of headers to retrieve
+}
+
+
+//请求账户
+type AccountBalanceData struct {
+	Origin  hashOrNumber // Block from which to retrieve headers
+	TokenId  common.Hash          //TokenId for the account
+	Account  common.Address       // Maximum number of headers to retrieve
+	Balance  *big.Int
+	Proofs   []common.Hash        //默克尔证明的路径资料
+}
+// 请求获取合约数据
+type getContractData struct {
+	Origin  hashOrNumber 			//默认是最新的
+	ContractId common.Hash			//ContractID 
+	ContractInst common.Hash        //合约的实例
+	Account  common.Address       	//合约内容的数据
+	Keys    []common.Hash           //What data is needed for
+}
+//请求合约数据的回应
+type ContractData struct {
+	Origin  hashOrNumber 			// Block from which to retrieve headers
+	ContractId common.Hash			//Contract template id 
+	ContractInst common.Hash        //
+	Account  common.Address       	// Maximum number of headers to retrieve
+	Keys    []common.Hash           //What data is needed for
+}
 // EncodeRLP is a specialized encoder for hashOrNumber to encode only one of the
 // two contained union fields.
 func (hn *hashOrNumber) EncodeRLP(w io.Writer) error {

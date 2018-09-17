@@ -37,6 +37,7 @@ import (
 	"github.com/MDCFund/SideChain/consensus/ethash"
 	"github.com/MDCFund/SideChain/core"
 	"github.com/MDCFund/SideChain/core/state"
+	"github.com/MDCFund/SideChain/core/sys_state"
 	"github.com/MDCFund/SideChain/core/vm"
 	"github.com/MDCFund/SideChain/crypto"
 	"github.com/MDCFund/SideChain/dashboard"
@@ -1343,7 +1344,7 @@ func MakeGenesis(ctx *cli.Context) *core.Genesis {
 }
 
 // MakeChain creates a chain manager from set command line flags.
-func MakeChain(ctx *cli.Context, stack *node.Node) (chain *core.BlockChain, chainDb ethdb.Database) {
+func MakeChain(ctx *cli.Context, stack *node.Node) (chain *core.BlockChain, chainDb ethdb.Database, sysState *SysState) {
 	var err error
 	chainDb = MakeChainDatabase(ctx, stack)
 
@@ -1379,7 +1380,7 @@ func MakeChain(ctx *cli.Context, stack *node.Node) (chain *core.BlockChain, chai
 		cache.TrieNodeLimit = ctx.GlobalInt(CacheFlag.Name) * ctx.GlobalInt(CacheGCFlag.Name) / 100
 	}
 	vmcfg := vm.Config{EnablePreimageRecording: ctx.GlobalBool(VMEnableDebugFlag.Name)}
-	chain, err = core.NewBlockChain(chainDb, cache, config, engine, vmcfg)
+	chain, err = core.NewBlockChain(chainDb, cache, config, engine, vmcfg,sysState)
 	if err != nil {
 		Fatalf("Can't create BlockChain: %v", err)
 	}
