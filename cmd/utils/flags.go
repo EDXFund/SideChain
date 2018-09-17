@@ -37,7 +37,7 @@ import (
 	"github.com/MDCFund/SideChain/consensus/ethash"
 	"github.com/MDCFund/SideChain/core"
 	"github.com/MDCFund/SideChain/core/state"
-	"github.com/MDCFund/SideChain/core/sys_state"
+
 	"github.com/MDCFund/SideChain/core/vm"
 	"github.com/MDCFund/SideChain/crypto"
 	"github.com/MDCFund/SideChain/dashboard"
@@ -1344,7 +1344,7 @@ func MakeGenesis(ctx *cli.Context) *core.Genesis {
 }
 
 // MakeChain creates a chain manager from set command line flags.
-func MakeChain(ctx *cli.Context, stack *node.Node) (chain *core.BlockChain, chainDb ethdb.Database, sysState *SysState) {
+func MakeChain(ctx *cli.Context, stack *node.Node, sysState *core.SysState) (chain *core.BlockChain, chainDb ethdb.Database) {
 	var err error
 	chainDb = MakeChainDatabase(ctx, stack)
 

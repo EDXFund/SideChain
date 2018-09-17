@@ -209,8 +209,11 @@ func importChain(ctx *cli.Context) error {
 		utils.Fatalf("This command requires an argument.")
 	}
 	stack := makeFullNode(ctx)
-	chain, chainDb := utils.MakeChain(ctx, stack)
+	sysState := core.NewSystemState();
+	sysState.Reset(0xFFFF); 
+	chain, chainDb := utils.MakeChain(ctx, stack,sysState)
 	defer chainDb.Close()
+
 
 	// Start periodically gathering memory profiles
 	var peakMemAlloc, peakMemSys uint64
@@ -303,7 +306,9 @@ func exportChain(ctx *cli.Context) error {
 		utils.Fatalf("This command requires an argument.")
 	}
 	stack := makeFullNode(ctx)
-	chain, _ := utils.MakeChain(ctx, stack)
+	sysState := core.NewSystemState()
+	sysState.Reset(0xFFFF)
+	chain, _ := utils.MakeChain(ctx, stack,sysState)
 	start := time.Now()
 
 	var err error
@@ -369,7 +374,9 @@ func copyDb(ctx *cli.Context) error {
 	}
 	// Initialize a new chain for the running node to sync into
 	stack := makeFullNode(ctx)
-	chain, chainDb := utils.MakeChain(ctx, stack)
+	sysState := core.NewSystemState();
+	sysState.Reset(0xFFFF); 
+	chain, chainDb := utils.MakeChain(ctx, stack,sysState)
 
 	syncmode := *utils.GlobalTextMarshaler(ctx, utils.SyncModeFlag.Name).(*downloader.SyncMode)
 	dl := downloader.New(syncmode, chainDb, new(event.TypeMux), chain, nil, nil)
@@ -441,7 +448,9 @@ func removeDB(ctx *cli.Context) error {
 
 func dump(ctx *cli.Context) error {
 	stack := makeFullNode(ctx)
-	chain, chainDb := utils.MakeChain(ctx, stack)
+	sysState := core.NewSystemState();
+	sysState.Reset(0xFFFF); 
+	chain, chainDb := utils.MakeChain(ctx, stack,sysState )
 	for _, arg := range ctx.Args() {
 		var block *types.Block
 		if hashish(arg) {
