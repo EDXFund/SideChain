@@ -558,6 +558,12 @@ var (
 		Name:  "shh",
 		Usage: "Enable Whisper",
 	}
+
+	ShardIdFlag = cli.StringFlag{
+		Name:  "ShardId",
+		Usage: "Set shard id",
+		Value: "0",
+	}
 	WhisperMaxMessageSizeFlag = cli.IntFlag{
 		Name:  "shh.maxmessagesize",
 		Usage: "Max message size accepted",
@@ -611,6 +617,8 @@ var (
 		Usage: "InfluxDB `host` tag attached to all measurements",
 		Value: "localhost",
 	}
+
+
 )
 
 // MakeDataDir retrieves the currently requested data directory, terminating
