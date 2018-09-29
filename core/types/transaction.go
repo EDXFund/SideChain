@@ -23,10 +23,10 @@ import (
 	"math/big"
 	"sync/atomic"
 
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/common/hexutil"
-	"github.com/MDCFund/SideChain/crypto"
-	"github.com/MDCFund/SideChain/rlp"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/common/hexutil"
+	"github.com/EDXFund/SideChain/crypto"
+	"github.com/EDXFund/SideChain/rlp"
 )
 
 //go:generate gencodec -type txdata -field-override txdataMarshaling -out gen_tx_json.go

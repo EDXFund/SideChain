@@ -19,7 +19,7 @@ package downloader
 import (
 	"fmt"
 
-	"github.com/MDCFund/SideChain/core/types"
+	"github.com/EDXFund/SideChain/core/types"
 )
 
 // peerDropFn is a callback type for dropping a peer detected as malicious.

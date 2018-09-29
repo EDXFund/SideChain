@@ -20,8 +20,8 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/MDCFund/SideChain/common/hexutil"
-	"github.com/MDCFund/SideChain/crypto"
+	"github.com/EDXFund/SideChain/common/hexutil"
+	"github.com/EDXFund/SideChain/crypto"
 )
 
 type bytesBacked interface {

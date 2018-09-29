@@ -34,12 +34,12 @@ import (
 	"unsafe"
 
 	mmap "github.com/edsrzf/mmap-go"
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/consensus"
-	"github.com/MDCFund/SideChain/core/types"
-	"github.com/MDCFund/SideChain/log"
-	"github.com/MDCFund/SideChain/metrics"
-	"github.com/MDCFund/SideChain/rpc"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/consensus"
+	"github.com/EDXFund/SideChain/core/types"
+	"github.com/EDXFund/SideChain/log"
+	"github.com/EDXFund/SideChain/metrics"
+	"github.com/EDXFund/SideChain/rpc"
 	"github.com/hashicorp/golang-lru/simplelru"
 )
 

@@ -22,11 +22,11 @@ import (
 	"sync"
 	"time"
 
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/ethdb"
-	"github.com/MDCFund/SideChain/log"
-	"github.com/MDCFund/SideChain/metrics"
-	"github.com/MDCFund/SideChain/rlp"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/ethdb"
+	"github.com/EDXFund/SideChain/log"
+	"github.com/EDXFund/SideChain/metrics"
+	"github.com/EDXFund/SideChain/rlp"
 )
 
 var (

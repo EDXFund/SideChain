@@ -21,9 +21,9 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/crypto"
-	"github.com/MDCFund/SideChain/ethdb"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/crypto"
+	"github.com/EDXFund/SideChain/ethdb"
 	checker "gopkg.in/check.v1"
 )
 

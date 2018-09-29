@@ -20,12 +20,12 @@ import (
 	"bytes"
 	"context"
 
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/core"
-	"github.com/MDCFund/SideChain/core/rawdb"
-	"github.com/MDCFund/SideChain/core/types"
-	"github.com/MDCFund/SideChain/crypto"
-	"github.com/MDCFund/SideChain/rlp"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/core"
+	"github.com/EDXFund/SideChain/core/rawdb"
+	"github.com/EDXFund/SideChain/core/types"
+	"github.com/EDXFund/SideChain/crypto"
+	"github.com/EDXFund/SideChain/rlp"
 )
 
 var sha3_nil = crypto.Keccak256Hash(nil)

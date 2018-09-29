@@ -5,8 +5,8 @@ import (
 	uurl "net/url"
 	"time"
 
-	"github.com/MDCFund/SideChain/log"
-	"github.com/MDCFund/SideChain/metrics"
+	"github.com/EDXFund/SideChain/log"
+	"github.com/EDXFund/SideChain/metrics"
 	"github.com/influxdata/influxdb/client"
 )
 

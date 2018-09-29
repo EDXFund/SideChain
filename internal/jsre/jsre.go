@@ -26,8 +26,8 @@ import (
 	"math/rand"
 	"time"
 
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/internal/jsre/deps"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/internal/jsre/deps"
 	"github.com/robertkrimen/otto"
 )
 

@@ -22,8 +22,8 @@ import (
 	"io/ioutil"
 	"testing"
 
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/log"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/log"
 	"github.com/mattn/go-colorable"
 )
 

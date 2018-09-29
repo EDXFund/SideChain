@@ -23,9 +23,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/log"
-	"github.com/MDCFund/SideChain/swarm/pot"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/log"
+	"github.com/EDXFund/SideChain/swarm/pot"
 )
 
 func init() {

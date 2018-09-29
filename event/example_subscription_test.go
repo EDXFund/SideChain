@@ -19,7 +19,7 @@ package event_test
 import (
 	"fmt"
 
-	"github.com/MDCFund/SideChain/event"
+	"github.com/EDXFund/SideChain/event"
 )
 
 func ExampleNewSubscription() {

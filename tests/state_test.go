@@ -22,7 +22,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/MDCFund/SideChain/core/vm"
+	"github.com/EDXFund/SideChain/core/vm"
 )
 
 func TestState(t *testing.T) {

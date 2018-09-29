@@ -20,9 +20,9 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/common/prque"
-	"github.com/MDCFund/SideChain/ethdb"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/common/prque"
+	"github.com/EDXFund/SideChain/ethdb"
 )
 
 // ErrNotRequested is returned by the trie sync when it's requested to process a

@@ -25,15 +25,15 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/common/hexutil"
-	"github.com/MDCFund/SideChain/common/math"
-	"github.com/MDCFund/SideChain/core"
-	"github.com/MDCFund/SideChain/core/types"
-	"github.com/MDCFund/SideChain/core/vm"
-	"github.com/MDCFund/SideChain/ethdb"
-	"github.com/MDCFund/SideChain/rlp"
-	"github.com/MDCFund/SideChain/tests"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/common/hexutil"
+	"github.com/EDXFund/SideChain/common/math"
+	"github.com/EDXFund/SideChain/core"
+	"github.com/EDXFund/SideChain/core/types"
+	"github.com/EDXFund/SideChain/core/vm"
+	"github.com/EDXFund/SideChain/ethdb"
+	"github.com/EDXFund/SideChain/rlp"
+	"github.com/EDXFund/SideChain/tests"
 )
 
 // To generate a new callTracer test, copy paste the makeTest method below into

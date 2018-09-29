@@ -22,7 +22,7 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/MDCFund/SideChain/common"
+	"github.com/EDXFund/SideChain/common"
 )
 
 // The validation package contains validation checks for transactions

@@ -20,9 +20,9 @@ import (
 	"context"
 	"sync"
 
-	ethereum "github.com/MDCFund/SideChain"
-	"github.com/MDCFund/SideChain/event"
-	"github.com/MDCFund/SideChain/rpc"
+	ethereum "github.com/EDXFund/SideChain"
+	"github.com/EDXFund/SideChain/event"
+	"github.com/EDXFund/SideChain/rpc"
 )
 
 // PublicDownloaderAPI provides an API which gives information about the current synchronisation status.

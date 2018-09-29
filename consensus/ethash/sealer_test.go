@@ -9,8 +9,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/core/types"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/core/types"
 )
 
 // Tests whether remote HTTP servers are correctly notified of new work.

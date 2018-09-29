@@ -36,16 +36,16 @@ import (
 	"testing"
 	"time"
 
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/core/types"
-	"github.com/MDCFund/SideChain/crypto"
-	"github.com/MDCFund/SideChain/log"
-	"github.com/MDCFund/SideChain/swarm/api"
-	swarm "github.com/MDCFund/SideChain/swarm/api/client"
-	"github.com/MDCFund/SideChain/swarm/multihash"
-	"github.com/MDCFund/SideChain/swarm/storage"
-	"github.com/MDCFund/SideChain/swarm/storage/mru"
-	"github.com/MDCFund/SideChain/swarm/testutil"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/core/types"
+	"github.com/EDXFund/SideChain/crypto"
+	"github.com/EDXFund/SideChain/log"
+	"github.com/EDXFund/SideChain/swarm/api"
+	swarm "github.com/EDXFund/SideChain/swarm/api/client"
+	"github.com/EDXFund/SideChain/swarm/multihash"
+	"github.com/EDXFund/SideChain/swarm/storage"
+	"github.com/EDXFund/SideChain/swarm/storage/mru"
+	"github.com/EDXFund/SideChain/swarm/testutil"
 )
 
 func init() {

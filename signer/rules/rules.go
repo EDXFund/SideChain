@@ -22,12 +22,12 @@ import (
 	"os"
 	"strings"
 
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/internal/ethapi"
-	"github.com/MDCFund/SideChain/log"
-	"github.com/MDCFund/SideChain/signer/core"
-	"github.com/MDCFund/SideChain/signer/rules/deps"
-	"github.com/MDCFund/SideChain/signer/storage"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/internal/ethapi"
+	"github.com/EDXFund/SideChain/log"
+	"github.com/EDXFund/SideChain/signer/core"
+	"github.com/EDXFund/SideChain/signer/rules/deps"
+	"github.com/EDXFund/SideChain/signer/storage"
 	"github.com/robertkrimen/otto"
 )
 

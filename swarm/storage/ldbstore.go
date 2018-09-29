@@ -34,11 +34,11 @@ import (
 	"sort"
 	"sync"
 
-	"github.com/MDCFund/SideChain/metrics"
-	"github.com/MDCFund/SideChain/rlp"
-	"github.com/MDCFund/SideChain/swarm/chunk"
-	"github.com/MDCFund/SideChain/swarm/log"
-	"github.com/MDCFund/SideChain/swarm/storage/mock"
+	"github.com/EDXFund/SideChain/metrics"
+	"github.com/EDXFund/SideChain/rlp"
+	"github.com/EDXFund/SideChain/swarm/chunk"
+	"github.com/EDXFund/SideChain/swarm/log"
+	"github.com/EDXFund/SideChain/swarm/storage/mock"
 	"github.com/syndtr/goleveldb/leveldb"
 	"github.com/syndtr/goleveldb/leveldb/opt"
 )

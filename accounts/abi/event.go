@@ -20,8 +20,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/crypto"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/crypto"
 )
 
 // Event is an event potentially triggered by the EVM's LOG mechanism. The Event

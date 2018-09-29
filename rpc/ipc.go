@@ -20,8 +20,8 @@ import (
 	"context"
 	"net"
 
-	"github.com/MDCFund/SideChain/log"
-	"github.com/MDCFund/SideChain/p2p/netutil"
+	"github.com/EDXFund/SideChain/log"
+	"github.com/EDXFund/SideChain/p2p/netutil"
 )
 
 // ServeListener accepts connections on l, serving JSON-RPC on them.

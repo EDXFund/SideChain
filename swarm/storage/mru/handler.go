@@ -25,9 +25,9 @@ import (
 	"time"
 	"unsafe"
 
-	"github.com/MDCFund/SideChain/swarm/chunk"
-	"github.com/MDCFund/SideChain/swarm/log"
-	"github.com/MDCFund/SideChain/swarm/storage"
+	"github.com/EDXFund/SideChain/swarm/chunk"
+	"github.com/EDXFund/SideChain/swarm/log"
+	"github.com/EDXFund/SideChain/swarm/storage"
 )
 
 type Handler struct {

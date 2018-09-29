@@ -19,7 +19,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/MDCFund/SideChain/log"
+	"github.com/EDXFund/SideChain/log"
 )
 
 // ensureVirtualHost checks whether a reverse-proxy is running on the specified

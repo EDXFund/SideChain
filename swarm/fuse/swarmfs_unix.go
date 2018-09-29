@@ -30,9 +30,9 @@ import (
 
 	"bazil.org/fuse"
 	"bazil.org/fuse/fs"
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/swarm/api"
-	"github.com/MDCFund/SideChain/swarm/log"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/swarm/api"
+	"github.com/EDXFund/SideChain/swarm/log"
 )
 
 var (

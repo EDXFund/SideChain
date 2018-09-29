@@ -24,16 +24,16 @@ import (
 	"math/big"
 	"time"
 
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/common/bitutil"
-	"github.com/MDCFund/SideChain/core"
-	"github.com/MDCFund/SideChain/core/rawdb"
-	"github.com/MDCFund/SideChain/core/types"
-	"github.com/MDCFund/SideChain/ethdb"
-	"github.com/MDCFund/SideChain/log"
-	"github.com/MDCFund/SideChain/params"
-	"github.com/MDCFund/SideChain/rlp"
-	"github.com/MDCFund/SideChain/trie"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/common/bitutil"
+	"github.com/EDXFund/SideChain/core"
+	"github.com/EDXFund/SideChain/core/rawdb"
+	"github.com/EDXFund/SideChain/core/types"
+	"github.com/EDXFund/SideChain/ethdb"
+	"github.com/EDXFund/SideChain/log"
+	"github.com/EDXFund/SideChain/params"
+	"github.com/EDXFund/SideChain/rlp"
+	"github.com/EDXFund/SideChain/trie"
 )
 
 // IndexerConfig includes a set of configs for chain indexers.

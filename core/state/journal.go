@@ -19,7 +19,7 @@ package state
 import (
 	"math/big"
 
-	"github.com/MDCFund/SideChain/common"
+	"github.com/EDXFund/SideChain/common"
 )
 
 // journalEntry is a modification entry in the state change journal that can be

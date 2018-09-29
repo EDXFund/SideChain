@@ -23,7 +23,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/MDCFund/SideChain/common"
+	"github.com/EDXFund/SideChain/common"
 )
 
 const testSectionSize = 4096

@@ -19,8 +19,8 @@
 package whisperv6
 
 import (
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/common/hexutil"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/common/hexutil"
 )
 
 // TopicType represents a cryptographically secure, probabilistic partial

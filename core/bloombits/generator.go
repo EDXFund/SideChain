@@ -19,7 +19,7 @@ package bloombits
 import (
 	"errors"
 
-	"github.com/MDCFund/SideChain/core/types"
+	"github.com/EDXFund/SideChain/core/types"
 )
 
 var (

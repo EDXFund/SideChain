@@ -19,7 +19,7 @@ package vm
 import (
 	"fmt"
 
-	"github.com/MDCFund/SideChain/params"
+	"github.com/EDXFund/SideChain/params"
 )
 
 func makeStackFunc(pop, push int) stackValidationFunc {

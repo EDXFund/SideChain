@@ -23,10 +23,10 @@ import (
 	"io/ioutil"
 	"os"
 
-	"github.com/MDCFund/SideChain/core/state"
-	"github.com/MDCFund/SideChain/core/vm"
-	"github.com/MDCFund/SideChain/log"
-	"github.com/MDCFund/SideChain/tests"
+	"github.com/EDXFund/SideChain/core/state"
+	"github.com/EDXFund/SideChain/core/vm"
+	"github.com/EDXFund/SideChain/log"
+	"github.com/EDXFund/SideChain/tests"
 
 	cli "gopkg.in/urfave/cli.v1"
 )

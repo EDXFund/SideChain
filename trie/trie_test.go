@@ -30,10 +30,10 @@ import (
 	"testing/quick"
 
 	"github.com/davecgh/go-spew/spew"
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/crypto"
-	"github.com/MDCFund/SideChain/ethdb"
-	"github.com/MDCFund/SideChain/rlp"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/crypto"
+	"github.com/EDXFund/SideChain/ethdb"
+	"github.com/EDXFund/SideChain/rlp"
 )
 
 func init() {

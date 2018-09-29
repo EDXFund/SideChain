@@ -25,7 +25,7 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/MDCFund/SideChain/swarm/log"
+	"github.com/EDXFund/SideChain/swarm/log"
 )
 
 func newTestMemStore() *MemStore {

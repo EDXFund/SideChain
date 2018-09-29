@@ -19,9 +19,9 @@ package keystore
 import (
 	"math/big"
 
-	ethereum "github.com/MDCFund/SideChain"
-	"github.com/MDCFund/SideChain/accounts"
-	"github.com/MDCFund/SideChain/core/types"
+	ethereum "github.com/EDXFund/SideChain"
+	"github.com/EDXFund/SideChain/accounts"
+	"github.com/EDXFund/SideChain/core/types"
 )
 
 // keystoreWallet implements the accounts.Wallet interface for the original

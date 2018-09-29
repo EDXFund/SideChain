@@ -21,8 +21,8 @@ import (
 
 	"math/big"
 
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/params"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/params"
 )
 
 var (

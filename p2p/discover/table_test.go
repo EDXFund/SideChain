@@ -28,8 +28,8 @@ import (
 	"testing/quick"
 	"time"
 
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/crypto"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/crypto"
 )
 
 func TestTable_pingReplace(t *testing.T) {

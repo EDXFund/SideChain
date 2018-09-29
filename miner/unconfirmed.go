@@ -20,9 +20,9 @@ import (
 	"container/ring"
 	"sync"
 
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/core/types"
-	"github.com/MDCFund/SideChain/log"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/core/types"
+	"github.com/EDXFund/SideChain/log"
 )
 
 // chainRetriever is used by the unconfirmed block set to verify whether a previously

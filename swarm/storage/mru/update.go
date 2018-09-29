@@ -20,9 +20,9 @@ import (
 	"encoding/binary"
 	"errors"
 
-	"github.com/MDCFund/SideChain/swarm/chunk"
-	"github.com/MDCFund/SideChain/swarm/log"
-	"github.com/MDCFund/SideChain/swarm/multihash"
+	"github.com/EDXFund/SideChain/swarm/chunk"
+	"github.com/EDXFund/SideChain/swarm/log"
+	"github.com/EDXFund/SideChain/swarm/multihash"
 )
 
 // resourceUpdate encapsulates the information sent as part of a resource update

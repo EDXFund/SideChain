@@ -23,17 +23,17 @@ import (
 	"testing"
 	"time"
 
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/common/math"
-	"github.com/MDCFund/SideChain/core"
-	"github.com/MDCFund/SideChain/core/rawdb"
-	"github.com/MDCFund/SideChain/core/state"
-	"github.com/MDCFund/SideChain/core/types"
-	"github.com/MDCFund/SideChain/core/vm"
-	"github.com/MDCFund/SideChain/ethdb"
-	"github.com/MDCFund/SideChain/light"
-	"github.com/MDCFund/SideChain/params"
-	"github.com/MDCFund/SideChain/rlp"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/common/math"
+	"github.com/EDXFund/SideChain/core"
+	"github.com/EDXFund/SideChain/core/rawdb"
+	"github.com/EDXFund/SideChain/core/state"
+	"github.com/EDXFund/SideChain/core/types"
+	"github.com/EDXFund/SideChain/core/vm"
+	"github.com/EDXFund/SideChain/ethdb"
+	"github.com/EDXFund/SideChain/light"
+	"github.com/EDXFund/SideChain/params"
+	"github.com/EDXFund/SideChain/rlp"
 )
 
 type odrTestFn func(ctx context.Context, db ethdb.Database, config *params.ChainConfig, bc *core.BlockChain, lc *light.LightChain, bhash common.Hash) []byte

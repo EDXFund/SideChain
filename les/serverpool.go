@@ -27,13 +27,13 @@ import (
 	"sync"
 	"time"
 
-	"github.com/MDCFund/SideChain/common/mclock"
-	"github.com/MDCFund/SideChain/ethdb"
-	"github.com/MDCFund/SideChain/log"
-	"github.com/MDCFund/SideChain/p2p"
-	"github.com/MDCFund/SideChain/p2p/discover"
-	"github.com/MDCFund/SideChain/p2p/discv5"
-	"github.com/MDCFund/SideChain/rlp"
+	"github.com/EDXFund/SideChain/common/mclock"
+	"github.com/EDXFund/SideChain/ethdb"
+	"github.com/EDXFund/SideChain/log"
+	"github.com/EDXFund/SideChain/p2p"
+	"github.com/EDXFund/SideChain/p2p/discover"
+	"github.com/EDXFund/SideChain/p2p/discv5"
+	"github.com/EDXFund/SideChain/rlp"
 )
 
 const (

@@ -24,9 +24,9 @@ import (
 	"net"
 	"time"
 
-	"github.com/MDCFund/SideChain/log"
-	"github.com/MDCFund/SideChain/p2p/discover"
-	"github.com/MDCFund/SideChain/p2p/netutil"
+	"github.com/EDXFund/SideChain/log"
+	"github.com/EDXFund/SideChain/p2p/discover"
+	"github.com/EDXFund/SideChain/p2p/netutil"
 )
 
 const (

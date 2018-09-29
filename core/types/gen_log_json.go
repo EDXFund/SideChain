@@ -6,8 +6,8 @@ import (
 	"encoding/json"
 	"errors"
 
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/common/hexutil"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/common/hexutil"
 )
 
 var _ = (*logMarshaling)(nil)

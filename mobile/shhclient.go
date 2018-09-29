@@ -19,8 +19,8 @@
 package geth
 
 import (
-	"github.com/MDCFund/SideChain/whisper/shhclient"
-	whisper "github.com/MDCFund/SideChain/whisper/whisperv6"
+	"github.com/EDXFund/SideChain/whisper/shhclient"
+	whisper "github.com/EDXFund/SideChain/whisper/whisperv6"
 )
 
 // WhisperClient provides access to the Ethereum APIs.

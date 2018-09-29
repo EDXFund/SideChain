@@ -22,9 +22,9 @@ import (
 	"math/big"
 	"reflect"
 
-	"github.com/MDCFund/SideChain/accounts/abi"
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/crypto"
+	"github.com/EDXFund/SideChain/accounts/abi"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/crypto"
 )
 
 // makeTopics converts a filter query argument list into a filter topic set.

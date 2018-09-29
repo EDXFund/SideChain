@@ -21,11 +21,11 @@ import (
 	"sync"
 	"time"
 
-	"github.com/MDCFund/SideChain/common/hexutil"
-	"github.com/MDCFund/SideChain/p2p"
-	"github.com/MDCFund/SideChain/p2p/discover"
-	"github.com/MDCFund/SideChain/swarm/log"
-	"github.com/MDCFund/SideChain/swarm/state"
+	"github.com/EDXFund/SideChain/common/hexutil"
+	"github.com/EDXFund/SideChain/p2p"
+	"github.com/EDXFund/SideChain/p2p/discover"
+	"github.com/EDXFund/SideChain/swarm/log"
+	"github.com/EDXFund/SideChain/swarm/state"
 )
 
 /*

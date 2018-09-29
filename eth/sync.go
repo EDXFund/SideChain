@@ -21,11 +21,11 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/core/types"
-	"github.com/MDCFund/SideChain/eth/downloader"
-	"github.com/MDCFund/SideChain/log"
-	"github.com/MDCFund/SideChain/p2p/discover"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/core/types"
+	"github.com/EDXFund/SideChain/eth/downloader"
+	"github.com/EDXFund/SideChain/log"
+	"github.com/EDXFund/SideChain/p2p/discover"
 )
 
 const (

@@ -24,7 +24,7 @@ import (
 	"path/filepath"
 	"strconv"
 
-	"github.com/MDCFund/SideChain/log"
+	"github.com/EDXFund/SideChain/log"
 )
 
 // nginxDockerfile is theis the Dockerfile required to build an nginx reverse-

@@ -19,7 +19,7 @@ package simulation
 import (
 	"strings"
 
-	"github.com/MDCFund/SideChain/p2p/discover"
+	"github.com/EDXFund/SideChain/p2p/discover"
 )
 
 // ConnectToPivotNode connects the node with provided NodeID

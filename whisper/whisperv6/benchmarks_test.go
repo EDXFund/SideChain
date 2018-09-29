@@ -20,7 +20,7 @@ import (
 	"crypto/sha256"
 	"testing"
 
-	"github.com/MDCFund/SideChain/crypto"
+	"github.com/EDXFund/SideChain/crypto"
 	"golang.org/x/crypto/pbkdf2"
 )
 

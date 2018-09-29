@@ -22,12 +22,12 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/common/hexutil"
-	"github.com/MDCFund/SideChain/common/math"
-	"github.com/MDCFund/SideChain/core/types"
-	"github.com/MDCFund/SideChain/params"
-	"github.com/MDCFund/SideChain/rlp"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/common/hexutil"
+	"github.com/EDXFund/SideChain/common/math"
+	"github.com/EDXFund/SideChain/core/types"
+	"github.com/EDXFund/SideChain/params"
+	"github.com/EDXFund/SideChain/rlp"
 )
 
 // TransactionTest checks RLP decoding and sender derivation of transactions.

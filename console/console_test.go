@@ -26,12 +26,12 @@ import (
 	"testing"
 	"time"
 
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/consensus/ethash"
-	"github.com/MDCFund/SideChain/core"
-	"github.com/MDCFund/SideChain/eth"
-	"github.com/MDCFund/SideChain/internal/jsre"
-	"github.com/MDCFund/SideChain/node"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/consensus/ethash"
+	"github.com/EDXFund/SideChain/core"
+	"github.com/EDXFund/SideChain/eth"
+	"github.com/EDXFund/SideChain/internal/jsre"
+	"github.com/EDXFund/SideChain/node"
 )
 
 const (

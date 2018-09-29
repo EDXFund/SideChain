@@ -24,11 +24,11 @@ import (
 	"testing"
 	"time"
 
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/crypto"
-	"github.com/MDCFund/SideChain/p2p"
-	"github.com/MDCFund/SideChain/p2p/discover"
-	"github.com/MDCFund/SideChain/p2p/nat"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/crypto"
+	"github.com/EDXFund/SideChain/p2p"
+	"github.com/EDXFund/SideChain/p2p/discover"
+	"github.com/EDXFund/SideChain/p2p/nat"
 )
 
 var keys = []string{

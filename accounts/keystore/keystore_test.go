@@ -26,9 +26,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/MDCFund/SideChain/accounts"
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/event"
+	"github.com/EDXFund/SideChain/accounts"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/event"
 )
 
 var testSigData = make([]byte, 32)

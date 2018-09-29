@@ -30,10 +30,10 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/MDCFund/SideChain/swarm/api"
-	"github.com/MDCFund/SideChain/swarm/storage"
+	"github.com/EDXFund/SideChain/swarm/api"
+	"github.com/EDXFund/SideChain/swarm/storage"
 
-	"github.com/MDCFund/SideChain/log"
+	"github.com/EDXFund/SideChain/log"
 
 	colorable "github.com/mattn/go-colorable"
 )

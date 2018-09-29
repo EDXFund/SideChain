@@ -38,12 +38,12 @@ import (
 	"sync"
 	"time"
 
-	"github.com/MDCFund/SideChain/log"
-	"github.com/MDCFund/SideChain/metrics"
-	"github.com/MDCFund/SideChain/p2p"
-	"github.com/MDCFund/SideChain/rlp"
-	"github.com/MDCFund/SideChain/swarm/spancontext"
-	"github.com/MDCFund/SideChain/swarm/tracing"
+	"github.com/EDXFund/SideChain/log"
+	"github.com/EDXFund/SideChain/metrics"
+	"github.com/EDXFund/SideChain/p2p"
+	"github.com/EDXFund/SideChain/rlp"
+	"github.com/EDXFund/SideChain/swarm/spancontext"
+	"github.com/EDXFund/SideChain/swarm/tracing"
 	opentracing "github.com/opentracing/opentracing-go"
 )
 

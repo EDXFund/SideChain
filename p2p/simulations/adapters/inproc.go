@@ -23,13 +23,13 @@ import (
 	"net"
 	"sync"
 
-	"github.com/MDCFund/SideChain/event"
-	"github.com/MDCFund/SideChain/log"
-	"github.com/MDCFund/SideChain/node"
-	"github.com/MDCFund/SideChain/p2p"
-	"github.com/MDCFund/SideChain/p2p/discover"
-	"github.com/MDCFund/SideChain/p2p/simulations/pipes"
-	"github.com/MDCFund/SideChain/rpc"
+	"github.com/EDXFund/SideChain/event"
+	"github.com/EDXFund/SideChain/log"
+	"github.com/EDXFund/SideChain/node"
+	"github.com/EDXFund/SideChain/p2p"
+	"github.com/EDXFund/SideChain/p2p/discover"
+	"github.com/EDXFund/SideChain/p2p/simulations/pipes"
+	"github.com/EDXFund/SideChain/rpc"
 )
 
 // SimAdapter is a NodeAdapter which creates in-memory simulation nodes and

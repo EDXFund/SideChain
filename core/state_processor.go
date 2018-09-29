@@ -17,14 +17,14 @@
 package core
 
 import (
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/consensus"
-	"github.com/MDCFund/SideChain/consensus/misc"
-	"github.com/MDCFund/SideChain/core/state"
-	"github.com/MDCFund/SideChain/core/types"
-	"github.com/MDCFund/SideChain/core/vm"
-	"github.com/MDCFund/SideChain/crypto"
-	"github.com/MDCFund/SideChain/params"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/consensus"
+	"github.com/EDXFund/SideChain/consensus/misc"
+	"github.com/EDXFund/SideChain/core/state"
+	"github.com/EDXFund/SideChain/core/types"
+	"github.com/EDXFund/SideChain/core/vm"
+	"github.com/EDXFund/SideChain/crypto"
+	"github.com/EDXFund/SideChain/params"
 )
 
 // StateProcessor is a basic Processor, which takes care of transitioning

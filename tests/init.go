@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/MDCFund/SideChain/params"
+	"github.com/EDXFund/SideChain/params"
 )
 
 // Forks table defines supported forks and their chain config.

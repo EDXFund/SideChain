@@ -54,7 +54,7 @@ func TestBloom(t *testing.T) {
 import (
 	"testing"
 
-	"github.com/MDCFund/SideChain/core/state"
+	"github.com/EDXFund/SideChain/core/state"
 )
 
 func TestBloom9(t *testing.T) {

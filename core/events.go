@@ -17,8 +17,8 @@
 package core
 
 import (
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/core/types"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/core/types"
 )
 
 // NewTxsEvent is posted when a batch of transactions enter the transaction pool.

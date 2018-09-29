@@ -22,9 +22,9 @@ import (
 	"math/big"
 	"time"
 
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/common/math"
-	"github.com/MDCFund/SideChain/core/vm"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/common/math"
+	"github.com/EDXFund/SideChain/core/vm"
 )
 
 type JSONLogger struct {

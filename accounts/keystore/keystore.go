@@ -33,11 +33,11 @@ import (
 	"sync"
 	"time"
 
-	"github.com/MDCFund/SideChain/accounts"
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/core/types"
-	"github.com/MDCFund/SideChain/crypto"
-	"github.com/MDCFund/SideChain/event"
+	"github.com/EDXFund/SideChain/accounts"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/core/types"
+	"github.com/EDXFund/SideChain/crypto"
+	"github.com/EDXFund/SideChain/event"
 )
 
 var (

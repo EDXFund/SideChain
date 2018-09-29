@@ -25,17 +25,17 @@ import (
 	"testing"
 	"time"
 
-	ethereum "github.com/MDCFund/SideChain"
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/consensus/ethash"
-	"github.com/MDCFund/SideChain/core"
-	"github.com/MDCFund/SideChain/core/bloombits"
-	"github.com/MDCFund/SideChain/core/rawdb"
-	"github.com/MDCFund/SideChain/core/types"
-	"github.com/MDCFund/SideChain/ethdb"
-	"github.com/MDCFund/SideChain/event"
-	"github.com/MDCFund/SideChain/params"
-	"github.com/MDCFund/SideChain/rpc"
+	ethereum "github.com/EDXFund/SideChain"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/consensus/ethash"
+	"github.com/EDXFund/SideChain/core"
+	"github.com/EDXFund/SideChain/core/bloombits"
+	"github.com/EDXFund/SideChain/core/rawdb"
+	"github.com/EDXFund/SideChain/core/types"
+	"github.com/EDXFund/SideChain/ethdb"
+	"github.com/EDXFund/SideChain/event"
+	"github.com/EDXFund/SideChain/params"
+	"github.com/EDXFund/SideChain/rpc"
 )
 
 type testBackend struct {

@@ -22,7 +22,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/MDCFund/SideChain/common"
+	"github.com/EDXFund/SideChain/common"
 )
 
 type keyStorePlain struct {

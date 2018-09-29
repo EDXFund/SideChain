@@ -20,8 +20,8 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/crypto"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/crypto"
 )
 
 func TestConfig(t *testing.T) {

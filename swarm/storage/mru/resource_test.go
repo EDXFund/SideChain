@@ -27,12 +27,12 @@ import (
 	"testing"
 	"time"
 
-	"github.com/MDCFund/SideChain/contracts/ens"
-	"github.com/MDCFund/SideChain/crypto"
-	"github.com/MDCFund/SideChain/log"
-	"github.com/MDCFund/SideChain/swarm/chunk"
-	"github.com/MDCFund/SideChain/swarm/multihash"
-	"github.com/MDCFund/SideChain/swarm/storage"
+	"github.com/EDXFund/SideChain/contracts/ens"
+	"github.com/EDXFund/SideChain/crypto"
+	"github.com/EDXFund/SideChain/log"
+	"github.com/EDXFund/SideChain/swarm/chunk"
+	"github.com/EDXFund/SideChain/swarm/multihash"
+	"github.com/EDXFund/SideChain/swarm/storage"
 )
 
 var (

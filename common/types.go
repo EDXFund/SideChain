@@ -26,8 +26,8 @@ import (
 	"reflect"
 	"strings"
 
-	"github.com/MDCFund/SideChain/common/hexutil"
-	"github.com/MDCFund/SideChain/crypto/sha3"
+	"github.com/EDXFund/SideChain/common/hexutil"
+	"github.com/EDXFund/SideChain/crypto/sha3"
 )
 
 // Lengths of hashes and addresses in bytes.

@@ -22,11 +22,11 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/MDCFund/SideChain/common/hexutil"
+	"github.com/EDXFund/SideChain/common/hexutil"
 
-	"github.com/MDCFund/SideChain/cmd/utils"
-	swarm "github.com/MDCFund/SideChain/swarm/api/client"
-	"github.com/MDCFund/SideChain/swarm/storage/mru"
+	"github.com/EDXFund/SideChain/cmd/utils"
+	swarm "github.com/EDXFund/SideChain/swarm/api/client"
+	"github.com/EDXFund/SideChain/swarm/storage/mru"
 	"gopkg.in/urfave/cli.v1"
 )
 

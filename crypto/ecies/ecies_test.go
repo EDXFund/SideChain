@@ -40,7 +40,7 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/MDCFund/SideChain/crypto"
+	"github.com/EDXFund/SideChain/crypto"
 )
 
 var dumpEnc bool

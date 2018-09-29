@@ -20,12 +20,12 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/MDCFund/SideChain/consensus/ethash"
-	"github.com/MDCFund/SideChain/core/types"
-	"github.com/MDCFund/SideChain/core/vm"
-	"github.com/MDCFund/SideChain/crypto"
-	"github.com/MDCFund/SideChain/ethdb"
-	"github.com/MDCFund/SideChain/params"
+	"github.com/EDXFund/SideChain/consensus/ethash"
+	"github.com/EDXFund/SideChain/core/types"
+	"github.com/EDXFund/SideChain/core/vm"
+	"github.com/EDXFund/SideChain/crypto"
+	"github.com/EDXFund/SideChain/ethdb"
+	"github.com/EDXFund/SideChain/params"
 )
 
 func ExampleGenerateChain() {

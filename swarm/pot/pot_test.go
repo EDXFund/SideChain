@@ -24,7 +24,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/MDCFund/SideChain/swarm/log"
+	"github.com/EDXFund/SideChain/swarm/log"
 )
 
 const (

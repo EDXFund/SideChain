@@ -28,9 +28,9 @@ import (
 	"time"
 
 	mapset "github.com/deckarep/golang-set"
-	"github.com/MDCFund/SideChain/accounts"
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/log"
+	"github.com/EDXFund/SideChain/accounts"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/log"
 )
 
 // Minimum amount of time between cache reloads. This limit applies if the platform does

@@ -22,8 +22,8 @@ package node
 import (
 	"reflect"
 
-	"github.com/MDCFund/SideChain/p2p"
-	"github.com/MDCFund/SideChain/rpc"
+	"github.com/EDXFund/SideChain/p2p"
+	"github.com/EDXFund/SideChain/rpc"
 )
 
 // NoopService is a trivial implementation of the Service interface.

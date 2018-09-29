@@ -22,8 +22,8 @@ import (
 	"os"
 	"testing"
 
-	p2ptest "github.com/MDCFund/SideChain/p2p/testing"
-	"github.com/MDCFund/SideChain/swarm/state"
+	p2ptest "github.com/EDXFund/SideChain/p2p/testing"
+	"github.com/EDXFund/SideChain/swarm/state"
 )
 
 func newHiveTester(t *testing.T, params *HiveParams, n int, store state.Store) (*bzzTester, *Hive) {

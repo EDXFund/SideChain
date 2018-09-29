@@ -25,14 +25,14 @@ import (
 	"sync"
 	"time"
 
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/common/prque"
-	"github.com/MDCFund/SideChain/core/state"
-	"github.com/MDCFund/SideChain/core/types"
-	"github.com/MDCFund/SideChain/event"
-	"github.com/MDCFund/SideChain/log"
-	"github.com/MDCFund/SideChain/metrics"
-	"github.com/MDCFund/SideChain/params"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/common/prque"
+	"github.com/EDXFund/SideChain/core/state"
+	"github.com/EDXFund/SideChain/core/types"
+	"github.com/EDXFund/SideChain/event"
+	"github.com/EDXFund/SideChain/log"
+	"github.com/EDXFund/SideChain/metrics"
+	"github.com/EDXFund/SideChain/params"
 )
 
 const (

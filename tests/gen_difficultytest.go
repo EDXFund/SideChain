@@ -6,8 +6,8 @@ import (
 	"encoding/json"
 	"math/big"
 
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/common/math"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/common/math"
 )
 
 var _ = (*difficultyTestMarshaling)(nil)

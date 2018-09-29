@@ -20,11 +20,11 @@ import (
 	"encoding/binary"
 	"fmt"
 
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/crypto"
-	"github.com/MDCFund/SideChain/log"
-	"github.com/MDCFund/SideChain/rlp"
-	whisper "github.com/MDCFund/SideChain/whisper/whisperv6"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/crypto"
+	"github.com/EDXFund/SideChain/log"
+	"github.com/EDXFund/SideChain/rlp"
+	whisper "github.com/EDXFund/SideChain/whisper/whisperv6"
 	"github.com/syndtr/goleveldb/leveldb"
 	"github.com/syndtr/goleveldb/leveldb/util"
 )

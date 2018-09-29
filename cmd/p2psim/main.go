@@ -45,12 +45,12 @@ import (
 	"strings"
 	"text/tabwriter"
 
-	"github.com/MDCFund/SideChain/crypto"
-	"github.com/MDCFund/SideChain/p2p"
-	"github.com/MDCFund/SideChain/p2p/discover"
-	"github.com/MDCFund/SideChain/p2p/simulations"
-	"github.com/MDCFund/SideChain/p2p/simulations/adapters"
-	"github.com/MDCFund/SideChain/rpc"
+	"github.com/EDXFund/SideChain/crypto"
+	"github.com/EDXFund/SideChain/p2p"
+	"github.com/EDXFund/SideChain/p2p/discover"
+	"github.com/EDXFund/SideChain/p2p/simulations"
+	"github.com/EDXFund/SideChain/p2p/simulations/adapters"
+	"github.com/EDXFund/SideChain/rpc"
 	"gopkg.in/urfave/cli.v1"
 )
 

@@ -20,9 +20,9 @@ import (
 	"bytes"
 	"encoding/json"
 
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/common/hexutil"
-	"github.com/MDCFund/SideChain/swarm/storage"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/common/hexutil"
+	"github.com/EDXFund/SideChain/swarm/storage"
 )
 
 // updateRequestJSON represents a JSON-serialized UpdateRequest

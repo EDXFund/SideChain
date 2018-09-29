@@ -19,8 +19,8 @@ package trie
 import (
 	"fmt"
 
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/log"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/log"
 )
 
 // SecureTrie wraps a trie with key hashing. In a secure trie, all

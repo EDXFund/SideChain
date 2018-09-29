@@ -22,9 +22,9 @@ import (
 	"io/ioutil"
 	"strings"
 
-	"github.com/MDCFund/SideChain/cmd/utils"
-	"github.com/MDCFund/SideChain/console"
-	"github.com/MDCFund/SideChain/crypto"
+	"github.com/EDXFund/SideChain/cmd/utils"
+	"github.com/EDXFund/SideChain/console"
+	"github.com/EDXFund/SideChain/crypto"
 	"gopkg.in/urfave/cli.v1"
 )
 

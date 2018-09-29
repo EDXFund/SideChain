@@ -21,7 +21,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/MDCFund/SideChain/swarm/state"
+	"github.com/EDXFund/SideChain/swarm/state"
 )
 
 // TestDBStore tests basic functionality of DBStore.

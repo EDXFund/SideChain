@@ -19,9 +19,9 @@ package core
 import (
 	"container/list"
 
-	"github.com/MDCFund/SideChain/core/types"
-	"github.com/MDCFund/SideChain/ethdb"
-	"github.com/MDCFund/SideChain/event"
+	"github.com/EDXFund/SideChain/core/types"
+	"github.com/EDXFund/SideChain/ethdb"
+	"github.com/EDXFund/SideChain/event"
 )
 
 // Implement our EthTest Manager

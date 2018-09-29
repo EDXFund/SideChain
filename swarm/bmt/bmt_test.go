@@ -28,7 +28,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/MDCFund/SideChain/crypto/sha3"
+	"github.com/EDXFund/SideChain/crypto/sha3"
 )
 
 // the actual data length generated (could be longer than max datalength of the BMT)

@@ -20,8 +20,8 @@ import (
 	"fmt"
 	"sync/atomic"
 
-	"github.com/MDCFund/SideChain/common/math"
-	"github.com/MDCFund/SideChain/params"
+	"github.com/EDXFund/SideChain/common/math"
+	"github.com/EDXFund/SideChain/params"
 )
 
 // Config are the configuration options for the Interpreter

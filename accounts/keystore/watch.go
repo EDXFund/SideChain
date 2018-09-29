@@ -21,7 +21,7 @@ package keystore
 import (
 	"time"
 
-	"github.com/MDCFund/SideChain/log"
+	"github.com/EDXFund/SideChain/log"
 	"github.com/rjeczalik/notify"
 )
 

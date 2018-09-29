@@ -19,10 +19,10 @@ package rawdb
 import (
 	"encoding/json"
 
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/log"
-	"github.com/MDCFund/SideChain/params"
-	"github.com/MDCFund/SideChain/rlp"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/log"
+	"github.com/EDXFund/SideChain/params"
+	"github.com/EDXFund/SideChain/rlp"
 )
 
 // ReadDatabaseVersion retrieves the version number of the database.

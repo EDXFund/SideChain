@@ -22,14 +22,14 @@ import (
 	"sync"
 	"time"
 
-	"github.com/MDCFund/SideChain/metrics"
-	"github.com/MDCFund/SideChain/p2p/protocols"
-	"github.com/MDCFund/SideChain/swarm/log"
-	pq "github.com/MDCFund/SideChain/swarm/network/priorityqueue"
-	"github.com/MDCFund/SideChain/swarm/network/stream/intervals"
-	"github.com/MDCFund/SideChain/swarm/spancontext"
-	"github.com/MDCFund/SideChain/swarm/state"
-	"github.com/MDCFund/SideChain/swarm/storage"
+	"github.com/EDXFund/SideChain/metrics"
+	"github.com/EDXFund/SideChain/p2p/protocols"
+	"github.com/EDXFund/SideChain/swarm/log"
+	pq "github.com/EDXFund/SideChain/swarm/network/priorityqueue"
+	"github.com/EDXFund/SideChain/swarm/network/stream/intervals"
+	"github.com/EDXFund/SideChain/swarm/spancontext"
+	"github.com/EDXFund/SideChain/swarm/state"
+	"github.com/EDXFund/SideChain/swarm/storage"
 	opentracing "github.com/opentracing/opentracing-go"
 )
 

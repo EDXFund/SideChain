@@ -19,10 +19,10 @@ package core
 import (
 	"fmt"
 
-	"github.com/MDCFund/SideChain/consensus"
-	"github.com/MDCFund/SideChain/core/state"
-	"github.com/MDCFund/SideChain/core/types"
-	"github.com/MDCFund/SideChain/params"
+	"github.com/EDXFund/SideChain/consensus"
+	"github.com/EDXFund/SideChain/core/state"
+	"github.com/EDXFund/SideChain/core/types"
+	"github.com/EDXFund/SideChain/params"
 )
 
 // BlockValidator is responsible for validating block headers, uncles and

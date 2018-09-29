@@ -28,17 +28,17 @@ import (
 	"strings"
 	"time"
 
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/common/hexutil"
-	"github.com/MDCFund/SideChain/core"
-	"github.com/MDCFund/SideChain/core/rawdb"
-	"github.com/MDCFund/SideChain/core/state"
-	"github.com/MDCFund/SideChain/core/types"
-	"github.com/MDCFund/SideChain/internal/ethapi"
-	"github.com/MDCFund/SideChain/params"
-	"github.com/MDCFund/SideChain/rlp"
-	"github.com/MDCFund/SideChain/rpc"
-	"github.com/MDCFund/SideChain/trie"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/common/hexutil"
+	"github.com/EDXFund/SideChain/core"
+	"github.com/EDXFund/SideChain/core/rawdb"
+	"github.com/EDXFund/SideChain/core/state"
+	"github.com/EDXFund/SideChain/core/types"
+	"github.com/EDXFund/SideChain/internal/ethapi"
+	"github.com/EDXFund/SideChain/params"
+	"github.com/EDXFund/SideChain/rlp"
+	"github.com/EDXFund/SideChain/rpc"
+	"github.com/EDXFund/SideChain/trie"
 )
 
 // PublicEthereumAPI provides an API to access Ethereum full node-related

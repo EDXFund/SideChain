@@ -5,8 +5,8 @@ import (
 	"io/ioutil"
 	"strings"
 
-	"github.com/MDCFund/SideChain/accounts/keystore"
-	"github.com/MDCFund/SideChain/cmd/utils"
+	"github.com/EDXFund/SideChain/accounts/keystore"
+	"github.com/EDXFund/SideChain/cmd/utils"
 	"gopkg.in/urfave/cli.v1"
 )
 

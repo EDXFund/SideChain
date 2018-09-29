@@ -20,7 +20,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/MDCFund/SideChain/common/hexutil"
+	"github.com/EDXFund/SideChain/common/hexutil"
 )
 
 type MyType [5]byte

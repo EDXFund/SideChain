@@ -21,11 +21,11 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/core/types"
-	"github.com/MDCFund/SideChain/crypto/sha3"
-	"github.com/MDCFund/SideChain/ethdb"
-	"github.com/MDCFund/SideChain/rlp"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/core/types"
+	"github.com/EDXFund/SideChain/crypto/sha3"
+	"github.com/EDXFund/SideChain/ethdb"
+	"github.com/EDXFund/SideChain/rlp"
 )
 
 // Tests block header storage and retrieval operations.

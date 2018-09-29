@@ -22,12 +22,12 @@ import (
 	"testing"
 
 	"github.com/davecgh/go-spew/spew"
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/consensus/ethash"
-	"github.com/MDCFund/SideChain/core/rawdb"
-	"github.com/MDCFund/SideChain/core/vm"
-	"github.com/MDCFund/SideChain/ethdb"
-	"github.com/MDCFund/SideChain/params"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/consensus/ethash"
+	"github.com/EDXFund/SideChain/core/rawdb"
+	"github.com/EDXFund/SideChain/core/vm"
+	"github.com/EDXFund/SideChain/ethdb"
+	"github.com/EDXFund/SideChain/params"
 )
 
 func TestDefaultGenesisBlock(t *testing.T) {

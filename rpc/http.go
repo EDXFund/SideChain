@@ -31,7 +31,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/MDCFund/SideChain/log"
+	"github.com/EDXFund/SideChain/log"
 	"github.com/rs/cors"
 )
 

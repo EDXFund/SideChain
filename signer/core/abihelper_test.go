@@ -25,8 +25,8 @@ import (
 	"math/big"
 	"reflect"
 
-	"github.com/MDCFund/SideChain/accounts/abi"
-	"github.com/MDCFund/SideChain/common"
+	"github.com/EDXFund/SideChain/accounts/abi"
+	"github.com/EDXFund/SideChain/common"
 )
 
 func verify(t *testing.T, jsondata, calldata string, exp []interface{}) {

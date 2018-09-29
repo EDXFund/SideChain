@@ -32,13 +32,13 @@ import (
 	"time"
 
 	"github.com/docker/docker/pkg/reexec"
-	"github.com/MDCFund/SideChain/accounts"
-	"github.com/MDCFund/SideChain/accounts/keystore"
-	"github.com/MDCFund/SideChain/internal/cmdtest"
-	"github.com/MDCFund/SideChain/node"
-	"github.com/MDCFund/SideChain/p2p"
-	"github.com/MDCFund/SideChain/rpc"
-	"github.com/MDCFund/SideChain/swarm"
+	"github.com/EDXFund/SideChain/accounts"
+	"github.com/EDXFund/SideChain/accounts/keystore"
+	"github.com/EDXFund/SideChain/internal/cmdtest"
+	"github.com/EDXFund/SideChain/node"
+	"github.com/EDXFund/SideChain/p2p"
+	"github.com/EDXFund/SideChain/rpc"
+	"github.com/EDXFund/SideChain/swarm"
 )
 
 func init() {

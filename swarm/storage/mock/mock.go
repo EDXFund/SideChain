@@ -36,7 +36,7 @@ import (
 	"errors"
 	"io"
 
-	"github.com/MDCFund/SideChain/common"
+	"github.com/EDXFund/SideChain/common"
 )
 
 // ErrNotFound indicates that the chunk is not found.

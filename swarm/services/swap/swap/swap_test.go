@@ -21,7 +21,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/MDCFund/SideChain/common"
+	"github.com/EDXFund/SideChain/common"
 )
 
 type testInPayment struct {

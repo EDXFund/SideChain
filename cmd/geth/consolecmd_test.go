@@ -27,7 +27,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/MDCFund/SideChain/params"
+	"github.com/EDXFund/SideChain/params"
 )
 
 const (

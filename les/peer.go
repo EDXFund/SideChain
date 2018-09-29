@@ -25,13 +25,13 @@ import (
 	"sync"
 	"time"
 
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/core/types"
-	"github.com/MDCFund/SideChain/eth"
-	"github.com/MDCFund/SideChain/les/flowcontrol"
-	"github.com/MDCFund/SideChain/light"
-	"github.com/MDCFund/SideChain/p2p"
-	"github.com/MDCFund/SideChain/rlp"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/core/types"
+	"github.com/EDXFund/SideChain/eth"
+	"github.com/EDXFund/SideChain/les/flowcontrol"
+	"github.com/EDXFund/SideChain/light"
+	"github.com/EDXFund/SideChain/p2p"
+	"github.com/EDXFund/SideChain/rlp"
 )
 
 var (

@@ -24,13 +24,13 @@ import (
 	"net"
 	"time"
 
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/common/mclock"
-	"github.com/MDCFund/SideChain/crypto"
-	"github.com/MDCFund/SideChain/crypto/sha3"
-	"github.com/MDCFund/SideChain/log"
-	"github.com/MDCFund/SideChain/p2p/netutil"
-	"github.com/MDCFund/SideChain/rlp"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/common/mclock"
+	"github.com/EDXFund/SideChain/crypto"
+	"github.com/EDXFund/SideChain/crypto/sha3"
+	"github.com/EDXFund/SideChain/log"
+	"github.com/EDXFund/SideChain/p2p/netutil"
+	"github.com/EDXFund/SideChain/rlp"
 )
 
 var (

@@ -21,11 +21,11 @@ import (
 	"io"
 	"math/big"
 
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/core"
-	"github.com/MDCFund/SideChain/core/types"
-	"github.com/MDCFund/SideChain/event"
-	"github.com/MDCFund/SideChain/rlp"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/core"
+	"github.com/EDXFund/SideChain/core/types"
+	"github.com/EDXFund/SideChain/event"
+	"github.com/EDXFund/SideChain/rlp"
 )
 
 // Constants to match up protocol versions and messages

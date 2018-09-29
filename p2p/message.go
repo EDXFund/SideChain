@@ -25,9 +25,9 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/MDCFund/SideChain/event"
-	"github.com/MDCFund/SideChain/p2p/discover"
-	"github.com/MDCFund/SideChain/rlp"
+	"github.com/EDXFund/SideChain/event"
+	"github.com/EDXFund/SideChain/p2p/discover"
+	"github.com/EDXFund/SideChain/rlp"
 )
 
 // Msg defines the structure of a p2p message.

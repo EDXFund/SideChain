@@ -21,7 +21,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/MDCFund/SideChain/common/mclock"
+	"github.com/EDXFund/SideChain/common/mclock"
 )
 
 const fcTimeConst = time.Millisecond

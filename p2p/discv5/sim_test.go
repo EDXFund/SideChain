@@ -28,7 +28,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/MDCFund/SideChain/common"
+	"github.com/EDXFund/SideChain/common"
 )
 
 // In this test, nodes try to randomly resolve each other.

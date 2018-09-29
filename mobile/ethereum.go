@@ -21,8 +21,8 @@ package geth
 import (
 	"errors"
 
-	ethereum "github.com/MDCFund/SideChain"
-	"github.com/MDCFund/SideChain/common"
+	ethereum "github.com/EDXFund/SideChain"
+	"github.com/EDXFund/SideChain/common"
 )
 
 // Subscription represents an event subscription where events are

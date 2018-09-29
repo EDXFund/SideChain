@@ -24,7 +24,7 @@ import (
 	"math/big"
 	"strings"
 
-	"github.com/MDCFund/SideChain/rlp"
+	"github.com/EDXFund/SideChain/rlp"
 )
 
 // RLPTest is the JSON structure of a single RLP test.

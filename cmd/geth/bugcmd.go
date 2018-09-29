@@ -26,10 +26,10 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/MDCFund/SideChain/cmd/internal/browser"
-	"github.com/MDCFund/SideChain/params"
+	"github.com/EDXFund/SideChain/cmd/internal/browser"
+	"github.com/EDXFund/SideChain/params"
 
-	"github.com/MDCFund/SideChain/cmd/utils"
+	"github.com/EDXFund/SideChain/cmd/utils"
 	cli "gopkg.in/urfave/cli.v1"
 )
 

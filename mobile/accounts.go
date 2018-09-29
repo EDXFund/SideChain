@@ -23,10 +23,10 @@ import (
 	"errors"
 	"time"
 
-	"github.com/MDCFund/SideChain/accounts"
-	"github.com/MDCFund/SideChain/accounts/keystore"
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/crypto"
+	"github.com/EDXFund/SideChain/accounts"
+	"github.com/EDXFund/SideChain/accounts/keystore"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/crypto"
 )
 
 const (

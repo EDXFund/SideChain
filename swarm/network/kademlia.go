@@ -24,9 +24,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/swarm/log"
-	"github.com/MDCFund/SideChain/swarm/pot"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/swarm/log"
+	"github.com/EDXFund/SideChain/swarm/pot"
 )
 
 /*

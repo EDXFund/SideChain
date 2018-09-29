@@ -16,7 +16,7 @@
 
 package ethclient
 
-import "github.com/MDCFund/SideChain"
+import "github.com/EDXFund/SideChain"
 
 // Verify that Client implements the ethereum interfaces.
 var (

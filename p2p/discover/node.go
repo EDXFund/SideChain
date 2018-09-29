@@ -31,9 +31,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/crypto"
-	"github.com/MDCFund/SideChain/crypto/secp256k1"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/crypto"
+	"github.com/EDXFund/SideChain/crypto/secp256k1"
 )
 
 const NodeIDBits = 512

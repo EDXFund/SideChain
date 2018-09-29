@@ -22,8 +22,8 @@ import (
 	"os"
 	"strings"
 
-	"github.com/MDCFund/SideChain/common/math"
-	"github.com/MDCFund/SideChain/core/vm"
+	"github.com/EDXFund/SideChain/common/math"
+	"github.com/EDXFund/SideChain/core/vm"
 )
 
 // Compiler contains information about the parsed source

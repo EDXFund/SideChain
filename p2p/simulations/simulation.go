@@ -20,7 +20,7 @@ import (
 	"context"
 	"time"
 
-	"github.com/MDCFund/SideChain/p2p/discover"
+	"github.com/EDXFund/SideChain/p2p/discover"
 )
 
 // Simulation provides a framework for running actions in a simulated network

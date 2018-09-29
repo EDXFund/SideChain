@@ -25,11 +25,11 @@ import (
 	"time"
 	"unsafe"
 
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/common/hexutil"
-	"github.com/MDCFund/SideChain/core/vm"
-	"github.com/MDCFund/SideChain/crypto"
-	"github.com/MDCFund/SideChain/log"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/common/hexutil"
+	"github.com/EDXFund/SideChain/core/vm"
+	"github.com/EDXFund/SideChain/crypto"
+	"github.com/EDXFund/SideChain/log"
 	duktape "gopkg.in/olebedev/go-duktape.v3"
 )
 

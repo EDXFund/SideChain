@@ -21,9 +21,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/MDCFund/SideChain/eth/downloader"
-	"github.com/MDCFund/SideChain/p2p"
-	"github.com/MDCFund/SideChain/p2p/discover"
+	"github.com/EDXFund/SideChain/eth/downloader"
+	"github.com/EDXFund/SideChain/p2p"
+	"github.com/EDXFund/SideChain/p2p/discover"
 )
 
 // Tests that fast sync gets disabled as soon as a real block is successfully

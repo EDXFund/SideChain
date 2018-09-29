@@ -28,9 +28,9 @@ import (
 	"strings"
 	"syscall"
 
-	"github.com/MDCFund/SideChain/internal/jsre"
-	"github.com/MDCFund/SideChain/internal/web3ext"
-	"github.com/MDCFund/SideChain/rpc"
+	"github.com/EDXFund/SideChain/internal/jsre"
+	"github.com/EDXFund/SideChain/internal/web3ext"
+	"github.com/EDXFund/SideChain/rpc"
 	"github.com/mattn/go-colorable"
 	"github.com/peterh/liner"
 	"github.com/robertkrimen/otto"

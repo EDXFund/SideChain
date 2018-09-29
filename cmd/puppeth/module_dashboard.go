@@ -26,7 +26,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/MDCFund/SideChain/log"
+	"github.com/EDXFund/SideChain/log"
 )
 
 // dashboardContent is the actual dashboard HTML content to serve up when users

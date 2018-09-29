@@ -20,14 +20,14 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/core"
-	"github.com/MDCFund/SideChain/eth"
-	"github.com/MDCFund/SideChain/ethdb"
-	"github.com/MDCFund/SideChain/light"
-	"github.com/MDCFund/SideChain/p2p"
-	"github.com/MDCFund/SideChain/p2p/discover"
-	"github.com/MDCFund/SideChain/params"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/core"
+	"github.com/EDXFund/SideChain/eth"
+	"github.com/EDXFund/SideChain/ethdb"
+	"github.com/EDXFund/SideChain/light"
+	"github.com/EDXFund/SideChain/p2p"
+	"github.com/EDXFund/SideChain/p2p/discover"
+	"github.com/EDXFund/SideChain/params"
 )
 
 // lesCommons contains fields needed by both server and client.

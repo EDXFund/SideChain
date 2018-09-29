@@ -22,8 +22,8 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/swarm/storage"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/swarm/storage"
 )
 
 //matches hex swarm hashes

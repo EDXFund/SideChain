@@ -23,9 +23,9 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/MDCFund/SideChain/common/math"
-	"github.com/MDCFund/SideChain/core/types"
-	"github.com/MDCFund/SideChain/params"
+	"github.com/EDXFund/SideChain/common/math"
+	"github.com/EDXFund/SideChain/core/types"
+	"github.com/EDXFund/SideChain/params"
 )
 
 type diffTest struct {

@@ -20,10 +20,10 @@ import (
 	"errors"
 	"sync"
 
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/crypto"
-	"github.com/MDCFund/SideChain/ethdb"
-	"github.com/MDCFund/SideChain/rlp"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/crypto"
+	"github.com/EDXFund/SideChain/ethdb"
+	"github.com/EDXFund/SideChain/rlp"
 )
 
 // NodeSet stores a set of trie nodes. It implements trie.Database and can also

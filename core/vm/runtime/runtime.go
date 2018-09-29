@@ -21,12 +21,12 @@ import (
 	"math/big"
 	"time"
 
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/core/state"
-	"github.com/MDCFund/SideChain/core/vm"
-	"github.com/MDCFund/SideChain/crypto"
-	"github.com/MDCFund/SideChain/ethdb"
-	"github.com/MDCFund/SideChain/params"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/core/state"
+	"github.com/EDXFund/SideChain/core/vm"
+	"github.com/EDXFund/SideChain/crypto"
+	"github.com/EDXFund/SideChain/ethdb"
+	"github.com/EDXFund/SideChain/params"
 )
 
 // Config is a basic type specifying certain configuration flags for running

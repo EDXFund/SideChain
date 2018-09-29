@@ -23,11 +23,11 @@ package ens
 import (
 	"strings"
 
-	"github.com/MDCFund/SideChain/accounts/abi/bind"
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/contracts/ens/contract"
-	"github.com/MDCFund/SideChain/core/types"
-	"github.com/MDCFund/SideChain/crypto"
+	"github.com/EDXFund/SideChain/accounts/abi/bind"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/contracts/ens/contract"
+	"github.com/EDXFund/SideChain/core/types"
+	"github.com/EDXFund/SideChain/crypto"
 )
 
 var (

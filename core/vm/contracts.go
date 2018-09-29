@@ -21,11 +21,11 @@ import (
 	"errors"
 	"math/big"
 
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/common/math"
-	"github.com/MDCFund/SideChain/crypto"
-	"github.com/MDCFund/SideChain/crypto/bn256"
-	"github.com/MDCFund/SideChain/params"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/common/math"
+	"github.com/EDXFund/SideChain/crypto"
+	"github.com/EDXFund/SideChain/crypto/bn256"
+	"github.com/EDXFund/SideChain/params"
 	"golang.org/x/crypto/ripemd160"
 )
 

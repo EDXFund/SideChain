@@ -22,8 +22,8 @@ import (
 	"io/ioutil"
 	"strings"
 
-	"github.com/MDCFund/SideChain/accounts/abi"
-	"github.com/MDCFund/SideChain/common"
+	"github.com/EDXFund/SideChain/accounts/abi"
+	"github.com/EDXFund/SideChain/common"
 
 	"bytes"
 	"os"

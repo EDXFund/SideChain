@@ -19,7 +19,7 @@
 package fetcher
 
 import (
-	"github.com/MDCFund/SideChain/metrics"
+	"github.com/EDXFund/SideChain/metrics"
 )
 
 var (

@@ -19,11 +19,11 @@ package downloader
 import (
 	"math/big"
 
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/core"
-	"github.com/MDCFund/SideChain/core/rawdb"
-	"github.com/MDCFund/SideChain/core/types"
-	"github.com/MDCFund/SideChain/ethdb"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/core"
+	"github.com/EDXFund/SideChain/core/rawdb"
+	"github.com/EDXFund/SideChain/core/types"
+	"github.com/EDXFund/SideChain/ethdb"
 )
 
 // FakePeer is a mock downloader peer that operates on a local database instance

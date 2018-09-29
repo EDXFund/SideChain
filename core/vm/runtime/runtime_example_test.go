@@ -19,8 +19,8 @@ package runtime_test
 import (
 	"fmt"
 
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/core/vm/runtime"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/core/vm/runtime"
 )
 
 func ExampleExecute() {

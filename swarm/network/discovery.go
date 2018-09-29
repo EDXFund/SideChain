@@ -21,7 +21,7 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/MDCFund/SideChain/swarm/pot"
+	"github.com/EDXFund/SideChain/swarm/pot"
 )
 
 // discovery bzz extension for requesting and relaying node address records

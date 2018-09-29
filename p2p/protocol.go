@@ -19,7 +19,7 @@ package p2p
 import (
 	"fmt"
 
-	"github.com/MDCFund/SideChain/p2p/discover"
+	"github.com/EDXFund/SideChain/p2p/discover"
 )
 
 // Protocol represents a P2P subprotocol implementation.

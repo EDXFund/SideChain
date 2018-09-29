@@ -26,7 +26,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/MDCFund/SideChain/common"
+	"github.com/EDXFund/SideChain/common"
 	"github.com/stretchr/testify/require"
 )
 

@@ -5,12 +5,12 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/MDCFund/SideChain/common/hexutil"
-	"github.com/MDCFund/SideChain/crypto"
-	"github.com/MDCFund/SideChain/p2p"
-	"github.com/MDCFund/SideChain/rlp"
-	"github.com/MDCFund/SideChain/swarm/log"
-	"github.com/MDCFund/SideChain/swarm/pss"
+	"github.com/EDXFund/SideChain/common/hexutil"
+	"github.com/EDXFund/SideChain/crypto"
+	"github.com/EDXFund/SideChain/p2p"
+	"github.com/EDXFund/SideChain/rlp"
+	"github.com/EDXFund/SideChain/swarm/log"
+	"github.com/EDXFund/SideChain/swarm/pss"
 )
 
 const (

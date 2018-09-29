@@ -19,11 +19,11 @@ package node
 import (
 	"reflect"
 
-	"github.com/MDCFund/SideChain/accounts"
-	"github.com/MDCFund/SideChain/ethdb"
-	"github.com/MDCFund/SideChain/event"
-	"github.com/MDCFund/SideChain/p2p"
-	"github.com/MDCFund/SideChain/rpc"
+	"github.com/EDXFund/SideChain/accounts"
+	"github.com/EDXFund/SideChain/ethdb"
+	"github.com/EDXFund/SideChain/event"
+	"github.com/EDXFund/SideChain/p2p"
+	"github.com/EDXFund/SideChain/rpc"
 )
 
 // ServiceContext is a collection of service independent options inherited from

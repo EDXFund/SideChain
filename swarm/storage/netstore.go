@@ -20,8 +20,8 @@ import (
 	"context"
 	"time"
 
-	"github.com/MDCFund/SideChain/swarm/log"
-	"github.com/MDCFund/SideChain/swarm/spancontext"
+	"github.com/EDXFund/SideChain/swarm/log"
+	"github.com/EDXFund/SideChain/swarm/spancontext"
 	opentracing "github.com/opentracing/opentracing-go"
 )
 

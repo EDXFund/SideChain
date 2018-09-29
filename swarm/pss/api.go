@@ -21,11 +21,11 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/MDCFund/SideChain/common/hexutil"
-	"github.com/MDCFund/SideChain/crypto"
-	"github.com/MDCFund/SideChain/p2p"
-	"github.com/MDCFund/SideChain/rpc"
-	"github.com/MDCFund/SideChain/swarm/log"
+	"github.com/EDXFund/SideChain/common/hexutil"
+	"github.com/EDXFund/SideChain/crypto"
+	"github.com/EDXFund/SideChain/p2p"
+	"github.com/EDXFund/SideChain/rpc"
+	"github.com/EDXFund/SideChain/swarm/log"
 )
 
 // Wrapper for receiving pss messages when using the pss API

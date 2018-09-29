@@ -23,15 +23,15 @@ import (
 	"os"
 	"testing"
 
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/common/math"
-	"github.com/MDCFund/SideChain/consensus/ethash"
-	"github.com/MDCFund/SideChain/core/rawdb"
-	"github.com/MDCFund/SideChain/core/types"
-	"github.com/MDCFund/SideChain/core/vm"
-	"github.com/MDCFund/SideChain/crypto"
-	"github.com/MDCFund/SideChain/ethdb"
-	"github.com/MDCFund/SideChain/params"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/common/math"
+	"github.com/EDXFund/SideChain/consensus/ethash"
+	"github.com/EDXFund/SideChain/core/rawdb"
+	"github.com/EDXFund/SideChain/core/types"
+	"github.com/EDXFund/SideChain/core/vm"
+	"github.com/EDXFund/SideChain/crypto"
+	"github.com/EDXFund/SideChain/ethdb"
+	"github.com/EDXFund/SideChain/params"
 )
 
 func BenchmarkInsertChain_empty_memdb(b *testing.B) {

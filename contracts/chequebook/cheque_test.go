@@ -24,12 +24,12 @@ import (
 	"testing"
 	"time"
 
-	"github.com/MDCFund/SideChain/accounts/abi/bind"
-	"github.com/MDCFund/SideChain/accounts/abi/bind/backends"
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/contracts/chequebook/contract"
-	"github.com/MDCFund/SideChain/core"
-	"github.com/MDCFund/SideChain/crypto"
+	"github.com/EDXFund/SideChain/accounts/abi/bind"
+	"github.com/EDXFund/SideChain/accounts/abi/bind/backends"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/contracts/chequebook/contract"
+	"github.com/EDXFund/SideChain/core"
+	"github.com/EDXFund/SideChain/crypto"
 )
 
 var (

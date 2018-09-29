@@ -22,13 +22,13 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/MDCFund/SideChain/accounts"
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/common/hexutil"
-	"github.com/MDCFund/SideChain/core/types"
-	"github.com/MDCFund/SideChain/internal/ethapi"
-	"github.com/MDCFund/SideChain/signer/core"
-	"github.com/MDCFund/SideChain/signer/storage"
+	"github.com/EDXFund/SideChain/accounts"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/common/hexutil"
+	"github.com/EDXFund/SideChain/core/types"
+	"github.com/EDXFund/SideChain/internal/ethapi"
+	"github.com/EDXFund/SideChain/signer/core"
+	"github.com/EDXFund/SideChain/signer/storage"
 )
 
 const JS = `

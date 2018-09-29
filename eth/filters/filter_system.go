@@ -25,14 +25,14 @@ import (
 	"sync"
 	"time"
 
-	ethereum "github.com/MDCFund/SideChain"
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/core"
-	"github.com/MDCFund/SideChain/core/rawdb"
-	"github.com/MDCFund/SideChain/core/types"
-	"github.com/MDCFund/SideChain/event"
-	"github.com/MDCFund/SideChain/log"
-	"github.com/MDCFund/SideChain/rpc"
+	ethereum "github.com/EDXFund/SideChain"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/core"
+	"github.com/EDXFund/SideChain/core/rawdb"
+	"github.com/EDXFund/SideChain/core/types"
+	"github.com/EDXFund/SideChain/event"
+	"github.com/EDXFund/SideChain/log"
+	"github.com/EDXFund/SideChain/rpc"
 )
 
 // Type determines the kind of filter and is used to put the filter in to

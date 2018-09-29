@@ -24,7 +24,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/MDCFund/SideChain/swarm/log"
+	"github.com/EDXFund/SideChain/swarm/log"
 )
 
 // asymmetrical key exchange between two directly connected peers

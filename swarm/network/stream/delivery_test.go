@@ -27,15 +27,15 @@ import (
 	"testing"
 	"time"
 
-	"github.com/MDCFund/SideChain/node"
-	"github.com/MDCFund/SideChain/p2p"
-	"github.com/MDCFund/SideChain/p2p/simulations/adapters"
-	p2ptest "github.com/MDCFund/SideChain/p2p/testing"
-	"github.com/MDCFund/SideChain/swarm/log"
-	"github.com/MDCFund/SideChain/swarm/network"
-	"github.com/MDCFund/SideChain/swarm/network/simulation"
-	"github.com/MDCFund/SideChain/swarm/state"
-	"github.com/MDCFund/SideChain/swarm/storage"
+	"github.com/EDXFund/SideChain/node"
+	"github.com/EDXFund/SideChain/p2p"
+	"github.com/EDXFund/SideChain/p2p/simulations/adapters"
+	p2ptest "github.com/EDXFund/SideChain/p2p/testing"
+	"github.com/EDXFund/SideChain/swarm/log"
+	"github.com/EDXFund/SideChain/swarm/network"
+	"github.com/EDXFund/SideChain/swarm/network/simulation"
+	"github.com/EDXFund/SideChain/swarm/state"
+	"github.com/EDXFund/SideChain/swarm/storage"
 )
 
 func TestStreamerRetrieveRequest(t *testing.T) {

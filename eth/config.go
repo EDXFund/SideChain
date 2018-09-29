@@ -24,13 +24,13 @@ import (
 	"runtime"
 	"time"
 
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/common/hexutil"
-	"github.com/MDCFund/SideChain/consensus/ethash"
-	"github.com/MDCFund/SideChain/core"
-	"github.com/MDCFund/SideChain/eth/downloader"
-	"github.com/MDCFund/SideChain/eth/gasprice"
-	"github.com/MDCFund/SideChain/params"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/common/hexutil"
+	"github.com/EDXFund/SideChain/consensus/ethash"
+	"github.com/EDXFund/SideChain/core"
+	"github.com/EDXFund/SideChain/eth/downloader"
+	"github.com/EDXFund/SideChain/eth/gasprice"
+	"github.com/EDXFund/SideChain/params"
 )
 
 // DefaultConfig contains default settings for use on the Ethereum main net.

@@ -23,11 +23,11 @@ import (
 	"sync"
 	"time"
 
-	"github.com/MDCFund/SideChain/metrics"
-	"github.com/MDCFund/SideChain/swarm/log"
-	bv "github.com/MDCFund/SideChain/swarm/network/bitvector"
-	"github.com/MDCFund/SideChain/swarm/spancontext"
-	"github.com/MDCFund/SideChain/swarm/storage"
+	"github.com/EDXFund/SideChain/metrics"
+	"github.com/EDXFund/SideChain/swarm/log"
+	bv "github.com/EDXFund/SideChain/swarm/network/bitvector"
+	"github.com/EDXFund/SideChain/swarm/spancontext"
+	"github.com/EDXFund/SideChain/swarm/storage"
 	opentracing "github.com/opentracing/opentracing-go"
 )
 

@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"testing"
 
-	"github.com/MDCFund/SideChain/common/hexutil"
+	"github.com/EDXFund/SideChain/common/hexutil"
 )
 
 func getTestUpdateLookup() *UpdateLookup {

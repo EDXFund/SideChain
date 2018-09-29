@@ -20,7 +20,7 @@ import (
 	"context"
 	"path"
 
-	"github.com/MDCFund/SideChain/swarm/storage"
+	"github.com/EDXFund/SideChain/swarm/storage"
 )
 
 type Response struct {

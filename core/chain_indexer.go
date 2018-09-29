@@ -24,12 +24,12 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/core/rawdb"
-	"github.com/MDCFund/SideChain/core/types"
-	"github.com/MDCFund/SideChain/ethdb"
-	"github.com/MDCFund/SideChain/event"
-	"github.com/MDCFund/SideChain/log"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/core/rawdb"
+	"github.com/EDXFund/SideChain/core/types"
+	"github.com/EDXFund/SideChain/ethdb"
+	"github.com/EDXFund/SideChain/event"
+	"github.com/EDXFund/SideChain/log"
 )
 
 // ChainIndexerBackend defines the methods needed to process chain segments in

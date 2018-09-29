@@ -22,7 +22,7 @@ import (
 	"math/big"
 	"os"
 
-	"github.com/MDCFund/SideChain/cmd/utils"
+	"github.com/EDXFund/SideChain/cmd/utils"
 	"gopkg.in/urfave/cli.v1"
 )
 

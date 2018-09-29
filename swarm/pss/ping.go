@@ -23,9 +23,9 @@ import (
 	"errors"
 	"time"
 
-	"github.com/MDCFund/SideChain/p2p"
-	"github.com/MDCFund/SideChain/p2p/protocols"
-	"github.com/MDCFund/SideChain/swarm/log"
+	"github.com/EDXFund/SideChain/p2p"
+	"github.com/EDXFund/SideChain/p2p/protocols"
+	"github.com/EDXFund/SideChain/swarm/log"
 )
 
 // Generic ping protocol implementation for

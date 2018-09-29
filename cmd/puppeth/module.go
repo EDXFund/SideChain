@@ -25,7 +25,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/MDCFund/SideChain/log"
+	"github.com/EDXFund/SideChain/log"
 )
 
 var (

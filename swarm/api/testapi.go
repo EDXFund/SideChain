@@ -17,7 +17,7 @@
 package api
 
 import (
-	"github.com/MDCFund/SideChain/swarm/network"
+	"github.com/EDXFund/SideChain/swarm/network"
 )
 
 type Control struct {

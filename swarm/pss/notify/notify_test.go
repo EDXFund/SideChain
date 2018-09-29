@@ -9,17 +9,17 @@ import (
 	"testing"
 	"time"
 
-	"github.com/MDCFund/SideChain/common/hexutil"
-	"github.com/MDCFund/SideChain/crypto"
-	"github.com/MDCFund/SideChain/log"
-	"github.com/MDCFund/SideChain/node"
-	"github.com/MDCFund/SideChain/p2p/discover"
-	"github.com/MDCFund/SideChain/p2p/simulations"
-	"github.com/MDCFund/SideChain/p2p/simulations/adapters"
-	"github.com/MDCFund/SideChain/swarm/network"
-	"github.com/MDCFund/SideChain/swarm/pss"
-	"github.com/MDCFund/SideChain/swarm/state"
-	whisper "github.com/MDCFund/SideChain/whisper/whisperv5"
+	"github.com/EDXFund/SideChain/common/hexutil"
+	"github.com/EDXFund/SideChain/crypto"
+	"github.com/EDXFund/SideChain/log"
+	"github.com/EDXFund/SideChain/node"
+	"github.com/EDXFund/SideChain/p2p/discover"
+	"github.com/EDXFund/SideChain/p2p/simulations"
+	"github.com/EDXFund/SideChain/p2p/simulations/adapters"
+	"github.com/EDXFund/SideChain/swarm/network"
+	"github.com/EDXFund/SideChain/swarm/pss"
+	"github.com/EDXFund/SideChain/swarm/state"
+	whisper "github.com/EDXFund/SideChain/whisper/whisperv5"
 )
 
 var (

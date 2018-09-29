@@ -22,12 +22,12 @@ import (
 	"testing"
 	"time"
 
-	"github.com/MDCFund/SideChain/accounts/abi/bind"
-	"github.com/MDCFund/SideChain/accounts/abi/bind/backends"
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/core"
-	"github.com/MDCFund/SideChain/core/types"
-	"github.com/MDCFund/SideChain/crypto"
+	"github.com/EDXFund/SideChain/accounts/abi/bind"
+	"github.com/EDXFund/SideChain/accounts/abi/bind/backends"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/core"
+	"github.com/EDXFund/SideChain/core/types"
+	"github.com/EDXFund/SideChain/crypto"
 )
 
 var testKey, _ = crypto.HexToECDSA("b71c71a67e1177ad4e901695e1b4b9ee17ae16c6668d313eac2f96dbcda3f291")

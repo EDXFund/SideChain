@@ -24,10 +24,10 @@ import (
 	"strings"
 	"syscall"
 
-	"github.com/MDCFund/SideChain/cmd/utils"
-	"github.com/MDCFund/SideChain/console"
-	"github.com/MDCFund/SideChain/node"
-	"github.com/MDCFund/SideChain/rpc"
+	"github.com/EDXFund/SideChain/cmd/utils"
+	"github.com/EDXFund/SideChain/console"
+	"github.com/EDXFund/SideChain/node"
+	"github.com/EDXFund/SideChain/rpc"
 	"gopkg.in/urfave/cli.v1"
 )
 

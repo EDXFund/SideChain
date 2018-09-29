@@ -24,10 +24,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/MDCFund/SideChain/metrics"
-	"github.com/MDCFund/SideChain/swarm/chunk"
-	"github.com/MDCFund/SideChain/swarm/log"
-	"github.com/MDCFund/SideChain/swarm/spancontext"
+	"github.com/EDXFund/SideChain/metrics"
+	"github.com/EDXFund/SideChain/swarm/chunk"
+	"github.com/EDXFund/SideChain/swarm/log"
+	"github.com/EDXFund/SideChain/swarm/spancontext"
 	opentracing "github.com/opentracing/opentracing-go"
 	olog "github.com/opentracing/opentracing-go/log"
 )

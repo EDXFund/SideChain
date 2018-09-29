@@ -34,8 +34,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/MDCFund/SideChain/swarm/api"
-	"github.com/MDCFund/SideChain/swarm/storage/mru"
+	"github.com/EDXFund/SideChain/swarm/api"
+	"github.com/EDXFund/SideChain/swarm/storage/mru"
 )
 
 var (

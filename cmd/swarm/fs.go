@@ -23,10 +23,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/MDCFund/SideChain/cmd/utils"
-	"github.com/MDCFund/SideChain/node"
-	"github.com/MDCFund/SideChain/rpc"
-	"github.com/MDCFund/SideChain/swarm/fuse"
+	"github.com/EDXFund/SideChain/cmd/utils"
+	"github.com/EDXFund/SideChain/node"
+	"github.com/EDXFund/SideChain/rpc"
+	"github.com/EDXFund/SideChain/swarm/fuse"
 	"gopkg.in/urfave/cli.v1"
 )
 

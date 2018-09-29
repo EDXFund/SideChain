@@ -26,7 +26,7 @@ import (
 	"io"
 	"testing"
 
-	"github.com/MDCFund/SideChain/crypto/sha3"
+	"github.com/EDXFund/SideChain/crypto/sha3"
 )
 
 /*

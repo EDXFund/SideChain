@@ -24,8 +24,8 @@ import (
 	"runtime"
 	"testing"
 
-	"github.com/MDCFund/SideChain/crypto"
-	"github.com/MDCFund/SideChain/p2p"
+	"github.com/EDXFund/SideChain/crypto"
+	"github.com/EDXFund/SideChain/p2p"
 )
 
 // Tests that datadirs can be successfully created, be them manually configured

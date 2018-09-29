@@ -21,7 +21,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/MDCFund/SideChain/swarm/storage"
+	"github.com/EDXFund/SideChain/swarm/storage"
 )
 
 func TestParseURI(t *testing.T) {

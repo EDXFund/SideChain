@@ -19,8 +19,8 @@ package les
 import (
 	"time"
 
-	"github.com/MDCFund/SideChain/common/bitutil"
-	"github.com/MDCFund/SideChain/light"
+	"github.com/EDXFund/SideChain/common/bitutil"
+	"github.com/EDXFund/SideChain/light"
 )
 
 const (

@@ -20,7 +20,7 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/MDCFund/SideChain/params"
+	"github.com/EDXFund/SideChain/params"
 )
 
 func TestTransaction(t *testing.T) {

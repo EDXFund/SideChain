@@ -20,8 +20,8 @@ import (
 	"bytes"
 	"testing"
 
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/ethdb"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/ethdb"
 )
 
 // makeTestTrie create a sample test trie to test node-wise reconstruction.

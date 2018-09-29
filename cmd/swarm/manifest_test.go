@@ -23,8 +23,8 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/MDCFund/SideChain/swarm/api"
-	swarm "github.com/MDCFund/SideChain/swarm/api/client"
+	"github.com/EDXFund/SideChain/swarm/api"
+	swarm "github.com/EDXFund/SideChain/swarm/api/client"
 )
 
 // TestManifestChange tests manifest add, update and remove

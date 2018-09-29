@@ -21,10 +21,10 @@ import (
 	"encoding/json"
 	"sort"
 
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/core/types"
-	"github.com/MDCFund/SideChain/ethdb"
-	"github.com/MDCFund/SideChain/params"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/core/types"
+	"github.com/EDXFund/SideChain/ethdb"
+	"github.com/EDXFund/SideChain/params"
 	lru "github.com/hashicorp/golang-lru"
 )
 

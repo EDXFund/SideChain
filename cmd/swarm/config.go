@@ -29,13 +29,13 @@ import (
 
 	cli "gopkg.in/urfave/cli.v1"
 
-	"github.com/MDCFund/SideChain/cmd/utils"
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/log"
-	"github.com/MDCFund/SideChain/node"
+	"github.com/EDXFund/SideChain/cmd/utils"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/log"
+	"github.com/EDXFund/SideChain/node"
 	"github.com/naoina/toml"
 
-	bzzapi "github.com/MDCFund/SideChain/swarm/api"
+	bzzapi "github.com/EDXFund/SideChain/swarm/api"
 )
 
 var (

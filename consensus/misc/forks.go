@@ -19,9 +19,9 @@ package misc
 import (
 	"fmt"
 
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/core/types"
-	"github.com/MDCFund/SideChain/params"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/core/types"
+	"github.com/EDXFund/SideChain/params"
 )
 
 // VerifyForkHashes verifies that blocks conforming to network hard-forks do have

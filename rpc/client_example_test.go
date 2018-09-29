@@ -22,7 +22,7 @@ import (
 	"math/big"
 	"time"
 
-	"github.com/MDCFund/SideChain/rpc"
+	"github.com/EDXFund/SideChain/rpc"
 )
 
 // In this example, our client whishes to track the latest 'block number'

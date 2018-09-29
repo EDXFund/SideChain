@@ -19,9 +19,9 @@ package rpc
 import (
 	"testing"
 
-	"github.com/MDCFund/SideChain/rpc"
-	"github.com/MDCFund/SideChain/swarm/storage/mock/mem"
-	"github.com/MDCFund/SideChain/swarm/storage/mock/test"
+	"github.com/EDXFund/SideChain/rpc"
+	"github.com/EDXFund/SideChain/swarm/storage/mock/mem"
+	"github.com/EDXFund/SideChain/swarm/storage/mock/test"
 )
 
 // TestDBStore is running test for a GlobalStore

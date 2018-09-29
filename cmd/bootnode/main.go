@@ -24,13 +24,13 @@ import (
 	"net"
 	"os"
 
-	"github.com/MDCFund/SideChain/cmd/utils"
-	"github.com/MDCFund/SideChain/crypto"
-	"github.com/MDCFund/SideChain/log"
-	"github.com/MDCFund/SideChain/p2p/discover"
-	"github.com/MDCFund/SideChain/p2p/discv5"
-	"github.com/MDCFund/SideChain/p2p/nat"
-	"github.com/MDCFund/SideChain/p2p/netutil"
+	"github.com/EDXFund/SideChain/cmd/utils"
+	"github.com/EDXFund/SideChain/crypto"
+	"github.com/EDXFund/SideChain/log"
+	"github.com/EDXFund/SideChain/p2p/discover"
+	"github.com/EDXFund/SideChain/p2p/discv5"
+	"github.com/EDXFund/SideChain/p2p/nat"
+	"github.com/EDXFund/SideChain/p2p/netutil"
 )
 
 func main() {

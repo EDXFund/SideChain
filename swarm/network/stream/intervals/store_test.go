@@ -20,7 +20,7 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/MDCFund/SideChain/swarm/state"
+	"github.com/EDXFund/SideChain/swarm/state"
 )
 
 var ErrNotFound = errors.New("not found")

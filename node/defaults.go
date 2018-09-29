@@ -22,9 +22,9 @@ import (
 	"path/filepath"
 	"runtime"
 
-	"github.com/MDCFund/SideChain/p2p"
-	"github.com/MDCFund/SideChain/p2p/nat"
-	"github.com/MDCFund/SideChain/rpc"
+	"github.com/EDXFund/SideChain/p2p"
+	"github.com/EDXFund/SideChain/p2p/nat"
+	"github.com/EDXFund/SideChain/rpc"
 )
 
 const (

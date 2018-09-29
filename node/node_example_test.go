@@ -20,9 +20,9 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/MDCFund/SideChain/node"
-	"github.com/MDCFund/SideChain/p2p"
-	"github.com/MDCFund/SideChain/rpc"
+	"github.com/EDXFund/SideChain/node"
+	"github.com/EDXFund/SideChain/p2p"
+	"github.com/EDXFund/SideChain/rpc"
 )
 
 // SampleService is a trivial network service that can be attached to a node for

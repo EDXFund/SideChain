@@ -23,10 +23,10 @@ import (
 	"math/big"
 	"time"
 
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/common/hexutil"
-	"github.com/MDCFund/SideChain/common/math"
-	"github.com/MDCFund/SideChain/core/types"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/common/hexutil"
+	"github.com/EDXFund/SideChain/common/math"
+	"github.com/EDXFund/SideChain/core/types"
 )
 
 // Storage represents a contract's storage.

@@ -27,14 +27,14 @@ import (
 	"sync"
 	"time"
 
-	"github.com/MDCFund/SideChain/accounts/abi/bind"
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/contracts/chequebook"
-	"github.com/MDCFund/SideChain/contracts/chequebook/contract"
-	"github.com/MDCFund/SideChain/core/types"
-	"github.com/MDCFund/SideChain/crypto"
-	"github.com/MDCFund/SideChain/swarm/log"
-	"github.com/MDCFund/SideChain/swarm/services/swap/swap"
+	"github.com/EDXFund/SideChain/accounts/abi/bind"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/contracts/chequebook"
+	"github.com/EDXFund/SideChain/contracts/chequebook/contract"
+	"github.com/EDXFund/SideChain/core/types"
+	"github.com/EDXFund/SideChain/crypto"
+	"github.com/EDXFund/SideChain/swarm/log"
+	"github.com/EDXFund/SideChain/swarm/services/swap/swap"
 )
 
 // SwAP       Swarm Accounting Protocol with

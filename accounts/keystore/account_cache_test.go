@@ -29,8 +29,8 @@ import (
 
 	"github.com/cespare/cp"
 	"github.com/davecgh/go-spew/spew"
-	"github.com/MDCFund/SideChain/accounts"
-	"github.com/MDCFund/SideChain/common"
+	"github.com/EDXFund/SideChain/accounts"
+	"github.com/EDXFund/SideChain/common"
 )
 
 var (

@@ -6,12 +6,12 @@ package contract
 import (
 	"strings"
 
-	ethereum "github.com/MDCFund/SideChain"
-	"github.com/MDCFund/SideChain/accounts/abi"
-	"github.com/MDCFund/SideChain/accounts/abi/bind"
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/core/types"
-	"github.com/MDCFund/SideChain/event"
+	ethereum "github.com/EDXFund/SideChain"
+	"github.com/EDXFund/SideChain/accounts/abi"
+	"github.com/EDXFund/SideChain/accounts/abi/bind"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/core/types"
+	"github.com/EDXFund/SideChain/event"
 )
 
 // ENSABI is the input ABI used to generate the binding from.

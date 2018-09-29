@@ -25,7 +25,7 @@ import (
 	"strings"
 	"text/template"
 
-	"github.com/MDCFund/SideChain/log"
+	"github.com/EDXFund/SideChain/log"
 )
 
 // ethstatsDockerfile is the Dockerfile required to build an ethstats backend

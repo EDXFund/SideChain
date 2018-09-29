@@ -26,13 +26,13 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/MDCFund/SideChain/accounts"
-	"github.com/MDCFund/SideChain/ethdb"
-	"github.com/MDCFund/SideChain/event"
-	"github.com/MDCFund/SideChain/internal/debug"
-	"github.com/MDCFund/SideChain/log"
-	"github.com/MDCFund/SideChain/p2p"
-	"github.com/MDCFund/SideChain/rpc"
+	"github.com/EDXFund/SideChain/accounts"
+	"github.com/EDXFund/SideChain/ethdb"
+	"github.com/EDXFund/SideChain/event"
+	"github.com/EDXFund/SideChain/internal/debug"
+	"github.com/EDXFund/SideChain/log"
+	"github.com/EDXFund/SideChain/p2p"
+	"github.com/EDXFund/SideChain/rpc"
 	"github.com/prometheus/prometheus/util/flock"
 )
 

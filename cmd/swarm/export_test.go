@@ -27,7 +27,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/MDCFund/SideChain/swarm"
+	"github.com/EDXFund/SideChain/swarm"
 )
 
 // TestCLISwarmExportImport perform the following test:

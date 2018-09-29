@@ -19,7 +19,7 @@ package params
 import (
 	"math/big"
 
-	"github.com/MDCFund/SideChain/common"
+	"github.com/EDXFund/SideChain/common"
 )
 
 // DAOForkBlockExtra is the block header extra-data field to set for the DAO fork

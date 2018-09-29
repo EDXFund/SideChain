@@ -24,9 +24,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/core/vm"
-	"github.com/MDCFund/SideChain/params"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/core/vm"
+	"github.com/EDXFund/SideChain/params"
 )
 
 type account struct{}

@@ -26,8 +26,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/log"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/log"
 )
 
 // faucetDockerfile is the Dockerfile required to build a faucet container to

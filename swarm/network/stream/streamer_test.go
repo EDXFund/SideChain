@@ -22,8 +22,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/MDCFund/SideChain/crypto/sha3"
-	p2ptest "github.com/MDCFund/SideChain/p2p/testing"
+	"github.com/EDXFund/SideChain/crypto/sha3"
+	p2ptest "github.com/EDXFund/SideChain/p2p/testing"
 )
 
 func TestStreamerSubscribe(t *testing.T) {

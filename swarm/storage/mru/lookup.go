@@ -20,7 +20,7 @@ import (
 	"encoding/binary"
 	"hash"
 
-	"github.com/MDCFund/SideChain/swarm/storage"
+	"github.com/EDXFund/SideChain/swarm/storage"
 )
 
 // LookupParams is used to specify constraints when performing an update lookup

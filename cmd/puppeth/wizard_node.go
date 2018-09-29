@@ -21,9 +21,9 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/MDCFund/SideChain/accounts/keystore"
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/log"
+	"github.com/EDXFund/SideChain/accounts/keystore"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/log"
 )
 
 // deployNode creates a new node configuration based on some user input.

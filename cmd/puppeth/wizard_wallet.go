@@ -21,7 +21,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/MDCFund/SideChain/log"
+	"github.com/EDXFund/SideChain/log"
 )
 
 // deployWallet creates a new web wallet based on some user input.

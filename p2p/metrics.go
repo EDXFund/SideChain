@@ -21,7 +21,7 @@ package p2p
 import (
 	"net"
 
-	"github.com/MDCFund/SideChain/metrics"
+	"github.com/EDXFund/SideChain/metrics"
 )
 
 var (

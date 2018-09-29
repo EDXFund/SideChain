@@ -21,7 +21,7 @@ import (
 	"strings"
 	"unicode"
 
-	"github.com/MDCFund/SideChain/eth/tracers/internal/tracers"
+	"github.com/EDXFund/SideChain/eth/tracers/internal/tracers"
 )
 
 // all contains all the built in JavaScript tracers by name.

@@ -21,9 +21,9 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/MDCFund/SideChain/crypto/sha3"
-	"github.com/MDCFund/SideChain/swarm/chunk"
-	"github.com/MDCFund/SideChain/swarm/storage/encryption"
+	"github.com/EDXFund/SideChain/crypto/sha3"
+	"github.com/EDXFund/SideChain/swarm/chunk"
+	"github.com/EDXFund/SideChain/swarm/storage/encryption"
 )
 
 type chunkEncryption struct {

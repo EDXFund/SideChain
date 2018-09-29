@@ -28,7 +28,7 @@ import (
 	"text/template"
 	"unicode"
 
-	"github.com/MDCFund/SideChain/accounts/abi"
+	"github.com/EDXFund/SideChain/accounts/abi"
 	"golang.org/x/tools/imports"
 )
 

@@ -24,10 +24,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/MDCFund/SideChain/p2p"
-	"github.com/MDCFund/SideChain/p2p/protocols"
-	"github.com/MDCFund/SideChain/rlp"
-	"github.com/MDCFund/SideChain/swarm/log"
+	"github.com/EDXFund/SideChain/p2p"
+	"github.com/EDXFund/SideChain/p2p/protocols"
+	"github.com/EDXFund/SideChain/rlp"
+	"github.com/EDXFund/SideChain/swarm/log"
 )
 
 const (

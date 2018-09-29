@@ -17,8 +17,8 @@
 package les
 
 import (
-	"github.com/MDCFund/SideChain/metrics"
-	"github.com/MDCFund/SideChain/p2p"
+	"github.com/EDXFund/SideChain/metrics"
+	"github.com/EDXFund/SideChain/p2p"
 )
 
 var (

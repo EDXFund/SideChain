@@ -19,10 +19,10 @@ package les
 import (
 	"context"
 
-	"github.com/MDCFund/SideChain/core"
-	"github.com/MDCFund/SideChain/ethdb"
-	"github.com/MDCFund/SideChain/light"
-	"github.com/MDCFund/SideChain/log"
+	"github.com/EDXFund/SideChain/core"
+	"github.com/EDXFund/SideChain/ethdb"
+	"github.com/EDXFund/SideChain/light"
+	"github.com/EDXFund/SideChain/log"
 )
 
 // LesOdr implements light.OdrBackend

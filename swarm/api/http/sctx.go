@@ -3,8 +3,8 @@ package http
 import (
 	"context"
 
-	"github.com/MDCFund/SideChain/swarm/api"
-	"github.com/MDCFund/SideChain/swarm/sctx"
+	"github.com/EDXFund/SideChain/swarm/api"
+	"github.com/EDXFund/SideChain/swarm/sctx"
 )
 
 type contextKey int

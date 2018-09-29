@@ -19,7 +19,7 @@ package whisperv5
 import (
 	"testing"
 
-	"github.com/MDCFund/SideChain/crypto"
+	"github.com/EDXFund/SideChain/crypto"
 )
 
 func BenchmarkDeriveKeyMaterial(b *testing.B) {

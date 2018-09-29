@@ -23,8 +23,8 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/MDCFund/SideChain/core"
-	"github.com/MDCFund/SideChain/log"
+	"github.com/EDXFund/SideChain/core"
+	"github.com/EDXFund/SideChain/log"
 	"github.com/olekukonko/tablewriter"
 )
 

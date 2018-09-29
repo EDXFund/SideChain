@@ -22,10 +22,10 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/MDCFund/SideChain/cmd/utils"
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/log"
-	"github.com/MDCFund/SideChain/swarm/storage"
+	"github.com/EDXFund/SideChain/cmd/utils"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/log"
+	"github.com/EDXFund/SideChain/swarm/storage"
 	"gopkg.in/urfave/cli.v1"
 )
 

@@ -21,7 +21,7 @@ import (
 	"encoding/hex"
 	"fmt"
 
-	"github.com/MDCFund/SideChain/core/vm"
+	"github.com/EDXFund/SideChain/core/vm"
 )
 
 // Iterator for disassembled EVM instructions

@@ -17,7 +17,7 @@
 package simulation
 
 import (
-	"github.com/MDCFund/SideChain/p2p/discover"
+	"github.com/EDXFund/SideChain/p2p/discover"
 )
 
 // BucketKey is the type that should be used for keys in simulation buckets.

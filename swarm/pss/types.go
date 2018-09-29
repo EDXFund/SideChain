@@ -21,12 +21,12 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/common/hexutil"
-	"github.com/MDCFund/SideChain/p2p"
-	"github.com/MDCFund/SideChain/rlp"
-	"github.com/MDCFund/SideChain/swarm/storage"
-	whisper "github.com/MDCFund/SideChain/whisper/whisperv5"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/common/hexutil"
+	"github.com/EDXFund/SideChain/p2p"
+	"github.com/EDXFund/SideChain/rlp"
+	"github.com/EDXFund/SideChain/swarm/storage"
+	whisper "github.com/EDXFund/SideChain/whisper/whisperv5"
 )
 
 const (

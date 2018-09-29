@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/MDCFund/SideChain/swarm/log"
+	"github.com/EDXFund/SideChain/swarm/log"
 )
 
 /*
@@ -29,8 +29,8 @@ see https://github.com/ethereum/go-ethereum/issues/2040
 Usage:
 
 import (
- "github.com/MDCFund/SideChain/common/httpclient"
- "github.com/MDCFund/SideChain/swarm/api/http"
+ "github.com/EDXFund/SideChain/common/httpclient"
+ "github.com/EDXFund/SideChain/swarm/api/http"
 )
 client := httpclient.New()
 // for (private) swarm proxy running locally

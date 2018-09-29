@@ -19,7 +19,7 @@ package vm
 import (
 	"math/big"
 
-	"github.com/MDCFund/SideChain/common"
+	"github.com/EDXFund/SideChain/common"
 )
 
 // ContractRef is a reference to the contract's backing object

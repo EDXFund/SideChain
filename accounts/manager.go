@@ -21,7 +21,7 @@ import (
 	"sort"
 	"sync"
 
-	"github.com/MDCFund/SideChain/event"
+	"github.com/EDXFund/SideChain/event"
 )
 
 // Manager is an overarching account manager that can communicate with various

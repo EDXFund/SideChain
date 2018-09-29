@@ -20,8 +20,8 @@ import (
 	"encoding/binary"
 	"errors"
 
-	"github.com/MDCFund/SideChain/crypto/sha3"
-	"github.com/MDCFund/SideChain/swarm/storage/encryption"
+	"github.com/EDXFund/SideChain/crypto/sha3"
+	"github.com/EDXFund/SideChain/swarm/storage/encryption"
 )
 
 type RefEncryption struct {

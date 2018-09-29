@@ -24,12 +24,12 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/MDCFund/SideChain"
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/common/hexutil"
-	"github.com/MDCFund/SideChain/core/types"
-	"github.com/MDCFund/SideChain/rlp"
-	"github.com/MDCFund/SideChain/rpc"
+	"github.com/EDXFund/SideChain"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/common/hexutil"
+	"github.com/EDXFund/SideChain/core/types"
+	"github.com/EDXFund/SideChain/rlp"
+	"github.com/EDXFund/SideChain/rpc"
 )
 
 // Client defines typed wrappers for the Ethereum RPC API.

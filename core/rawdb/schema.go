@@ -20,8 +20,8 @@ package rawdb
 import (
 	"encoding/binary"
 
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/metrics"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/metrics"
 )
 
 // The fields below define the low level database schema prefixing.

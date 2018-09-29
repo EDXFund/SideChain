@@ -23,11 +23,11 @@ import (
 	"sync"
 	"time"
 
-	"github.com/MDCFund/SideChain/common/mclock"
-	"github.com/MDCFund/SideChain/common/prque"
-	"github.com/MDCFund/SideChain/ethdb"
-	"github.com/MDCFund/SideChain/log"
-	"github.com/MDCFund/SideChain/rlp"
+	"github.com/EDXFund/SideChain/common/mclock"
+	"github.com/EDXFund/SideChain/common/prque"
+	"github.com/EDXFund/SideChain/ethdb"
+	"github.com/EDXFund/SideChain/log"
+	"github.com/EDXFund/SideChain/rlp"
 )
 
 // freeClientPool implements a client database that limits the connection time

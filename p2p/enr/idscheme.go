@@ -21,10 +21,10 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/MDCFund/SideChain/common/math"
-	"github.com/MDCFund/SideChain/crypto"
-	"github.com/MDCFund/SideChain/crypto/sha3"
-	"github.com/MDCFund/SideChain/rlp"
+	"github.com/EDXFund/SideChain/common/math"
+	"github.com/EDXFund/SideChain/crypto"
+	"github.com/EDXFund/SideChain/crypto/sha3"
+	"github.com/EDXFund/SideChain/rlp"
 )
 
 // Registry of known identity schemes.

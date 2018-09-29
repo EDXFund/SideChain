@@ -30,8 +30,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/MDCFund/SideChain/accounts/keystore"
-	"github.com/MDCFund/SideChain/core/types"
+	"github.com/EDXFund/SideChain/accounts/keystore"
+	"github.com/EDXFund/SideChain/core/types"
 )
 
 // Tests that the account management snippets work correctly.

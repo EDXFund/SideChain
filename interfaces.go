@@ -22,8 +22,8 @@ import (
 	"errors"
 	"math/big"
 
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/core/types"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/core/types"
 )
 
 // NotFound is returned by API methods if the requested item does not exist.

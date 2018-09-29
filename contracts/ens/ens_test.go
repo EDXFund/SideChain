@@ -20,11 +20,11 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/MDCFund/SideChain/accounts/abi/bind"
-	"github.com/MDCFund/SideChain/accounts/abi/bind/backends"
-	"github.com/MDCFund/SideChain/contracts/ens/contract"
-	"github.com/MDCFund/SideChain/core"
-	"github.com/MDCFund/SideChain/crypto"
+	"github.com/EDXFund/SideChain/accounts/abi/bind"
+	"github.com/EDXFund/SideChain/accounts/abi/bind/backends"
+	"github.com/EDXFund/SideChain/contracts/ens/contract"
+	"github.com/EDXFund/SideChain/core"
+	"github.com/EDXFund/SideChain/crypto"
 )
 
 var (

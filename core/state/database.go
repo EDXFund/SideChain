@@ -20,9 +20,9 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/MDCFund/SideChain/common"
-	"github.com/MDCFund/SideChain/ethdb"
-	"github.com/MDCFund/SideChain/trie"
+	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/SideChain/ethdb"
+	"github.com/EDXFund/SideChain/trie"
 	lru "github.com/hashicorp/golang-lru"
 )
 

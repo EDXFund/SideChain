@@ -29,7 +29,7 @@ import (
 	"net"
 	"sort"
 
-	"github.com/MDCFund/SideChain/common"
+	"github.com/EDXFund/SideChain/common"
 )
 
 const (
