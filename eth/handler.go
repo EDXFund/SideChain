@@ -216,7 +216,7 @@ func (pm *ProtocolManager) Start(maxPeers int) {
 	go pm.minedBroadcastLoop()
 
 	// start sync handlers
-	go pm.syncer()
+	//go pm.syncer()   no block syncing needed in sidechain
 	go pm.txsyncLoop()
 }
 
@@ -423,6 +423,9 @@ func (pm *ProtocolManager) handleMsg(p *peer) error {
 		}
 		return p.SendBlockHeaders(headers)
 
+	
+	
+	//BlockHeader From main chain
 	case msg.Code == BlockHeadersMsg:
 		// A batch of headers arrived to one of our previous requests
 		var headers []*types.Header
@@ -476,6 +479,7 @@ func (pm *ProtocolManager) handleMsg(p *peer) error {
 			}
 		}
 
+
 	case msg.Code == GetBlockBodiesMsg:
 		// Decode the retrieval message
 		msgStream := rlp.NewStream(msg.Payload, uint64(msg.Size))
@@ -503,6 +507,7 @@ func (pm *ProtocolManager) handleMsg(p *peer) error {
 		}
 		return p.SendBlockBodiesRLP(bodies)
 
+		//Get
 	case msg.Code == BlockBodiesMsg:
 		// A batch of block bodies arrived to one of our previous requests
 		var request blockBodiesData
@@ -640,33 +645,34 @@ func (pm *ProtocolManager) handleMsg(p *peer) error {
 		if err := msg.Decode(&request); err != nil {
 			return errResp(ErrDecode, "%v: %v", msg, err)
 		}
-		request.Block.ReceivedAt = msg.ReceivedAt
-		request.Block.ReceivedFrom = p
+		if pm.state.Shard() == request.Shard {
+			request.Block.ReceivedAt = msg.ReceivedAt
+			request.Block.ReceivedFrom = p
 
-		// Mark the peer as owning the block and schedule it for import
-		p.MarkBlock(request.Block.Hash())
+			// Mark the peer as owning the block and schedule it for import
+			p.MarkBlock(request.Block.Hash())
 
-		pm.fetcher.Enqueue(p.id, request.Block)
+			pm.fetcher.Enqueue(p.id, request.Block)
 
-		// Assuming the block is importable by the peer, but possibly not yet done so,
-		// calculate the head hash and TD that the peer truly must have.
-		var (
-			trueHead = request.Block.ParentHash()
-			trueTD   = new(big.Int).Sub(request.TD, request.Block.Difficulty())
-		)
-		// Update the peers total difficulty if better than the previous
-		if _, td := p.Head(); trueTD.Cmp(td) > 0 {
-			p.SetHead(trueHead, trueTD)
+			// Assuming the block is importable by the peer, but possibly not yet done so,
+			// calculate the head hash and TD that the peer truly must have.
+			var (
+				trueHead = request.Block.ParentHash()
+				trueTD   = new(big.Int).Sub(request.TD, request.Block.Difficulty())
+			)
+			// Update the peers total difficulty if better than the previous
+			if _, td := p.Head(); trueTD.Cmp(td) > 0 {
+				p.SetHead(trueHead, trueTD)
 
-			// Schedule a sync if above ours. Note, this will not fire a sync for a gap of
-			// a singe block (as the true TD is below the propagated block), however this
-			// scenario should easily be covered by the fetcher.
-			currentBlock := pm.blockchain.CurrentBlock()
-			if trueTD.Cmp(pm.blockchain.GetTd(currentBlock.Hash(), currentBlock.NumberU64())) > 0 {
-				go pm.synchronise(p)
+				// Schedule a sync if above ours. Note, this will not fire a sync for a gap of
+				// a singe block (as the true TD is below the propagated block), however this
+				// scenario should easily be covered by the fetcher.
+				currentBlock := pm.blockchain.CurrentBlock()
+				if trueTD.Cmp(pm.blockchain.GetTd(currentBlock.Hash(), currentBlock.NumberU64())) > 0 {
+					go pm.synchronise(p)
+				}
 			}
 		}
-
 	case msg.Code == TxMsg:
 		// Transactions arrived, make sure we have a valid and fresh chain to handle them
 		if atomic.LoadUint32(&pm.acceptTxs) == 0 {
@@ -677,14 +683,21 @@ func (pm *ProtocolManager) handleMsg(p *peer) error {
 		if err := msg.Decode(&txs); err != nil {
 			return errResp(ErrDecode, "msg %v: %v", msg, err)
 		}
+		var validTxs []*types.Transaction;
 		for i, tx := range txs {
 			// Validate and mark the remote transaction
 			if tx == nil {
 				return errResp(ErrDecode, "transaction %d is nil", i)
 			}
-			p.MarkTransaction(tx.Hash())
+			hash := tx.Hash()
+			p.MarkTransaction(hash)
+			//check if it should be added to pool
+			txShard := uint16(hash.LoadUint64());
+			if pm.state.ShouldProceed(txShard) {
+				validTxs.Add(tx);
+			}
 		}
-		pm.txpool.AddRemotes(txs)
+		pm.txpool.AddRemotes(validTxs)
 
 	default:
 		return errResp(ErrInvalidMsgCode, "%v", msg.Code)
