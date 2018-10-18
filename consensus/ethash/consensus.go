@@ -24,24 +24,24 @@ import (
 	"runtime"
 	"time"
 
-	mapset "github.com/deckarep/golang-set"
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/common/math"
-	"github.com/EDXFund/SideChain/consensus"
-	"github.com/EDXFund/SideChain/consensus/misc"
-	"github.com/EDXFund/SideChain/core/state"
-	"github.com/EDXFund/SideChain/core/types"
-	"github.com/EDXFund/SideChain/crypto/sha3"
-	"github.com/EDXFund/SideChain/params"
-	"github.com/EDXFund/SideChain/rlp"
+	//mapset "github.com/deckarep/golang-set"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/common/math"
+	"github.com/EDXFund/MasterChain/consensus"
+	"github.com/EDXFund/MasterChain/consensus/misc"
+	"github.com/EDXFund/MasterChain/core/state"
+	"github.com/EDXFund/MasterChain/core/types"
+	"github.com/EDXFund/MasterChain/crypto/sha3"
+	"github.com/EDXFund/MasterChain/params"
+	"github.com/EDXFund/MasterChain/rlp"
 )
 
 // Ethash proof-of-work protocol constants.
 var (
-	FrontierBlockReward    = big.NewInt(5e+18) // Block reward in wei for successfully mining a block
-	ByzantiumBlockReward   = big.NewInt(3e+18) // Block reward in wei for successfully mining a block upward from Byzantium
-	maxUncles              = 2                 // Maximum number of uncles allowed in a single block
-	allowedFutureBlockTime = 15 * time.Second  // Max time from current time allowed for blocks, before they're considered future blocks
+	FrontierBlockReward  = big.NewInt(5e+18) // Block reward in wei for successfully mining a block
+	ByzantiumBlockReward = big.NewInt(3e+18) // Block reward in wei for successfully mining a block upward from Byzantium
+	//	maxUncles              = 2                 // Maximum number of uncles allowed in a single block
+	allowedFutureBlockTime = 15 * time.Second // Max time from current time allowed for blocks, before they're considered future blocks
 )
 
 // Various error messages to mark blocks invalid. These should be private to
@@ -167,6 +167,7 @@ func (ethash *Ethash) verifyHeaderWorker(chain consensus.ChainReader, headers []
 	return ethash.verifyHeader(chain, headers[index], parent, false, seals[index])
 }
 
+/*
 // VerifyUncles verifies that the given block's uncles conform to the consensus
 // rules of the stock Ethereum ethash engine.
 func (ethash *Ethash) VerifyUncles(chain consensus.ChainReader, block *types.Block) error {
@@ -218,7 +219,7 @@ func (ethash *Ethash) VerifyUncles(chain consensus.ChainReader, block *types.Blo
 	}
 	return nil
 }
-
+*/
 // verifyHeader checks whether a header conforms to the consensus rules of the
 // stock Ethereum ethash engine.
 // See YP section 4.3.4. "Block Header Validity"
@@ -339,11 +340,11 @@ func calcDifficultyByzantium(time uint64, parent *types.Header) *big.Int {
 	// (2 if len(parent_uncles) else 1) - (block_timestamp - parent_timestamp) // 9
 	x.Sub(bigTime, bigParentTime)
 	x.Div(x, big9)
-	if parent.UncleHash == types.EmptyUncleHash {
-		x.Sub(big1, x)
-	} else {
-		x.Sub(big2, x)
-	}
+	//	if parent.UncleHash == types.EmptyUncleHash {
+	x.Sub(big1, x)
+	//} else {
+	//		x.Sub(big2, x)
+	//}
 	// max((2 if len(parent_uncles) else 1) - (block_timestamp - parent_timestamp) // 9, -99)
 	if x.Cmp(bigMinus99) < 0 {
 		x.Set(bigMinus99)
@@ -545,22 +546,24 @@ func (ethash *Ethash) Prepare(chain consensus.ChainReader, header *types.Header)
 
 // Finalize implements consensus.Engine, accumulating the block and uncle rewards,
 // setting the final state and assembling the block.
-func (ethash *Ethash) Finalize(chain consensus.ChainReader, header *types.Header, state *state.StateDB, txs []*types.Transaction, uncles []*types.Header, receipts []*types.Receipt) (*types.Block, error) {
+func (ethash *Ethash) Finalize(chain consensus.ChainReader, header *types.Header, state *state.StateDB, txs []*types.Transaction, receipts []*types.Receipt, blockinfos []*types.ShardBlockInfo, rejections []*types.RejectInfo) (*types.Block, error) {
 	// Accumulate any block and uncle rewards and commit the final state root
-	accumulateRewards(chain.Config(), state, header, uncles)
+	accumulateRewards(chain.Config(), state, header, blockinfos)
+
 	header.Root = state.IntermediateRoot(chain.Config().IsEIP158(header.Number))
 
 	// Header seems complete, assemble into a block and return
-	return types.NewBlock(header, txs, uncles, receipts), nil
+	return types.NewBlock(header, txs, receipts, blockinfos, rejections), nil
 }
 
 // SealHash returns the hash of a block prior to it being sealed.
+////MUST TODO seal different type of header
 func (ethash *Ethash) SealHash(header *types.Header) (hash common.Hash) {
 	hasher := sha3.NewKeccak256()
 
 	rlp.Encode(hasher, []interface{}{
 		header.ParentHash,
-		header.UncleHash,
+		//	header.UncleHash,
 		header.Coinbase,
 		header.Root,
 		header.TxHash,
@@ -586,7 +589,9 @@ var (
 // AccumulateRewards credits the coinbase of the given block with the mining
 // reward. The total reward consists of the static block reward and rewards for
 // included uncles. The coinbase of each uncle block is also rewarded.
-func accumulateRewards(config *params.ChainConfig, state *state.StateDB, header *types.Header, uncles []*types.Header) {
+
+/////// MUST TODO, only called by main chain,and reward results should be distributed into shard block's coinBase
+func accumulateRewards(config *params.ChainConfig, state *state.StateDB, header *types.Header, blks []*types.ShardBlockInfo) {
 	// Select the correct block reward based on chain progression
 	blockReward := FrontierBlockReward
 	if config.IsByzantium(header.Number) {
@@ -594,8 +599,9 @@ func accumulateRewards(config *params.ChainConfig, state *state.StateDB, header 
 	}
 	// Accumulate the rewards for the miner and any included uncles
 	reward := new(big.Int).Set(blockReward)
-	r := new(big.Int)
-	for _, uncle := range uncles {
+	/*r := new(big.Int)
+	for _, blk := range blks {
+
 		r.Add(uncle.Number, big8)
 		r.Sub(r, header.Number)
 		r.Mul(r, blockReward)
@@ -604,6 +610,8 @@ func accumulateRewards(config *params.ChainConfig, state *state.StateDB, header 
 
 		r.Div(blockReward, big32)
 		reward.Add(reward, r)
-	}
+
+	}*/
+
 	state.AddBalance(header.Coinbase, reward)
 }

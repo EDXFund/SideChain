@@ -23,14 +23,14 @@ import (
 	"testing"
 	"time"
 
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/common/bitutil"
-	"github.com/EDXFund/SideChain/core/bloombits"
-	"github.com/EDXFund/SideChain/core/rawdb"
-	"github.com/EDXFund/SideChain/core/types"
-	"github.com/EDXFund/SideChain/ethdb"
-	"github.com/EDXFund/SideChain/event"
-	"github.com/EDXFund/SideChain/node"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/common/bitutil"
+	"github.com/EDXFund/MasterChain/core/bloombits"
+	"github.com/EDXFund/MasterChain/core/rawdb"
+	"github.com/EDXFund/MasterChain/core/types"
+	"github.com/EDXFund/MasterChain/ethdb"
+	"github.com/EDXFund/MasterChain/event"
+	"github.com/EDXFund/MasterChain/node"
 )
 
 func BenchmarkBloomBits512(b *testing.B) {
@@ -71,14 +71,14 @@ func benchmarkBloomBits(b *testing.B, sectionSize uint64) {
 	if err != nil {
 		b.Fatalf("error opening database at %v: %v", benchDataDir, err)
 	}
-	head := rawdb.ReadHeadBlockHash(db)
+	head := rawdb.ReadHeadBlockHash(db, uint16(types.ShardMaster))
 	if head == (common.Hash{}) {
 		b.Fatalf("chain data not found at %v", benchDataDir)
 	}
 
 	clearBloomBits(db)
 	fmt.Println("Generating bloombits data...")
-	headNum := rawdb.ReadHeaderNumber(db, head)
+	shardId, headNum := rawdb.ReadHeaderNumber(db, head)
 	if headNum == nil || *headNum < sectionSize+512 {
 		b.Fatalf("not enough blocks for running a benchmark")
 	}
@@ -93,14 +93,14 @@ func benchmarkBloomBits(b *testing.B, sectionSize uint64) {
 		}
 		var header *types.Header
 		for i := sectionIdx * sectionSize; i < (sectionIdx+1)*sectionSize; i++ {
-			hash := rawdb.ReadCanonicalHash(db, i)
-			header = rawdb.ReadHeader(db, hash, i)
+			hash := rawdb.ReadCanonicalHash(db, shardId, i)
+			header = rawdb.ReadHeader(db, hash, shardId, i)
 			if header == nil {
 				b.Fatalf("Error creating bloomBits data")
 			}
 			bc.AddBloom(uint(i-sectionIdx*sectionSize), header.Bloom)
 		}
-		sectionHead := rawdb.ReadCanonicalHash(db, (sectionIdx+1)*sectionSize-1)
+		sectionHead := rawdb.ReadCanonicalHash(db, shardId, (sectionIdx+1)*sectionSize-1)
 		for i := 0; i < types.BloomBitLength; i++ {
 			data, err := bc.Bitset(uint(i))
 			if err != nil {
@@ -174,17 +174,18 @@ func clearBloomBits(db ethdb.Database) {
 }
 
 func BenchmarkNoBloomBits(b *testing.B) {
+	shardId := uint16(0xFFFF)
 	benchDataDir := node.DefaultDataDir() + "/geth/chaindata"
 	fmt.Println("Running benchmark without bloombits")
 	db, err := ethdb.NewLDBDatabase(benchDataDir, 128, 1024)
 	if err != nil {
 		b.Fatalf("error opening database at %v: %v", benchDataDir, err)
 	}
-	head := rawdb.ReadHeadBlockHash(db)
+	head := rawdb.ReadHeadBlockHash(db, shardId)
 	if head == (common.Hash{}) {
 		b.Fatalf("chain data not found at %v", benchDataDir)
 	}
-	headNum := rawdb.ReadHeaderNumber(db, head)
+	shardId, headNum := rawdb.ReadHeaderNumber(db, head)
 
 	clearBloomBits(db)
 

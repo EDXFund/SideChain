@@ -20,7 +20,7 @@ import (
 	"errors"
 	"math/big"
 
-	"github.com/EDXFund/SideChain/params"
+	"github.com/EDXFund/MasterChain/params"
 )
 
 type (

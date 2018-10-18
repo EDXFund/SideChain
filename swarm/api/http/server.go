@@ -36,12 +36,12 @@ import (
 	"strings"
 	"time"
 
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/metrics"
-	"github.com/EDXFund/SideChain/swarm/api"
-	"github.com/EDXFund/SideChain/swarm/log"
-	"github.com/EDXFund/SideChain/swarm/storage"
-	"github.com/EDXFund/SideChain/swarm/storage/mru"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/metrics"
+	"github.com/EDXFund/MasterChain/swarm/api"
+	"github.com/EDXFund/MasterChain/swarm/log"
+	"github.com/EDXFund/MasterChain/swarm/storage"
+	"github.com/EDXFund/MasterChain/swarm/storage/mru"
 
 	"github.com/rs/cors"
 )

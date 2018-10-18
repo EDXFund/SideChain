@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"sort"
 
-	"github.com/EDXFund/SideChain/log"
+	"github.com/EDXFund/MasterChain/log"
 )
 
 // deployEthstats queries the user for various input on deploying an ethstats

@@ -23,8 +23,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/EDXFund/SideChain/log"
-	"github.com/EDXFund/SideChain/metrics"
+	"github.com/EDXFund/MasterChain/log"
+	"github.com/EDXFund/MasterChain/metrics"
 	"github.com/syndtr/goleveldb/leveldb"
 	"github.com/syndtr/goleveldb/leveldb/errors"
 	"github.com/syndtr/goleveldb/leveldb/filter"

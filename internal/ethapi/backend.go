@@ -21,17 +21,17 @@ import (
 	"context"
 	"math/big"
 
-	"github.com/EDXFund/SideChain/accounts"
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/core"
-	"github.com/EDXFund/SideChain/core/state"
-	"github.com/EDXFund/SideChain/core/types"
-	"github.com/EDXFund/SideChain/core/vm"
-	"github.com/EDXFund/SideChain/eth/downloader"
-	"github.com/EDXFund/SideChain/ethdb"
-	"github.com/EDXFund/SideChain/event"
-	"github.com/EDXFund/SideChain/params"
-	"github.com/EDXFund/SideChain/rpc"
+	"github.com/EDXFund/MasterChain/accounts"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/core"
+	"github.com/EDXFund/MasterChain/core/state"
+	"github.com/EDXFund/MasterChain/core/types"
+	"github.com/EDXFund/MasterChain/core/vm"
+	"github.com/EDXFund/MasterChain/eth/downloader"
+	"github.com/EDXFund/MasterChain/ethdb"
+	"github.com/EDXFund/MasterChain/event"
+	"github.com/EDXFund/MasterChain/params"
+	"github.com/EDXFund/MasterChain/rpc"
 )
 
 // Backend interface provides the common API services (that are provided by

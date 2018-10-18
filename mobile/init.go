@@ -22,7 +22,7 @@ import (
 	"os"
 	"runtime"
 
-	"github.com/EDXFund/SideChain/log"
+	"github.com/EDXFund/MasterChain/log"
 )
 
 func init() {

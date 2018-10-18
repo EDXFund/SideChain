@@ -20,7 +20,7 @@ import (
 	"os"
 	"sort"
 
-	"github.com/EDXFund/SideChain/log"
+	"github.com/EDXFund/MasterChain/log"
 	colorable "github.com/mattn/go-colorable"
 
 	cli "gopkg.in/urfave/cli.v1"

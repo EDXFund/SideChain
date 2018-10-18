@@ -24,7 +24,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/MasterChain/common"
 )
 
 var (

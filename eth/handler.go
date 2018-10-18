@@ -26,20 +26,20 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/consensus"
-	"github.com/EDXFund/SideChain/consensus/misc"
-	"github.com/EDXFund/SideChain/core"
-	"github.com/EDXFund/SideChain/core/types"
-	"github.com/EDXFund/SideChain/eth/downloader"
-	"github.com/EDXFund/SideChain/eth/fetcher"
-	"github.com/EDXFund/SideChain/ethdb"
-	"github.com/EDXFund/SideChain/event"
-	"github.com/EDXFund/SideChain/log"
-	"github.com/EDXFund/SideChain/p2p"
-	"github.com/EDXFund/SideChain/p2p/discover"
-	"github.com/EDXFund/SideChain/params"
-	"github.com/EDXFund/SideChain/rlp"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/consensus"
+	"github.com/EDXFund/MasterChain/consensus/misc"
+	"github.com/EDXFund/MasterChain/core"
+	"github.com/EDXFund/MasterChain/core/types"
+	"github.com/EDXFund/MasterChain/eth/downloader"
+	"github.com/EDXFund/MasterChain/eth/fetcher"
+	"github.com/EDXFund/MasterChain/ethdb"
+	"github.com/EDXFund/MasterChain/event"
+	"github.com/EDXFund/MasterChain/log"
+	"github.com/EDXFund/MasterChain/p2p"
+	"github.com/EDXFund/MasterChain/p2p/discover"
+	"github.com/EDXFund/MasterChain/params"
+	"github.com/EDXFund/MasterChain/rlp"
 )
 
 const (
@@ -94,13 +94,11 @@ type ProtocolManager struct {
 	// wait group is used for graceful shutdowns during downloading
 	// and processing
 	wg sync.WaitGroup
-
-	state   *core.SysState
 }
 
 // NewProtocolManager returns a new Ethereum sub protocol manager. The Ethereum sub protocol manages peers capable
 // with the Ethereum network.
-func NewProtocolManager(config *params.ChainConfig, mode downloader.SyncMode, networkID uint64, mux *event.TypeMux, txpool txPool, engine consensus.Engine, blockchain *core.BlockChain, chaindb ethdb.Database, sysState *core.SysState) (*ProtocolManager, error) {
+func NewProtocolManager(config *params.ChainConfig, mode downloader.SyncMode, networkID uint64, mux *event.TypeMux, txpool txPool, engine consensus.Engine, blockchain *core.BlockChain, chaindb ethdb.Database) (*ProtocolManager, error) {
 	// Create the protocol manager with the base fields
 	manager := &ProtocolManager{
 		networkID:   networkID,
@@ -113,7 +111,6 @@ func NewProtocolManager(config *params.ChainConfig, mode downloader.SyncMode, ne
 		noMorePeers: make(chan struct{}),
 		txsyncCh:    make(chan *txsync),
 		quitSync:    make(chan struct{}),
-		state:       sysState,
 	}
 	// Figure out whether to allow fast sync or not
 	if mode == downloader.FastSync && blockchain.CurrentBlock().NumberU64() > 0 {
@@ -216,7 +213,7 @@ func (pm *ProtocolManager) Start(maxPeers int) {
 	go pm.minedBroadcastLoop()
 
 	// start sync handlers
-	//go pm.syncer()   no block syncing needed in sidechain
+	go pm.syncer()
 	go pm.txsyncLoop()
 }
 
@@ -423,9 +420,6 @@ func (pm *ProtocolManager) handleMsg(p *peer) error {
 		}
 		return p.SendBlockHeaders(headers)
 
-	
-	
-	//BlockHeader From main chain
 	case msg.Code == BlockHeadersMsg:
 		// A batch of headers arrived to one of our previous requests
 		var headers []*types.Header
@@ -479,7 +473,6 @@ func (pm *ProtocolManager) handleMsg(p *peer) error {
 			}
 		}
 
-
 	case msg.Code == GetBlockBodiesMsg:
 		// Decode the retrieval message
 		msgStream := rlp.NewStream(msg.Payload, uint64(msg.Size))
@@ -507,7 +500,6 @@ func (pm *ProtocolManager) handleMsg(p *peer) error {
 		}
 		return p.SendBlockBodiesRLP(bodies)
 
-		//Get
 	case msg.Code == BlockBodiesMsg:
 		// A batch of block bodies arrived to one of our previous requests
 		var request blockBodiesData
@@ -645,34 +637,32 @@ func (pm *ProtocolManager) handleMsg(p *peer) error {
 		if err := msg.Decode(&request); err != nil {
 			return errResp(ErrDecode, "%v: %v", msg, err)
 		}
-		if pm.state.Shard() == request.Shard {
-			request.Block.ReceivedAt = msg.ReceivedAt
-			request.Block.ReceivedFrom = p
+		request.Block.ReceivedAt = msg.ReceivedAt
+		request.Block.ReceivedFrom = p
 
-			// Mark the peer as owning the block and schedule it for import
-			p.MarkBlock(request.Block.Hash())
+		// Mark the peer as owning the block and schedule it for import
+		p.MarkBlock(request.Block.Hash())
+		pm.fetcher.Enqueue(p.id, request.Block)
 
-			pm.fetcher.Enqueue(p.id, request.Block)
+		// Assuming the block is importable by the peer, but possibly not yet done so,
+		// calculate the head hash and TD that the peer truly must have.
+		var (
+			trueHead = request.Block.ParentHash()
+			trueTD   = new(big.Int).Sub(request.TD, request.Block.Difficulty())
+		)
+		// Update the peers total difficulty if better than the previous
+		if _, td := p.Head(); trueTD.Cmp(td) > 0 {
+			p.SetHead(trueHead, trueTD)
 
-			// Assuming the block is importable by the peer, but possibly not yet done so,
-			// calculate the head hash and TD that the peer truly must have.
-			var (
-				trueHead = request.Block.ParentHash()
-				trueTD   = new(big.Int).Sub(request.TD, request.Block.Difficulty())
-			)
-			// Update the peers total difficulty if better than the previous
-			if _, td := p.Head(); trueTD.Cmp(td) > 0 {
-				p.SetHead(trueHead, trueTD)
-
-				// Schedule a sync if above ours. Note, this will not fire a sync for a gap of
-				// a singe block (as the true TD is below the propagated block), however this
-				// scenario should easily be covered by the fetcher.
-				currentBlock := pm.blockchain.CurrentBlock()
-				if trueTD.Cmp(pm.blockchain.GetTd(currentBlock.Hash(), currentBlock.NumberU64())) > 0 {
-					go pm.synchronise(p)
-				}
+			// Schedule a sync if above ours. Note, this will not fire a sync for a gap of
+			// a singe block (as the true TD is below the propagated block), however this
+			// scenario should easily be covered by the fetcher.
+			currentBlock := pm.blockchain.CurrentBlock()
+			if trueTD.Cmp(pm.blockchain.GetTd(currentBlock.Hash(), currentBlock.NumberU64())) > 0 {
+				go pm.synchronise(p)
 			}
 		}
+
 	case msg.Code == TxMsg:
 		// Transactions arrived, make sure we have a valid and fresh chain to handle them
 		if atomic.LoadUint32(&pm.acceptTxs) == 0 {
@@ -683,21 +673,14 @@ func (pm *ProtocolManager) handleMsg(p *peer) error {
 		if err := msg.Decode(&txs); err != nil {
 			return errResp(ErrDecode, "msg %v: %v", msg, err)
 		}
-		var validTxs []*types.Transaction;
 		for i, tx := range txs {
 			// Validate and mark the remote transaction
 			if tx == nil {
 				return errResp(ErrDecode, "transaction %d is nil", i)
 			}
-			hash := tx.Hash()
-			p.MarkTransaction(hash)
-			//check if it should be added to pool
-			txShard := uint16(hash.LoadUint64());
-			if pm.state.ShouldProceed(txShard) {
-				validTxs.Add(tx);
-			}
+			p.MarkTransaction(tx.Hash())
 		}
-		pm.txpool.AddRemotes(validTxs)
+		pm.txpool.AddRemotes(txs)
 
 	default:
 		return errResp(ErrInvalidMsgCode, "%v", msg.Code)

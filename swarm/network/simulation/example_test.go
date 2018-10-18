@@ -22,12 +22,12 @@ import (
 	"sync"
 	"time"
 
-	"github.com/EDXFund/SideChain/log"
-	"github.com/EDXFund/SideChain/node"
-	"github.com/EDXFund/SideChain/p2p"
-	"github.com/EDXFund/SideChain/p2p/simulations/adapters"
-	"github.com/EDXFund/SideChain/swarm/network"
-	"github.com/EDXFund/SideChain/swarm/network/simulation"
+	"github.com/EDXFund/MasterChain/log"
+	"github.com/EDXFund/MasterChain/node"
+	"github.com/EDXFund/MasterChain/p2p"
+	"github.com/EDXFund/MasterChain/p2p/simulations/adapters"
+	"github.com/EDXFund/MasterChain/swarm/network"
+	"github.com/EDXFund/MasterChain/swarm/network/simulation"
 )
 
 // Every node can have a Kademlia associated using the node bucket under

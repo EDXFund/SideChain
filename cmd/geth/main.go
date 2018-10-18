@@ -29,16 +29,16 @@ import (
 	"time"
 
 	"github.com/elastic/gosigar"
-	"github.com/EDXFund/SideChain/accounts"
-	"github.com/EDXFund/SideChain/accounts/keystore"
-	"github.com/EDXFund/SideChain/cmd/utils"
-	"github.com/EDXFund/SideChain/console"
-	"github.com/EDXFund/SideChain/eth"
-	"github.com/EDXFund/SideChain/ethclient"
-	"github.com/EDXFund/SideChain/internal/debug"
-	"github.com/EDXFund/SideChain/log"
-	"github.com/EDXFund/SideChain/metrics"
-	"github.com/EDXFund/SideChain/node"
+	"github.com/EDXFund/MasterChain/accounts"
+	"github.com/EDXFund/MasterChain/accounts/keystore"
+	"github.com/EDXFund/MasterChain/cmd/utils"
+	"github.com/EDXFund/MasterChain/console"
+	"github.com/EDXFund/MasterChain/eth"
+	"github.com/EDXFund/MasterChain/ethclient"
+	"github.com/EDXFund/MasterChain/internal/debug"
+	"github.com/EDXFund/MasterChain/log"
+	"github.com/EDXFund/MasterChain/metrics"
+	"github.com/EDXFund/MasterChain/node"
 	"gopkg.in/urfave/cli.v1"
 )
 
@@ -130,7 +130,6 @@ var (
 		utils.NoCompactionFlag,
 		utils.GpoBlocksFlag,
 		utils.GpoPercentileFlag,
-		utils.ShardIdFlag,
 		configFileFlag,
 	}
 
@@ -169,7 +168,7 @@ func init() {
 	// Initialize the CLI app and start Geth
 	app.Action = geth
 	app.HideVersion = true // we have a command to print the version
-	app.Copyright = "Copyright 2018 The Edx Fundation Authors"
+	app.Copyright = "Copyright 2013-2018 The go-ethereum Authors"
 	app.Commands = []cli.Command{
 		// See chaincmd.go:
 		initCommand,

@@ -11,10 +11,11 @@ fi
 workspace="$PWD/build/_workspace"
 root="$PWD"
 ethdir="$workspace/src/github.com/EDXFund"
-if [ ! -L "$ethdir/SideChain" ]; then
+rm -fr "$ethdir/MasterChain"
+if [ ! -L "$ethdir/MasterChain" ]; then
     mkdir -p "$ethdir"
     cd "$ethdir"
-    ln -s ../../../../../. SideChain
+    ln -svf ../../../../../. MasterChain
     cd "$root"
 fi
 
@@ -23,8 +24,9 @@ GOPATH="$workspace"
 export GOPATH
 
 # Run the command inside the workspace.
-cd "$ethdir/SideChain"
-PWD="$ethdir/SideChain"
+echo "$ethdir/MasterChain"
+cd "$ethdir/MasterChain"
+PWD="$ethdir/MasterChain"
 
 # Launch the arguments with the configured environment.
 exec "$@"

@@ -26,10 +26,10 @@ package rpc
 import (
 	"fmt"
 
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/rpc"
-	"github.com/EDXFund/SideChain/swarm/log"
-	"github.com/EDXFund/SideChain/swarm/storage/mock"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/rpc"
+	"github.com/EDXFund/MasterChain/swarm/log"
+	"github.com/EDXFund/MasterChain/swarm/storage/mock"
 )
 
 // GlobalStore is rpc.Client that connects to a centralized mock store.

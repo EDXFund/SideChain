@@ -19,10 +19,10 @@ package core
 import (
 	"fmt"
 
-	"github.com/EDXFund/SideChain/consensus"
-	"github.com/EDXFund/SideChain/core/state"
-	"github.com/EDXFund/SideChain/core/types"
-	"github.com/EDXFund/SideChain/params"
+	"github.com/EDXFund/MasterChain/consensus"
+	"github.com/EDXFund/MasterChain/core/state"
+	"github.com/EDXFund/MasterChain/core/types"
+	"github.com/EDXFund/MasterChain/params"
 )
 
 // BlockValidator is responsible for validating block headers, uncles and
@@ -61,12 +61,12 @@ func (v *BlockValidator) ValidateBody(block *types.Block) error {
 	}
 	// Header validity is known at this point, check the uncles and transactions
 	header := block.Header()
-	if err := v.engine.VerifyUncles(v.bc, block); err != nil {
+	/*if err := v.engine.VerifyUncles(v.bc, block); err != nil {
 		return err
 	}
 	if hash := types.CalcUncleHash(block.Uncles()); hash != header.UncleHash {
 		return fmt.Errorf("uncle root hash mismatch: have %x, want %x", hash, header.UncleHash)
-	}
+	}*/
 	if hash := types.DeriveSha(block.Transactions()); hash != header.TxHash {
 		return fmt.Errorf("transaction root hash mismatch: have %x, want %x", hash, header.TxHash)
 	}

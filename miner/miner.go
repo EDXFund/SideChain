@@ -22,21 +22,23 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/consensus"
-	"github.com/EDXFund/SideChain/core"
-	"github.com/EDXFund/SideChain/core/state"
-	"github.com/EDXFund/SideChain/core/types"
-	"github.com/EDXFund/SideChain/eth/downloader"
-	"github.com/EDXFund/SideChain/event"
-	"github.com/EDXFund/SideChain/log"
-	"github.com/EDXFund/SideChain/params"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/consensus"
+	"github.com/EDXFund/MasterChain/core"
+	"github.com/EDXFund/MasterChain/core/state"
+	"github.com/EDXFund/MasterChain/core/types"
+	"github.com/EDXFund/MasterChain/eth/downloader"
+	"github.com/EDXFund/MasterChain/event"
+	"github.com/EDXFund/MasterChain/log"
+	"github.com/EDXFund/MasterChain/params"
 )
 
 // Backend wraps all methods required for mining.
 type Backend interface {
 	BlockChain() *core.BlockChain
 	TxPool() *core.TxPool
+	/////MUST TODO  shardChainPool
+	ShardBlockPool() *core.ShardBlockPool
 }
 
 // Miner creates blocks and searches for proof-of-work values.

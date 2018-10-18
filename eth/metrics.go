@@ -17,8 +17,8 @@
 package eth
 
 import (
-	"github.com/EDXFund/SideChain/metrics"
-	"github.com/EDXFund/SideChain/p2p"
+	"github.com/EDXFund/MasterChain/metrics"
+	"github.com/EDXFund/MasterChain/p2p"
 )
 
 var (

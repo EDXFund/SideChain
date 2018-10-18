@@ -25,30 +25,30 @@ import (
 	"sync"
 	"sync/atomic"
 
-	"github.com/EDXFund/SideChain/accounts"
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/common/hexutil"
-	"github.com/EDXFund/SideChain/consensus"
-	"github.com/EDXFund/SideChain/consensus/clique"
-	"github.com/EDXFund/SideChain/consensus/ethash"
-	"github.com/EDXFund/SideChain/core"
-	"github.com/EDXFund/SideChain/core/bloombits"
-	"github.com/EDXFund/SideChain/core/rawdb"
-	"github.com/EDXFund/SideChain/core/types"
-	"github.com/EDXFund/SideChain/core/vm"
-	"github.com/EDXFund/SideChain/eth/downloader"
-	"github.com/EDXFund/SideChain/eth/filters"
-	"github.com/EDXFund/SideChain/eth/gasprice"
-	"github.com/EDXFund/SideChain/ethdb"
-	"github.com/EDXFund/SideChain/event"
-	"github.com/EDXFund/SideChain/internal/ethapi"
-	"github.com/EDXFund/SideChain/log"
-	"github.com/EDXFund/SideChain/miner"
-	"github.com/EDXFund/SideChain/node"
-	"github.com/EDXFund/SideChain/p2p"
-	"github.com/EDXFund/SideChain/params"
-	"github.com/EDXFund/SideChain/rlp"
-	"github.com/EDXFund/SideChain/rpc"
+	"github.com/EDXFund/MasterChain/accounts"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/common/hexutil"
+	"github.com/EDXFund/MasterChain/consensus"
+	"github.com/EDXFund/MasterChain/consensus/clique"
+	"github.com/EDXFund/MasterChain/consensus/ethash"
+	"github.com/EDXFund/MasterChain/core"
+	"github.com/EDXFund/MasterChain/core/bloombits"
+	"github.com/EDXFund/MasterChain/core/rawdb"
+	"github.com/EDXFund/MasterChain/core/types"
+	"github.com/EDXFund/MasterChain/core/vm"
+	"github.com/EDXFund/MasterChain/eth/downloader"
+	"github.com/EDXFund/MasterChain/eth/filters"
+	"github.com/EDXFund/MasterChain/eth/gasprice"
+	"github.com/EDXFund/MasterChain/ethdb"
+	"github.com/EDXFund/MasterChain/event"
+	"github.com/EDXFund/MasterChain/internal/ethapi"
+	"github.com/EDXFund/MasterChain/log"
+	"github.com/EDXFund/MasterChain/miner"
+	"github.com/EDXFund/MasterChain/node"
+	"github.com/EDXFund/MasterChain/p2p"
+	"github.com/EDXFund/MasterChain/params"
+	"github.com/EDXFund/MasterChain/rlp"
+	"github.com/EDXFund/MasterChain/rpc"
 )
 
 type LesServer interface {
@@ -68,7 +68,7 @@ type Ethereum struct {
 
 	// Handlers
 	txPool          *core.TxPool
-	sysState        *core.SysState
+	shardBlockPool  *core.S
 	blockchain      *core.BlockChain
 	protocolManager *ProtocolManager
 	lesServer       LesServer
@@ -90,6 +90,7 @@ type Ethereum struct {
 	etherbase common.Address
 
 	networkID     uint64
+	shardId       uint16
 	netRPCService *ethapi.PublicNetAPI
 
 	lock sync.RWMutex // Protects the variadic fields (e.g. gas price and etherbase)
@@ -102,7 +103,8 @@ func (s *Ethereum) AddLesServer(ls LesServer) {
 
 // New creates a new Ethereum object (including the
 // initialisation of the common Ethereum object)
-func New(ctx *node.ServiceContext, config *Config) (*Ethereum, error) {
+// add parameter shardId to this function, enabling change shardId dynamically
+func New(ctx *node.ServiceContext, config *Config, shardId uint16) (*Ethereum, error) {
 	// Ensure configuration values are compatible and sane
 	if config.SyncMode == downloader.LightSync {
 		return nil, errors.New("can't run eth.Ethereum in light sync mode, use les.LightEthereum")
@@ -119,13 +121,14 @@ func New(ctx *node.ServiceContext, config *Config) (*Ethereum, error) {
 	if err != nil {
 		return nil, err
 	}
-	chainConfig, genesisHash, genesisErr := core.SetupGenesisBlock(chainDb, config.Genesis)
+	chainConfig, genesisHash, genesisErr := core.SetupGenesisBlock(chainDb, config.Genesis, shardId)
 	if _, ok := genesisErr.(*params.ConfigCompatError); genesisErr != nil && !ok {
 		return nil, genesisErr
 	}
 	log.Info("Initialised chain configuration", "config", chainConfig)
 
 	eth := &Ethereum{
+		shardId:        shardId, //add shard to node
 		config:         config,
 		chainDb:        chainDb,
 		chainConfig:    chainConfig,
@@ -137,7 +140,7 @@ func New(ctx *node.ServiceContext, config *Config) (*Ethereum, error) {
 		gasPrice:       config.MinerGasPrice,
 		etherbase:      config.Etherbase,
 		bloomRequests:  make(chan chan *bloombits.Retrieval),
-		bloomIndexer:   NewBloomIndexer(chainDb, params.BloomBitsBlocks, params.BloomConfirms),
+		bloomIndexer:   NewBloomIndexer(chainDb, shardId, params.BloomBitsBlocks, params.BloomConfirms),
 	}
 
 	log.Info("Initialising Ethereum protocol", "versions", ProtocolVersions, "network", config.NetworkId)
@@ -149,15 +152,11 @@ func New(ctx *node.ServiceContext, config *Config) (*Ethereum, error) {
 		}
 		rawdb.WriteDatabaseVersion(chainDb, core.BlockChainVersion)
 	}
-
-	eth.sysState = core.NewSystemState();
-	eth.sysState.Reset(0xffff);
-
 	var (
 		vmConfig    = vm.Config{EnablePreimageRecording: config.EnablePreimageRecording}
 		cacheConfig = &core.CacheConfig{Disabled: config.NoPruning, TrieNodeLimit: config.TrieCache, TrieTimeLimit: config.TrieTimeout}
 	)
-	eth.blockchain, err = core.NewBlockChain(chainDb, cacheConfig, eth.chainConfig, eth.engine, vmConfig,eth.sysState)
+	eth.blockchain, err = core.NewBlockChain(chainDb, cacheConfig, eth.chainConfig, eth.engine, vmConfig, shardId)
 	if err != nil {
 		return nil, err
 	}
@@ -174,9 +173,7 @@ func New(ctx *node.ServiceContext, config *Config) (*Ethereum, error) {
 	}
 	eth.txPool = core.NewTxPool(config.TxPool, eth.chainConfig, eth.blockchain)
 
-
-	
-	if eth.protocolManager, err = NewProtocolManager(eth.chainConfig, config.SyncMode, config.NetworkId, eth.eventMux, eth.txPool, eth.engine, eth.blockchain, chainDb,eth.sysState); err != nil {
+	if eth.protocolManager, err = NewProtocolManager(eth.chainConfig, config.SyncMode, config.NetworkId, eth.eventMux, eth.txPool, eth.engine, eth.blockchain, chainDb); err != nil {
 		return nil, err
 	}
 
@@ -419,6 +416,7 @@ func (s *Ethereum) IsListening() bool                  { return true } // Always
 func (s *Ethereum) EthVersion() int                    { return int(s.protocolManager.SubProtocols[0].Version) }
 func (s *Ethereum) NetVersion() uint64                 { return s.networkID }
 func (s *Ethereum) Downloader() *downloader.Downloader { return s.protocolManager.downloader }
+func (s *Ethereum) ShardId() uint16                    { return s.shardId }
 
 // Protocols implements node.Service, returning all the currently configured
 // network protocols to start.

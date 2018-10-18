@@ -22,11 +22,11 @@ import (
 	"sort"
 	"sync"
 
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/core/types"
-	"github.com/EDXFund/SideChain/internal/ethapi"
-	"github.com/EDXFund/SideChain/params"
-	"github.com/EDXFund/SideChain/rpc"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/core/types"
+	"github.com/EDXFund/MasterChain/internal/ethapi"
+	"github.com/EDXFund/MasterChain/params"
+	"github.com/EDXFund/MasterChain/rpc"
 )
 
 var maxPrice = big.NewInt(500 * params.GWei)

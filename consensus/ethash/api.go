@@ -19,9 +19,9 @@ package ethash
 import (
 	"errors"
 
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/common/hexutil"
-	"github.com/EDXFund/SideChain/core/types"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/common/hexutil"
+	"github.com/EDXFund/MasterChain/core/types"
 )
 
 var errEthashStopped = errors.New("ethash stopped")

@@ -25,13 +25,13 @@ import (
 	"sort"
 	"testing"
 
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/crypto"
-	"github.com/EDXFund/SideChain/swarm/api"
-	swarmhttp "github.com/EDXFund/SideChain/swarm/api/http"
-	"github.com/EDXFund/SideChain/swarm/multihash"
-	"github.com/EDXFund/SideChain/swarm/storage/mru"
-	"github.com/EDXFund/SideChain/swarm/testutil"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/crypto"
+	"github.com/EDXFund/MasterChain/swarm/api"
+	swarmhttp "github.com/EDXFund/MasterChain/swarm/api/http"
+	"github.com/EDXFund/MasterChain/swarm/multihash"
+	"github.com/EDXFund/MasterChain/swarm/storage/mru"
+	"github.com/EDXFund/MasterChain/swarm/testutil"
 )
 
 func serverFunc(api *api.API) testutil.TestServer {

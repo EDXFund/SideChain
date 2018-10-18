@@ -22,12 +22,12 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/EDXFund/SideChain"
-	"github.com/EDXFund/SideChain/accounts/abi"
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/core/types"
-	"github.com/EDXFund/SideChain/crypto"
-	"github.com/EDXFund/SideChain/event"
+	"github.com/EDXFund/MasterChain"
+	"github.com/EDXFund/MasterChain/accounts/abi"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/core/types"
+	"github.com/EDXFund/MasterChain/crypto"
+	"github.com/EDXFund/MasterChain/event"
 )
 
 // SignerFn is a signer function callback when a contract requires a method to

@@ -21,7 +21,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/EDXFund/SideChain/common/mclock"
+	"github.com/EDXFund/MasterChain/common/mclock"
 )
 
 // Subscription represents a stream of events. The carrier of the events is typically a

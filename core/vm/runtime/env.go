@@ -17,9 +17,9 @@
 package runtime
 
 import (
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/core"
-	"github.com/EDXFund/SideChain/core/vm"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/core"
+	"github.com/EDXFund/MasterChain/core/vm"
 )
 
 func NewEnv(cfg *Config) *vm.EVM {

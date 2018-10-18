@@ -23,9 +23,9 @@ import (
 	"os"
 	"testing"
 
-	"github.com/EDXFund/SideChain/swarm/api"
-	"github.com/EDXFund/SideChain/swarm/storage"
-	"github.com/EDXFund/SideChain/swarm/storage/mru"
+	"github.com/EDXFund/MasterChain/swarm/api"
+	"github.com/EDXFund/MasterChain/swarm/storage"
+	"github.com/EDXFund/MasterChain/swarm/storage/mru"
 )
 
 type TestServer interface {

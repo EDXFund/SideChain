@@ -27,11 +27,11 @@ import (
 	"os"
 	"testing"
 
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/core/types"
-	"github.com/EDXFund/SideChain/log"
-	"github.com/EDXFund/SideChain/swarm/sctx"
-	"github.com/EDXFund/SideChain/swarm/storage"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/core/types"
+	"github.com/EDXFund/MasterChain/log"
+	"github.com/EDXFund/MasterChain/swarm/sctx"
+	"github.com/EDXFund/MasterChain/swarm/storage"
 )
 
 func init() {

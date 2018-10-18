@@ -25,15 +25,15 @@ import (
 	"sync/atomic"
 	"time"
 
-	ethereum "github.com/EDXFund/SideChain"
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/core/rawdb"
-	"github.com/EDXFund/SideChain/core/types"
-	"github.com/EDXFund/SideChain/ethdb"
-	"github.com/EDXFund/SideChain/event"
-	"github.com/EDXFund/SideChain/log"
-	"github.com/EDXFund/SideChain/metrics"
-	"github.com/EDXFund/SideChain/params"
+	ethereum "github.com/EDXFund/MasterChain"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/core/rawdb"
+	"github.com/EDXFund/MasterChain/core/types"
+	"github.com/EDXFund/MasterChain/ethdb"
+	"github.com/EDXFund/MasterChain/event"
+	"github.com/EDXFund/MasterChain/log"
+	"github.com/EDXFund/MasterChain/metrics"
+	"github.com/EDXFund/MasterChain/params"
 )
 
 var (
@@ -153,7 +153,7 @@ type Downloader struct {
 // LightChain encapsulates functions required to synchronise a light chain.
 type LightChain interface {
 	// HasHeader verifies a header's presence in the local chain.
-	HasHeader(common.Hash, uint64) bool
+	HasHeader(shardId uint16,common.Hash, uint64) bool
 
 	// GetHeaderByHash retrieves a header from the local chain.
 	GetHeaderByHash(common.Hash) *types.Header
@@ -169,6 +169,8 @@ type LightChain interface {
 
 	// Rollback removes a few recently added elements from the local chain.
 	Rollback([]common.Hash)
+
+	ShardId() uint16
 }
 
 // BlockChain encapsulates functions required to sync a (full or fast) blockchain.
@@ -224,7 +226,7 @@ func New(mode SyncMode, stateDb ethdb.Database, mux *event.TypeMux, chain BlockC
 		stateCh:        make(chan dataPack),
 		stateSyncStart: make(chan *stateSync),
 		syncStatsState: stateSyncStats{
-			processed: rawdb.ReadFastTrieProgress(stateDb),
+			processed: rawdb.ReadFastTrieProgress(stateDb, lightchain.ShardId()),
 		},
 		trackStateReq: make(chan *stateReq),
 	}
@@ -658,7 +660,7 @@ func (d *Downloader) findAncestor(p *peerConnection, height uint64) (uint64, err
 					continue
 				}
 				// Otherwise check if we already know the header or not
-				if (d.mode == FullSync && d.blockchain.HasBlock(headers[i].Hash(), headers[i].Number.Uint64())) || (d.mode != FullSync && d.lightchain.HasHeader(headers[i].Hash(), headers[i].Number.Uint64())) {
+				if (d.mode == FullSync && d.blockchain.HasBlock(headers[i].shardId,headers[i].Hash(), headers[i].Number.Uint64())) || (d.mode != FullSync && d.lightchain.HasHeader(headers[i].shardId,headers[i].Hash(), headers[i].Number.Uint64())) {
 					number, hash = headers[i].Number.Uint64(), headers[i].Hash()
 
 					// If every header is known, even future ones, the peer straight out lied about its head
@@ -1260,7 +1262,7 @@ func (d *Downloader) processHeaders(origin uint64, pivot uint64, td *big.Int) er
 					// Collect the yet unknown headers to mark them as uncertain
 					unknown := make([]*types.Header, 0, len(headers))
 					for _, header := range chunk {
-						if !d.lightchain.HasHeader(header.Hash(), header.Number.Uint64()) {
+						if !d.lightchain.HasHeader(header.shardId,header.Hash(), header.Number.Uint64()) {
 							unknown = append(unknown, header)
 						}
 					}
@@ -1355,8 +1357,9 @@ func (d *Downloader) importBlockResults(results []*fetchResult) error {
 		"lastnum", last.Number, "lasthash", last.Hash(),
 	)
 	blocks := make([]*types.Block, len(results))
+	////MUST TODO  deal with shard
 	for i, result := range results {
-		blocks[i] = types.NewBlockWithHeader(result.Header).WithBody(result.Transactions, result.Uncles)
+		blocks[i] = types.NewBlockWithHeader(result.Header).WithBody(result.Transactions, nil, nil, nil)
 	}
 	if index, err := d.blockchain.InsertChain(blocks); err != nil {
 		log.Debug("Downloaded item processing failed", "number", results[index].Header.Number, "hash", results[index].Header.Hash(), "err", err)
@@ -1498,7 +1501,8 @@ func (d *Downloader) commitFastSyncData(results []*fetchResult, stateSync *state
 	blocks := make([]*types.Block, len(results))
 	receipts := make([]types.Receipts, len(results))
 	for i, result := range results {
-		blocks[i] = types.NewBlockWithHeader(result.Header).WithBody(result.Transactions, result.Uncles)
+		//MUST TODO
+		blocks[i] = types.NewBlockWithHeader(result.Header).WithBody(result.Transactions, nil, nil, nil)
 		receipts[i] = result.Receipts
 	}
 	if index, err := d.blockchain.InsertReceiptChain(blocks, receipts); err != nil {
@@ -1509,7 +1513,8 @@ func (d *Downloader) commitFastSyncData(results []*fetchResult, stateSync *state
 }
 
 func (d *Downloader) commitPivotBlock(result *fetchResult) error {
-	block := types.NewBlockWithHeader(result.Header).WithBody(result.Transactions, result.Uncles)
+	////MUST TODO
+	block := types.NewBlockWithHeader(result.Header).WithBody(result.Transactions, nil, nil, nil)
 	log.Debug("Committing fast sync pivot as new head", "number", block.Number(), "hash", block.Hash())
 	if _, err := d.blockchain.InsertReceiptChain([]*types.Block{block}, []types.Receipts{result.Receipts}); err != nil {
 		return err

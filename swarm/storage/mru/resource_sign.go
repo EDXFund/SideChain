@@ -19,8 +19,8 @@ package mru
 import (
 	"crypto/ecdsa"
 
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/crypto"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/crypto"
 )
 
 const signatureLength = 65

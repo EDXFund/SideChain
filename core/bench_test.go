@@ -23,15 +23,15 @@ import (
 	"os"
 	"testing"
 
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/common/math"
-	"github.com/EDXFund/SideChain/consensus/ethash"
-	"github.com/EDXFund/SideChain/core/rawdb"
-	"github.com/EDXFund/SideChain/core/types"
-	"github.com/EDXFund/SideChain/core/vm"
-	"github.com/EDXFund/SideChain/crypto"
-	"github.com/EDXFund/SideChain/ethdb"
-	"github.com/EDXFund/SideChain/params"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/common/math"
+	"github.com/EDXFund/MasterChain/consensus/ethash"
+	"github.com/EDXFund/MasterChain/core/rawdb"
+	"github.com/EDXFund/MasterChain/core/types"
+	"github.com/EDXFund/MasterChain/core/vm"
+	"github.com/EDXFund/MasterChain/crypto"
+	"github.com/EDXFund/MasterChain/ethdb"
+	"github.com/EDXFund/MasterChain/params"
 )
 
 func BenchmarkInsertChain_empty_memdb(b *testing.B) {
@@ -171,7 +171,7 @@ func benchInsertChain(b *testing.B, disk bool, gen func(int, *BlockGen)) {
 		Alloc:  GenesisAlloc{benchRootAddr: {Balance: benchRootFunds}},
 	}
 	genesis := gspec.MustCommit(db)
-	chain, _ := GenerateChain(gspec.Config, genesis, ethash.NewFaker(), db, b.N, gen)
+	chain, _ := GenerateChain(gspec.Config, genesis, ethash.NewFaker(), db, b.N, gen, 0xFFFF)
 
 	// Time the insertion of the new chain.
 	// State and blocks are stored in the same DB.
@@ -238,13 +238,13 @@ func makeChainForBench(db ethdb.Database, full bool, count uint64) {
 		hash = header.Hash()
 
 		rawdb.WriteHeader(db, header)
-		rawdb.WriteCanonicalHash(db, hash, n)
+		rawdb.WriteCanonicalHash(db, hash, header.ShardId, n)
 		rawdb.WriteTd(db, hash, n, big.NewInt(int64(n+1)))
 
 		if full || n == 0 {
 			block := types.NewBlockWithHeader(header)
-			rawdb.WriteBody(db, hash, n, block.Body())
-			rawdb.WriteReceipts(db, hash, n, nil)
+			rawdb.WriteBody(db, hash, header.ShardId, n, block.Body())
+			rawdb.WriteReceipts(db, hash, header.ShardId, n, nil)
 		}
 	}
 }
@@ -297,7 +297,7 @@ func benchReadChain(b *testing.B, full bool, count uint64) {
 			if full {
 				hash := header.Hash()
 				rawdb.ReadBody(db, hash, n)
-				rawdb.ReadReceipts(db, hash, n)
+				rawdb.ReadReceipts(db, hash, header.ShardId(), n)
 			}
 		}
 		chain.Stop()

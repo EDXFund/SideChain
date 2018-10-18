@@ -21,9 +21,9 @@ import (
 	"errors"
 	"math/big"
 
-	"github.com/EDXFund/SideChain/core/state"
-	"github.com/EDXFund/SideChain/core/types"
-	"github.com/EDXFund/SideChain/params"
+	"github.com/EDXFund/MasterChain/core/state"
+	"github.com/EDXFund/MasterChain/core/types"
+	"github.com/EDXFund/MasterChain/params"
 )
 
 var (

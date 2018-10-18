@@ -26,14 +26,14 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/common/mclock"
-	"github.com/EDXFund/SideChain/event"
-	"github.com/EDXFund/SideChain/log"
-	"github.com/EDXFund/SideChain/p2p/discover"
-	"github.com/EDXFund/SideChain/p2p/discv5"
-	"github.com/EDXFund/SideChain/p2p/nat"
-	"github.com/EDXFund/SideChain/p2p/netutil"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/common/mclock"
+	"github.com/EDXFund/MasterChain/event"
+	"github.com/EDXFund/MasterChain/log"
+	"github.com/EDXFund/MasterChain/p2p/discover"
+	"github.com/EDXFund/MasterChain/p2p/discv5"
+	"github.com/EDXFund/MasterChain/p2p/nat"
+	"github.com/EDXFund/MasterChain/p2p/netutil"
 )
 
 const (

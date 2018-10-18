@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/EDXFund/SideChain/cmd/utils"
+	"github.com/EDXFund/MasterChain/cmd/utils"
 	"gopkg.in/urfave/cli.v1"
 )
 

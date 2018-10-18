@@ -19,7 +19,7 @@ package mem
 import (
 	"testing"
 
-	"github.com/EDXFund/SideChain/swarm/storage/mock/test"
+	"github.com/EDXFund/MasterChain/swarm/storage/mock/test"
 )
 
 // TestGlobalStore is running test for a GlobalStore

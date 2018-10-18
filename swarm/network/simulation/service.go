@@ -17,9 +17,9 @@
 package simulation
 
 import (
-	"github.com/EDXFund/SideChain/node"
-	"github.com/EDXFund/SideChain/p2p/discover"
-	"github.com/EDXFund/SideChain/p2p/simulations/adapters"
+	"github.com/EDXFund/MasterChain/node"
+	"github.com/EDXFund/MasterChain/p2p/discover"
+	"github.com/EDXFund/MasterChain/p2p/simulations/adapters"
 )
 
 // Service returns a single Service by name on a particular node

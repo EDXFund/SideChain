@@ -20,7 +20,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/EDXFund/SideChain/swarm/api"
+	"github.com/EDXFund/MasterChain/swarm/api"
 )
 
 const (

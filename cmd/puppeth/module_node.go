@@ -26,8 +26,8 @@ import (
 	"strings"
 	"text/template"
 
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/log"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/log"
 )
 
 // nodeDockerfile is the Dockerfile required to run an Ethereum node.

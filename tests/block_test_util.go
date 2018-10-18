@@ -24,17 +24,17 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/common/hexutil"
-	"github.com/EDXFund/SideChain/common/math"
-	"github.com/EDXFund/SideChain/consensus/ethash"
-	"github.com/EDXFund/SideChain/core"
-	"github.com/EDXFund/SideChain/core/state"
-	"github.com/EDXFund/SideChain/core/types"
-	"github.com/EDXFund/SideChain/core/vm"
-	"github.com/EDXFund/SideChain/ethdb"
-	"github.com/EDXFund/SideChain/params"
-	"github.com/EDXFund/SideChain/rlp"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/common/hexutil"
+	"github.com/EDXFund/MasterChain/common/math"
+	"github.com/EDXFund/MasterChain/consensus/ethash"
+	"github.com/EDXFund/MasterChain/core"
+	"github.com/EDXFund/MasterChain/core/state"
+	"github.com/EDXFund/MasterChain/core/types"
+	"github.com/EDXFund/MasterChain/core/vm"
+	"github.com/EDXFund/MasterChain/ethdb"
+	"github.com/EDXFund/MasterChain/params"
+	"github.com/EDXFund/MasterChain/rlp"
 )
 
 // A BlockTest checks handling of entire blocks.

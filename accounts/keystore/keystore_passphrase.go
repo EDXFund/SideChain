@@ -37,9 +37,9 @@ import (
 	"io/ioutil"
 	"path/filepath"
 
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/common/math"
-	"github.com/EDXFund/SideChain/crypto"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/common/math"
+	"github.com/EDXFund/MasterChain/crypto"
 	"github.com/pborman/uuid"
 	"golang.org/x/crypto/pbkdf2"
 	"golang.org/x/crypto/scrypt"

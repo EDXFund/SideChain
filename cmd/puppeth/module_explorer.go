@@ -25,7 +25,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/EDXFund/SideChain/log"
+	"github.com/EDXFund/MasterChain/log"
 )
 
 // explorerDockerfile is the Dockerfile required to run a block explorer.

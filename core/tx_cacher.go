@@ -19,7 +19,7 @@ package core
 import (
 	"runtime"
 
-	"github.com/EDXFund/SideChain/core/types"
+	"github.com/EDXFund/MasterChain/core/types"
 )
 
 // senderCacher is a concurrent transaction sender recoverer anc cacher.

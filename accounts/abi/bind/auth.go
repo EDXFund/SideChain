@@ -22,10 +22,10 @@ import (
 	"io"
 	"io/ioutil"
 
-	"github.com/EDXFund/SideChain/accounts/keystore"
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/core/types"
-	"github.com/EDXFund/SideChain/crypto"
+	"github.com/EDXFund/MasterChain/accounts/keystore"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/core/types"
+	"github.com/EDXFund/MasterChain/crypto"
 )
 
 // NewTransactor is a utility method to easily create a transaction signer from

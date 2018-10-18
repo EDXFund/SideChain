@@ -24,10 +24,10 @@ import (
 	"time"
 
 	mapset "github.com/deckarep/golang-set"
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/core/types"
-	"github.com/EDXFund/SideChain/p2p"
-	"github.com/EDXFund/SideChain/rlp"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/core/types"
+	"github.com/EDXFund/MasterChain/p2p"
+	"github.com/EDXFund/MasterChain/rlp"
 )
 
 var (
@@ -78,7 +78,6 @@ type peer struct {
 	*p2p.Peer
 	rw p2p.MsgReadWriter
 
-	shardId  uint16
 	version  int         // Protocol version negotiated
 	forkDrop *time.Timer // Timed connection dropper if forks aren't validated in time
 
@@ -342,7 +341,6 @@ func (p *peer) Handshake(network uint64, td *big.Int, head common.Hash, genesis 
 			TD:              td,
 			CurrentBlock:    head,
 			GenesisBlock:    genesis,
-			ShardId:		 p.shardId,
 		})
 	}()
 	go func() {
@@ -387,10 +385,6 @@ func (p *peer) readStatus(network uint64, status *statusData, genesis common.Has
 	}
 	if int(status.ProtocolVersion) != p.version {
 		return errResp(ErrProtocolVersionMismatch, "%d (!= %d)", status.ProtocolVersion, p.version)
-	}
-	//子链只连接同一子链或是主链的节点
-	if uint16(status.ShardId) != p.shardId && uint16(status.ShardId) != 0xFFF {
-		return errResp(ErrShardIdMismatch, "%d (!= %d)", status.ShardId, p.shardId)
 	}
 	return nil
 }

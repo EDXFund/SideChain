@@ -20,7 +20,7 @@ import (
 	"errors"
 	"math/big"
 
-	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/MasterChain/common"
 )
 
 const Version = "1.0"

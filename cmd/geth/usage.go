@@ -24,8 +24,8 @@ import (
 
 	"strings"
 
-	"github.com/EDXFund/SideChain/cmd/utils"
-	"github.com/EDXFund/SideChain/internal/debug"
+	"github.com/EDXFund/MasterChain/cmd/utils"
+	"github.com/EDXFund/MasterChain/internal/debug"
 	"gopkg.in/urfave/cli.v1"
 )
 

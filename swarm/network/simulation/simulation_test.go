@@ -24,11 +24,11 @@ import (
 	"testing"
 	"time"
 
-	"github.com/EDXFund/SideChain/log"
-	"github.com/EDXFund/SideChain/node"
-	"github.com/EDXFund/SideChain/p2p"
-	"github.com/EDXFund/SideChain/p2p/simulations/adapters"
-	"github.com/EDXFund/SideChain/rpc"
+	"github.com/EDXFund/MasterChain/log"
+	"github.com/EDXFund/MasterChain/node"
+	"github.com/EDXFund/MasterChain/p2p"
+	"github.com/EDXFund/MasterChain/p2p/simulations/adapters"
+	"github.com/EDXFund/MasterChain/rpc"
 	colorable "github.com/mattn/go-colorable"
 )
 

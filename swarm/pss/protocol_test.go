@@ -25,10 +25,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/p2p"
-	"github.com/EDXFund/SideChain/p2p/discover"
-	"github.com/EDXFund/SideChain/swarm/log"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/p2p"
+	"github.com/EDXFund/MasterChain/p2p/discover"
+	"github.com/EDXFund/MasterChain/swarm/log"
 )
 
 type protoCtrl struct {

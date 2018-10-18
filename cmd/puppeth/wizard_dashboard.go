@@ -19,7 +19,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/EDXFund/SideChain/log"
+	"github.com/EDXFund/MasterChain/log"
 )
 
 // deployDashboard queries the user for various input on deploying a web-service

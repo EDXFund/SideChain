@@ -27,12 +27,12 @@ import (
 
 	cli "gopkg.in/urfave/cli.v1"
 
-	"github.com/EDXFund/SideChain/cmd/utils"
-	"github.com/EDXFund/SideChain/dashboard"
-	"github.com/EDXFund/SideChain/eth"
-	"github.com/EDXFund/SideChain/node"
-	"github.com/EDXFund/SideChain/params"
-	whisper "github.com/EDXFund/SideChain/whisper/whisperv6"
+	"github.com/EDXFund/MasterChain/cmd/utils"
+	"github.com/EDXFund/MasterChain/dashboard"
+	"github.com/EDXFund/MasterChain/eth"
+	"github.com/EDXFund/MasterChain/node"
+	"github.com/EDXFund/MasterChain/params"
+	whisper "github.com/EDXFund/MasterChain/whisper/whisperv6"
 	"github.com/naoina/toml"
 )
 

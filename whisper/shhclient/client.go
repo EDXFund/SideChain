@@ -19,10 +19,10 @@ package shhclient
 import (
 	"context"
 
-	"github.com/EDXFund/SideChain"
-	"github.com/EDXFund/SideChain/common/hexutil"
-	"github.com/EDXFund/SideChain/rpc"
-	whisper "github.com/EDXFund/SideChain/whisper/whisperv6"
+	"github.com/EDXFund/MasterChain"
+	"github.com/EDXFund/MasterChain/common/hexutil"
+	"github.com/EDXFund/MasterChain/rpc"
+	whisper "github.com/EDXFund/MasterChain/whisper/whisperv6"
 )
 
 // Client defines typed wrappers for the Whisper v6 RPC API.

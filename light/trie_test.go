@@ -23,13 +23,13 @@ import (
 	"testing"
 
 	"github.com/davecgh/go-spew/spew"
-	"github.com/EDXFund/SideChain/consensus/ethash"
-	"github.com/EDXFund/SideChain/core"
-	"github.com/EDXFund/SideChain/core/state"
-	"github.com/EDXFund/SideChain/core/vm"
-	"github.com/EDXFund/SideChain/ethdb"
-	"github.com/EDXFund/SideChain/params"
-	"github.com/EDXFund/SideChain/trie"
+	"github.com/EDXFund/MasterChain/consensus/ethash"
+	"github.com/EDXFund/MasterChain/core"
+	"github.com/EDXFund/MasterChain/core/state"
+	"github.com/EDXFund/MasterChain/core/vm"
+	"github.com/EDXFund/MasterChain/ethdb"
+	"github.com/EDXFund/MasterChain/params"
+	"github.com/EDXFund/MasterChain/trie"
 )
 
 func TestNodeIterator(t *testing.T) {

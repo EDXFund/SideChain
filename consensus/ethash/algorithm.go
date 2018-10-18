@@ -27,11 +27,11 @@ import (
 	"time"
 	"unsafe"
 
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/common/bitutil"
-	"github.com/EDXFund/SideChain/crypto"
-	"github.com/EDXFund/SideChain/crypto/sha3"
-	"github.com/EDXFund/SideChain/log"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/common/bitutil"
+	"github.com/EDXFund/MasterChain/crypto"
+	"github.com/EDXFund/MasterChain/crypto/sha3"
+	"github.com/EDXFund/MasterChain/log"
 )
 
 const (

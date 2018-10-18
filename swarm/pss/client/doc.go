@@ -28,11 +28,11 @@
 //  	"context"
 //  	"fmt"
 //  	"os"
-//  	pss "github.com/EDXFund/SideChain/swarm/pss/client"
-//  	"github.com/EDXFund/SideChain/p2p/protocols"
-//  	"github.com/EDXFund/SideChain/p2p"
-//  	"github.com/EDXFund/SideChain/swarm/pot"
-//  	"github.com/EDXFund/SideChain/swarm/log"
+//  	pss "github.com/EDXFund/MasterChain/swarm/pss/client"
+//  	"github.com/EDXFund/MasterChain/p2p/protocols"
+//  	"github.com/EDXFund/MasterChain/p2p"
+//  	"github.com/EDXFund/MasterChain/swarm/pot"
+//  	"github.com/EDXFund/MasterChain/swarm/log"
 //  )
 //
 //  type FooMsg struct {

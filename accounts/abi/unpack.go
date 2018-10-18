@@ -22,7 +22,7 @@ import (
 	"math/big"
 	"reflect"
 
-	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/MasterChain/common"
 )
 
 var (

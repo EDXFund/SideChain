@@ -27,8 +27,8 @@ import (
 	"io/ioutil"
 	"sync"
 
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/swarm/storage/mock"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/swarm/storage/mock"
 )
 
 // GlobalStore stores all chunk data and also keys and node addresses relations.

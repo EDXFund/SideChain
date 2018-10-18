@@ -20,9 +20,9 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/crypto"
-	"github.com/EDXFund/SideChain/rlp"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/crypto"
+	"github.com/EDXFund/MasterChain/rlp"
 )
 
 func TestEIP155Signing(t *testing.T) {

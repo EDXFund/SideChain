@@ -23,8 +23,8 @@ import (
 	"math/rand"
 	"time"
 
-	"github.com/EDXFund/SideChain/common/mclock"
-	"github.com/EDXFund/SideChain/log"
+	"github.com/EDXFund/MasterChain/common/mclock"
+	"github.com/EDXFund/MasterChain/log"
 )
 
 const (

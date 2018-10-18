@@ -16,7 +16,7 @@
 
 package core
 
-import "github.com/EDXFund/SideChain/common"
+import "github.com/EDXFund/MasterChain/common"
 
 // BadHashes represent a set of manually tracked bad hashes (usually hard forks)
 var BadHashes = map[common.Hash]bool{

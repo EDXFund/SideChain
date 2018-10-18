@@ -19,7 +19,7 @@ package tests
 import (
 	"testing"
 
-	"github.com/EDXFund/SideChain/core/vm"
+	"github.com/EDXFund/MasterChain/core/vm"
 )
 
 func TestVM(t *testing.T) {

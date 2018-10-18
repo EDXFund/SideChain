@@ -21,7 +21,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/EDXFund/SideChain/common/mclock"
+	"github.com/EDXFund/MasterChain/common/mclock"
 )
 
 const rcConst = 1000000

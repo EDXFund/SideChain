@@ -24,8 +24,8 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/swarm/storage"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/swarm/storage"
 )
 
 var testDownloadDir, _ = ioutil.TempDir(os.TempDir(), "bzz-test")

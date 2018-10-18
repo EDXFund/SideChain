@@ -41,23 +41,23 @@ import (
 	"sync"
 	"time"
 
-	"github.com/EDXFund/SideChain/accounts"
-	"github.com/EDXFund/SideChain/accounts/keystore"
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/core"
-	"github.com/EDXFund/SideChain/core/types"
-	"github.com/EDXFund/SideChain/eth"
-	"github.com/EDXFund/SideChain/eth/downloader"
-	"github.com/EDXFund/SideChain/ethclient"
-	"github.com/EDXFund/SideChain/ethstats"
-	"github.com/EDXFund/SideChain/les"
-	"github.com/EDXFund/SideChain/log"
-	"github.com/EDXFund/SideChain/node"
-	"github.com/EDXFund/SideChain/p2p"
-	"github.com/EDXFund/SideChain/p2p/discover"
-	"github.com/EDXFund/SideChain/p2p/discv5"
-	"github.com/EDXFund/SideChain/p2p/nat"
-	"github.com/EDXFund/SideChain/params"
+	"github.com/EDXFund/MasterChain/accounts"
+	"github.com/EDXFund/MasterChain/accounts/keystore"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/core"
+	"github.com/EDXFund/MasterChain/core/types"
+	"github.com/EDXFund/MasterChain/eth"
+	"github.com/EDXFund/MasterChain/eth/downloader"
+	"github.com/EDXFund/MasterChain/ethclient"
+	"github.com/EDXFund/MasterChain/ethstats"
+	"github.com/EDXFund/MasterChain/les"
+	"github.com/EDXFund/MasterChain/log"
+	"github.com/EDXFund/MasterChain/node"
+	"github.com/EDXFund/MasterChain/p2p"
+	"github.com/EDXFund/MasterChain/p2p/discover"
+	"github.com/EDXFund/MasterChain/p2p/discv5"
+	"github.com/EDXFund/MasterChain/p2p/nat"
+	"github.com/EDXFund/MasterChain/params"
 	"golang.org/x/net/websocket"
 )
 
@@ -448,7 +448,7 @@ func (f *faucet) apiHandler(conn *websocket.Conn) {
 		case *noauthFlag:
 			username, avatar, address, err = authNoAuth(msg.URL)
 		default:
-			err = errors.New("Something funky happened, please open an issue at https://github.com/ethereum/go-ethereum/issues")
+			err = errors.New("Something funky happened, please open an issue at https://github.com/EDXFund/MasterChain/issues")
 		}
 		if err != nil {
 			if err = sendError(conn, err); err != nil {

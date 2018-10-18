@@ -21,11 +21,11 @@ import (
 	"encoding/hex"
 	"time"
 
-	"github.com/EDXFund/SideChain/p2p/discover"
+	"github.com/EDXFund/MasterChain/p2p/discover"
 
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/log"
-	"github.com/EDXFund/SideChain/swarm/network"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/log"
+	"github.com/EDXFund/MasterChain/swarm/network"
 )
 
 // BucketKeyKademlia is the key to be used for storing the kademlia

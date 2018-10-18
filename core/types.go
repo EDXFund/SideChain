@@ -17,9 +17,9 @@
 package core
 
 import (
-	"github.com/EDXFund/SideChain/core/state"
-	"github.com/EDXFund/SideChain/core/types"
-	"github.com/EDXFund/SideChain/core/vm"
+	"github.com/EDXFund/MasterChain/core/state"
+	"github.com/EDXFund/MasterChain/core/types"
+	"github.com/EDXFund/MasterChain/core/vm"
 )
 
 // Validator is an interface which defines the standard for block validation. It

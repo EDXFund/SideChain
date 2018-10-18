@@ -25,14 +25,14 @@ import (
 	"sync"
 	"time"
 
-	ethereum "github.com/EDXFund/SideChain"
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/core"
-	"github.com/EDXFund/SideChain/core/rawdb"
-	"github.com/EDXFund/SideChain/core/types"
-	"github.com/EDXFund/SideChain/event"
-	"github.com/EDXFund/SideChain/log"
-	"github.com/EDXFund/SideChain/rpc"
+	ethereum "github.com/EDXFund/MasterChain"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/core"
+	"github.com/EDXFund/MasterChain/core/rawdb"
+	"github.com/EDXFund/MasterChain/core/types"
+	"github.com/EDXFund/MasterChain/event"
+	"github.com/EDXFund/MasterChain/log"
+	"github.com/EDXFund/MasterChain/rpc"
 )
 
 // Type determines the kind of filter and is used to put the filter in to
@@ -383,11 +383,11 @@ func (es *EventSystem) lightFilterNewHead(newHeader *types.Header, callBack func
 	for oldh.Hash() != newh.Hash() {
 		if oldh.Number.Uint64() >= newh.Number.Uint64() {
 			oldHeaders = append(oldHeaders, oldh)
-			oldh = rawdb.ReadHeader(es.backend.ChainDb(), oldh.ParentHash, oldh.Number.Uint64()-1)
+			oldh = rawdb.ReadHeader(es.backend.ChainDb(), oldh.ParentHash, newHeader.ShardId, oldh.Number.Uint64()-1)
 		}
 		if oldh.Number.Uint64() < newh.Number.Uint64() {
 			newHeaders = append(newHeaders, newh)
-			newh = rawdb.ReadHeader(es.backend.ChainDb(), newh.ParentHash, newh.Number.Uint64()-1)
+			newh = rawdb.ReadHeader(es.backend.ChainDb(), newh.ParentHash, newHeader.ShardId, newh.Number.Uint64()-1)
 			if newh == nil {
 				// happens when CHT syncing, nothing to do
 				newh = oldh

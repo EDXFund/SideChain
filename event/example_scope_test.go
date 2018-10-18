@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/EDXFund/SideChain/event"
+	"github.com/EDXFund/MasterChain/event"
 )
 
 // This example demonstrates how SubscriptionScope can be used to control the lifetime of

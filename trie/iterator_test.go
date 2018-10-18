@@ -22,8 +22,8 @@ import (
 	"math/rand"
 	"testing"
 
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/ethdb"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/ethdb"
 )
 
 func TestIterator(t *testing.T) {

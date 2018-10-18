@@ -20,9 +20,9 @@ import (
 	"bytes"
 	"hash"
 
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/crypto"
-	"github.com/EDXFund/SideChain/swarm/storage"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/crypto"
+	"github.com/EDXFund/MasterChain/swarm/storage"
 )
 
 // SignedResourceUpdate represents a resource update with all the necessary information to prove ownership of the resource

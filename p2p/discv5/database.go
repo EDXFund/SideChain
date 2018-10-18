@@ -28,9 +28,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/EDXFund/SideChain/crypto"
-	"github.com/EDXFund/SideChain/log"
-	"github.com/EDXFund/SideChain/rlp"
+	"github.com/EDXFund/MasterChain/crypto"
+	"github.com/EDXFund/MasterChain/log"
+	"github.com/EDXFund/MasterChain/rlp"
 	"github.com/syndtr/goleveldb/leveldb"
 	"github.com/syndtr/goleveldb/leveldb/errors"
 	"github.com/syndtr/goleveldb/leveldb/iterator"

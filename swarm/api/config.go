@@ -23,16 +23,16 @@ import (
 	"path/filepath"
 	"time"
 
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/contracts/ens"
-	"github.com/EDXFund/SideChain/crypto"
-	"github.com/EDXFund/SideChain/node"
-	"github.com/EDXFund/SideChain/p2p/discover"
-	"github.com/EDXFund/SideChain/swarm/log"
-	"github.com/EDXFund/SideChain/swarm/network"
-	"github.com/EDXFund/SideChain/swarm/pss"
-	"github.com/EDXFund/SideChain/swarm/services/swap"
-	"github.com/EDXFund/SideChain/swarm/storage"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/contracts/ens"
+	"github.com/EDXFund/MasterChain/crypto"
+	"github.com/EDXFund/MasterChain/node"
+	"github.com/EDXFund/MasterChain/p2p/discover"
+	"github.com/EDXFund/MasterChain/swarm/log"
+	"github.com/EDXFund/MasterChain/swarm/network"
+	"github.com/EDXFund/MasterChain/swarm/pss"
+	"github.com/EDXFund/MasterChain/swarm/services/swap"
+	"github.com/EDXFund/MasterChain/swarm/storage"
 )
 
 const (

@@ -27,7 +27,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/EDXFund/SideChain/log"
+	"github.com/EDXFund/MasterChain/log"
 	colorable "github.com/mattn/go-colorable"
 )
 

@@ -21,9 +21,9 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/crypto"
-	"github.com/EDXFund/SideChain/params"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/crypto"
+	"github.com/EDXFund/MasterChain/params"
 )
 
 // emptyCodeHash is used by create to ensure deployment is disallowed to already

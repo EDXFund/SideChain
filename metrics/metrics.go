@@ -11,7 +11,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/EDXFund/SideChain/log"
+	"github.com/EDXFund/MasterChain/log"
 )
 
 // Enabled is checked by the constructor functions for all of the

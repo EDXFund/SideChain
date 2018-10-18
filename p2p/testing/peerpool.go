@@ -20,8 +20,8 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/EDXFund/SideChain/log"
-	"github.com/EDXFund/SideChain/p2p/discover"
+	"github.com/EDXFund/MasterChain/log"
+	"github.com/EDXFund/MasterChain/p2p/discover"
 )
 
 type TestPeer interface {

@@ -26,11 +26,11 @@ import (
 	"math/big"
 	"time"
 
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/common/math"
-	"github.com/EDXFund/SideChain/crypto"
-	"github.com/EDXFund/SideChain/crypto/ecies"
-	"github.com/EDXFund/SideChain/rlp"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/common/math"
+	"github.com/EDXFund/MasterChain/crypto"
+	"github.com/EDXFund/MasterChain/crypto/ecies"
+	"github.com/EDXFund/MasterChain/rlp"
 )
 
 // Envelope represents a clear-text data packet to transmit through the Whisper

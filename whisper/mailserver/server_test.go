@@ -25,9 +25,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/crypto"
-	whisper "github.com/EDXFund/SideChain/whisper/whisperv6"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/crypto"
+	whisper "github.com/EDXFund/MasterChain/whisper/whisperv6"
 )
 
 const powRequirement = 0.00001

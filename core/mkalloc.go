@@ -34,8 +34,8 @@ import (
 	"sort"
 	"strconv"
 
-	"github.com/EDXFund/SideChain/core"
-	"github.com/EDXFund/SideChain/rlp"
+	"github.com/EDXFund/MasterChain/core"
+	"github.com/EDXFund/MasterChain/rlp"
 )
 
 type allocItem struct{ Addr, Balance *big.Int }

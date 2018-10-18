@@ -23,19 +23,19 @@ import (
 	"math"
 	"sync"
 
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/core"
-	"github.com/EDXFund/SideChain/core/rawdb"
-	"github.com/EDXFund/SideChain/core/types"
-	"github.com/EDXFund/SideChain/eth"
-	"github.com/EDXFund/SideChain/ethdb"
-	"github.com/EDXFund/SideChain/les/flowcontrol"
-	"github.com/EDXFund/SideChain/light"
-	"github.com/EDXFund/SideChain/log"
-	"github.com/EDXFund/SideChain/p2p"
-	"github.com/EDXFund/SideChain/p2p/discv5"
-	"github.com/EDXFund/SideChain/params"
-	"github.com/EDXFund/SideChain/rlp"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/core"
+	"github.com/EDXFund/MasterChain/core/rawdb"
+	"github.com/EDXFund/MasterChain/core/types"
+	"github.com/EDXFund/MasterChain/eth"
+	"github.com/EDXFund/MasterChain/ethdb"
+	"github.com/EDXFund/MasterChain/les/flowcontrol"
+	"github.com/EDXFund/MasterChain/light"
+	"github.com/EDXFund/MasterChain/log"
+	"github.com/EDXFund/MasterChain/p2p"
+	"github.com/EDXFund/MasterChain/p2p/discv5"
+	"github.com/EDXFund/MasterChain/params"
+	"github.com/EDXFund/MasterChain/rlp"
 )
 
 type LesServer struct {
@@ -67,7 +67,7 @@ func NewLesServer(eth *eth.Ethereum, config *eth.Config) (*LesServer, error) {
 			chainDb:          eth.ChainDb(),
 			iConfig:          light.DefaultServerIndexerConfig,
 			chtIndexer:       light.NewChtIndexer(eth.ChainDb(), nil, params.CHTFrequencyServer, params.HelperTrieProcessConfirmations),
-			bloomTrieIndexer: light.NewBloomTrieIndexer(eth.ChainDb(), nil, params.BloomBitsBlocks, params.BloomTrieFrequency),
+			bloomTrieIndexer: light.NewBloomTrieIndexer(eth.ChainDb(), nil, eth.shardId(), params.BloomBitsBlocks, params.BloomTrieFrequency),
 			protocolManager:  pm,
 		},
 		quitSync:  quitSync,

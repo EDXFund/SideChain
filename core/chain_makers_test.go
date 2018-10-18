@@ -20,12 +20,12 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/EDXFund/SideChain/consensus/ethash"
-	"github.com/EDXFund/SideChain/core/types"
-	"github.com/EDXFund/SideChain/core/vm"
-	"github.com/EDXFund/SideChain/crypto"
-	"github.com/EDXFund/SideChain/ethdb"
-	"github.com/EDXFund/SideChain/params"
+	"github.com/EDXFund/MasterChain/consensus/ethash"
+	"github.com/EDXFund/MasterChain/core/types"
+	"github.com/EDXFund/MasterChain/core/vm"
+	"github.com/EDXFund/MasterChain/crypto"
+	"github.com/EDXFund/MasterChain/ethdb"
+	"github.com/EDXFund/MasterChain/params"
 )
 
 func ExampleGenerateChain() {
@@ -54,13 +54,13 @@ func ExampleGenerateChain() {
 		switch i {
 		case 0:
 			// In block 1, addr1 sends addr2 some ether.
-			tx, _ := types.SignTx(types.NewTransaction(gen.TxNonce(addr1), addr2, big.NewInt(10000), params.TxGas, nil, nil), signer, key1)
+			tx, _ := types.SignTx(types.NewTransaction(gen.TxNonce(addr1), 0, addr2, big.NewInt(10000), params.TxGas, nil, nil), signer, key1)
 			gen.AddTx(tx)
 		case 1:
 			// In block 2, addr1 sends some more ether to addr2.
 			// addr2 passes it on to addr3.
-			tx1, _ := types.SignTx(types.NewTransaction(gen.TxNonce(addr1), addr2, big.NewInt(1000), params.TxGas, nil, nil), signer, key1)
-			tx2, _ := types.SignTx(types.NewTransaction(gen.TxNonce(addr2), addr3, big.NewInt(1000), params.TxGas, nil, nil), signer, key2)
+			tx1, _ := types.SignTx(types.NewTransaction(gen.TxNonce(addr1), 0, addr2, big.NewInt(1000), params.TxGas, nil, nil), signer, key1)
+			tx2, _ := types.SignTx(types.NewTransaction(gen.TxNonce(addr2), 0, addr3, big.NewInt(1000), params.TxGas, nil, nil), signer, key2)
 			gen.AddTx(tx1)
 			gen.AddTx(tx2)
 		case 2:

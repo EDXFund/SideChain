@@ -26,19 +26,19 @@ import (
 	"sync"
 	"time"
 
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/common/hexutil"
-	"github.com/EDXFund/SideChain/core"
-	"github.com/EDXFund/SideChain/core/rawdb"
-	"github.com/EDXFund/SideChain/core/state"
-	"github.com/EDXFund/SideChain/core/types"
-	"github.com/EDXFund/SideChain/core/vm"
-	"github.com/EDXFund/SideChain/eth/tracers"
-	"github.com/EDXFund/SideChain/internal/ethapi"
-	"github.com/EDXFund/SideChain/log"
-	"github.com/EDXFund/SideChain/rlp"
-	"github.com/EDXFund/SideChain/rpc"
-	"github.com/EDXFund/SideChain/trie"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/common/hexutil"
+	"github.com/EDXFund/MasterChain/core"
+	"github.com/EDXFund/MasterChain/core/rawdb"
+	"github.com/EDXFund/MasterChain/core/state"
+	"github.com/EDXFund/MasterChain/core/types"
+	"github.com/EDXFund/MasterChain/core/vm"
+	"github.com/EDXFund/MasterChain/eth/tracers"
+	"github.com/EDXFund/MasterChain/internal/ethapi"
+	"github.com/EDXFund/MasterChain/log"
+	"github.com/EDXFund/MasterChain/rlp"
+	"github.com/EDXFund/MasterChain/rpc"
+	"github.com/EDXFund/MasterChain/trie"
 )
 
 const (
@@ -545,7 +545,7 @@ func (api *PrivateDebugAPI) computeStateDB(block *types.Block, reexec uint64) (*
 // and returns them as a JSON object.
 func (api *PrivateDebugAPI) TraceTransaction(ctx context.Context, hash common.Hash, config *TraceConfig) (interface{}, error) {
 	// Retrieve the transaction and assemble its EVM context
-	tx, blockHash, _, index := rawdb.ReadTransaction(api.eth.ChainDb(), hash)
+	tx, shardId,blockHash, _, index := rawdb.ReadTransaction(api.eth.ChainDb(), hash)
 	if tx == nil {
 		return nil, fmt.Errorf("transaction %x not found", hash)
 	}

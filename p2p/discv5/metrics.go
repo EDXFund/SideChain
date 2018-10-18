@@ -1,6 +1,6 @@
 package discv5
 
-import "github.com/EDXFund/SideChain/metrics"
+import "github.com/EDXFund/MasterChain/metrics"
 
 var (
 	ingressTrafficMeter = metrics.NewRegisteredMeter("discv5/InboundTraffic", nil)

@@ -26,7 +26,7 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/EDXFund/SideChain/log"
+	"github.com/EDXFund/MasterChain/log"
 )
 
 // makeWizard creates and returns a new puppeth wizard.

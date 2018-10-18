@@ -25,17 +25,17 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/EDXFund/SideChain/cmd/utils"
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/console"
-	"github.com/EDXFund/SideChain/core"
-	"github.com/EDXFund/SideChain/core/state"
-	"github.com/EDXFund/SideChain/core/types"
-	"github.com/EDXFund/SideChain/eth/downloader"
-	"github.com/EDXFund/SideChain/ethdb"
-	"github.com/EDXFund/SideChain/event"
-	"github.com/EDXFund/SideChain/log"
-	"github.com/EDXFund/SideChain/trie"
+	"github.com/EDXFund/MasterChain/cmd/utils"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/console"
+	"github.com/EDXFund/MasterChain/core"
+	"github.com/EDXFund/MasterChain/core/state"
+	"github.com/EDXFund/MasterChain/core/types"
+	"github.com/EDXFund/MasterChain/eth/downloader"
+	"github.com/EDXFund/MasterChain/ethdb"
+	"github.com/EDXFund/MasterChain/event"
+	"github.com/EDXFund/MasterChain/log"
+	"github.com/EDXFund/MasterChain/trie"
 	"github.com/syndtr/goleveldb/leveldb/util"
 	"gopkg.in/urfave/cli.v1"
 )
@@ -209,11 +209,8 @@ func importChain(ctx *cli.Context) error {
 		utils.Fatalf("This command requires an argument.")
 	}
 	stack := makeFullNode(ctx)
-	sysState := core.NewSystemState();
-	sysState.Reset(0xFFFF); 
-	chain, chainDb := utils.MakeChain(ctx, stack,sysState)
+	chain, chainDb := utils.MakeChain(ctx, stack)
 	defer chainDb.Close()
-
 
 	// Start periodically gathering memory profiles
 	var peakMemAlloc, peakMemSys uint64
@@ -306,9 +303,7 @@ func exportChain(ctx *cli.Context) error {
 		utils.Fatalf("This command requires an argument.")
 	}
 	stack := makeFullNode(ctx)
-	sysState := core.NewSystemState()
-	sysState.Reset(0xFFFF)
-	chain, _ := utils.MakeChain(ctx, stack,sysState)
+	chain, _ := utils.MakeChain(ctx, stack)
 	start := time.Now()
 
 	var err error
@@ -374,9 +369,7 @@ func copyDb(ctx *cli.Context) error {
 	}
 	// Initialize a new chain for the running node to sync into
 	stack := makeFullNode(ctx)
-	sysState := core.NewSystemState();
-	sysState.Reset(0xFFFF); 
-	chain, chainDb := utils.MakeChain(ctx, stack,sysState)
+	chain, chainDb := utils.MakeChain(ctx, stack)
 
 	syncmode := *utils.GlobalTextMarshaler(ctx, utils.SyncModeFlag.Name).(*downloader.SyncMode)
 	dl := downloader.New(syncmode, chainDb, new(event.TypeMux), chain, nil, nil)
@@ -448,9 +441,7 @@ func removeDB(ctx *cli.Context) error {
 
 func dump(ctx *cli.Context) error {
 	stack := makeFullNode(ctx)
-	sysState := core.NewSystemState();
-	sysState.Reset(0xFFFF); 
-	chain, chainDb := utils.MakeChain(ctx, stack,sysState )
+	chain, chainDb := utils.MakeChain(ctx, stack)
 	for _, arg := range ctx.Args() {
 		var block *types.Block
 		if hashish(arg) {

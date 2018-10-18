@@ -21,8 +21,8 @@ import (
 	"container/heap"
 	"errors"
 
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/rlp"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/rlp"
 )
 
 // Iterator is a key-value trie iterator that traverses a Trie.

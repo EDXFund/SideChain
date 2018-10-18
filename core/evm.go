@@ -19,10 +19,10 @@ package core
 import (
 	"math/big"
 
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/consensus"
-	"github.com/EDXFund/SideChain/core/types"
-	"github.com/EDXFund/SideChain/core/vm"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/consensus"
+	"github.com/EDXFund/MasterChain/core/types"
+	"github.com/EDXFund/MasterChain/core/vm"
 )
 
 // ChainContext supports retrieving headers and consensus parameters from the

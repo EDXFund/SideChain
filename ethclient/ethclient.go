@@ -16,7 +16,7 @@
 
 // Package ethclient provides a client for the Ethereum RPC API.
 package ethclient
-
+/*
 import (
 	"context"
 	"encoding/json"
@@ -24,12 +24,12 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/EDXFund/SideChain"
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/common/hexutil"
-	"github.com/EDXFund/SideChain/core/types"
-	"github.com/EDXFund/SideChain/rlp"
-	"github.com/EDXFund/SideChain/rpc"
+	"github.com/EDXFund/MasterChain"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/common/hexutil"
+	"github.com/EDXFund/MasterChain/core/types"
+	"github.com/EDXFund/MasterChain/rlp"
+	"github.com/EDXFund/MasterChain/rpc"
 )
 
 // Client defines typed wrappers for the Ethereum RPC API.
@@ -509,3 +509,4 @@ func toCallArg(msg ethereum.CallMsg) interface{} {
 	}
 	return arg
 }
+*/

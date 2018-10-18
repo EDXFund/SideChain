@@ -27,10 +27,10 @@ import (
 	"errors"
 	"strconv"
 
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/crypto"
-	"github.com/EDXFund/SideChain/crypto/ecies"
-	"github.com/EDXFund/SideChain/log"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/crypto"
+	"github.com/EDXFund/MasterChain/crypto/ecies"
+	"github.com/EDXFund/MasterChain/log"
 )
 
 // MessageParams specifies the exact way a message should be wrapped into an Envelope.

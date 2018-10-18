@@ -19,7 +19,7 @@ import (
 	"context"
 	"sync"
 
-	"github.com/EDXFund/SideChain/swarm/log"
+	"github.com/EDXFund/MasterChain/swarm/log"
 )
 
 // PutChunks adds chunks  to localstore

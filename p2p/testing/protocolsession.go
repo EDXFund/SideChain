@@ -22,10 +22,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/EDXFund/SideChain/log"
-	"github.com/EDXFund/SideChain/p2p"
-	"github.com/EDXFund/SideChain/p2p/discover"
-	"github.com/EDXFund/SideChain/p2p/simulations/adapters"
+	"github.com/EDXFund/MasterChain/log"
+	"github.com/EDXFund/MasterChain/p2p"
+	"github.com/EDXFund/MasterChain/p2p/discover"
+	"github.com/EDXFund/MasterChain/p2p/simulations/adapters"
 )
 
 var errTimedOut = errors.New("timed out")

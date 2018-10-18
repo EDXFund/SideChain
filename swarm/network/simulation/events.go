@@ -20,9 +20,9 @@ import (
 	"context"
 	"sync"
 
-	"github.com/EDXFund/SideChain/p2p/discover"
+	"github.com/EDXFund/MasterChain/p2p/discover"
 
-	"github.com/EDXFund/SideChain/p2p"
+	"github.com/EDXFund/MasterChain/p2p"
 )
 
 // PeerEvent is the type of the channel returned by Simulation.PeerEvents.

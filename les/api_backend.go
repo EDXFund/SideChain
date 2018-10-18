@@ -20,22 +20,22 @@ import (
 	"context"
 	"math/big"
 
-	"github.com/EDXFund/SideChain/accounts"
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/common/math"
-	"github.com/EDXFund/SideChain/core"
-	"github.com/EDXFund/SideChain/core/bloombits"
-	"github.com/EDXFund/SideChain/core/rawdb"
-	"github.com/EDXFund/SideChain/core/state"
-	"github.com/EDXFund/SideChain/core/types"
-	"github.com/EDXFund/SideChain/core/vm"
-	"github.com/EDXFund/SideChain/eth/downloader"
-	"github.com/EDXFund/SideChain/eth/gasprice"
-	"github.com/EDXFund/SideChain/ethdb"
-	"github.com/EDXFund/SideChain/event"
-	"github.com/EDXFund/SideChain/light"
-	"github.com/EDXFund/SideChain/params"
-	"github.com/EDXFund/SideChain/rpc"
+	"github.com/EDXFund/MasterChain/accounts"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/common/math"
+	"github.com/EDXFund/MasterChain/core"
+	"github.com/EDXFund/MasterChain/core/bloombits"
+	"github.com/EDXFund/MasterChain/core/rawdb"
+	"github.com/EDXFund/MasterChain/core/state"
+	"github.com/EDXFund/MasterChain/core/types"
+	"github.com/EDXFund/MasterChain/core/vm"
+	"github.com/EDXFund/MasterChain/eth/downloader"
+	"github.com/EDXFund/MasterChain/eth/gasprice"
+	"github.com/EDXFund/MasterChain/ethdb"
+	"github.com/EDXFund/MasterChain/event"
+	"github.com/EDXFund/MasterChain/light"
+	"github.com/EDXFund/MasterChain/params"
+	"github.com/EDXFund/MasterChain/rpc"
 )
 
 type LesApiBackend struct {
@@ -88,15 +88,15 @@ func (b *LesApiBackend) GetBlock(ctx context.Context, blockHash common.Hash) (*t
 }
 
 func (b *LesApiBackend) GetReceipts(ctx context.Context, hash common.Hash) (types.Receipts, error) {
-	if number := rawdb.ReadHeaderNumber(b.eth.chainDb, hash); number != nil {
-		return light.GetBlockReceipts(ctx, b.eth.odr, hash, *number)
+	if shardId,number := rawdb.ReadHeaderNumber(b.eth.chainDb, hash); number != nil {
+		return light.GetBlockReceipts(ctx, b.eth.odr, shardId,hash, *number)
 	}
 	return nil, nil
 }
 
 func (b *LesApiBackend) GetLogs(ctx context.Context, hash common.Hash) ([][]*types.Log, error) {
-	if number := rawdb.ReadHeaderNumber(b.eth.chainDb, hash); number != nil {
-		return light.GetBlockLogs(ctx, b.eth.odr, hash, *number)
+	if shardId,number := rawdb.ReadHeaderNumber(b.eth.chainDb, hash); number != nil {
+		return light.GetBlockLogs(ctx, b.eth.odr,shardId, hash, *number)
 	}
 	return nil, nil
 }

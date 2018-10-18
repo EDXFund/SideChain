@@ -19,7 +19,7 @@ package simulation
 import (
 	"testing"
 
-	"github.com/EDXFund/SideChain/p2p/discover"
+	"github.com/EDXFund/MasterChain/p2p/discover"
 )
 
 func TestConnectToPivotNode(t *testing.T) {

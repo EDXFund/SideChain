@@ -29,7 +29,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/EDXFund/SideChain/params"
+	"github.com/EDXFund/MasterChain/params"
 )
 
 var (

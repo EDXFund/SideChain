@@ -21,10 +21,10 @@ import (
 	"io"
 	"os"
 
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/core/types"
-	"github.com/EDXFund/SideChain/log"
-	"github.com/EDXFund/SideChain/rlp"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/core/types"
+	"github.com/EDXFund/MasterChain/log"
+	"github.com/EDXFund/MasterChain/rlp"
 )
 
 // errNoActiveJournal is returned if a transaction is attempted to be inserted

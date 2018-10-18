@@ -19,9 +19,9 @@ package types
 import (
 	"bytes"
 
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/rlp"
-	"github.com/EDXFund/SideChain/trie"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/rlp"
+	"github.com/EDXFund/MasterChain/trie"
 )
 
 type DerivableList interface {

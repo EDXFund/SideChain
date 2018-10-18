@@ -22,13 +22,13 @@ import (
 	"sync"
 	"time"
 
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/core/rawdb"
-	"github.com/EDXFund/SideChain/core/state"
-	"github.com/EDXFund/SideChain/crypto/sha3"
-	"github.com/EDXFund/SideChain/ethdb"
-	"github.com/EDXFund/SideChain/log"
-	"github.com/EDXFund/SideChain/trie"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/core/rawdb"
+	"github.com/EDXFund/MasterChain/core/state"
+	"github.com/EDXFund/MasterChain/crypto/sha3"
+	"github.com/EDXFund/MasterChain/ethdb"
+	"github.com/EDXFund/MasterChain/log"
+	"github.com/EDXFund/MasterChain/trie"
 )
 
 // stateReq represents a batch of state fetch requests grouped together into

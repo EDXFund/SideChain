@@ -19,8 +19,8 @@ package vm
 import (
 	"math/big"
 
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/core/types"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/core/types"
 )
 
 // StateDB is an EVM database for full state querying.

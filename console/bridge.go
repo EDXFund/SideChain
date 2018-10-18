@@ -23,9 +23,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/EDXFund/SideChain/accounts/usbwallet"
-	"github.com/EDXFund/SideChain/log"
-	"github.com/EDXFund/SideChain/rpc"
+	"github.com/EDXFund/MasterChain/accounts/usbwallet"
+	"github.com/EDXFund/MasterChain/log"
+	"github.com/EDXFund/MasterChain/rpc"
 	"github.com/robertkrimen/otto"
 )
 

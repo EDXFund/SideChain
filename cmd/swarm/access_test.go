@@ -32,13 +32,13 @@ import (
 	"testing"
 	"time"
 
-	"github.com/EDXFund/SideChain/crypto"
-	"github.com/EDXFund/SideChain/crypto/ecies"
-	"github.com/EDXFund/SideChain/crypto/sha3"
-	"github.com/EDXFund/SideChain/log"
-	"github.com/EDXFund/SideChain/swarm/api"
-	swarm "github.com/EDXFund/SideChain/swarm/api/client"
-	"github.com/EDXFund/SideChain/swarm/testutil"
+	"github.com/EDXFund/MasterChain/crypto"
+	"github.com/EDXFund/MasterChain/crypto/ecies"
+	"github.com/EDXFund/MasterChain/crypto/sha3"
+	"github.com/EDXFund/MasterChain/log"
+	"github.com/EDXFund/MasterChain/swarm/api"
+	swarm "github.com/EDXFund/MasterChain/swarm/api/client"
+	"github.com/EDXFund/MasterChain/swarm/testutil"
 )
 
 const (

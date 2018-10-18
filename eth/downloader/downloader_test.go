@@ -25,15 +25,15 @@ import (
 	"testing"
 	"time"
 
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/consensus/ethash"
-	"github.com/EDXFund/SideChain/core"
-	"github.com/EDXFund/SideChain/core/types"
-	"github.com/EDXFund/SideChain/crypto"
-	"github.com/EDXFund/SideChain/ethdb"
-	"github.com/EDXFund/SideChain/event"
-	"github.com/EDXFund/SideChain/params"
-	"github.com/EDXFund/SideChain/trie"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/consensus/ethash"
+	"github.com/EDXFund/MasterChain/core"
+	"github.com/EDXFund/MasterChain/core/types"
+	"github.com/EDXFund/MasterChain/crypto"
+	"github.com/EDXFund/MasterChain/ethdb"
+	"github.com/EDXFund/MasterChain/event"
+	"github.com/EDXFund/MasterChain/params"
+	"github.com/EDXFund/MasterChain/trie"
 )
 
 var (
@@ -238,7 +238,6 @@ func (dl *downloadTester) GetHeaderByHash(hash common.Hash) *types.Header {
 func (dl *downloadTester) GetBlockByHash(hash common.Hash) *types.Block {
 	dl.lock.RLock()
 	defer dl.lock.RUnlock()
-
 	return dl.ownBlocks[hash]
 }
 

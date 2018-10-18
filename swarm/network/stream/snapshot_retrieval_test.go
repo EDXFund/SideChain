@@ -23,14 +23,14 @@ import (
 	"testing"
 	"time"
 
-	"github.com/EDXFund/SideChain/node"
-	"github.com/EDXFund/SideChain/p2p/discover"
-	"github.com/EDXFund/SideChain/p2p/simulations/adapters"
-	"github.com/EDXFund/SideChain/swarm/log"
-	"github.com/EDXFund/SideChain/swarm/network"
-	"github.com/EDXFund/SideChain/swarm/network/simulation"
-	"github.com/EDXFund/SideChain/swarm/state"
-	"github.com/EDXFund/SideChain/swarm/storage"
+	"github.com/EDXFund/MasterChain/node"
+	"github.com/EDXFund/MasterChain/p2p/discover"
+	"github.com/EDXFund/MasterChain/p2p/simulations/adapters"
+	"github.com/EDXFund/MasterChain/swarm/log"
+	"github.com/EDXFund/MasterChain/swarm/network"
+	"github.com/EDXFund/MasterChain/swarm/network/simulation"
+	"github.com/EDXFund/MasterChain/swarm/state"
+	"github.com/EDXFund/MasterChain/swarm/storage"
 )
 
 //constants for random file generation

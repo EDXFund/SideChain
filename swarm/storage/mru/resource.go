@@ -21,7 +21,7 @@ import (
 	"context"
 	"time"
 
-	"github.com/EDXFund/SideChain/swarm/storage"
+	"github.com/EDXFund/MasterChain/swarm/storage"
 )
 
 const (

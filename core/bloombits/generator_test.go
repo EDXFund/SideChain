@@ -21,7 +21,7 @@ import (
 	"math/rand"
 	"testing"
 
-	"github.com/EDXFund/SideChain/core/types"
+	"github.com/EDXFund/MasterChain/core/types"
 )
 
 // Tests that batched bloom bits are correctly rotated from the input bloom

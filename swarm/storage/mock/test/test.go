@@ -25,9 +25,9 @@ import (
 	"strconv"
 	"testing"
 
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/swarm/storage"
-	"github.com/EDXFund/SideChain/swarm/storage/mock"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/swarm/storage"
+	"github.com/EDXFund/MasterChain/swarm/storage/mock"
 )
 
 // MockStore creates NodeStore instances from provided GlobalStorer,

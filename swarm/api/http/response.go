@@ -24,9 +24,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/EDXFund/SideChain/log"
-	"github.com/EDXFund/SideChain/metrics"
-	"github.com/EDXFund/SideChain/swarm/api"
+	"github.com/EDXFund/MasterChain/log"
+	"github.com/EDXFund/MasterChain/metrics"
+	"github.com/EDXFund/MasterChain/swarm/api"
 )
 
 var (

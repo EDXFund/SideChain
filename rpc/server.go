@@ -26,7 +26,7 @@ import (
 	"sync/atomic"
 
 	mapset "github.com/deckarep/golang-set"
-	"github.com/EDXFund/SideChain/log"
+	"github.com/EDXFund/MasterChain/log"
 )
 
 const MetadataApi = "rpc"

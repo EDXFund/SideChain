@@ -6,11 +6,11 @@ import (
 	"runtime/debug"
 	"strings"
 
-	"github.com/EDXFund/SideChain/metrics"
-	"github.com/EDXFund/SideChain/swarm/api"
-	"github.com/EDXFund/SideChain/swarm/log"
-	"github.com/EDXFund/SideChain/swarm/sctx"
-	"github.com/EDXFund/SideChain/swarm/spancontext"
+	"github.com/EDXFund/MasterChain/metrics"
+	"github.com/EDXFund/MasterChain/swarm/api"
+	"github.com/EDXFund/MasterChain/swarm/log"
+	"github.com/EDXFund/MasterChain/swarm/sctx"
+	"github.com/EDXFund/MasterChain/swarm/spancontext"
 	"github.com/pborman/uuid"
 )
 

@@ -26,8 +26,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/EDXFund/SideChain/common/mclock"
-	"github.com/EDXFund/SideChain/light"
+	"github.com/EDXFund/MasterChain/common/mclock"
+	"github.com/EDXFund/MasterChain/light"
 )
 
 var (

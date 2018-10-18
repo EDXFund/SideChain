@@ -21,7 +21,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/EDXFund/SideChain/swarm/chunk"
+	"github.com/EDXFund/MasterChain/swarm/chunk"
 )
 
 var (

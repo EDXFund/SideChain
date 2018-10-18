@@ -25,7 +25,7 @@ import (
 	"sort"
 	"time"
 
-	"github.com/EDXFund/SideChain/log"
+	"github.com/EDXFund/MasterChain/log"
 )
 
 const (

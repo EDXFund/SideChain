@@ -20,7 +20,7 @@ import (
 	"encoding/json"
 	"testing"
 
-	"github.com/EDXFund/SideChain/common/math"
+	"github.com/EDXFund/MasterChain/common/math"
 )
 
 func TestBlockNumberJSONUnmarshal(t *testing.T) {

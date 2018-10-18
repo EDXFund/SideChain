@@ -30,8 +30,8 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/EDXFund/SideChain/cmd/utils"
-	swarm "github.com/EDXFund/SideChain/swarm/api/client"
+	"github.com/EDXFund/MasterChain/cmd/utils"
+	swarm "github.com/EDXFund/MasterChain/swarm/api/client"
 	"gopkg.in/urfave/cli.v1"
 )
 

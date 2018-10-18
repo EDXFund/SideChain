@@ -27,10 +27,10 @@ import (
 	"io"
 	"sync"
 
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/crypto/sha3"
-	"github.com/EDXFund/SideChain/swarm/bmt"
-	"github.com/EDXFund/SideChain/swarm/chunk"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/crypto/sha3"
+	"github.com/EDXFund/MasterChain/swarm/bmt"
+	"github.com/EDXFund/MasterChain/swarm/chunk"
 )
 
 const MaxPO = 16

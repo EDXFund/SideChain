@@ -22,7 +22,7 @@ import (
 	mrand "math/rand"
 	"testing"
 
-	"github.com/EDXFund/SideChain/crypto"
+	"github.com/EDXFund/MasterChain/crypto"
 )
 
 func TestEnvelopeOpenAcceptsOnlyOneKeyTypeInFilter(t *testing.T) {

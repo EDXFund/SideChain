@@ -24,19 +24,19 @@ import (
 	"testing"
 	"time"
 
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/common/math"
-	"github.com/EDXFund/SideChain/consensus/ethash"
-	"github.com/EDXFund/SideChain/core"
-	"github.com/EDXFund/SideChain/core/rawdb"
-	"github.com/EDXFund/SideChain/core/state"
-	"github.com/EDXFund/SideChain/core/types"
-	"github.com/EDXFund/SideChain/core/vm"
-	"github.com/EDXFund/SideChain/crypto"
-	"github.com/EDXFund/SideChain/ethdb"
-	"github.com/EDXFund/SideChain/params"
-	"github.com/EDXFund/SideChain/rlp"
-	"github.com/EDXFund/SideChain/trie"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/common/math"
+	"github.com/EDXFund/MasterChain/consensus/ethash"
+	"github.com/EDXFund/MasterChain/core"
+	"github.com/EDXFund/MasterChain/core/rawdb"
+	"github.com/EDXFund/MasterChain/core/state"
+	"github.com/EDXFund/MasterChain/core/types"
+	"github.com/EDXFund/MasterChain/core/vm"
+	"github.com/EDXFund/MasterChain/crypto"
+	"github.com/EDXFund/MasterChain/ethdb"
+	"github.com/EDXFund/MasterChain/params"
+	"github.com/EDXFund/MasterChain/rlp"
+	"github.com/EDXFund/MasterChain/trie"
 )
 
 var (
@@ -72,14 +72,14 @@ func (odr *testOdr) Retrieve(ctx context.Context, req OdrRequest) error {
 	}
 	switch req := req.(type) {
 	case *BlockRequest:
-		number := rawdb.ReadHeaderNumber(odr.sdb, req.Hash)
+		shardId,number := rawdb.ReadHeaderNumber(odr.sdb, req.Hash)
 		if number != nil {
-			req.Rlp = rawdb.ReadBodyRLP(odr.sdb, req.Hash, *number)
+			req.Rlp = rawdb.ReadBodyRLP(odr.sdb, shardId,req.Hash, *number)
 		}
 	case *ReceiptsRequest:
-		number := rawdb.ReadHeaderNumber(odr.sdb, req.Hash)
+		shardId,number := rawdb.ReadHeaderNumber(odr.sdb, req.Hash)
 		if number != nil {
-			req.Receipts = rawdb.ReadReceipts(odr.sdb, req.Hash, *number)
+			req.Receipts = rawdb.ReadReceipts(odr.sdb, shardId,req.Hash, *number)
 		}
 	case *TrieRequest:
 		t, _ := trie.New(req.Id.Root, trie.NewDatabase(odr.sdb))
@@ -120,14 +120,14 @@ func TestOdrGetReceiptsLes1(t *testing.T) { testChainOdr(t, 1, odrGetReceipts) }
 func odrGetReceipts(ctx context.Context, db ethdb.Database, bc *core.BlockChain, lc *LightChain, bhash common.Hash) ([]byte, error) {
 	var receipts types.Receipts
 	if bc != nil {
-		number := rawdb.ReadHeaderNumber(db, bhash)
+		shardId,number := rawdb.ReadHeaderNumber(db, bhash)
 		if number != nil {
-			receipts = rawdb.ReadReceipts(db, bhash, *number)
+			receipts = rawdb.ReadReceipts(db, shardId,bhash, *number)
 		}
 	} else {
-		number := rawdb.ReadHeaderNumber(db, bhash)
+		shardId,number := rawdb.ReadHeaderNumber(db, bhash)
 		if number != nil {
-			receipts, _ = GetBlockReceipts(ctx, lc.Odr(), bhash, *number)
+			receipts, _ = GetBlockReceipts(ctx, lc.Odr(), shardId,bhash, *number)
 		}
 	}
 	if receipts == nil {

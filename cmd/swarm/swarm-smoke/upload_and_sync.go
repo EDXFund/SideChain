@@ -30,7 +30,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/EDXFund/SideChain/log"
+	"github.com/EDXFund/MasterChain/log"
 	"github.com/pborman/uuid"
 
 	cli "gopkg.in/urfave/cli.v1"

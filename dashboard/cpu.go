@@ -21,7 +21,7 @@ package dashboard
 import (
 	"syscall"
 
-	"github.com/EDXFund/SideChain/log"
+	"github.com/EDXFund/MasterChain/log"
 )
 
 // getProcessCPUTime retrieves the process' CPU time since program startup.

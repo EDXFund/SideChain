@@ -21,14 +21,14 @@ import (
 	"errors"
 	"time"
 
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/metrics"
-	"github.com/EDXFund/SideChain/p2p/discover"
-	cp "github.com/EDXFund/SideChain/swarm/chunk"
-	"github.com/EDXFund/SideChain/swarm/log"
-	"github.com/EDXFund/SideChain/swarm/network"
-	"github.com/EDXFund/SideChain/swarm/spancontext"
-	"github.com/EDXFund/SideChain/swarm/storage"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/metrics"
+	"github.com/EDXFund/MasterChain/p2p/discover"
+	cp "github.com/EDXFund/MasterChain/swarm/chunk"
+	"github.com/EDXFund/MasterChain/swarm/log"
+	"github.com/EDXFund/MasterChain/swarm/network"
+	"github.com/EDXFund/MasterChain/swarm/spancontext"
+	"github.com/EDXFund/MasterChain/swarm/storage"
 	opentracing "github.com/opentracing/opentracing-go"
 )
 

@@ -22,7 +22,7 @@ import (
 	"html/template"
 	"path"
 
-	"github.com/EDXFund/SideChain/swarm/api"
+	"github.com/EDXFund/MasterChain/swarm/api"
 )
 
 type htmlListData struct {

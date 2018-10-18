@@ -24,7 +24,7 @@ import (
 	"os/exec"
 	"runtime"
 
-	"github.com/EDXFund/SideChain/swarm/log"
+	"github.com/EDXFund/MasterChain/swarm/log"
 )
 
 func externalUnmount(mountPoint string) error {

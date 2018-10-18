@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/EDXFund/SideChain/log"
+	"github.com/EDXFund/MasterChain/log"
 )
 
 // manageServers displays a list of servers the user can disconnect from, and an

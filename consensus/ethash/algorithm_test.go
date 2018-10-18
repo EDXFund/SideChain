@@ -26,9 +26,9 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/common/hexutil"
-	"github.com/EDXFund/SideChain/core/types"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/common/hexutil"
+	"github.com/EDXFund/MasterChain/core/types"
 )
 
 // prepare converts an ethash cache or dataset from a byte stream into the internal

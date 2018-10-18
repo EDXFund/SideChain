@@ -24,12 +24,12 @@ import (
 	"net"
 	"time"
 
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/crypto"
-	"github.com/EDXFund/SideChain/log"
-	"github.com/EDXFund/SideChain/p2p/nat"
-	"github.com/EDXFund/SideChain/p2p/netutil"
-	"github.com/EDXFund/SideChain/rlp"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/crypto"
+	"github.com/EDXFund/MasterChain/log"
+	"github.com/EDXFund/MasterChain/p2p/nat"
+	"github.com/EDXFund/MasterChain/p2p/netutil"
+	"github.com/EDXFund/MasterChain/rlp"
 )
 
 const Version = 4

@@ -26,22 +26,22 @@ import (
 	"time"
 
 	"github.com/davecgh/go-spew/spew"
-	"github.com/EDXFund/SideChain/accounts"
-	"github.com/EDXFund/SideChain/accounts/keystore"
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/common/hexutil"
-	"github.com/EDXFund/SideChain/common/math"
-	"github.com/EDXFund/SideChain/consensus/ethash"
-	"github.com/EDXFund/SideChain/core"
-	"github.com/EDXFund/SideChain/core/rawdb"
-	"github.com/EDXFund/SideChain/core/types"
-	"github.com/EDXFund/SideChain/core/vm"
-	"github.com/EDXFund/SideChain/crypto"
-	"github.com/EDXFund/SideChain/log"
-	"github.com/EDXFund/SideChain/p2p"
-	"github.com/EDXFund/SideChain/params"
-	"github.com/EDXFund/SideChain/rlp"
-	"github.com/EDXFund/SideChain/rpc"
+	"github.com/EDXFund/MasterChain/accounts"
+	"github.com/EDXFund/MasterChain/accounts/keystore"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/common/hexutil"
+	"github.com/EDXFund/MasterChain/common/math"
+	"github.com/EDXFund/MasterChain/consensus/ethash"
+	"github.com/EDXFund/MasterChain/core"
+	"github.com/EDXFund/MasterChain/core/rawdb"
+	"github.com/EDXFund/MasterChain/core/types"
+	"github.com/EDXFund/MasterChain/core/vm"
+	"github.com/EDXFund/MasterChain/crypto"
+	"github.com/EDXFund/MasterChain/log"
+	"github.com/EDXFund/MasterChain/p2p"
+	"github.com/EDXFund/MasterChain/params"
+	"github.com/EDXFund/MasterChain/rlp"
+	"github.com/EDXFund/MasterChain/rpc"
 	"github.com/syndtr/goleveldb/leveldb"
 	"github.com/syndtr/goleveldb/leveldb/util"
 )
@@ -424,7 +424,7 @@ func signHash(data []byte) []byte {
 //
 // The key used to calculate the signature is decrypted with the given password.
 //
-// https://github.com/ethereum/go-ethereum/wiki/Management-APIs#personal_sign
+// https://github.com/EDXFund/MasterChain/wiki/Management-APIs#personal_sign
 func (s *PrivateAccountAPI) Sign(ctx context.Context, data hexutil.Bytes, addr common.Address, passwd string) (hexutil.Bytes, error) {
 	// Look up the wallet containing the requested signer
 	account := accounts.Account{Address: addr}
@@ -451,7 +451,7 @@ func (s *PrivateAccountAPI) Sign(ctx context.Context, data hexutil.Bytes, addr c
 // Note, the signature must conform to the secp256k1 curve R, S and V values, where
 // the V value must be be 27 or 28 for legacy reasons.
 //
-// https://github.com/ethereum/go-ethereum/wiki/Management-APIs#personal_ecRecover
+// https://github.com/EDXFund/MasterChain/wiki/Management-APIs#personal_ecRecover
 func (s *PrivateAccountAPI) EcRecover(ctx context.Context, data, sig hexutil.Bytes) (common.Address, error) {
 	if len(sig) != 65 {
 		return common.Address{}, fmt.Errorf("signature must be 65 bytes long")
@@ -609,8 +609,6 @@ type CallArgs struct {
 	GasPrice hexutil.Big     `json:"gasPrice"`
 	Value    hexutil.Big     `json:"value"`
 	Data     hexutil.Bytes   `json:"data"`
-	TxType   uint8    `json:"txType"`
-	TokenId  uint64  `json:"tokenID"`
 }
 
 func (s *PublicBlockChainAPI) doCall(ctx context.Context, args CallArgs, blockNr rpc.BlockNumber, vmCfg vm.Config, timeout time.Duration) ([]byte, uint64, bool, error) {
@@ -639,7 +637,7 @@ func (s *PublicBlockChainAPI) doCall(ctx context.Context, args CallArgs, blockNr
 	}
 
 	// Create new call message
-	msg := types.NewMessage(addr, args.To, 0, args.Value.ToInt(), gas, gasPrice, args.Data, false,args.TxType,args.TokenId)
+	msg := types.NewMessage(addr, args.To, 0, args.Value.ToInt(), gas, gasPrice, args.Data, false)
 
 	// Setup context so it may be cancelled the call has completed
 	// or, in case of unmetered gas, setup a context with a timeout.
@@ -1015,8 +1013,8 @@ func (s *PublicTransactionPoolAPI) GetTransactionCount(ctx context.Context, addr
 // GetTransactionByHash returns the transaction for the given hash
 func (s *PublicTransactionPoolAPI) GetTransactionByHash(ctx context.Context, hash common.Hash) *RPCTransaction {
 	// Try to return an already finalized transaction
-	if tx, blockHash, blockNumber, index := rawdb.ReadTransaction(s.b.ChainDb(), hash); tx != nil {
-		return newRPCTransaction(tx, blockHash, blockNumber, index)
+	if tx,shardId, blockHash, blockNumber, index := rawdb.ReadTransaction(s.b.ChainDb(), hash); tx != nil {
+		return newRPCTransaction(tx, shardId,blockHash, blockNumber, index)
 	}
 	// No finalized transaction, try to retrieve it from the pool
 	if tx := s.b.GetPoolTransaction(hash); tx != nil {
@@ -1031,7 +1029,7 @@ func (s *PublicTransactionPoolAPI) GetRawTransactionByHash(ctx context.Context, 
 	var tx *types.Transaction
 
 	// Retrieve a finalized transaction, or a pooled otherwise
-	if tx, _, _, _ = rawdb.ReadTransaction(s.b.ChainDb(), hash); tx == nil {
+	if tx, _, _, _ , _ = rawdb.ReadTransaction(s.b.ChainDb(), hash); tx == nil {
 		if tx = s.b.GetPoolTransaction(hash); tx == nil {
 			// Transaction not found anywhere, abort
 			return nil, nil
@@ -1043,7 +1041,7 @@ func (s *PublicTransactionPoolAPI) GetRawTransactionByHash(ctx context.Context, 
 
 // GetTransactionReceipt returns the transaction receipt for the given transaction hash.
 func (s *PublicTransactionPoolAPI) GetTransactionReceipt(ctx context.Context, hash common.Hash) (map[string]interface{}, error) {
-	tx, blockHash, blockNumber, index := rawdb.ReadTransaction(s.b.ChainDb(), hash)
+	tx, shardId,blockHash, blockNumber, index := rawdb.ReadTransaction(s.b.ChainDb(), hash)
 	if tx == nil {
 		return nil, nil
 	}
@@ -1063,6 +1061,7 @@ func (s *PublicTransactionPoolAPI) GetTransactionReceipt(ctx context.Context, ha
 	from, _ := types.Sender(signer, tx)
 
 	fields := map[string]interface{}{
+		"shardId":			shardId,
 		"blockHash":         blockHash,
 		"blockNumber":       hexutil.Uint64(blockNumber),
 		"transactionHash":   hash,

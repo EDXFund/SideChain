@@ -24,9 +24,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/EDXFund/SideChain/log"
-	"github.com/EDXFund/SideChain/node"
-	"github.com/EDXFund/SideChain/p2p/simulations/adapters"
+	"github.com/EDXFund/MasterChain/log"
+	"github.com/EDXFund/MasterChain/node"
+	"github.com/EDXFund/MasterChain/p2p/simulations/adapters"
 )
 
 func TestSimulationWithHTTPServer(t *testing.T) {

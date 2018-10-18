@@ -28,36 +28,35 @@ import (
 	"strings"
 	"time"
 
-	"github.com/EDXFund/SideChain/accounts"
-	"github.com/EDXFund/SideChain/accounts/keystore"
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/common/fdlimit"
-	"github.com/EDXFund/SideChain/consensus"
-	"github.com/EDXFund/SideChain/consensus/clique"
-	"github.com/EDXFund/SideChain/consensus/ethash"
-	"github.com/EDXFund/SideChain/core"
-	"github.com/EDXFund/SideChain/core/state"
-
-	"github.com/EDXFund/SideChain/core/vm"
-	"github.com/EDXFund/SideChain/crypto"
-	"github.com/EDXFund/SideChain/dashboard"
-	"github.com/EDXFund/SideChain/eth"
-	"github.com/EDXFund/SideChain/eth/downloader"
-	"github.com/EDXFund/SideChain/eth/gasprice"
-	"github.com/EDXFund/SideChain/ethdb"
-	"github.com/EDXFund/SideChain/ethstats"
-	"github.com/EDXFund/SideChain/les"
-	"github.com/EDXFund/SideChain/log"
-	"github.com/EDXFund/SideChain/metrics"
-	"github.com/EDXFund/SideChain/metrics/influxdb"
-	"github.com/EDXFund/SideChain/node"
-	"github.com/EDXFund/SideChain/p2p"
-	"github.com/EDXFund/SideChain/p2p/discover"
-	"github.com/EDXFund/SideChain/p2p/discv5"
-	"github.com/EDXFund/SideChain/p2p/nat"
-	"github.com/EDXFund/SideChain/p2p/netutil"
-	"github.com/EDXFund/SideChain/params"
-	whisper "github.com/EDXFund/SideChain/whisper/whisperv6"
+	"github.com/EDXFund/MasterChain/accounts"
+	"github.com/EDXFund/MasterChain/accounts/keystore"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/common/fdlimit"
+	"github.com/EDXFund/MasterChain/consensus"
+	"github.com/EDXFund/MasterChain/consensus/clique"
+	"github.com/EDXFund/MasterChain/consensus/ethash"
+	"github.com/EDXFund/MasterChain/core"
+	"github.com/EDXFund/MasterChain/core/state"
+	"github.com/EDXFund/MasterChain/core/vm"
+	"github.com/EDXFund/MasterChain/crypto"
+	"github.com/EDXFund/MasterChain/dashboard"
+	"github.com/EDXFund/MasterChain/eth"
+	"github.com/EDXFund/MasterChain/eth/downloader"
+	"github.com/EDXFund/MasterChain/eth/gasprice"
+	"github.com/EDXFund/MasterChain/ethdb"
+	"github.com/EDXFund/MasterChain/ethstats"
+	"github.com/EDXFund/MasterChain/les"
+	"github.com/EDXFund/MasterChain/log"
+	"github.com/EDXFund/MasterChain/metrics"
+	"github.com/EDXFund/MasterChain/metrics/influxdb"
+	"github.com/EDXFund/MasterChain/node"
+	"github.com/EDXFund/MasterChain/p2p"
+	"github.com/EDXFund/MasterChain/p2p/discover"
+	"github.com/EDXFund/MasterChain/p2p/discv5"
+	"github.com/EDXFund/MasterChain/p2p/nat"
+	"github.com/EDXFund/MasterChain/p2p/netutil"
+	"github.com/EDXFund/MasterChain/params"
+	whisper "github.com/EDXFund/MasterChain/whisper/whisperv6"
 	"gopkg.in/urfave/cli.v1"
 )
 
@@ -558,12 +557,6 @@ var (
 		Name:  "shh",
 		Usage: "Enable Whisper",
 	}
-
-	ShardIdFlag = cli.StringFlag{
-		Name:  "ShardId",
-		Usage: "Set shard id",
-		Value: "0",
-	}
 	WhisperMaxMessageSizeFlag = cli.IntFlag{
 		Name:  "shh.maxmessagesize",
 		Usage: "Max message size accepted",
@@ -617,8 +610,6 @@ var (
 		Usage: "InfluxDB `host` tag attached to all measurements",
 		Value: "localhost",
 	}
-
-
 )
 
 // MakeDataDir retrieves the currently requested data directory, terminating
@@ -1352,7 +1343,7 @@ func MakeGenesis(ctx *cli.Context) *core.Genesis {
 }
 
 // MakeChain creates a chain manager from set command line flags.
-func MakeChain(ctx *cli.Context, stack *node.Node, sysState *core.SysState) (chain *core.BlockChain, chainDb ethdb.Database) {
+func MakeChain(ctx *cli.Context, stack *node.Node) (chain *core.BlockChain, chainDb ethdb.Database) {
 	var err error
 	chainDb = MakeChainDatabase(ctx, stack)
 
@@ -1388,7 +1379,7 @@ func MakeChain(ctx *cli.Context, stack *node.Node, sysState *core.SysState) (cha
 		cache.TrieNodeLimit = ctx.GlobalInt(CacheFlag.Name) * ctx.GlobalInt(CacheGCFlag.Name) / 100
 	}
 	vmcfg := vm.Config{EnablePreimageRecording: ctx.GlobalBool(VMEnableDebugFlag.Name)}
-	chain, err = core.NewBlockChain(chainDb, cache, config, engine, vmcfg,sysState)
+	chain, err = core.NewBlockChain(chainDb, cache, config, engine, vmcfg)
 	if err != nil {
 		Fatalf("Can't create BlockChain: %v", err)
 	}

@@ -23,7 +23,7 @@ import (
 	"os"
 	"runtime/trace"
 
-	"github.com/EDXFund/SideChain/log"
+	"github.com/EDXFund/MasterChain/log"
 )
 
 // StartGoTrace turns on tracing, writing to the given file.

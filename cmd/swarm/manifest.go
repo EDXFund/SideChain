@@ -22,9 +22,9 @@ import (
 	"os"
 	"strings"
 
-	"github.com/EDXFund/SideChain/cmd/utils"
-	"github.com/EDXFund/SideChain/swarm/api"
-	swarm "github.com/EDXFund/SideChain/swarm/api/client"
+	"github.com/EDXFund/MasterChain/cmd/utils"
+	"github.com/EDXFund/MasterChain/swarm/api"
+	swarm "github.com/EDXFund/MasterChain/swarm/api/client"
 	"gopkg.in/urfave/cli.v1"
 )
 

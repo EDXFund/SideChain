@@ -17,9 +17,9 @@
 package vm
 
 import (
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/common/math"
-	"github.com/EDXFund/SideChain/params"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/common/math"
+	"github.com/EDXFund/MasterChain/params"
 )
 
 // memoryGasCosts calculates the quadratic gas for memory expansion. It does so

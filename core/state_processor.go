@@ -17,14 +17,14 @@
 package core
 
 import (
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/consensus"
-	"github.com/EDXFund/SideChain/consensus/misc"
-	"github.com/EDXFund/SideChain/core/state"
-	"github.com/EDXFund/SideChain/core/types"
-	"github.com/EDXFund/SideChain/core/vm"
-	"github.com/EDXFund/SideChain/crypto"
-	"github.com/EDXFund/SideChain/params"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/consensus"
+	"github.com/EDXFund/MasterChain/consensus/misc"
+	"github.com/EDXFund/MasterChain/core/state"
+	"github.com/EDXFund/MasterChain/core/types"
+	"github.com/EDXFund/MasterChain/core/vm"
+	"github.com/EDXFund/MasterChain/crypto"
+	"github.com/EDXFund/MasterChain/params"
 )
 
 // StateProcessor is a basic Processor, which takes care of transitioning
@@ -65,18 +65,45 @@ func (p *StateProcessor) Process(block *types.Block, statedb *state.StateDB, cfg
 	if p.config.DAOForkSupport && p.config.DAOForkBlock != nil && p.config.DAOForkBlock.Cmp(block.Number()) == 0 {
 		misc.ApplyDAOHardFork(statedb)
 	}
+
+	//this should only happen in master chain
+
 	// Iterate over and process the individual transactions
-	for i, tx := range block.Transactions() {
-		statedb.Prepare(tx.Hash(), block.Hash(), i)
-		receipt, _, err := ApplyTransaction(p.config, p.bc, nil, gp, statedb, header, tx, usedGas, cfg)
-		if err != nil {
-			return nil, nil, 0, err
+
+	rejections := make([]*types.RejectInfo, 1)
+
+	for _, blkinfo := range block.BlockInfos() {
+		////MUST TODO get block detail from shard pool
+		//bc.shardPool.getBlockInfo(blkInfo)
+		_ = (blkinfo)
+		for i, tx := range block.Transactions() {
+			statedb.Prepare(tx.Hash(), block.Hash(), i)
+			receipt, _, err := ApplyTransaction(p.config, p.bc, nil, gp, statedb, header, tx, usedGas, cfg)
+			if err != nil {
+				//return nil, nil, 0, err
+				rejections = append(rejections, &types.RejectInfo{TxHash: tx.Hash(), Reason: 1})
+			}
+			receipts = append(receipts, receipt)
+			allLogs = append(allLogs, receipt.Logs...)
 		}
-		receipts = append(receipts, receipt)
-		allLogs = append(allLogs, receipt.Logs...)
+		////MUST TODO process contract Results
+
+		////Create result
+
+		///add Rejections
+
 	}
+
+	//if master chain process blcokinfos and rejections
+
+	///// MUST TODO  blockInfos has already been included in block
 	// Finalize the block, applying any consensus engine specific extras (e.g. block rewards)
+<<<<<<< HEAD
+	p.engine.Finalize(p.bc, header, statedb, block.Transactions(), receipts, block.BlockInfos(), rejections)
+=======
+	////MUST TODO
 	p.engine.Finalize(p.bc, header, statedb, block.Transactions(), block.Uncles(), receipts)
+>>>>>>> 8bcab3d0bd32ec56f062e40ed3a814fa3e6d40e8
 
 	return receipts, allLogs, *usedGas, nil
 }

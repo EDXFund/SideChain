@@ -21,8 +21,8 @@ package geth
 import (
 	"math/big"
 
-	"github.com/EDXFund/SideChain/core/types"
-	"github.com/EDXFund/SideChain/ethclient"
+	"github.com/EDXFund/MasterChain/core/types"
+	"github.com/EDXFund/MasterChain/ethclient"
 )
 
 // EthereumClient provides access to the Ethereum APIs.

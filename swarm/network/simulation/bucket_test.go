@@ -20,8 +20,8 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/EDXFund/SideChain/node"
-	"github.com/EDXFund/SideChain/p2p/simulations/adapters"
+	"github.com/EDXFund/MasterChain/node"
+	"github.com/EDXFund/MasterChain/p2p/simulations/adapters"
 )
 
 // TestServiceBucket tests all bucket functionalities using subtests.

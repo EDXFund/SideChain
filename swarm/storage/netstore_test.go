@@ -24,7 +24,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/EDXFund/SideChain/swarm/network"
+	"github.com/EDXFund/MasterChain/swarm/network"
 )
 
 var (

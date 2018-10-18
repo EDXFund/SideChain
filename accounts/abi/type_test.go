@@ -22,7 +22,7 @@ import (
 	"testing"
 
 	"github.com/davecgh/go-spew/spew"
-	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/MasterChain/common"
 )
 
 // typeWithoutStringer is a alias for the Type type which simply doesn't implement

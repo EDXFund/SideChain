@@ -22,8 +22,8 @@ import (
 	"io/ioutil"
 	"strings"
 
-	"github.com/EDXFund/SideChain/accounts/abi"
-	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/MasterChain/accounts/abi"
+	"github.com/EDXFund/MasterChain/common"
 
 	"bytes"
 	"os"

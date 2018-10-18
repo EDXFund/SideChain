@@ -21,9 +21,9 @@ import (
 	"context"
 	"sync"
 
-	"github.com/EDXFund/SideChain/internal/ethapi"
-	"github.com/EDXFund/SideChain/log"
-	"github.com/EDXFund/SideChain/rpc"
+	"github.com/EDXFund/MasterChain/internal/ethapi"
+	"github.com/EDXFund/MasterChain/log"
+	"github.com/EDXFund/MasterChain/rpc"
 )
 
 type StdIOUI struct {

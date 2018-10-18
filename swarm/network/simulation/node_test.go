@@ -23,11 +23,11 @@ import (
 	"testing"
 	"time"
 
-	"github.com/EDXFund/SideChain/log"
-	"github.com/EDXFund/SideChain/node"
-	"github.com/EDXFund/SideChain/p2p/discover"
-	"github.com/EDXFund/SideChain/p2p/simulations/adapters"
-	"github.com/EDXFund/SideChain/swarm/network"
+	"github.com/EDXFund/MasterChain/log"
+	"github.com/EDXFund/MasterChain/node"
+	"github.com/EDXFund/MasterChain/p2p/discover"
+	"github.com/EDXFund/MasterChain/p2p/simulations/adapters"
+	"github.com/EDXFund/MasterChain/swarm/network"
 )
 
 func TestUpDownNodeIDs(t *testing.T) {

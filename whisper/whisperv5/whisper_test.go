@@ -23,7 +23,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/MasterChain/common"
 )
 
 func TestWhisperBasic(t *testing.T) {

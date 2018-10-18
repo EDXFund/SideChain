@@ -26,13 +26,13 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/EDXFund/SideChain/accounts"
-	"github.com/EDXFund/SideChain/ethdb"
-	"github.com/EDXFund/SideChain/event"
-	"github.com/EDXFund/SideChain/internal/debug"
-	"github.com/EDXFund/SideChain/log"
-	"github.com/EDXFund/SideChain/p2p"
-	"github.com/EDXFund/SideChain/rpc"
+	"github.com/EDXFund/MasterChain/accounts"
+	"github.com/EDXFund/MasterChain/ethdb"
+	"github.com/EDXFund/MasterChain/event"
+	"github.com/EDXFund/MasterChain/internal/debug"
+	"github.com/EDXFund/MasterChain/log"
+	"github.com/EDXFund/MasterChain/p2p"
+	"github.com/EDXFund/MasterChain/rpc"
 	"github.com/prometheus/prometheus/util/flock"
 )
 
@@ -211,7 +211,6 @@ func (n *Node) Start() error {
 		// Mark the service started for potential cleanup
 		started = append(started, kind)
 	}
-	
 	// Lastly start the configured RPC interfaces
 	if err := n.startRPC(services); err != nil {
 		for _, service := range services {

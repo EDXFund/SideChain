@@ -28,10 +28,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/crypto"
-	"github.com/EDXFund/SideChain/rpc"
-	"github.com/EDXFund/SideChain/swarm/api"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/crypto"
+	"github.com/EDXFund/MasterChain/rpc"
+	"github.com/EDXFund/MasterChain/swarm/api"
 )
 
 // TestNewSwarm validates Swarm fields in repsect to the provided configuration.

@@ -20,8 +20,8 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/EDXFund/SideChain/log"
-	"github.com/EDXFund/SideChain/p2p/simulations"
+	"github.com/EDXFund/MasterChain/log"
+	"github.com/EDXFund/MasterChain/p2p/simulations"
 )
 
 // Package defaults.

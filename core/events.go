@@ -17,8 +17,8 @@
 package core
 
 import (
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/core/types"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/core/types"
 )
 
 // NewTxsEvent is posted when a batch of transactions enter the transaction pool.
@@ -46,3 +46,14 @@ type ChainSideEvent struct {
 }
 
 type ChainHeadEvent struct{ Block *types.Block }
+type PoolChainEvent uint16
+
+var (
+	PoolEventChain        PoolChainEvent = 1
+	PoolEventChainTimeout PoolChainEvent = 2
+)
+
+type ShardPoolEvent struct {
+	Event PoolChainEvent
+	Block *types.Block
+}

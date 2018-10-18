@@ -23,10 +23,10 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/core/types"
-	"github.com/EDXFund/SideChain/rlp"
-	whisper "github.com/EDXFund/SideChain/whisper/whisperv6"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/core/types"
+	"github.com/EDXFund/MasterChain/rlp"
+	whisper "github.com/EDXFund/MasterChain/whisper/whisperv6"
 )
 
 // A Nonce is a 64-bit hash which proves (combined with the mix-hash) that

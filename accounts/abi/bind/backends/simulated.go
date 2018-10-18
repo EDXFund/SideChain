@@ -24,22 +24,22 @@ import (
 	"sync"
 	"time"
 
-	"github.com/EDXFund/SideChain"
-	"github.com/EDXFund/SideChain/accounts/abi/bind"
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/common/math"
-	"github.com/EDXFund/SideChain/consensus/ethash"
-	"github.com/EDXFund/SideChain/core"
-	"github.com/EDXFund/SideChain/core/bloombits"
-	"github.com/EDXFund/SideChain/core/rawdb"
-	"github.com/EDXFund/SideChain/core/state"
-	"github.com/EDXFund/SideChain/core/types"
-	"github.com/EDXFund/SideChain/core/vm"
-	"github.com/EDXFund/SideChain/eth/filters"
-	"github.com/EDXFund/SideChain/ethdb"
-	"github.com/EDXFund/SideChain/event"
-	"github.com/EDXFund/SideChain/params"
-	"github.com/EDXFund/SideChain/rpc"
+	"github.com/EDXFund/MasterChain"
+	"github.com/EDXFund/MasterChain/accounts/abi/bind"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/common/math"
+	"github.com/EDXFund/MasterChain/consensus/ethash"
+	"github.com/EDXFund/MasterChain/core"
+	"github.com/EDXFund/MasterChain/core/bloombits"
+	"github.com/EDXFund/MasterChain/core/rawdb"
+	"github.com/EDXFund/MasterChain/core/state"
+	"github.com/EDXFund/MasterChain/core/types"
+	"github.com/EDXFund/MasterChain/core/vm"
+	"github.com/EDXFund/MasterChain/eth/filters"
+	"github.com/EDXFund/MasterChain/ethdb"
+	"github.com/EDXFund/MasterChain/event"
+	"github.com/EDXFund/MasterChain/params"
+	"github.com/EDXFund/MasterChain/rpc"
 )
 
 // This nil assignment ensures compile time that SimulatedBackend implements bind.ContractBackend.
@@ -160,7 +160,7 @@ func (b *SimulatedBackend) StorageAt(ctx context.Context, contract common.Addres
 
 // TransactionReceipt returns the receipt of a transaction.
 func (b *SimulatedBackend) TransactionReceipt(ctx context.Context, txHash common.Hash) (*types.Receipt, error) {
-	receipt, _, _, _ := rawdb.ReadReceipt(b.database, txHash)
+	receipt, _, _, _, _ := rawdb.ReadReceipt(b.database, txHash)
 	return receipt, nil
 }
 
@@ -441,19 +441,19 @@ func (fb *filterBackend) HeaderByHash(ctx context.Context, hash common.Hash) (*t
 }
 
 func (fb *filterBackend) GetReceipts(ctx context.Context, hash common.Hash) (types.Receipts, error) {
-	number := rawdb.ReadHeaderNumber(fb.db, hash)
+	shardId, number := rawdb.ReadHeaderNumber(fb.db, hash)
 	if number == nil {
 		return nil, nil
 	}
-	return rawdb.ReadReceipts(fb.db, hash, *number), nil
+	return rawdb.ReadReceipts(fb.db, hash, shardId, *number), nil
 }
 
 func (fb *filterBackend) GetLogs(ctx context.Context, hash common.Hash) ([][]*types.Log, error) {
-	number := rawdb.ReadHeaderNumber(fb.db, hash)
+	shardId, number := rawdb.ReadHeaderNumber(fb.db, hash)
 	if number == nil {
 		return nil, nil
 	}
-	receipts := rawdb.ReadReceipts(fb.db, hash, *number)
+	receipts := rawdb.ReadReceipts(fb.db, hash, shardId, *number)
 	if receipts == nil {
 		return nil, nil
 	}

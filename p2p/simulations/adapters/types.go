@@ -26,11 +26,11 @@ import (
 	"strconv"
 
 	"github.com/docker/docker/pkg/reexec"
-	"github.com/EDXFund/SideChain/crypto"
-	"github.com/EDXFund/SideChain/node"
-	"github.com/EDXFund/SideChain/p2p"
-	"github.com/EDXFund/SideChain/p2p/discover"
-	"github.com/EDXFund/SideChain/rpc"
+	"github.com/EDXFund/MasterChain/crypto"
+	"github.com/EDXFund/MasterChain/node"
+	"github.com/EDXFund/MasterChain/p2p"
+	"github.com/EDXFund/MasterChain/p2p/discover"
+	"github.com/EDXFund/MasterChain/rpc"
 )
 
 // Node represents a node in a simulation network which is created by a

@@ -22,7 +22,7 @@ import (
 	"errors"
 	"math/big"
 
-	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/MasterChain/common"
 )
 
 // A BigInt represents a signed multi-precision integer.

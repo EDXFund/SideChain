@@ -22,7 +22,7 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/MasterChain/common"
 )
 
 func TestHexOrDecimal256(t *testing.T) {

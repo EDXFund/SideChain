@@ -16,7 +16,7 @@
 
 package bind
 
-import "github.com/EDXFund/SideChain/accounts/abi"
+import "github.com/EDXFund/MasterChain/accounts/abi"
 
 // tmplData is the data structure required to fill the binding template.
 type tmplData struct {

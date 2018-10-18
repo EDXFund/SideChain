@@ -1,8 +1,8 @@
 package log
 
 import (
-	l "github.com/EDXFund/SideChain/log"
-	"github.com/EDXFund/SideChain/metrics"
+	l "github.com/EDXFund/MasterChain/log"
+	"github.com/EDXFund/MasterChain/metrics"
 )
 
 const (

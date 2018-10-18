@@ -19,11 +19,11 @@ package downloader
 import (
 	"math/big"
 
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/core"
-	"github.com/EDXFund/SideChain/core/rawdb"
-	"github.com/EDXFund/SideChain/core/types"
-	"github.com/EDXFund/SideChain/ethdb"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/core"
+	"github.com/EDXFund/MasterChain/core/rawdb"
+	"github.com/EDXFund/MasterChain/core/types"
+	"github.com/EDXFund/MasterChain/ethdb"
 )
 
 // FakePeer is a mock downloader peer that operates on a local database instance
@@ -126,11 +126,12 @@ func (p *FakePeer) RequestBodies(hashes []common.Hash) error {
 		txs    [][]*types.Transaction
 		uncles [][]*types.Header
 	)
+	////MUST TODO
 	for _, hash := range hashes {
-		block := rawdb.ReadBlock(p.db, hash, *p.hc.GetBlockNumber(hash))
+		block := rawdb.ReadBlock(p.db, hash, *p.hc.ShardId(), *p.hc.GetBlockNumber(hash))
 
 		txs = append(txs, block.Transactions())
-		uncles = append(uncles, block.Uncles())
+		//uncles = append(uncles, block.Uncles())
 	}
 	p.dl.DeliverBodies(p.id, txs, uncles)
 	return nil
@@ -141,7 +142,7 @@ func (p *FakePeer) RequestBodies(hashes []common.Hash) error {
 func (p *FakePeer) RequestReceipts(hashes []common.Hash) error {
 	var receipts [][]*types.Receipt
 	for _, hash := range hashes {
-		receipts = append(receipts, rawdb.ReadReceipts(p.db, hash, *p.hc.GetBlockNumber(hash)))
+		receipts = append(receipts, rawdb.ReadReceipts(p.db, hash, *p.hc.ShardId, *p.hc.GetBlockNumber(hash)))
 	}
 	p.dl.DeliverReceipts(p.id, receipts)
 	return nil

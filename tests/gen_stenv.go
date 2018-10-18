@@ -7,8 +7,8 @@ import (
 	"errors"
 	"math/big"
 
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/common/math"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/common/math"
 )
 
 var _ = (*stEnvMarshaling)(nil)

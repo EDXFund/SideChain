@@ -23,9 +23,9 @@ import (
 	"io/ioutil"
 	"strings"
 
-	"github.com/EDXFund/SideChain/cmd/utils"
-	"github.com/EDXFund/SideChain/swarm/api"
-	"github.com/EDXFund/SideChain/swarm/api/client"
+	"github.com/EDXFund/MasterChain/cmd/utils"
+	"github.com/EDXFund/MasterChain/swarm/api"
+	"github.com/EDXFund/MasterChain/swarm/api/client"
 	"gopkg.in/urfave/cli.v1"
 )
 

@@ -24,16 +24,16 @@ import (
 	"math/big"
 	"time"
 
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/common/bitutil"
-	"github.com/EDXFund/SideChain/core"
-	"github.com/EDXFund/SideChain/core/rawdb"
-	"github.com/EDXFund/SideChain/core/types"
-	"github.com/EDXFund/SideChain/ethdb"
-	"github.com/EDXFund/SideChain/log"
-	"github.com/EDXFund/SideChain/params"
-	"github.com/EDXFund/SideChain/rlp"
-	"github.com/EDXFund/SideChain/trie"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/common/bitutil"
+	"github.com/EDXFund/MasterChain/core"
+	"github.com/EDXFund/MasterChain/core/rawdb"
+	"github.com/EDXFund/MasterChain/core/types"
+	"github.com/EDXFund/MasterChain/ethdb"
+	"github.com/EDXFund/MasterChain/log"
+	"github.com/EDXFund/MasterChain/params"
+	"github.com/EDXFund/MasterChain/rlp"
+	"github.com/EDXFund/MasterChain/trie"
 )
 
 // IndexerConfig includes a set of configs for chain indexers.
@@ -302,7 +302,7 @@ type BloomTrieIndexerBackend struct {
 }
 
 // NewBloomTrieIndexer creates a BloomTrie chain indexer
-func NewBloomTrieIndexer(db ethdb.Database, odr OdrBackend, parentSize, size uint64) *core.ChainIndexer {
+func NewBloomTrieIndexer(db ethdb.Database, odr OdrBackend, shardId uint16, parentSize, size uint64) *core.ChainIndexer {
 	trieTable := ethdb.NewTable(db, BloomTrieTablePrefix)
 	backend := &BloomTrieIndexerBackend{
 		diskdb:     db,
@@ -314,7 +314,7 @@ func NewBloomTrieIndexer(db ethdb.Database, odr OdrBackend, parentSize, size uin
 	}
 	backend.bloomTrieRatio = size / parentSize
 	backend.sectionHeads = make([]common.Hash, backend.bloomTrieRatio)
-	return core.NewChainIndexer(db, ethdb.NewTable(db, "bltIndex-"), backend, size, 0, time.Millisecond*100, "bloomtrie")
+	return core.NewChainIndexer(db, ethdb.NewTable(db, "bltIndex-"), backend, shardId, size, 0, time.Millisecond*100, "bloomtrie")
 }
 
 // fetchMissingNodes tries to retrieve the last entries of the latest trusted bloom trie from the

@@ -23,11 +23,11 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/EDXFund/SideChain/log"
-	"github.com/EDXFund/SideChain/p2p"
-	"github.com/EDXFund/SideChain/p2p/discover"
-	"github.com/EDXFund/SideChain/p2p/protocols"
-	p2ptest "github.com/EDXFund/SideChain/p2p/testing"
+	"github.com/EDXFund/MasterChain/log"
+	"github.com/EDXFund/MasterChain/p2p"
+	"github.com/EDXFund/MasterChain/p2p/discover"
+	"github.com/EDXFund/MasterChain/p2p/protocols"
+	p2ptest "github.com/EDXFund/MasterChain/p2p/testing"
 )
 
 const (

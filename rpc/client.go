@@ -33,7 +33,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/EDXFund/SideChain/log"
+	"github.com/EDXFund/MasterChain/log"
 )
 
 var (

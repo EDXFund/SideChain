@@ -27,7 +27,7 @@ import (
 	"path"
 	"strings"
 
-	"github.com/EDXFund/SideChain/common/math"
+	"github.com/EDXFund/MasterChain/common/math"
 	"gopkg.in/urfave/cli.v1"
 )
 

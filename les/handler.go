@@ -26,23 +26,23 @@ import (
 	"sync"
 	"time"
 
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/common/mclock"
-	"github.com/EDXFund/SideChain/consensus"
-	"github.com/EDXFund/SideChain/core"
-	"github.com/EDXFund/SideChain/core/rawdb"
-	"github.com/EDXFund/SideChain/core/state"
-	"github.com/EDXFund/SideChain/core/types"
-	"github.com/EDXFund/SideChain/eth/downloader"
-	"github.com/EDXFund/SideChain/ethdb"
-	"github.com/EDXFund/SideChain/event"
-	"github.com/EDXFund/SideChain/light"
-	"github.com/EDXFund/SideChain/log"
-	"github.com/EDXFund/SideChain/p2p"
-	"github.com/EDXFund/SideChain/p2p/discv5"
-	"github.com/EDXFund/SideChain/params"
-	"github.com/EDXFund/SideChain/rlp"
-	"github.com/EDXFund/SideChain/trie"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/common/mclock"
+	"github.com/EDXFund/MasterChain/consensus"
+	"github.com/EDXFund/MasterChain/core"
+	"github.com/EDXFund/MasterChain/core/rawdb"
+	"github.com/EDXFund/MasterChain/core/state"
+	"github.com/EDXFund/MasterChain/core/types"
+	"github.com/EDXFund/MasterChain/eth/downloader"
+	"github.com/EDXFund/MasterChain/ethdb"
+	"github.com/EDXFund/MasterChain/event"
+	"github.com/EDXFund/MasterChain/light"
+	"github.com/EDXFund/MasterChain/log"
+	"github.com/EDXFund/MasterChain/p2p"
+	"github.com/EDXFund/MasterChain/p2p/discv5"
+	"github.com/EDXFund/MasterChain/params"
+	"github.com/EDXFund/MasterChain/rlp"
+	"github.com/EDXFund/MasterChain/trie"
 )
 
 const (
@@ -69,7 +69,7 @@ func errResp(code errCode, format string, v ...interface{}) error {
 
 type BlockChain interface {
 	Config() *params.ChainConfig
-	HasHeader(hash common.Hash, number uint64) bool
+	HasHeader(shardId uint16,hash common.Hash, number uint64) bool
 	GetHeader(hash common.Hash, number uint64) *types.Header
 	GetHeaderByHash(hash common.Hash) *types.Header
 	CurrentHeader() *types.Header
@@ -595,7 +595,7 @@ func (pm *ProtocolManager) handleMsg(p *peer) error {
 		}
 		for _, req := range req.Reqs {
 			// Retrieve the requested state entry, stopping if enough was found
-			if number := rawdb.ReadHeaderNumber(pm.chainDb, req.BHash); number != nil {
+			if shardId,number := rawdb.ReadHeaderNumber(pm.chainDb, req.BHash); number != nil {
 				if header := rawdb.ReadHeader(pm.chainDb, req.BHash, *number); header != nil {
 					statedb, err := pm.blockchain.State()
 					if err != nil {

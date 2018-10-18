@@ -20,12 +20,12 @@ import (
 	"bytes"
 	"context"
 
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/core"
-	"github.com/EDXFund/SideChain/core/rawdb"
-	"github.com/EDXFund/SideChain/core/types"
-	"github.com/EDXFund/SideChain/crypto"
-	"github.com/EDXFund/SideChain/rlp"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/core"
+	"github.com/EDXFund/MasterChain/core/rawdb"
+	"github.com/EDXFund/MasterChain/core/types"
+	"github.com/EDXFund/MasterChain/crypto"
+	"github.com/EDXFund/MasterChain/rlp"
 )
 
 var sha3_nil = crypto.Keccak256Hash(nil)
@@ -148,7 +148,7 @@ func GetBlockReceipts(ctx context.Context, odr OdrBackend, hash common.Hash, num
 		if err := core.SetReceiptsData(config, block, receipts); err != nil {
 			return nil, err
 		}
-		rawdb.WriteReceipts(odr.Database(), hash, number, receipts)
+		rawdb.WriteReceipts(odr.Database(), hash, block.Header().ShardId, number, receipts)
 	}
 	return receipts, nil
 }

@@ -26,7 +26,7 @@ import (
 	"io/ioutil"
 	"os"
 
-	"github.com/EDXFund/SideChain/log"
+	"github.com/EDXFund/MasterChain/log"
 )
 
 type storedCredential struct {

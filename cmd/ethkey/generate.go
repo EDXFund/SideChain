@@ -23,9 +23,9 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/EDXFund/SideChain/accounts/keystore"
-	"github.com/EDXFund/SideChain/cmd/utils"
-	"github.com/EDXFund/SideChain/crypto"
+	"github.com/EDXFund/MasterChain/accounts/keystore"
+	"github.com/EDXFund/MasterChain/cmd/utils"
+	"github.com/EDXFund/MasterChain/crypto"
 	"github.com/pborman/uuid"
 	"gopkg.in/urfave/cli.v1"
 )

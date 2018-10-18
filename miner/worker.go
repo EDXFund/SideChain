@@ -24,17 +24,17 @@ import (
 	"sync/atomic"
 	"time"
 
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/consensus"
+	"github.com/EDXFund/MasterChain/consensus/misc"
+	"github.com/EDXFund/MasterChain/core"
+	"github.com/EDXFund/MasterChain/core/state"
+	"github.com/EDXFund/MasterChain/core/types"
+	"github.com/EDXFund/MasterChain/core/vm"
+	"github.com/EDXFund/MasterChain/event"
+	"github.com/EDXFund/MasterChain/log"
+	"github.com/EDXFund/MasterChain/params"
 	mapset "github.com/deckarep/golang-set"
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/consensus"
-	"github.com/EDXFund/SideChain/consensus/misc"
-	"github.com/EDXFund/SideChain/core"
-	"github.com/EDXFund/SideChain/core/state"
-	"github.com/EDXFund/SideChain/core/types"
-	"github.com/EDXFund/SideChain/core/vm"
-	"github.com/EDXFund/SideChain/event"
-	"github.com/EDXFund/SideChain/log"
-	"github.com/EDXFund/SideChain/params"
 )
 
 const (
@@ -84,13 +84,18 @@ type environment struct {
 	state     *state.StateDB // apply state changes here
 	ancestors mapset.Set     // ancestor set (used for checking uncle parent validity)
 	family    mapset.Set     // family set (used for checking uncle invalidity)
-	uncles    mapset.Set     // uncle set
-	tcount    int            // tx count in cycle
-	gasPool   *core.GasPool  // available gas used to pack transactions
 
-	header   *types.Header
+	tcount  int           // tx count in cycle
+	gasPool *core.GasPool // available gas used to pack transactions
+
+	header *types.Header
+
+	//exists only when node is in shard chain
 	txs      []*types.Transaction
 	receipts []*types.Receipt
+
+	//exists when node is in master chain
+	shardBlocks mapset.Set // shard chain blocks set
 }
 
 // task contains all information for consensus engine sealing and result submitting.
@@ -177,14 +182,14 @@ type worker struct {
 
 func newWorker(config *params.ChainConfig, engine consensus.Engine, eth Backend, mux *event.TypeMux, recommit time.Duration, gasFloor, gasCeil uint64) *worker {
 	worker := &worker{
-		config:             config,
-		engine:             engine,
-		eth:                eth,
-		mux:                mux,
-		chain:              eth.BlockChain(),
-		gasFloor:           gasFloor,
-		gasCeil:            gasCeil,
-		possibleUncles:     make(map[common.Hash]*types.Block),
+		config:   config,
+		engine:   engine,
+		eth:      eth,
+		mux:      mux,
+		chain:    eth.BlockChain(),
+		gasFloor: gasFloor,
+		gasCeil:  gasCeil,
+		//possibleUncles:     make(map[common.Hash]*types.Block),
 		unconfirmed:        newUnconfirmedBlocks(eth.BlockChain(), miningLogAtDepth),
 		pendingTasks:       make(map[common.Hash]*task),
 		txsCh:              make(chan core.NewTxsEvent, txChanSize),
@@ -200,6 +205,8 @@ func newWorker(config *params.ChainConfig, engine consensus.Engine, eth Backend,
 	}
 	// Subscribe NewTxsEvent for tx pool
 	worker.txsSub = eth.TxPool().SubscribeNewTxsEvent(worker.txsCh)
+	/////MUST TODO Subscribe to all shard chain's block arrival event
+
 	// Subscribe events for blockchain
 	worker.chainHeadSub = eth.BlockChain().SubscribeChainHeadEvent(worker.chainHeadCh)
 	worker.chainSideSub = eth.BlockChain().SubscribeChainSideEvent(worker.chainSideCh)
@@ -404,8 +411,8 @@ func (w *worker) mainLoop() {
 		case req := <-w.newWorkCh:
 			w.commitNewWork(req.interrupt, req.noempty, req.timestamp)
 
-		case ev := <-w.chainSideCh:
-			if _, exist := w.possibleUncles[ev.Block.Hash()]; exist {
+		case <-w.chainSideCh:
+			/*if _, exist := w.possibleUncles[ev.Block.Hash()]; exist {
 				continue
 			}
 			// Add side block to possible uncle block set.
@@ -430,7 +437,7 @@ func (w *worker) mainLoop() {
 					})
 					w.commit(uncles, nil, true, start)
 				}
-			}
+			}*/
 
 		case ev := <-w.txsCh:
 			// Apply transactions to the pending state if we're not mining.
@@ -668,7 +675,7 @@ func (w *worker) updateSnapshot() {
 
 	w.snapshotState = w.current.state.Copy()
 }
-
+//commit transaction process and create receiption
 func (w *worker) commitTransaction(tx *types.Transaction, coinbase common.Address) ([]*types.Log, error) {
 	snap := w.current.state.Snapshot()
 
@@ -859,23 +866,7 @@ func (w *worker) commitNewWork(interrupt *int32, noempty bool, timestamp int64) 
 		misc.ApplyDAOHardFork(env.state)
 	}
 	// Accumulate the uncles for the current block
-	for hash, uncle := range w.possibleUncles {
-		if uncle.NumberU64()+staleThreshold <= header.Number.Uint64() {
-			delete(w.possibleUncles, hash)
-		}
-	}
-	uncles := make([]*types.Header, 0, 2)
-	for hash, uncle := range w.possibleUncles {
-		if len(uncles) == 2 {
-			break
-		}
-		if err := w.commitUncle(env, uncle.Header()); err != nil {
-			log.Trace("Possible uncle rejected", "hash", hash, "reason", err)
-		} else {
-			log.Debug("Committing new uncle to block", "hash", hash)
-			uncles = append(uncles, uncle.Header())
-		}
-	}
+
 
 	if !noempty {
 		// Create an empty block based on temporary copied state for sealing in advance without waiting block
@@ -919,7 +910,7 @@ func (w *worker) commitNewWork(interrupt *int32, noempty bool, timestamp int64) 
 
 // commit runs any post-transaction state modifications, assembles the final block
 // and commits new work if consensus engine is running.
-func (w *worker) commit(uncles []*types.Header, interval func(), update bool, start time.Time) error {
+func (w *worker) commit(interval func(), update bool, start time.Time) error {
 	// Deep copy receipts here to avoid interaction between different tasks.
 	receipts := make([]*types.Receipt, len(w.current.receipts))
 	for i, l := range w.current.receipts {
@@ -927,7 +918,7 @@ func (w *worker) commit(uncles []*types.Header, interval func(), update bool, st
 		*receipts[i] = *l
 	}
 	s := w.current.state.Copy()
-	block, err := w.engine.Finalize(w.chain, w.current.header, s, w.current.txs, uncles, w.current.receipts)
+	block, err := w.engine.Finalize(w.chain, w.current.header, s, w.current.txs, w.current.receipts)
 	if err != nil {
 		return err
 	}
@@ -946,7 +937,7 @@ func (w *worker) commit(uncles []*types.Header, interval func(), update bool, st
 			feesEth := new(big.Float).Quo(new(big.Float).SetInt(feesWei), new(big.Float).SetInt(big.NewInt(params.Ether)))
 
 			log.Info("Commit new mining work", "number", block.Number(), "sealhash", w.engine.SealHash(block.Header()),
-				"uncles", len(uncles), "txs", w.current.tcount, "gas", block.GasUsed(), "fees", feesEth, "elapsed", common.PrettyDuration(time.Since(start)))
+				"txs", w.current.tcount, "gas", block.GasUsed(), "fees", feesEth, "elapsed", common.PrettyDuration(time.Since(start)))
 
 		case <-w.exitCh:
 			log.Info("Worker has exited")

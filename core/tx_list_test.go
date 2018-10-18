@@ -20,8 +20,8 @@ import (
 	"math/rand"
 	"testing"
 
-	"github.com/EDXFund/SideChain/core/types"
-	"github.com/EDXFund/SideChain/crypto"
+	"github.com/EDXFund/MasterChain/core/types"
+	"github.com/EDXFund/MasterChain/crypto"
 )
 
 // Tests that transactions can be added to strict lists and list contents and

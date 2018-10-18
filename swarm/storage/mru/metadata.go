@@ -20,8 +20,8 @@ import (
 	"encoding/binary"
 	"hash"
 
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/swarm/storage"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/swarm/storage"
 )
 
 // ResourceMetadata encapsulates the immutable information about a mutable resource :)

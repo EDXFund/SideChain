@@ -26,10 +26,10 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/EDXFund/SideChain/cmd/internal/browser"
-	"github.com/EDXFund/SideChain/params"
+	"github.com/EDXFund/MasterChain/cmd/internal/browser"
+	"github.com/EDXFund/MasterChain/params"
 
-	"github.com/EDXFund/SideChain/cmd/utils"
+	"github.com/EDXFund/MasterChain/cmd/utils"
 	cli "gopkg.in/urfave/cli.v1"
 )
 
@@ -41,7 +41,7 @@ var bugCommand = cli.Command{
 	Category:  "MISCELLANEOUS COMMANDS",
 }
 
-const issueURL = "https://github.com/ethereum/go-ethereum/issues/new"
+const issueURL = "https://github.com/EDXFund/MasterChain/issues/new"
 
 // reportBug reports a bug by opening a new URL to the go-ethereum GH issue
 // tracker and setting default values as the issue body.

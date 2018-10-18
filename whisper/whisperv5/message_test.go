@@ -21,8 +21,8 @@ import (
 	mrand "math/rand"
 	"testing"
 
-	"github.com/EDXFund/SideChain/crypto"
-	"github.com/EDXFund/SideChain/rlp"
+	"github.com/EDXFund/MasterChain/crypto"
+	"github.com/EDXFund/MasterChain/rlp"
 )
 
 func generateMessageParams() (*MessageParams, error) {

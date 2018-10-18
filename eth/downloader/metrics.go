@@ -19,7 +19,7 @@
 package downloader
 
 import (
-	"github.com/EDXFund/SideChain/metrics"
+	"github.com/EDXFund/MasterChain/metrics"
 )
 
 var (

@@ -22,7 +22,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/EDXFund/SideChain/swarm/log"
+	"github.com/EDXFund/MasterChain/swarm/log"
 )
 
 // SwAP Swarm Accounting Protocol with

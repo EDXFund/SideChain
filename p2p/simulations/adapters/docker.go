@@ -28,8 +28,8 @@ import (
 	"strings"
 
 	"github.com/docker/docker/pkg/reexec"
-	"github.com/EDXFund/SideChain/node"
-	"github.com/EDXFund/SideChain/p2p/discover"
+	"github.com/EDXFund/MasterChain/node"
+	"github.com/EDXFund/MasterChain/p2p/discover"
 )
 
 var (

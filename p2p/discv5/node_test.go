@@ -27,8 +27,8 @@ import (
 	"testing/quick"
 	"time"
 
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/crypto"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/crypto"
 )
 
 func ExampleNewNode() {

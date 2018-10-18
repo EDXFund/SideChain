@@ -21,7 +21,7 @@ import (
 	"fmt"
 	"io/ioutil"
 
-	"github.com/EDXFund/SideChain/cmd/evm/internal/compiler"
+	"github.com/EDXFund/MasterChain/cmd/evm/internal/compiler"
 
 	cli "gopkg.in/urfave/cli.v1"
 )

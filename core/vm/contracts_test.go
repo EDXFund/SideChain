@@ -21,7 +21,7 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/MasterChain/common"
 )
 
 // precompiledTest defines the input/output pairs for precompiled contract tests.

@@ -19,7 +19,7 @@ package rpc
 import (
 	"net"
 
-	"github.com/EDXFund/SideChain/log"
+	"github.com/EDXFund/MasterChain/log"
 )
 
 // StartHTTPEndpoint starts the HTTP RPC endpoint, configured with cors/vhosts/modules

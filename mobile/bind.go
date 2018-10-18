@@ -22,10 +22,10 @@ import (
 	"math/big"
 	"strings"
 
-	"github.com/EDXFund/SideChain/accounts/abi"
-	"github.com/EDXFund/SideChain/accounts/abi/bind"
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/core/types"
+	"github.com/EDXFund/MasterChain/accounts/abi"
+	"github.com/EDXFund/MasterChain/accounts/abi/bind"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/core/types"
 )
 
 // Signer is an interaface defining the callback when a contract requires a

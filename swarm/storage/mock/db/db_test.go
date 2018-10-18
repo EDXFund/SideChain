@@ -23,7 +23,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/EDXFund/SideChain/swarm/storage/mock/test"
+	"github.com/EDXFund/MasterChain/swarm/storage/mock/test"
 )
 
 // TestDBStore is running a test.MockStore tests

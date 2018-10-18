@@ -23,7 +23,7 @@ import (
 	"time"
 
 	mapset "github.com/deckarep/golang-set"
-	"github.com/EDXFund/SideChain/common"
+	"github.com/EDXFund/MasterChain/common"
 )
 
 func TestMultipleTopicCopyInNewMessageFilter(t *testing.T) {

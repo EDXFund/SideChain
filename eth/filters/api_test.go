@@ -21,8 +21,8 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/EDXFund/SideChain/common"
-	"github.com/EDXFund/SideChain/rpc"
+	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/MasterChain/rpc"
 )
 
 func TestUnmarshalJSONNewFilterArgs(t *testing.T) {

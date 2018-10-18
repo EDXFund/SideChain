@@ -23,9 +23,9 @@ import (
 	"path/filepath"
 	"sync"
 
-	"github.com/EDXFund/SideChain/metrics"
-	"github.com/EDXFund/SideChain/swarm/log"
-	"github.com/EDXFund/SideChain/swarm/storage/mock"
+	"github.com/EDXFund/MasterChain/metrics"
+	"github.com/EDXFund/MasterChain/swarm/log"
+	"github.com/EDXFund/MasterChain/swarm/storage/mock"
 )
 
 type LocalStoreParams struct {

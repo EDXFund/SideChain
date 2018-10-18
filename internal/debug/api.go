@@ -34,7 +34,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/EDXFund/SideChain/log"
+	"github.com/EDXFund/MasterChain/log"
 )
 
 // Handler is the global debugging handler.
