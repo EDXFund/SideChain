@@ -101,6 +101,7 @@ const (
 	ErrInvalidResponse
 	ErrTooManyTimeouts
 	ErrMissingKey
+	ErrNotImplemented
 )
 
 func (e errCode) String() string {

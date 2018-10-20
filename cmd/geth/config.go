@@ -76,7 +76,7 @@ type ethstatsConfig struct {
 
 type gethConfig struct {
 	Eth       eth.Config
-	Shh       whisper.Config
+	//Shh       whisper.Config
 	Node      node.Config
 	Ethstats  ethstatsConfig
 	Dashboard dashboard.Config
@@ -101,8 +101,8 @@ func defaultNodeConfig() node.Config {
 	cfg := node.DefaultConfig
 	cfg.Name = clientIdentifier
 	cfg.Version = params.VersionWithCommit(gitCommit)
-	cfg.HTTPModules = append(cfg.HTTPModules, "eth", "shh")
-	cfg.WSModules = append(cfg.WSModules, "eth", "shh")
+	cfg.HTTPModules = append(cfg.HTTPModules, "eth")
+	cfg.WSModules = append(cfg.WSModules, "eth")
 	cfg.IPCPath = "geth.ipc"
 	return cfg
 }
@@ -111,7 +111,7 @@ func makeConfigNode(ctx *cli.Context) (*node.Node, gethConfig) {
 	// Load defaults.
 	cfg := gethConfig{
 		Eth:       eth.DefaultConfig,
-		Shh:       whisper.DefaultConfig,
+	//	Shh:       whisper.DefaultConfig,
 		Node:      defaultNodeConfig(),
 		Dashboard: dashboard.DefaultConfig,
 	}
@@ -134,7 +134,7 @@ func makeConfigNode(ctx *cli.Context) (*node.Node, gethConfig) {
 		cfg.Ethstats.URL = ctx.GlobalString(utils.EthStatsURLFlag.Name)
 	}
 
-	utils.SetShhConfig(ctx, stack, &cfg.Shh)
+//	utils.SetShhConfig(ctx, stack, &cfg.Shh)
 	utils.SetDashboardConfig(ctx, &cfg.Dashboard)
 
 	return stack, cfg
@@ -159,7 +159,7 @@ func makeFullNode(ctx *cli.Context) *node.Node {
 		utils.RegisterDashboardService(stack, &cfg.Dashboard, gitCommit)
 	}
 	// Whisper must be explicitly enabled by specifying at least 1 whisper flag or in dev mode
-	shhEnabled := enableWhisper(ctx)
+	/*shhEnabled := enableWhisper(ctx)
 	shhAutoEnabled := !ctx.GlobalIsSet(utils.WhisperEnabledFlag.Name) && ctx.GlobalIsSet(utils.DeveloperFlag.Name)
 	if shhEnabled || shhAutoEnabled {
 		if ctx.GlobalIsSet(utils.WhisperMaxMessageSizeFlag.Name) {
@@ -173,7 +173,7 @@ func makeFullNode(ctx *cli.Context) *node.Node {
 		}
 		utils.RegisterShhService(stack, &cfg.Shh)
 	}
-
+	*/
 	// Add the Ethereum Stats daemon if requested.
 	if cfg.Ethstats.URL != "" {
 		utils.RegisterEthStatsService(stack, cfg.Ethstats.URL)

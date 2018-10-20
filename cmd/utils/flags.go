@@ -45,7 +45,7 @@ import (
 	"github.com/EDXFund/Validator/eth/gasprice"
 	"github.com/EDXFund/Validator/ethdb"
 	"github.com/EDXFund/Validator/ethstats"
-	"github.com/EDXFund/Validator/les"
+	//"github.com/EDXFund/Validator/les"
 	"github.com/EDXFund/Validator/log"
 	"github.com/EDXFund/Validator/metrics"
 	"github.com/EDXFund/Validator/metrics/influxdb"
@@ -553,7 +553,7 @@ var (
 		Usage: "Suggested gas price is the given percentile of a set of recent transaction gas prices",
 		Value: eth.DefaultConfig.GPO.Percentile,
 	}
-	WhisperEnabledFlag = cli.BoolFlag{
+	/*WhisperEnabledFlag = cli.BoolFlag{
 		Name:  "shh",
 		Usage: "Enable Whisper",
 	}
@@ -571,7 +571,7 @@ var (
 		Name:  "shh.restrict-light",
 		Usage: "Restrict connection between two whisper light clients",
 	}
-
+*/
 	// Metrics flags
 	MetricsEnabledFlag = cli.BoolFlag{
 		Name:  metrics.MetricsEnabledFlag,
@@ -1094,7 +1094,7 @@ func checkExclusive(ctx *cli.Context, args ...interface{}) {
 		Fatalf("Flags %v can't be used at the same time", strings.Join(set, ", "))
 	}
 }
-
+/*
 // SetShhConfig applies shh-related command line flags to the config.
 func SetShhConfig(ctx *cli.Context, stack *node.Node, cfg *whisper.Config) {
 	if ctx.GlobalIsSet(WhisperMaxMessageSizeFlag.Name) {
@@ -1107,7 +1107,7 @@ func SetShhConfig(ctx *cli.Context, stack *node.Node, cfg *whisper.Config) {
 		cfg.RestrictConnectionBetweenLightClients = true
 	}
 }
-
+*/
 // SetEthConfig applies eth-related command line flags to the config.
 func SetEthConfig(ctx *cli.Context, stack *node.Node, cfg *eth.Config) {
 	// Avoid conflicting network flags
@@ -1237,22 +1237,22 @@ func SetDashboardConfig(ctx *cli.Context, cfg *dashboard.Config) {
 }
 
 // RegisterEthService adds an Ethereum client to the stack.
-func RegisterEthService(stack *node.Node, cfg *eth.Config) {
+func RegisterEthService(stack *node.Node, cfg *eth.Config,shardId uint16) {
 	var err error
-	if cfg.SyncMode == downloader.LightSync {
+	/*if cfg.SyncMode == downloader.LightSync {
 		err = stack.Register(func(ctx *node.ServiceContext) (node.Service, error) {
 			return les.New(ctx, cfg)
 		})
-	} else {
+	} else {*/
 		err = stack.Register(func(ctx *node.ServiceContext) (node.Service, error) {
-			fullNode, err := eth.New(ctx, cfg)
-			if fullNode != nil && cfg.LightServ > 0 {
+			fullNode, err := eth.New(ctx, cfg,shardId)
+			/*if fullNode != nil && cfg.LightServ > 0 {
 				ls, _ := les.NewLesServer(fullNode, cfg)
 				fullNode.AddLesServer(ls)
-			}
+			}*/
 			return fullNode, err
 		})
-	}
+	//}
 	if err != nil {
 		Fatalf("Failed to register the Ethereum service: %v", err)
 	}
@@ -1264,7 +1264,7 @@ func RegisterDashboardService(stack *node.Node, cfg *dashboard.Config, commit st
 		return dashboard.New(cfg, commit, ctx.ResolvePath("logs")), nil
 	})
 }
-
+/*
 // RegisterShhService configures Whisper and adds it to the given node.
 func RegisterShhService(stack *node.Node, cfg *whisper.Config) {
 	if err := stack.Register(func(n *node.ServiceContext) (node.Service, error) {
@@ -1272,7 +1272,7 @@ func RegisterShhService(stack *node.Node, cfg *whisper.Config) {
 	}); err != nil {
 		Fatalf("Failed to register the Whisper service: %v", err)
 	}
-}
+}*/
 
 // RegisterEthStatsService configures the Ethereum Stats daemon and adds it to
 // the given node.
@@ -1282,10 +1282,10 @@ func RegisterEthStatsService(stack *node.Node, url string) {
 		var ethServ *eth.Ethereum
 		ctx.Service(&ethServ)
 
-		var lesServ *les.LightEthereum
-		ctx.Service(&lesServ)
+		//var lesServ *les.LightEthereum
+		//ctx.Service(&lesServ)
 
-		return ethstats.New(url, ethServ, lesServ)
+		return ethstats.New(url, ethServ)
 	}); err != nil {
 		Fatalf("Failed to register the Ethereum Stats service: %v", err)
 	}
@@ -1343,11 +1343,11 @@ func MakeGenesis(ctx *cli.Context) *core.Genesis {
 }
 
 // MakeChain creates a chain manager from set command line flags.
-func MakeChain(ctx *cli.Context, stack *node.Node) (chain *core.BlockChain, chainDb ethdb.Database) {
+func MakeChain(ctx *cli.Context, stack *node.Node,shardId uint16) (chain *core.BlockChain, chainDb ethdb.Database) {
 	var err error
 	chainDb = MakeChainDatabase(ctx, stack)
 
-	config, _, err := core.SetupGenesisBlock(chainDb, MakeGenesis(ctx))
+	config, _, err := core.SetupGenesisBlock(chainDb, MakeGenesis(ctx),shardId)
 	if err != nil {
 		Fatalf("%v", err)
 	}
@@ -1379,7 +1379,7 @@ func MakeChain(ctx *cli.Context, stack *node.Node) (chain *core.BlockChain, chai
 		cache.TrieNodeLimit = ctx.GlobalInt(CacheFlag.Name) * ctx.GlobalInt(CacheGCFlag.Name) / 100
 	}
 	vmcfg := vm.Config{EnablePreimageRecording: ctx.GlobalBool(VMEnableDebugFlag.Name)}
-	chain, err = core.NewBlockChain(chainDb, cache, config, engine, vmcfg)
+	chain, err = core.NewBlockChain(chainDb, cache, config, engine, vmcfg,shardId)
 	if err != nil {
 		Fatalf("Can't create BlockChain: %v", err)
 	}
