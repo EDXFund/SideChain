@@ -23,11 +23,11 @@ import (
 	"math/big"
 
 	"github.com/EDXFund/MasterChain"
-	"github.com/EDXFund/MasterChain/accounts/abi"
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/core/types"
-	"github.com/EDXFund/MasterChain/crypto"
-	"github.com/EDXFund/MasterChain/event"
+	"github.com/EDXFund/Validator/accounts/abi"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/core/types"
+	"github.com/EDXFund/Validator/crypto"
+	"github.com/EDXFund/Validator/event"
 )
 
 // SignerFn is a signer function callback when a contract requires a method to

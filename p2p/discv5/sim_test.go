@@ -28,7 +28,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/Validator/common"
 )
 
 // In this test, nodes try to randomly resolve each other.

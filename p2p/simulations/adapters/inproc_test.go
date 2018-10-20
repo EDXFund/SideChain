@@ -23,7 +23,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/EDXFund/MasterChain/p2p/simulations/pipes"
+	"github.com/EDXFund/Validator/p2p/simulations/pipes"
 )
 
 func TestTCPPipe(t *testing.T) {

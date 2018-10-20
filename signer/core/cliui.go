@@ -25,9 +25,9 @@ import (
 	"sync"
 
 	"github.com/davecgh/go-spew/spew"
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/internal/ethapi"
-	"github.com/EDXFund/MasterChain/log"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/internal/ethapi"
+	"github.com/EDXFund/Validator/log"
 	"golang.org/x/crypto/ssh/terminal"
 )
 

@@ -21,7 +21,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/EDXFund/MasterChain/log"
+	"github.com/EDXFund/Validator/log"
 )
 
 // deployExplorer creates a new block explorer based on some user input.

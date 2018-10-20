@@ -19,10 +19,10 @@ package rawdb
 import (
 	"encoding/json"
 
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/log"
-	"github.com/EDXFund/MasterChain/params"
-	"github.com/EDXFund/MasterChain/rlp"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/log"
+	"github.com/EDXFund/Validator/params"
+	"github.com/EDXFund/Validator/rlp"
 )
 
 // ReadDatabaseVersion retrieves the version number of the database.

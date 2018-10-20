@@ -22,12 +22,12 @@ import (
 	"os"
 	"strings"
 
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/internal/ethapi"
-	"github.com/EDXFund/MasterChain/log"
-	"github.com/EDXFund/MasterChain/signer/core"
-	"github.com/EDXFund/MasterChain/signer/rules/deps"
-	"github.com/EDXFund/MasterChain/signer/storage"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/internal/ethapi"
+	"github.com/EDXFund/Validator/log"
+	"github.com/EDXFund/Validator/signer/core"
+	"github.com/EDXFund/Validator/signer/rules/deps"
+	"github.com/EDXFund/Validator/signer/storage"
 	"github.com/robertkrimen/otto"
 )
 

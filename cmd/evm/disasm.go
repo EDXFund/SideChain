@@ -22,7 +22,7 @@ import (
 	"io/ioutil"
 	"strings"
 
-	"github.com/EDXFund/MasterChain/core/asm"
+	"github.com/EDXFund/Validator/core/asm"
 	cli "gopkg.in/urfave/cli.v1"
 )
 

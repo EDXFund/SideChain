@@ -32,13 +32,13 @@ import (
 	"time"
 
 	"github.com/docker/docker/pkg/reexec"
-	"github.com/EDXFund/MasterChain/accounts"
-	"github.com/EDXFund/MasterChain/accounts/keystore"
-	"github.com/EDXFund/MasterChain/internal/cmdtest"
-	"github.com/EDXFund/MasterChain/node"
-	"github.com/EDXFund/MasterChain/p2p"
-	"github.com/EDXFund/MasterChain/rpc"
-	"github.com/EDXFund/MasterChain/swarm"
+	"github.com/EDXFund/Validator/accounts"
+	"github.com/EDXFund/Validator/accounts/keystore"
+	"github.com/EDXFund/Validator/internal/cmdtest"
+	"github.com/EDXFund/Validator/node"
+	"github.com/EDXFund/Validator/p2p"
+	"github.com/EDXFund/Validator/rpc"
+	"github.com/EDXFund/Validator/swarm"
 )
 
 func init() {

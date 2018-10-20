@@ -26,10 +26,10 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/EDXFund/MasterChain/cmd/internal/browser"
-	"github.com/EDXFund/MasterChain/params"
+	"github.com/EDXFund/Validator/cmd/internal/browser"
+	"github.com/EDXFund/Validator/params"
 
-	"github.com/EDXFund/MasterChain/cmd/utils"
+	"github.com/EDXFund/Validator/cmd/utils"
 	cli "gopkg.in/urfave/cli.v1"
 )
 

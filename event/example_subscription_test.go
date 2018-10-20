@@ -19,7 +19,7 @@ package event_test
 import (
 	"fmt"
 
-	"github.com/EDXFund/MasterChain/event"
+	"github.com/EDXFund/Validator/event"
 )
 
 func ExampleNewSubscription() {

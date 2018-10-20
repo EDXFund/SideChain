@@ -26,12 +26,12 @@ import (
 	"io"
 	"math/big"
 
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/core"
-	"github.com/EDXFund/MasterChain/core/rawdb"
-	"github.com/EDXFund/MasterChain/crypto"
-	"github.com/EDXFund/MasterChain/crypto/secp256k1"
-	"github.com/EDXFund/MasterChain/rlp"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/core"
+	"github.com/EDXFund/Validator/core/rawdb"
+	"github.com/EDXFund/Validator/crypto"
+	"github.com/EDXFund/Validator/crypto/secp256k1"
+	"github.com/EDXFund/Validator/rlp"
 )
 
 // Constants to match up protocol versions and messages

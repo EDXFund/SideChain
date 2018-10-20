@@ -35,12 +35,12 @@ import (
 	"sync"
 	"time"
 
-	"github.com/EDXFund/MasterChain/crypto"
-	"github.com/EDXFund/MasterChain/crypto/ecies"
-	"github.com/EDXFund/MasterChain/crypto/secp256k1"
-	"github.com/EDXFund/MasterChain/crypto/sha3"
-	"github.com/EDXFund/MasterChain/p2p/discover"
-	"github.com/EDXFund/MasterChain/rlp"
+	"github.com/EDXFund/Validator/crypto"
+	"github.com/EDXFund/Validator/crypto/ecies"
+	"github.com/EDXFund/Validator/crypto/secp256k1"
+	"github.com/EDXFund/Validator/crypto/sha3"
+	"github.com/EDXFund/Validator/p2p/discover"
+	"github.com/EDXFund/Validator/rlp"
 	"github.com/golang/snappy"
 )
 

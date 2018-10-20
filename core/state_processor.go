@@ -17,14 +17,13 @@
 package core
 
 import (
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/consensus"
-	"github.com/EDXFund/MasterChain/consensus/misc"
-	"github.com/EDXFund/MasterChain/core/state"
-	"github.com/EDXFund/MasterChain/core/types"
-	"github.com/EDXFund/MasterChain/core/vm"
-	"github.com/EDXFund/MasterChain/crypto"
-	"github.com/EDXFund/MasterChain/params"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/consensus"
+	"github.com/EDXFund/Validator/core/state"
+	"github.com/EDXFund/Validator/core/types"
+	"github.com/EDXFund/Validator/core/vm"
+//	"github.com/EDXFund/Validator/crypto"
+	"github.com/EDXFund/Validator/params"
 )
 
 // StateProcessor is a basic Processor, which takes care of transitioning
@@ -53,66 +52,47 @@ func NewStateProcessor(config *params.ChainConfig, bc *BlockChain, engine consen
 // Process returns the receipts and logs accumulated during the process and
 // returns the amount of gas that was used in the process. If any of the
 // transactions failed to execute due to insufficient gas it will return an error.
-func (p *StateProcessor) Process(block *types.Block, statedb *state.StateDB, cfg vm.Config) (types.Receipts, []*types.Log, uint64, error) {
+func (p *StateProcessor) Process(block *types.Block, statedb *state.StateDB, cfg vm.Config) (types.ContractResults,  uint64, error) {
 	var (
-		receipts types.Receipts
+		receipts types.ContractResults
 		usedGas  = new(uint64)
 		header   = block.Header()
-		allLogs  []*types.Log
-		gp       = new(GasPool).AddGas(block.GasLimit())
+		//allLogs  []*types.Log
+		//gp       = new(GasPool).AddGas(block.GasLimit())
 	)
-	// Mutate the block and state according to any hard-fork specs
-	if p.config.DAOForkSupport && p.config.DAOForkBlock != nil && p.config.DAOForkBlock.Cmp(block.Number()) == 0 {
-		misc.ApplyDAOHardFork(statedb)
-	}
 
-	//this should only happen in master chain
 
-	// Iterate over and process the individual transactions
+	/* MUST TODO, add contract and token id managements routine
+	for i, tx := range block.Transactions() {
 
-	rejections := make([]*types.RejectInfo, 1)
-
-	for _, blkinfo := range block.BlockInfos() {
-		////MUST TODO get block detail from shard pool
-		//bc.shardPool.getBlockInfo(blkInfo)
-		_ = (blkinfo)
-		for i, tx := range block.Transactions() {
-			statedb.Prepare(tx.Hash(), block.Hash(), i)
-			receipt, _, err := ApplyTransaction(p.config, p.bc, nil, gp, statedb, header, tx, usedGas, cfg)
-			if err != nil {
-				//return nil, nil, 0, err
-				rejections = append(rejections, &types.RejectInfo{TxHash: tx.Hash(), Reason: 1})
-			}
-			receipts = append(receipts, receipt)
-			allLogs = append(allLogs, receipt.Logs...)
+		statedb.Prepare(tx.Hash(), block.Hash(), i)
+		receipt, _, err := ApplyTransaction(p.config, p.bc, nil, gp, statedb, header, tx, usedGas, cfg)
+		if err != nil {
+			//return nil, nil, 0, err
+			rejections = append(rejections, &types.RejectInfo{TxHash: tx.Hash(), Reason: 1})
 		}
-		////MUST TODO process contract Results
-
-		////Create result
-
-		///add Rejections
-
+		receipts = append(receipts, receipt)
+		allLogs = append(allLogs, receipt.Logs...)
 	}
 
 	//if master chain process blcokinfos and rejections
 
 	///// MUST TODO  blockInfos has already been included in block
 	// Finalize the block, applying any consensus engine specific extras (e.g. block rewards)
-<<<<<<< HEAD
-	p.engine.Finalize(p.bc, header, statedb, block.Transactions(), receipts, block.BlockInfos(), rejections)
-=======
-	////MUST TODO
-	p.engine.Finalize(p.bc, header, statedb, block.Transactions(), block.Uncles(), receipts)
->>>>>>> 8bcab3d0bd32ec56f062e40ed3a814fa3e6d40e8
 
-	return receipts, allLogs, *usedGas, nil
+	*/
+	p.engine.Finalize(p.bc, header, statedb, block.Transactions(),receipts)
+
+
+	return receipts, *usedGas, nil
 }
 
-// ApplyTransaction attempts to apply a transaction to the given state database
-// and uses the input parameters for its environment. It returns the receipt
-// for the transaction, gas used and an error if the transaction failed,
-// indicating the block was invalid.
-func ApplyTransaction(config *params.ChainConfig, bc ChainContext, author *common.Address, gp *GasPool, statedb *state.StateDB, header *types.Header, tx *types.Transaction, usedGas *uint64, cfg vm.Config) (*types.Receipt, uint64, error) {
+
+func verifySigner() {
+	//this is unnessary, because tx with invalid signature would not be placed into pool
+}
+
+func callSC(config *params.ChainConfig, bc ChainContext, author *common.Address, gp *GasPool, statedb *state.StateDB, header *types.Header, tx *types.Transaction, usedGas *uint64, cfg vm.Config) (*types.ContractResult, uint64, error) {
 	msg, err := tx.AsMessage(types.MakeSigner(config, header.Number))
 	if err != nil {
 		return nil, 0, err
@@ -138,16 +118,34 @@ func ApplyTransaction(config *params.ChainConfig, bc ChainContext, author *commo
 
 	// Create a new receipt for the transaction, storing the intermediate root and gas used by the tx
 	// based on the eip phase, we're passing whether the root touch-delete accounts.
-	receipt := types.NewReceipt(root, failed, *usedGas)
+	receipt := types.NewContractResult(root, failed, *usedGas)
 	receipt.TxHash = tx.Hash()
 	receipt.GasUsed = gas
 	// if the transaction created a contract, store the creation address in the receipt.
-	if msg.To() == nil {
-		receipt.ContractAddress = crypto.CreateAddress(vmenv.Context.Origin, tx.Nonce())
-	}
+	//if msg.To() == nil {
+	//	receipt.ContractAddress = crypto.CreateAddress(vmenv.Context.Origin, tx.Nonce())
+	//}
 	// Set the receipt logs and create a bloom for filtering
-	receipt.Logs = statedb.GetLogs(tx.Hash())
-	receipt.Bloom = types.CreateBloom(types.Receipts{receipt})
+	//receipt.Logs = statedb.GetLogs(tx.Hash())
+	//receipt.Bloom = types.CreateBloom(types.ContractResults{receipt})
 
 	return receipt, gas, err
+}
+//if txType is 'T' : ApplyTransaction validate tx's signature,
+//if TxType is 'C' : Synchronize data from master node and process data, then create contractResult
+//if txType is "D" : it should be a token management tx
+func ApplyTransaction(config *params.ChainConfig, bc ChainContext, author *common.Address, gp *GasPool, statedb *state.StateDB, header *types.Header, tx *types.Transaction, usedGas *uint64, cfg vm.Config) (*types.ContractResult, uint64, error) {
+
+	switch tx.Type() {
+
+	case types.TT_TRANSACTION:
+		return nil,0,nil
+	case types.TT_CONTRACT:
+		return callSC(config , bc , author , gp , statedb , header , tx , usedGas, cfg )
+	case types.TT_TOKEN:
+		return nil,0,nil
+	default:
+		return nil,0,ErrNoGenesis
+	}
+
 }

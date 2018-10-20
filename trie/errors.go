@@ -19,7 +19,7 @@ package trie
 import (
 	"fmt"
 
-	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/Validator/common"
 )
 
 // MissingNodeError is returned by the trie functions (TryGet, TryUpdate, TryDelete)

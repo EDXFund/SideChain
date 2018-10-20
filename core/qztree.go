@@ -1,7 +1,24 @@
+// Copyright 2018 The EDX Authors
+// This file is part of the EDX library.
+//
+// The edx library is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Lesser General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// The edx library is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+// GNU Lesser General Public License for more details.
+//
+// You should have received a copy of the GNU Lesser General Public License
+// along with the go-ethereum library. If not, see <http://www.gnu.org/licenses/>.
+
 package core
 
 import (
 	"container/list"
+	"sync"
 )
 
 type Node interface {
@@ -16,6 +33,8 @@ type QZTree struct {
 	children *list.List
 	//for quick search
 	parent *QZTree
+	wg     sync.RWMutex
+
 }
 
 func NewQZTree(root Node) *QZTree {
@@ -28,14 +47,18 @@ func NewQZTree(root Node) *QZTree {
 func (t *QZTree) Node() Node           { return t.self }
 func (t *QZTree) Children() *list.List { return t.children }
 func (t *QZTree) Parent() *QZTree      { return t.parent }
-
 func (t *QZTree) FindNode(node Node, compare func(n1, n2 Node) bool) *QZTree {
+	t.wg.Lock()
+	defer t.wg.Unlock()
+	return t.findNode(node,compare)
+}
+func (t *QZTree) findNode(node Node, compare func(n1, n2 Node) bool) *QZTree {
 	if compare(t.self, node) {
 		return t
 	} else {
 		var res *QZTree
 		for i := t.children.Front(); i != nil; i = i.Next() {
-			res = (i.Value).(*QZTree).FindNode(node, compare)
+			res = (i.Value).(*QZTree).findNode(node, compare)
 			if res != nil {
 				break
 			}
@@ -43,10 +66,15 @@ func (t *QZTree) FindNode(node Node, compare func(n1, n2 Node) bool) *QZTree {
 		return res
 	}
 }
-
-//insert node , whose parent
 func (t *QZTree) AddNode(node Node) bool {
-	parent := t.FindNode(node, func(n1, n2 Node) bool {
+	t.wg.Lock()
+	defer t.wg.Unlock()
+	return t.addNode(node)
+}
+//insert node , whose parent
+func (t *QZTree) addNode(node Node) bool {
+
+	parent := t.findNode(node, func(n1, n2 Node) bool {
 		return n1.Hash() == n2.ParentHash()
 	})
 	if parent != nil {
@@ -90,9 +118,10 @@ func (t *QZTree) getMaxTdPath() (uint64, *QZTree) {
 
 // find a max td path on node's branch, if node is nil find max of all
 func (t *QZTree) GetMaxTdPath(node Node) *QZTree {
-
+	t.wg.Lock()
+	defer t.wg.Unlock()
 	if node != nil {
-		nodeTree := t.FindNode(node, func(n1, n2 Node) bool {
+		nodeTree := t.findNode(node, func(n1, n2 Node) bool {
 			return n1.Hash() == n2.Hash()
 		})
 		if nodeTree != nil {
@@ -108,9 +137,13 @@ func (t *QZTree) GetMaxTdPath(node Node) *QZTree {
 	}
 
 }
-
 func (t *QZTree) MergeTree(newT *QZTree) bool {
-	parent := t.FindNode(newT.self, func(n1, n2 Node) bool {
+	t.wg.Lock()
+	defer t.wg.Unlock()
+	return t.mergeTree(newT)
+}
+func (t *QZTree) mergeTree(newT *QZTree) bool {
+	parent := t.findNode(newT.self, func(n1, n2 Node) bool {
 		return n1.Hash() == n2.ParentHash()
 	})
 	if parent != nil {
@@ -171,17 +204,23 @@ func (t *QZTree) wfIterator(check func(node Node) bool) bool {
 
 // using routine "proc" to iterate all node, it breaks when "proc" return true
 func (t *QZTree) Iterator(deepFirst bool, proc func(node Node) bool) {
+	t.wg.Lock()
+	defer t.wg.Unlock()
 	if deepFirst {
 		t.dfIterator(proc)
 	} else {
 		t.wfIterator(proc)
 	}
 }
-
-func (t *QZTree) Remove(node Node, removeNode bool) {
+func (t *QZTree) Remove(node Node, removeNode bool){
+	t.wg.Lock()
+	defer t.wg.Unlock()
+	t.remove(node,removeNode)
+}
+func (t *QZTree) remove(node Node, removeNode bool) {
 	var target *QZTree
 	if node != nil {
-		target = t.FindNode(node, func(n1, n2 Node) bool {
+		target = t.findNode(node, func(n1, n2 Node) bool {
 			return n1.Hash() == n2.Hash()
 		})
 	} else {

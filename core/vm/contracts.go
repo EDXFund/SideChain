@@ -21,11 +21,11 @@ import (
 	"errors"
 	"math/big"
 
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/common/math"
-	"github.com/EDXFund/MasterChain/crypto"
-	"github.com/EDXFund/MasterChain/crypto/bn256"
-	"github.com/EDXFund/MasterChain/params"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/common/math"
+	"github.com/EDXFund/Validator/crypto"
+	"github.com/EDXFund/Validator/crypto/bn256"
+	"github.com/EDXFund/Validator/params"
 	"golang.org/x/crypto/ripemd160"
 )
 

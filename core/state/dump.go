@@ -20,9 +20,9 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/rlp"
-	"github.com/EDXFund/MasterChain/trie"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/rlp"
+	"github.com/EDXFund/Validator/trie"
 )
 
 type DumpAccount struct {

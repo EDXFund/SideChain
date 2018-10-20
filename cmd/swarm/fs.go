@@ -23,10 +23,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/EDXFund/MasterChain/cmd/utils"
-	"github.com/EDXFund/MasterChain/node"
-	"github.com/EDXFund/MasterChain/rpc"
-	"github.com/EDXFund/MasterChain/swarm/fuse"
+	"github.com/EDXFund/Validator/cmd/utils"
+	"github.com/EDXFund/Validator/node"
+	"github.com/EDXFund/Validator/rpc"
+	"github.com/EDXFund/Validator/swarm/fuse"
 	"gopkg.in/urfave/cli.v1"
 )
 

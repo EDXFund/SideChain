@@ -21,9 +21,9 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/EDXFund/MasterChain/accounts/keystore"
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/log"
+	"github.com/EDXFund/Validator/accounts/keystore"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/log"
 )
 
 // deployNode creates a new node configuration based on some user input.

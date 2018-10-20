@@ -8,7 +8,7 @@ import (
 	"net/http"
 	"sync"
 
-	"github.com/EDXFund/MasterChain/metrics"
+	"github.com/EDXFund/Validator/metrics"
 )
 
 type exp struct {

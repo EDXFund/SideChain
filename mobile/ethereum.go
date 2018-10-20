@@ -22,7 +22,7 @@ import (
 	"errors"
 
 	ethereum "github.com/EDXFund/MasterChain"
-	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/Validator/common"
 )
 
 // Subscription represents an event subscription where events are

@@ -26,9 +26,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/EDXFund/MasterChain/accounts"
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/event"
+	"github.com/EDXFund/Validator/accounts"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/event"
 )
 
 var testSigData = make([]byte, 32)

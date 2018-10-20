@@ -22,9 +22,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/EDXFund/MasterChain/accounts"
-	"github.com/EDXFund/MasterChain/event"
-	"github.com/EDXFund/MasterChain/log"
+	"github.com/EDXFund/Validator/accounts"
+	"github.com/EDXFund/Validator/event"
+	"github.com/EDXFund/Validator/log"
 	"github.com/karalabe/hid"
 )
 

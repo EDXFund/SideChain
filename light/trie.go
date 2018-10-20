@@ -21,12 +21,12 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/core/state"
-	"github.com/EDXFund/MasterChain/core/types"
-	"github.com/EDXFund/MasterChain/crypto"
-	"github.com/EDXFund/MasterChain/ethdb"
-	"github.com/EDXFund/MasterChain/trie"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/core/state"
+	"github.com/EDXFund/Validator/core/types"
+	"github.com/EDXFund/Validator/crypto"
+	"github.com/EDXFund/Validator/ethdb"
+	"github.com/EDXFund/Validator/trie"
 )
 
 func NewState(ctx context.Context, head *types.Header, odr OdrBackend) *state.StateDB {

@@ -29,9 +29,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/EDXFund/MasterChain/accounts"
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/crypto"
+	"github.com/EDXFund/Validator/accounts"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/crypto"
 	"github.com/pborman/uuid"
 )
 

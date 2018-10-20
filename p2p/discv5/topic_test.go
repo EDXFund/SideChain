@@ -21,8 +21,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/common/mclock"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/common/mclock"
 )
 
 func TestTopicRadius(t *testing.T) {

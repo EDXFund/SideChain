@@ -24,10 +24,10 @@ import (
 	"time"
 
 	mapset "github.com/deckarep/golang-set"
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/core/types"
-	"github.com/EDXFund/MasterChain/p2p"
-	"github.com/EDXFund/MasterChain/rlp"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/core/types"
+	"github.com/EDXFund/Validator/p2p"
+	"github.com/EDXFund/Validator/rlp"
 )
 
 var (

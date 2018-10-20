@@ -26,7 +26,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/EDXFund/MasterChain/rlp"
+	"github.com/EDXFund/Validator/rlp"
 )
 
 var (

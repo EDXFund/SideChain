@@ -20,8 +20,8 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/EDXFund/MasterChain/common/hexutil"
-	"github.com/EDXFund/MasterChain/crypto"
+	"github.com/EDXFund/Validator/common/hexutil"
+	"github.com/EDXFund/Validator/crypto"
 )
 
 type bytesBacked interface {
@@ -90,12 +90,12 @@ func (b Bloom) MarshalText() ([]byte, error) {
 func (b *Bloom) UnmarshalText(input []byte) error {
 	return hexutil.UnmarshalFixedText("Bloom", input, b[:])
 }
-
-func CreateBloom(receipts Receipts) Bloom {
+////MUST to do: do as designed
+func CreateBloom(receipts ContractResults) Bloom {
 	bin := new(big.Int)
-	for _, receipt := range receipts {
-		bin.Or(bin, LogsBloom(receipt.Logs))
-	}
+	/*for _, receipt := range receipts {
+		//bin.Or(bin, LogsBloom(receipt.Logs))
+	}*/
 
 	return BytesToBloom(bin.Bytes())
 }

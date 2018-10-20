@@ -28,10 +28,10 @@ import (
 	"math/big"
 	"os"
 
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/common/math"
-	"github.com/EDXFund/MasterChain/crypto/sha3"
-	"github.com/EDXFund/MasterChain/rlp"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/common/math"
+	"github.com/EDXFund/Validator/crypto/sha3"
+	"github.com/EDXFund/Validator/rlp"
 )
 
 var (

@@ -7,8 +7,8 @@ import (
 	"errors"
 	"math/big"
 
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/common/hexutil"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/common/hexutil"
 )
 
 var _ = (*txdataMarshaling)(nil)

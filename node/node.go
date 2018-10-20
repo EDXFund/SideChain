@@ -26,13 +26,13 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/EDXFund/MasterChain/accounts"
-	"github.com/EDXFund/MasterChain/ethdb"
-	"github.com/EDXFund/MasterChain/event"
-	"github.com/EDXFund/MasterChain/internal/debug"
-	"github.com/EDXFund/MasterChain/log"
-	"github.com/EDXFund/MasterChain/p2p"
-	"github.com/EDXFund/MasterChain/rpc"
+	"github.com/EDXFund/Validator/accounts"
+	"github.com/EDXFund/Validator/ethdb"
+	"github.com/EDXFund/Validator/event"
+	"github.com/EDXFund/Validator/internal/debug"
+	"github.com/EDXFund/Validator/log"
+	"github.com/EDXFund/Validator/p2p"
+	"github.com/EDXFund/Validator/rpc"
 	"github.com/prometheus/prometheus/util/flock"
 )
 

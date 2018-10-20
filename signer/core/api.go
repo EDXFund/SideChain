@@ -25,15 +25,15 @@ import (
 	"math/big"
 	"reflect"
 
-	"github.com/EDXFund/MasterChain/accounts"
-	"github.com/EDXFund/MasterChain/accounts/keystore"
-	"github.com/EDXFund/MasterChain/accounts/usbwallet"
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/common/hexutil"
-	"github.com/EDXFund/MasterChain/crypto"
-	"github.com/EDXFund/MasterChain/internal/ethapi"
-	"github.com/EDXFund/MasterChain/log"
-	"github.com/EDXFund/MasterChain/rlp"
+	"github.com/EDXFund/Validator/accounts"
+	"github.com/EDXFund/Validator/accounts/keystore"
+	"github.com/EDXFund/Validator/accounts/usbwallet"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/common/hexutil"
+	"github.com/EDXFund/Validator/crypto"
+	"github.com/EDXFund/Validator/internal/ethapi"
+	"github.com/EDXFund/Validator/log"
+	"github.com/EDXFund/Validator/rlp"
 )
 
 // ExternalAPI defines the external API through which signing requests are made.

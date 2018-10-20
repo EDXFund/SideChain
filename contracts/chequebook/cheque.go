@@ -36,14 +36,14 @@ import (
 	"sync"
 	"time"
 
-	"github.com/EDXFund/MasterChain/accounts/abi/bind"
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/common/hexutil"
-	"github.com/EDXFund/MasterChain/contracts/chequebook/contract"
-	"github.com/EDXFund/MasterChain/core/types"
-	"github.com/EDXFund/MasterChain/crypto"
-	"github.com/EDXFund/MasterChain/log"
-	"github.com/EDXFund/MasterChain/swarm/services/swap/swap"
+	"github.com/EDXFund/Validator/accounts/abi/bind"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/common/hexutil"
+	"github.com/EDXFund/Validator/contracts/chequebook/contract"
+	"github.com/EDXFund/Validator/core/types"
+	"github.com/EDXFund/Validator/crypto"
+	"github.com/EDXFund/Validator/log"
+	"github.com/EDXFund/Validator/swarm/services/swap/swap"
 )
 
 // TODO(zelig): watch peer solvency and notify of bouncing cheques

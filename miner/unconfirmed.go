@@ -20,9 +20,9 @@ import (
 	"container/ring"
 	"sync"
 
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/core/types"
-	"github.com/EDXFund/MasterChain/log"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/core/types"
+	"github.com/EDXFund/Validator/log"
 )
 
 // chainRetriever is used by the unconfirmed block set to verify whether a previously
@@ -107,7 +107,7 @@ func (set *unconfirmedBlocks) Shift(height uint64) {
 			log.Info("🔗 block reached canonical chain", "number", next.index, "hash", next.hash)
 		default:
 			// Block is not canonical, check whether we have an uncle or a lost block
-			included := false
+			/*included := false
 			for number := next.index; !included && number < next.index+uint64(set.depth) && number <= height; number++ {
 				if block := set.chain.GetBlockByNumber(number); block != nil {
 					for _, uncle := range block.Uncles() {
@@ -123,6 +123,7 @@ func (set *unconfirmedBlocks) Shift(height uint64) {
 			} else {
 				log.Info("😱 block lost", "number", next.index, "hash", next.hash)
 			}
+			*/
 		}
 		// Drop the block out of the ring
 		if set.blocks.Value == set.blocks.Next().Value {

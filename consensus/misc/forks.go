@@ -19,9 +19,9 @@ package misc
 import (
 	"fmt"
 
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/core/types"
-	"github.com/EDXFund/MasterChain/params"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/core/types"
+	"github.com/EDXFund/Validator/params"
 )
 
 // VerifyForkHashes verifies that blocks conforming to network hard-forks do have

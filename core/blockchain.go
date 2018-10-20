@@ -27,22 +27,22 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/common/mclock"
-	"github.com/EDXFund/MasterChain/common/prque"
-	"github.com/EDXFund/MasterChain/consensus"
-	"github.com/EDXFund/MasterChain/core/rawdb"
-	"github.com/EDXFund/MasterChain/core/state"
-	"github.com/EDXFund/MasterChain/core/types"
-	"github.com/EDXFund/MasterChain/core/vm"
-	"github.com/EDXFund/MasterChain/crypto"
-	"github.com/EDXFund/MasterChain/ethdb"
-	"github.com/EDXFund/MasterChain/event"
-	"github.com/EDXFund/MasterChain/log"
-	"github.com/EDXFund/MasterChain/metrics"
-	"github.com/EDXFund/MasterChain/params"
-	"github.com/EDXFund/MasterChain/rlp"
-	"github.com/EDXFund/MasterChain/trie"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/common/mclock"
+	"github.com/EDXFund/Validator/common/prque"
+	"github.com/EDXFund/Validator/consensus"
+	"github.com/EDXFund/Validator/core/rawdb"
+	"github.com/EDXFund/Validator/core/state"
+	"github.com/EDXFund/Validator/core/types"
+	"github.com/EDXFund/Validator/core/vm"
+	//"github.com/EDXFund/Validator/crypto"
+	"github.com/EDXFund/Validator/ethdb"
+	"github.com/EDXFund/Validator/event"
+	"github.com/EDXFund/Validator/log"
+	"github.com/EDXFund/Validator/metrics"
+	"github.com/EDXFund/Validator/params"
+	"github.com/EDXFund/Validator/rlp"
+	"github.com/EDXFund/Validator/trie"
 	lru "github.com/hashicorp/golang-lru"
 )
 
@@ -98,7 +98,7 @@ type BlockChain struct {
 	hc            *HeaderChain
 	rmLogsFeed    event.Feed
 	chainFeed     event.Feed
-	chainSideFeed event.Feed
+	chainMasterFeed event.Feed
 	chainHeadFeed event.Feed
 	logsFeed      event.Feed
 	scope         event.SubscriptionScope
@@ -616,7 +616,7 @@ func (bc *BlockChain) GetBlockByNumber(number uint64) *types.Block {
 }
 
 // GetReceiptsByHash retrieves the receipts for all transactions in a given block.
-func (bc *BlockChain) GetReceiptsByHash(hash common.Hash) types.Receipts {
+func (bc *BlockChain) GetReceiptsByHash(hash common.Hash) types.ContractResults {
 	shardId, number := rawdb.ReadHeaderNumber(bc.db, hash)
 	if number == nil {
 		return nil
@@ -754,10 +754,10 @@ func (bc *BlockChain) Rollback(chain []common.Hash) {
 }
 
 // SetReceiptsData computes all the non-consensus fields of the receipts
-func SetReceiptsData(config *params.ChainConfig, block *types.Block, receipts types.Receipts) error {
-	signer := types.MakeSigner(config, block.Number())
+func SetReceiptsData(config *params.ChainConfig, block *types.Block, receipts types.ContractResults) error {
+	//signer := types.MakeSigner(config, block.Number())
 
-	transactions, logIndex := block.Transactions(), uint(0)
+	transactions, _ := block.Transactions(), uint(0)
 	if len(transactions) != len(receipts) {
 		return errors.New("transaction and receipt count mismatch")
 	}
@@ -766,8 +766,10 @@ func SetReceiptsData(config *params.ChainConfig, block *types.Block, receipts ty
 		// The transaction hash can be retrieved from the transaction itself
 		receipts[j].TxHash = transactions[j].Hash()
 
+
+		////MUST TODO refine receipts
 		// The contract address can be derived from the transaction itself
-		if transactions[j].To() == nil {
+		/*if transactions[j].To() == nil {
 			// Deriving the signer is expensive, only do if it's actually needed
 			from, _ := types.Sender(signer, transactions[j])
 			receipts[j].ContractAddress = crypto.CreateAddress(from, transactions[j].Nonce())
@@ -786,14 +788,14 @@ func SetReceiptsData(config *params.ChainConfig, block *types.Block, receipts ty
 			receipts[j].Logs[k].TxIndex = uint(j)
 			receipts[j].Logs[k].Index = logIndex
 			logIndex++
-		}
+		}*/
 	}
 	return nil
 }
 
 // InsertReceiptChain attempts to complete an already existing header chain with
 // transaction and receipt data.
-func (bc *BlockChain) InsertReceiptChain(blockChain types.Blocks, receiptChain []types.Receipts) (int, error) {
+func (bc *BlockChain) InsertReceiptChain(blockChain types.Blocks, receiptChain []types.ContractResults) (int, error) {
 	bc.wg.Add(1)
 	defer bc.wg.Done()
 
@@ -894,9 +896,8 @@ func (bc *BlockChain) WriteBlockWithoutState(block *types.Block, td *big.Int) (e
 	return nil
 }
 
-////MUST TODO: for master chain ShardBlockInfo and rejections should be recorded
 // WriteBlockWithState writes the block and all associated state to the database.
-func (bc *BlockChain) WriteBlockWithState(block *types.Block, receipts []*types.Receipt, state *state.StateDB) (status WriteStatus, err error) {
+func (bc *BlockChain) WriteBlockWithState(block *types.Block, receipts []*types.ContractResult, state *state.StateDB) (status WriteStatus, err error) {
 	bc.wg.Add(1)
 	defer bc.wg.Done()
 
@@ -981,6 +982,7 @@ func (bc *BlockChain) WriteBlockWithState(block *types.Block, receipts []*types.
 	// Please refer to http://www.cs.cornell.edu/~ie53/publications/btcProcFC.pdf
 	reorg := externTd.Cmp(localTd) > 0
 	currentBlock = bc.CurrentBlock()
+	//node have 50% percent chance on same difficulty
 	if !reorg && externTd.Cmp(localTd) == 0 {
 		// Split same-difficulty blocks by number, then at random
 		reorg = block.NumberU64() < currentBlock.NumberU64() || (block.NumberU64() == currentBlock.NumberU64() && mrand.Float64() < 0.5)
@@ -998,6 +1000,7 @@ func (bc *BlockChain) WriteBlockWithState(block *types.Block, receipts []*types.
 
 		status = CanonStatTy
 	} else {
+		//actually uncle blocks can be discarded immediately now
 		status = SideStatTy
 	}
 	if err := batch.Write(); err != nil {
@@ -1167,7 +1170,7 @@ func (bc *BlockChain) insertChain(chain types.Blocks) (int, []interface{}, []*ty
 			return i, events, coalescedLogs, err
 		}
 		// Process block using the parent state as reference point.
-		receipts, logs, usedGas, err := bc.processor.Process(block, state, bc.vmConfig)
+		receipts, usedGas, err := bc.processor.Process(block, state, bc.vmConfig)
 		if err != nil {
 			bc.reportBlock(block, receipts, err)
 			return i, events, coalescedLogs, err
@@ -1190,20 +1193,20 @@ func (bc *BlockChain) insertChain(chain types.Blocks) (int, []interface{}, []*ty
 			log.Debug("Inserted new block", "number", block.Number(), "hash", block.Hash(), /*"uncles", len(block.Uncles()),*/
 				"txs", len(block.Transactions()), "gas", block.GasUsed(), "elapsed", common.PrettyDuration(time.Since(bstart)))
 
-			coalescedLogs = append(coalescedLogs, logs...)
+		//	coalescedLogs = append(coalescedLogs, logs...)
 			blockInsertTimer.UpdateSince(bstart)
-			events = append(events, ChainEvent{block, block.Hash(), logs})
+			events = append(events, ChainEvent{block, block.Hash()})
 			lastCanon = block
 
 			// Only count canonical blocks for GC processing time
 			bc.gcproc += proctime
 
-		case SideStatTy:
+	/*	case SideStatTy:
 			log.Debug("Inserted forked block", "number", block.Number(), "hash", block.Hash(), "diff", block.Difficulty(), "elapsed",
-				common.PrettyDuration(time.Since(bstart)), "txs", len(block.Transactions()), "gas", block.GasUsed() /*, "uncles", len(block.Uncles())*/)
+				common.PrettyDuration(time.Since(bstart)), "txs", len(block.Transactions()), "gas", block.GasUsed() /*, "uncles", len(block.Uncles()))*/
 
-			blockInsertTimer.UpdateSince(bstart)
-			events = append(events, ChainSideEvent{block})
+			/*blockInsertTimer.UpdateSince(bstart)
+			events = append(events, ChainSideEvent{block})*/
 		}
 		stats.processed++
 		stats.usedGas += usedGas
@@ -1375,7 +1378,7 @@ func (bc *BlockChain) reorg(oldBlock, newBlock *types.Block) error {
 	if len(oldChain) > 0 {
 		go func() {
 			for _, block := range oldChain {
-				bc.chainSideFeed.Send(ChainSideEvent{Block: block})
+				bc.chainMasterFeed.Send(ChainSideEvent{Block: block})
 			}
 		}()
 	}
@@ -1399,8 +1402,8 @@ func (bc *BlockChain) PostChainEvents(events []interface{}, logs []*types.Log) {
 		case ChainHeadEvent:
 			bc.chainHeadFeed.Send(ev)
 
-		case ChainSideEvent:
-			bc.chainSideFeed.Send(ev)
+	//	case ChainSideEvent:
+		//	bc.chainSideFeed.Send(ev)
 		}
 	}
 }
@@ -1436,7 +1439,7 @@ func (bc *BlockChain) addBadBlock(block *types.Block) {
 }
 
 // reportBlock logs a bad block error.
-func (bc *BlockChain) reportBlock(block *types.Block, receipts types.Receipts, err error) {
+func (bc *BlockChain) reportBlock(block *types.Block, receipts types.ContractResults, err error) {
 	bc.addBadBlock(block)
 
 	var receiptString string
@@ -1541,7 +1544,7 @@ func (bc *BlockChain) GetHeaderByHash(hash common.Hash) *types.Header {
 // HasHeader checks if a block header is present in the database or not, caching
 // it if present.
 func (bc *BlockChain) HasHeader(hash common.Hash, number uint64) bool {
-	return bc.hc.HasHeader(bc.shardId,hash, number)
+	return bc.hc.HasHeader(hash, number)
 }
 
 // GetBlockHashesFromHash retrieves a number of block hashes starting at a given
@@ -1589,9 +1592,11 @@ func (bc *BlockChain) SubscribeChainHeadEvent(ch chan<- ChainHeadEvent) event.Su
 	return bc.scope.Track(bc.chainHeadFeed.Subscribe(ch))
 }
 
+////MUST TODO set chainsideFeed as master block
 // SubscribeChainSideEvent registers a subscription of ChainSideEvent.
 func (bc *BlockChain) SubscribeChainSideEvent(ch chan<- ChainSideEvent) event.Subscription {
-	return bc.scope.Track(bc.chainSideFeed.Subscribe(ch))
+	//return bc.scope.Track(bc.chainSideFeed.Subscribe(ch))
+	return nil
 }
 
 // SubscribeLogsEvent registers a subscription of []*types.Log.

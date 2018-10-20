@@ -21,9 +21,9 @@ import (
 	"errors"
 	"math/big"
 
-	"github.com/EDXFund/MasterChain/core/state"
-	"github.com/EDXFund/MasterChain/core/types"
-	"github.com/EDXFund/MasterChain/params"
+	"github.com/EDXFund/Validator/core/state"
+	"github.com/EDXFund/Validator/core/types"
+	"github.com/EDXFund/Validator/params"
 )
 
 var (

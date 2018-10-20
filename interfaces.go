@@ -22,8 +22,8 @@ import (
 	"errors"
 	"math/big"
 
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/core/types"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/core/types"
 )
 
 // NotFound is returned by API methods if the requested item does not exist.

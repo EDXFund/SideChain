@@ -27,7 +27,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/EDXFund/MasterChain/p2p/discover"
+	"github.com/EDXFund/Validator/p2p/discover"
 )
 
 func TestMocker(t *testing.T) {

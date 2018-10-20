@@ -25,14 +25,14 @@ import (
 	"sync"
 	"time"
 
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/common/prque"
-	"github.com/EDXFund/MasterChain/core/state"
-	"github.com/EDXFund/MasterChain/core/types"
-	"github.com/EDXFund/MasterChain/event"
-	"github.com/EDXFund/MasterChain/log"
-	"github.com/EDXFund/MasterChain/metrics"
-	"github.com/EDXFund/MasterChain/params"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/common/prque"
+	"github.com/EDXFund/Validator/core/state"
+	"github.com/EDXFund/Validator/core/types"
+	"github.com/EDXFund/Validator/event"
+	"github.com/EDXFund/Validator/log"
+	"github.com/EDXFund/Validator/metrics"
+	"github.com/EDXFund/Validator/params"
 )
 
 const (

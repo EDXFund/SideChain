@@ -26,13 +26,13 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/consensus"
-	"github.com/EDXFund/MasterChain/core/rawdb"
-	"github.com/EDXFund/MasterChain/core/types"
-	"github.com/EDXFund/MasterChain/ethdb"
-	"github.com/EDXFund/MasterChain/log"
-	"github.com/EDXFund/MasterChain/params"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/consensus"
+	"github.com/EDXFund/Validator/core/rawdb"
+	"github.com/EDXFund/Validator/core/types"
+	"github.com/EDXFund/Validator/ethdb"
+	"github.com/EDXFund/Validator/log"
+	"github.com/EDXFund/Validator/params"
 	"github.com/hashicorp/golang-lru"
 )
 

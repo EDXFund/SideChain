@@ -20,9 +20,9 @@ import (
 	"context"
 	"time"
 
-	"github.com/EDXFund/MasterChain/core/rawdb"
-	"github.com/EDXFund/MasterChain/eth/downloader"
-	"github.com/EDXFund/MasterChain/light"
+	"github.com/EDXFund/Validator/core/rawdb"
+	"github.com/EDXFund/Validator/eth/downloader"
+	"github.com/EDXFund/Validator/light"
 )
 
 // syncer is responsible for periodically synchronising with the network, both

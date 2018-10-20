@@ -21,9 +21,9 @@ package geth
 import (
 	"encoding/json"
 
-	"github.com/EDXFund/MasterChain/core"
-	"github.com/EDXFund/MasterChain/p2p/discv5"
-	"github.com/EDXFund/MasterChain/params"
+	"github.com/EDXFund/Validator/core"
+	"github.com/EDXFund/Validator/p2p/discv5"
+	"github.com/EDXFund/Validator/params"
 )
 
 // MainnetGenesis returns the JSON spec to use for the main Ethereum network. It

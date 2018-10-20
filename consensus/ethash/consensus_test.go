@@ -23,9 +23,9 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/EDXFund/MasterChain/common/math"
-	"github.com/EDXFund/MasterChain/core/types"
-	"github.com/EDXFund/MasterChain/params"
+	"github.com/EDXFund/Validator/common/math"
+	"github.com/EDXFund/Validator/core/types"
+	"github.com/EDXFund/Validator/params"
 )
 
 type diffTest struct {

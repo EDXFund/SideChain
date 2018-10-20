@@ -21,10 +21,10 @@ import (
 	"math"
 	"math/big"
 
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/core/vm"
-	"github.com/EDXFund/MasterChain/log"
-	"github.com/EDXFund/MasterChain/params"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/core/vm"
+	"github.com/EDXFund/Validator/log"
+	"github.com/EDXFund/Validator/params"
 )
 
 var (

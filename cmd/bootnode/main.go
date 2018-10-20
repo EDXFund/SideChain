@@ -24,13 +24,13 @@ import (
 	"net"
 	"os"
 
-	"github.com/EDXFund/MasterChain/cmd/utils"
-	"github.com/EDXFund/MasterChain/crypto"
-	"github.com/EDXFund/MasterChain/log"
-	"github.com/EDXFund/MasterChain/p2p/discover"
-	"github.com/EDXFund/MasterChain/p2p/discv5"
-	"github.com/EDXFund/MasterChain/p2p/nat"
-	"github.com/EDXFund/MasterChain/p2p/netutil"
+	"github.com/EDXFund/Validator/cmd/utils"
+	"github.com/EDXFund/Validator/crypto"
+	"github.com/EDXFund/Validator/log"
+	"github.com/EDXFund/Validator/p2p/discover"
+	"github.com/EDXFund/Validator/p2p/discv5"
+	"github.com/EDXFund/Validator/p2p/nat"
+	"github.com/EDXFund/Validator/p2p/netutil"
 )
 
 func main() {

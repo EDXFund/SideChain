@@ -21,9 +21,9 @@ import (
 	"math/big"
 
 	ethereum "github.com/EDXFund/MasterChain"
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/core/types"
-	"github.com/EDXFund/MasterChain/event"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/core/types"
+	"github.com/EDXFund/Validator/event"
 )
 
 // Account represents an Ethereum account located at a specific location defined

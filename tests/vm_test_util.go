@@ -22,15 +22,15 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/common/hexutil"
-	"github.com/EDXFund/MasterChain/common/math"
-	"github.com/EDXFund/MasterChain/core"
-	"github.com/EDXFund/MasterChain/core/state"
-	"github.com/EDXFund/MasterChain/core/vm"
-	"github.com/EDXFund/MasterChain/crypto"
-	"github.com/EDXFund/MasterChain/ethdb"
-	"github.com/EDXFund/MasterChain/params"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/common/hexutil"
+	"github.com/EDXFund/Validator/common/math"
+	"github.com/EDXFund/Validator/core"
+	"github.com/EDXFund/Validator/core/state"
+	"github.com/EDXFund/Validator/core/vm"
+	"github.com/EDXFund/Validator/crypto"
+	"github.com/EDXFund/Validator/ethdb"
+	"github.com/EDXFund/Validator/params"
 )
 
 // VMTest checks EVM execution without block or transaction context.

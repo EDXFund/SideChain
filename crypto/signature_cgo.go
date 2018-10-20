@@ -23,8 +23,8 @@ import (
 	"crypto/elliptic"
 	"fmt"
 
-	"github.com/EDXFund/MasterChain/common/math"
-	"github.com/EDXFund/MasterChain/crypto/secp256k1"
+	"github.com/EDXFund/Validator/common/math"
+	"github.com/EDXFund/Validator/crypto/secp256k1"
 )
 
 // Ecrecover returns the uncompressed public key that created the given signature.

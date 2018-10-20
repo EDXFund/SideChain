@@ -20,8 +20,8 @@ import (
 	"math/big"
 	"reflect"
 
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/common/math"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/common/math"
 )
 
 // packBytesSlice packs the given bytes as [L, V] as the canonical representation

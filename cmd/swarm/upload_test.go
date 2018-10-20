@@ -30,8 +30,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/EDXFund/MasterChain/log"
-	swarm "github.com/EDXFund/MasterChain/swarm/api/client"
+	"github.com/EDXFund/Validator/log"
+	swarm "github.com/EDXFund/Validator/swarm/api/client"
 	colorable "github.com/mattn/go-colorable"
 )
 

@@ -26,7 +26,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/EDXFund/MasterChain/log"
+	"github.com/EDXFund/Validator/log"
 )
 
 // dashboardContent is the actual dashboard HTML content to serve up when users

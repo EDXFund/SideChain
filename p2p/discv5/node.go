@@ -30,8 +30,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/crypto"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/crypto"
 )
 
 // Node represents a host on the network.

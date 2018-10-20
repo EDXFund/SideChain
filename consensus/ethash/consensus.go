@@ -25,15 +25,15 @@ import (
 	"time"
 
 	//mapset "github.com/deckarep/golang-set"
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/common/math"
-	"github.com/EDXFund/MasterChain/consensus"
-	"github.com/EDXFund/MasterChain/consensus/misc"
-	"github.com/EDXFund/MasterChain/core/state"
-	"github.com/EDXFund/MasterChain/core/types"
-	"github.com/EDXFund/MasterChain/crypto/sha3"
-	"github.com/EDXFund/MasterChain/params"
-	"github.com/EDXFund/MasterChain/rlp"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/common/math"
+	"github.com/EDXFund/Validator/consensus"
+	"github.com/EDXFund/Validator/consensus/misc"
+	"github.com/EDXFund/Validator/core/state"
+	"github.com/EDXFund/Validator/core/types"
+	"github.com/EDXFund/Validator/crypto/sha3"
+	"github.com/EDXFund/Validator/params"
+	"github.com/EDXFund/Validator/rlp"
 )
 
 // Ethash proof-of-work protocol constants.
@@ -546,14 +546,14 @@ func (ethash *Ethash) Prepare(chain consensus.ChainReader, header *types.Header)
 
 // Finalize implements consensus.Engine, accumulating the block and uncle rewards,
 // setting the final state and assembling the block.
-func (ethash *Ethash) Finalize(chain consensus.ChainReader, header *types.Header, state *state.StateDB, txs []*types.Transaction, receipts []*types.Receipt, blockinfos []*types.ShardBlockInfo, rejections []*types.RejectInfo) (*types.Block, error) {
+func (ethash *Ethash) Finalize(chain consensus.ChainReader, header *types.Header, state *state.StateDB, txs []*types.Transaction, receipts []*types.ContractResult) (*types.Block, error) {
 	// Accumulate any block and uncle rewards and commit the final state root
-	accumulateRewards(chain.Config(), state, header, blockinfos)
+	//accumulateRewards(chain.Config(), state, header, blockinfos)
 
-	header.Root = state.IntermediateRoot(chain.Config().IsEIP158(header.Number))
+	//header.Root = state.IntermediateRoot(chain.Config().IsEIP158(header.Number))
 
 	// Header seems complete, assemble into a block and return
-	return types.NewBlock(header, txs, receipts, blockinfos, rejections), nil
+	return types.NewBlock(header, txs, receipts), nil
 }
 
 // SealHash returns the hash of a block prior to it being sealed.
@@ -591,7 +591,7 @@ var (
 // included uncles. The coinbase of each uncle block is also rewarded.
 
 /////// MUST TODO, only called by main chain,and reward results should be distributed into shard block's coinBase
-func accumulateRewards(config *params.ChainConfig, state *state.StateDB, header *types.Header, blks []*types.ShardBlockInfo) {
+func accumulateRewards(config *params.ChainConfig, state *state.StateDB, header *types.Header) {
 	// Select the correct block reward based on chain progression
 	blockReward := FrontierBlockReward
 	if config.IsByzantium(header.Number) {

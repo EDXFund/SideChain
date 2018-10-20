@@ -24,8 +24,8 @@ import (
 	"os"
 	"strings"
 
-	"github.com/EDXFund/MasterChain/accounts/abi/bind"
-	"github.com/EDXFund/MasterChain/common/compiler"
+	"github.com/EDXFund/Validator/accounts/abi/bind"
+	"github.com/EDXFund/Validator/common/compiler"
 )
 
 var (

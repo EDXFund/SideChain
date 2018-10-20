@@ -22,7 +22,7 @@ import (
 	"os"
 	"runtime"
 
-	"github.com/EDXFund/MasterChain/log"
+	"github.com/EDXFund/Validator/log"
 )
 
 func init() {

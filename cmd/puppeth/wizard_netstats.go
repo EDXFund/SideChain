@@ -23,8 +23,8 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/EDXFund/MasterChain/core"
-	"github.com/EDXFund/MasterChain/log"
+	"github.com/EDXFund/Validator/core"
+	"github.com/EDXFund/Validator/log"
 	"github.com/olekukonko/tablewriter"
 )
 

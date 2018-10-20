@@ -1,9 +1,11 @@
-## EDX Master chain
+## EDX Validator
 
 EDX is a blockchain's implemention which can reach about 20K tps, even with POW with consensus engine
 
 implemention of EDX is heavily based on Ethereum, please refere [here](README-ethereum.md) on how to build from source 
 
+EDX uses validator to reduce the verification and smartcontract processing work of node.
+A shard block chain is used in validator, then validators and master nodes can be decentralized.
 ## Commands
 
 ## License

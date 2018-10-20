@@ -25,7 +25,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/EDXFund/MasterChain/log"
+	"github.com/EDXFund/Validator/log"
 	"github.com/jackpal/go-nat-pmp"
 )
 

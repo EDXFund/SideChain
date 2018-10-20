@@ -23,11 +23,11 @@ package ens
 import (
 	"strings"
 
-	"github.com/EDXFund/MasterChain/accounts/abi/bind"
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/contracts/ens/contract"
-	"github.com/EDXFund/MasterChain/core/types"
-	"github.com/EDXFund/MasterChain/crypto"
+	"github.com/EDXFund/Validator/accounts/abi/bind"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/contracts/ens/contract"
+	"github.com/EDXFund/Validator/core/types"
+	"github.com/EDXFund/Validator/crypto"
 )
 
 var (

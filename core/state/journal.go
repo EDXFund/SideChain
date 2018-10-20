@@ -19,7 +19,7 @@ package state
 import (
 	"math/big"
 
-	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/Validator/common"
 )
 
 // journalEntry is a modification entry in the state change journal that can be

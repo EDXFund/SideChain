@@ -19,7 +19,7 @@ package vm
 import (
 	"math/big"
 
-	"github.com/EDXFund/MasterChain/params"
+	"github.com/EDXFund/Validator/params"
 )
 
 // Gas costs

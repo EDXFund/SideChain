@@ -8,11 +8,11 @@ import (
 	"strings"
 
 	ethereum "github.com/EDXFund/MasterChain"
-	"github.com/EDXFund/MasterChain/accounts/abi"
-	"github.com/EDXFund/MasterChain/accounts/abi/bind"
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/core/types"
-	"github.com/EDXFund/MasterChain/event"
+	"github.com/EDXFund/Validator/accounts/abi"
+	"github.com/EDXFund/Validator/accounts/abi/bind"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/core/types"
+	"github.com/EDXFund/Validator/event"
 )
 
 // PublicResolverABI is the input ABI used to generate the binding from.

@@ -21,8 +21,8 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/common/hexutil"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/common/hexutil"
 )
 
 func hexAddr(a string) common.Address { return common.BytesToAddress(common.FromHex(a)) }

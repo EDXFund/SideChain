@@ -22,7 +22,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/EDXFund/MasterChain/core/vm"
+	"github.com/EDXFund/Validator/core/vm"
 )
 
 func TestState(t *testing.T) {

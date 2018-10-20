@@ -28,12 +28,12 @@ import (
 	"io"
 	"math/big"
 
-	"github.com/EDXFund/MasterChain/accounts"
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/common/hexutil"
-	"github.com/EDXFund/MasterChain/core/types"
-	"github.com/EDXFund/MasterChain/log"
-	"github.com/EDXFund/MasterChain/rlp"
+	"github.com/EDXFund/Validator/accounts"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/common/hexutil"
+	"github.com/EDXFund/Validator/core/types"
+	"github.com/EDXFund/Validator/log"
+	"github.com/EDXFund/Validator/rlp"
 )
 
 // ledgerOpcode is an enumeration encoding the supported Ledger opcodes.

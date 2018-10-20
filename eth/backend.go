@@ -25,30 +25,30 @@ import (
 	"sync"
 	"sync/atomic"
 
-	"github.com/EDXFund/MasterChain/accounts"
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/common/hexutil"
-	"github.com/EDXFund/MasterChain/consensus"
-	"github.com/EDXFund/MasterChain/consensus/clique"
-	"github.com/EDXFund/MasterChain/consensus/ethash"
-	"github.com/EDXFund/MasterChain/core"
-	"github.com/EDXFund/MasterChain/core/bloombits"
-	"github.com/EDXFund/MasterChain/core/rawdb"
-	"github.com/EDXFund/MasterChain/core/types"
-	"github.com/EDXFund/MasterChain/core/vm"
-	"github.com/EDXFund/MasterChain/eth/downloader"
-	"github.com/EDXFund/MasterChain/eth/filters"
-	"github.com/EDXFund/MasterChain/eth/gasprice"
-	"github.com/EDXFund/MasterChain/ethdb"
-	"github.com/EDXFund/MasterChain/event"
-	"github.com/EDXFund/MasterChain/internal/ethapi"
-	"github.com/EDXFund/MasterChain/log"
-	"github.com/EDXFund/MasterChain/miner"
-	"github.com/EDXFund/MasterChain/node"
-	"github.com/EDXFund/MasterChain/p2p"
-	"github.com/EDXFund/MasterChain/params"
-	"github.com/EDXFund/MasterChain/rlp"
-	"github.com/EDXFund/MasterChain/rpc"
+	"github.com/EDXFund/Validator/accounts"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/common/hexutil"
+	"github.com/EDXFund/Validator/consensus"
+	"github.com/EDXFund/Validator/consensus/clique"
+	"github.com/EDXFund/Validator/consensus/ethash"
+	"github.com/EDXFund/Validator/core"
+	"github.com/EDXFund/Validator/core/bloombits"
+	"github.com/EDXFund/Validator/core/rawdb"
+	"github.com/EDXFund/Validator/core/types"
+	"github.com/EDXFund/Validator/core/vm"
+	"github.com/EDXFund/Validator/eth/downloader"
+	"github.com/EDXFund/Validator/eth/filters"
+	"github.com/EDXFund/Validator/eth/gasprice"
+	"github.com/EDXFund/Validator/ethdb"
+	"github.com/EDXFund/Validator/event"
+	"github.com/EDXFund/Validator/internal/ethapi"
+	"github.com/EDXFund/Validator/log"
+	"github.com/EDXFund/Validator/miner"
+	"github.com/EDXFund/Validator/node"
+	"github.com/EDXFund/Validator/p2p"
+	"github.com/EDXFund/Validator/params"
+	"github.com/EDXFund/Validator/rlp"
+	"github.com/EDXFund/Validator/rpc"
 )
 
 type LesServer interface {
@@ -68,7 +68,7 @@ type Ethereum struct {
 
 	// Handlers
 	txPool          *core.TxPool
-	shardBlockPool  *core.S
+
 	blockchain      *core.BlockChain
 	protocolManager *ProtocolManager
 	lesServer       LesServer

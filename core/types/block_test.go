@@ -23,8 +23,8 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/rlp"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/rlp"
 )
 
 // from bcValidBlockTest.json, "SimpleTx"

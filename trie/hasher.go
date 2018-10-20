@@ -20,9 +20,9 @@ import (
 	"hash"
 	"sync"
 
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/crypto/sha3"
-	"github.com/EDXFund/MasterChain/rlp"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/crypto/sha3"
+	"github.com/EDXFund/Validator/rlp"
 )
 
 type hasher struct {

@@ -24,7 +24,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/Validator/common"
 )
 
 func TestPack(t *testing.T) {

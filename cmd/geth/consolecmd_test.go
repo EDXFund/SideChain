@@ -27,7 +27,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/EDXFund/MasterChain/params"
+	"github.com/EDXFund/Validator/params"
 )
 
 const (

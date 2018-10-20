@@ -22,12 +22,12 @@ import (
 	"testing"
 	"time"
 
-	"github.com/EDXFund/MasterChain/accounts/abi/bind"
-	"github.com/EDXFund/MasterChain/accounts/abi/bind/backends"
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/core"
-	"github.com/EDXFund/MasterChain/core/types"
-	"github.com/EDXFund/MasterChain/crypto"
+	"github.com/EDXFund/Validator/accounts/abi/bind"
+	"github.com/EDXFund/Validator/accounts/abi/bind/backends"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/core"
+	"github.com/EDXFund/Validator/core/types"
+	"github.com/EDXFund/Validator/crypto"
 )
 
 var testKey, _ = crypto.HexToECDSA("b71c71a67e1177ad4e901695e1b4b9ee17ae16c6668d313eac2f96dbcda3f291")

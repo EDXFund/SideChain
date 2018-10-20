@@ -25,15 +25,15 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/EDXFund/MasterChain/accounts"
-	"github.com/EDXFund/MasterChain/accounts/keystore"
-	"github.com/EDXFund/MasterChain/accounts/usbwallet"
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/crypto"
-	"github.com/EDXFund/MasterChain/log"
-	"github.com/EDXFund/MasterChain/p2p"
-	"github.com/EDXFund/MasterChain/p2p/discover"
-	"github.com/EDXFund/MasterChain/rpc"
+	"github.com/EDXFund/Validator/accounts"
+	"github.com/EDXFund/Validator/accounts/keystore"
+	"github.com/EDXFund/Validator/accounts/usbwallet"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/crypto"
+	"github.com/EDXFund/Validator/log"
+	"github.com/EDXFund/Validator/p2p"
+	"github.com/EDXFund/Validator/p2p/discover"
+	"github.com/EDXFund/Validator/rpc"
 )
 
 const (

@@ -19,11 +19,11 @@ package downloader
 import (
 	"math/big"
 
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/core"
-	"github.com/EDXFund/MasterChain/core/rawdb"
-	"github.com/EDXFund/MasterChain/core/types"
-	"github.com/EDXFund/MasterChain/ethdb"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/core"
+	"github.com/EDXFund/Validator/core/rawdb"
+	"github.com/EDXFund/Validator/core/types"
+	"github.com/EDXFund/Validator/ethdb"
 )
 
 // FakePeer is a mock downloader peer that operates on a local database instance
@@ -128,7 +128,7 @@ func (p *FakePeer) RequestBodies(hashes []common.Hash) error {
 	)
 	////MUST TODO
 	for _, hash := range hashes {
-		block := rawdb.ReadBlock(p.db, hash, *p.hc.ShardId(), *p.hc.GetBlockNumber(hash))
+		block := rawdb.ReadBlock(p.db, hash, p.hc.ShardId(), *p.hc.GetBlockNumber(hash))
 
 		txs = append(txs, block.Transactions())
 		//uncles = append(uncles, block.Uncles())
@@ -142,7 +142,7 @@ func (p *FakePeer) RequestBodies(hashes []common.Hash) error {
 func (p *FakePeer) RequestReceipts(hashes []common.Hash) error {
 	var receipts [][]*types.Receipt
 	for _, hash := range hashes {
-		receipts = append(receipts, rawdb.ReadReceipts(p.db, hash, *p.hc.ShardId, *p.hc.GetBlockNumber(hash)))
+		receipts = append(receipts, rawdb.ReadReceipts(p.db, hash, p.hc.ShardId(), *p.hc.GetBlockNumber(hash)))
 	}
 	p.dl.DeliverReceipts(p.id, receipts)
 	return nil

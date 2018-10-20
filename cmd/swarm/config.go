@@ -29,13 +29,13 @@ import (
 
 	cli "gopkg.in/urfave/cli.v1"
 
-	"github.com/EDXFund/MasterChain/cmd/utils"
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/log"
-	"github.com/EDXFund/MasterChain/node"
+	"github.com/EDXFund/Validator/cmd/utils"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/log"
+	"github.com/EDXFund/Validator/node"
 	"github.com/naoina/toml"
 
-	bzzapi "github.com/EDXFund/MasterChain/swarm/api"
+	bzzapi "github.com/EDXFund/Validator/swarm/api"
 )
 
 var (

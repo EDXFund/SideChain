@@ -21,11 +21,11 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/EDXFund/MasterChain/accounts/abi"
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/core/state"
-	"github.com/EDXFund/MasterChain/core/vm"
-	"github.com/EDXFund/MasterChain/ethdb"
+	"github.com/EDXFund/Validator/accounts/abi"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/core/state"
+	"github.com/EDXFund/Validator/core/vm"
+	"github.com/EDXFund/Validator/ethdb"
 )
 
 func TestDefaults(t *testing.T) {

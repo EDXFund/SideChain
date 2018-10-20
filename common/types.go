@@ -26,8 +26,8 @@ import (
 	"reflect"
 	"strings"
 
-	"github.com/EDXFund/MasterChain/common/hexutil"
-	"github.com/EDXFund/MasterChain/crypto/sha3"
+	"github.com/EDXFund/Validator/common/hexutil"
+	"github.com/EDXFund/Validator/crypto/sha3"
 )
 
 // Lengths of hashes and addresses in bytes.

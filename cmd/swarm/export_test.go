@@ -27,7 +27,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/EDXFund/MasterChain/swarm"
+	"github.com/EDXFund/Validator/swarm"
 )
 
 // TestCLISwarmExportImport perform the following test:

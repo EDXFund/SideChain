@@ -25,8 +25,8 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/EDXFund/MasterChain/accounts"
-	"github.com/EDXFund/MasterChain/crypto"
+	"github.com/EDXFund/Validator/accounts"
+	"github.com/EDXFund/Validator/crypto"
 	"github.com/pborman/uuid"
 	"golang.org/x/crypto/pbkdf2"
 )

@@ -19,7 +19,7 @@ package vm
 import (
 	"fmt"
 
-	"github.com/EDXFund/MasterChain/params"
+	"github.com/EDXFund/Validator/params"
 )
 
 func makeStackFunc(pop, push int) stackValidationFunc {

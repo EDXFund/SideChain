@@ -27,8 +27,8 @@ import (
 	"testing/quick"
 	"time"
 
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/crypto"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/crypto"
 )
 
 type nullTransport struct{}

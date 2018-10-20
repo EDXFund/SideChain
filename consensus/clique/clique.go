@@ -25,20 +25,20 @@ import (
 	"sync"
 	"time"
 
-	"github.com/EDXFund/MasterChain/accounts"
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/common/hexutil"
-	"github.com/EDXFund/MasterChain/consensus"
-	"github.com/EDXFund/MasterChain/consensus/misc"
-	"github.com/EDXFund/MasterChain/core/state"
-	"github.com/EDXFund/MasterChain/core/types"
-	"github.com/EDXFund/MasterChain/crypto"
-	"github.com/EDXFund/MasterChain/crypto/sha3"
-	"github.com/EDXFund/MasterChain/ethdb"
-	"github.com/EDXFund/MasterChain/log"
-	"github.com/EDXFund/MasterChain/params"
-	"github.com/EDXFund/MasterChain/rlp"
-	"github.com/EDXFund/MasterChain/rpc"
+	"github.com/EDXFund/Validator/accounts"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/common/hexutil"
+	"github.com/EDXFund/Validator/consensus"
+	"github.com/EDXFund/Validator/consensus/misc"
+	"github.com/EDXFund/Validator/core/state"
+	"github.com/EDXFund/Validator/core/types"
+	"github.com/EDXFund/Validator/crypto"
+	"github.com/EDXFund/Validator/crypto/sha3"
+	"github.com/EDXFund/Validator/ethdb"
+	"github.com/EDXFund/Validator/log"
+	"github.com/EDXFund/Validator/params"
+	"github.com/EDXFund/Validator/rlp"
+	"github.com/EDXFund/Validator/rpc"
 	lru "github.com/hashicorp/golang-lru"
 )
 
@@ -567,12 +567,12 @@ func (c *Clique) Prepare(chain consensus.ChainReader, header *types.Header) erro
 
 // Finalize implements consensus.Engine, ensuring no uncles are set, nor block
 // rewards given, and returns the final block.
-func (c *Clique) Finalize(chain consensus.ChainReader, header *types.Header, state *state.StateDB, txs []*types.Transaction, receipts []*types.Receipt, blks []*types.ShardBlockInfo, rejections []*types.RejectInfo) (*types.Block, error) {
+func (c *Clique) Finalize(chain consensus.ChainReader, header *types.Header, state *state.StateDB, txs []*types.Transaction, receipts []*types.ContractResult) (*types.Block, error) {
 	// No block rewards in PoA, so the state remains as is and uncles are dropped
 	header.Root = state.IntermediateRoot(chain.Config().IsEIP158(header.Number))
 
 	// Assemble and return the final block for sealing
-	return types.NewBlock(header, txs, receipts,blks,rejections), nil
+	return types.NewBlock(header, txs, receipts), nil
 }
 
 // Authorize injects a private key into the consensus engine to mint new blocks

@@ -19,8 +19,8 @@ package runtime_test
 import (
 	"fmt"
 
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/core/vm/runtime"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/core/vm/runtime"
 )
 
 func ExampleExecute() {

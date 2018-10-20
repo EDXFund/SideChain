@@ -20,11 +20,11 @@ package consensus
 import (
 	"math/big"
 
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/core/state"
-	"github.com/EDXFund/MasterChain/core/types"
-	"github.com/EDXFund/MasterChain/params"
-	"github.com/EDXFund/MasterChain/rpc"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/core/state"
+	"github.com/EDXFund/Validator/core/types"
+	"github.com/EDXFund/Validator/params"
+	"github.com/EDXFund/Validator/rpc"
 )
 
 // ChainReader defines a small collection of methods needed to access the local
@@ -80,7 +80,7 @@ type Engine interface {
 	// Note: The block header and state database might be updated to reflect any
 	// consensus rules that happen at finalization (e.g. block rewards).
 	Finalize(chain ChainReader, header *types.Header, state *state.StateDB, txs []*types.Transaction,
-		receipts []*types.Receipt, blks []*types.ShardBlockInfo, rjs []*types.RejectInfo) (*types.Block, error)
+		receipts []*types.ContractResult) (*types.Block, error)
 
 	// Seal generates a new sealing request for the given input block and pushes
 	// the result into the given channel.

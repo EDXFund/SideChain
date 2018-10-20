@@ -22,11 +22,11 @@ import (
 	"sync"
 	"time"
 
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/ethdb"
-	"github.com/EDXFund/MasterChain/log"
-	"github.com/EDXFund/MasterChain/metrics"
-	"github.com/EDXFund/MasterChain/rlp"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/ethdb"
+	"github.com/EDXFund/Validator/log"
+	"github.com/EDXFund/Validator/metrics"
+	"github.com/EDXFund/Validator/rlp"
 )
 
 var (

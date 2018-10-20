@@ -23,9 +23,9 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/crypto"
-	"github.com/EDXFund/MasterChain/rlp"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/crypto"
+	"github.com/EDXFund/Validator/rlp"
 )
 
 // The values in those tests are from the Transaction Tests

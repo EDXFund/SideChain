@@ -25,10 +25,10 @@ import (
 
 	"strconv"
 
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/core/types"
-	"github.com/EDXFund/MasterChain/log"
-	"github.com/EDXFund/MasterChain/rlp"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/core/types"
+	"github.com/EDXFund/Validator/log"
+	"github.com/EDXFund/Validator/rlp"
 )
 
 // ReadCanonicalHash retrieves the hash assigned to a canonical block number.
@@ -138,13 +138,10 @@ func ReadHeaderRLP(db DatabaseReader, hash common.Hash, shardId uint16, number u
 }
 
 // HasHeader verifies the existence of a block header corresponding to the hash.
-<<<<<<< HEAD
+
 func HasHeader(db DatabaseReader, hash common.Hash, shardId uint16, number uint64) bool {
 	if has, err := db.Has(headerKey(shardId, number, hash)); !has || err != nil {
-=======
-func HasHeader(db DatabaseReader, shardId uint16,hash common.Hash, number uint64) bool {
-	if has, err := db.Has(headerKey(shardId,number, hash)); !has || err != nil {
->>>>>>> 8bcab3d0bd32ec56f062e40ed3a814fa3e6d40e8
+
 		return false
 	}
 	return true
@@ -293,31 +290,31 @@ func DeleteTd(db DatabaseDeleter, hash common.Hash, shardId uint16, number uint6
 }
 
 // ReadReceipts retrieves all the transaction receipts belonging to a block.
-func ReadReceipts(db DatabaseReader, hash common.Hash, shardId uint16, number uint64) types.Receipts {
+func ReadReceipts(db DatabaseReader, hash common.Hash, shardId uint16, number uint64) types.ContractResults {
 	// Retrieve the flattened receipt slice
 	data, _ := db.Get(blockReceiptsKey(shardId, number, hash))
 	if len(data) == 0 {
 		return nil
 	}
 	// Convert the revceipts from their storage form to their internal representation
-	storageReceipts := []*types.ReceiptForStorage{}
+	storageReceipts := []*types.ContractResultStorage{}
 	if err := rlp.DecodeBytes(data, &storageReceipts); err != nil {
 		log.Error("Invalid receipt array RLP", "hash", hash, "err", err)
 		return nil
 	}
-	receipts := make(types.Receipts, len(storageReceipts))
+	receipts := make(types.ContractResults, len(storageReceipts))
 	for i, receipt := range storageReceipts {
-		receipts[i] = (*types.Receipt)(receipt)
+		receipts[i] = (*types.ContractResult)(receipt)
 	}
 	return receipts
 }
 
 // WriteReceipts stores all the transaction receipts belonging to a block.
-func WriteReceipts(db DatabaseWriter, hash common.Hash, shardId uint16, number uint64, receipts types.Receipts) {
+func WriteReceipts(db DatabaseWriter, hash common.Hash, shardId uint16, number uint64, receipts types.ContractResults) {
 	// Convert the receipts into their storage form and serialize them
-	storageReceipts := make([]*types.ReceiptForStorage, len(receipts))
+	storageReceipts := make([]*types.ContractResultStorage, len(receipts))
 	for i, receipt := range receipts {
-		storageReceipts[i] = (*types.ReceiptForStorage)(receipt)
+		storageReceipts[i] = (*types.ContractResultStorage)(receipt)
 	}
 	bytes, err := rlp.EncodeToBytes(storageReceipts)
 	if err != nil {
@@ -351,7 +348,7 @@ func ReadBlock(db DatabaseReader, hash common.Hash, shardId uint16, number uint6
 	if body == nil {
 		return nil
 	}
-	return types.NewBlockWithHeader(header).WithBody(body.Transactions, body.Receipts, body.BlockInfos, body.RejectInfos)
+	return types.NewBlockWithHeader(header).WithBody(body.Transactions, body.Receipts)
 }
 
 // WriteBlock serializes a block into the database, header and body separately.

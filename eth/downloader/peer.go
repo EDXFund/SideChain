@@ -29,9 +29,9 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/event"
-	"github.com/EDXFund/MasterChain/log"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/event"
+	"github.com/EDXFund/Validator/log"
 )
 
 const (

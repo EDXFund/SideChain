@@ -26,7 +26,7 @@ import (
 	"sort"
 	"time"
 
-	"github.com/EDXFund/MasterChain/log"
+	"github.com/EDXFund/Validator/log"
 	"github.com/mohae/deepcopy"
 	"github.com/rjeczalik/notify"
 )

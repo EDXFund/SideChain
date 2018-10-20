@@ -21,12 +21,12 @@ import (
 	"math/big"
 	"time"
 
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/core/state"
-	"github.com/EDXFund/MasterChain/core/vm"
-	"github.com/EDXFund/MasterChain/crypto"
-	"github.com/EDXFund/MasterChain/ethdb"
-	"github.com/EDXFund/MasterChain/params"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/core/state"
+	"github.com/EDXFund/Validator/core/vm"
+	"github.com/EDXFund/Validator/crypto"
+	"github.com/EDXFund/Validator/ethdb"
+	"github.com/EDXFund/Validator/params"
 )
 
 // Config is a basic type specifying certain configuration flags for running

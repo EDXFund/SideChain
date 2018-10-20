@@ -22,8 +22,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/EDXFund/MasterChain/cmd/utils"
-	"github.com/EDXFund/MasterChain/swarm/storage"
+	"github.com/EDXFund/Validator/cmd/utils"
+	"github.com/EDXFund/Validator/swarm/storage"
 	"gopkg.in/urfave/cli.v1"
 )
 

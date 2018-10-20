@@ -24,8 +24,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/EDXFund/MasterChain/crypto"
-	"github.com/EDXFund/MasterChain/rlp"
+	"github.com/EDXFund/Validator/crypto"
+	"github.com/EDXFund/Validator/rlp"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )

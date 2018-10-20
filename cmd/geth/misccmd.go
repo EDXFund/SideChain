@@ -23,10 +23,10 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/EDXFund/MasterChain/cmd/utils"
-	"github.com/EDXFund/MasterChain/consensus/ethash"
-	"github.com/EDXFund/MasterChain/eth"
-	"github.com/EDXFund/MasterChain/params"
+	"github.com/EDXFund/Validator/cmd/utils"
+	"github.com/EDXFund/Validator/consensus/ethash"
+	"github.com/EDXFund/Validator/eth"
+	"github.com/EDXFund/Validator/params"
 	"gopkg.in/urfave/cli.v1"
 )
 

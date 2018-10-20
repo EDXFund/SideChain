@@ -19,9 +19,9 @@ package types
 import (
 	"io"
 
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/common/hexutil"
-	"github.com/EDXFund/MasterChain/rlp"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/common/hexutil"
+	"github.com/EDXFund/Validator/rlp"
 )
 
 //go:generate gencodec -type Log -field-override logMarshaling -out gen_log_json.go
@@ -30,6 +30,8 @@ import (
 // stored/indexed by the node.
 type Log struct {
 	// Consensus fields:
+	//contract Id is the contract catalog
+	ContractId uint64  `json:"contractId" gencodec"required"`
 	// address of the contract that generated the event
 	Address common.Address `json:"address" gencodec:"required"`
 	// list of topics provided by the contract.

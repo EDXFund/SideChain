@@ -17,8 +17,8 @@
 package core
 
 import (
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/core/types"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/core/types"
 )
 
 // NewTxsEvent is posted when a batch of transactions enter the transaction pool.
@@ -28,7 +28,10 @@ type NewTxsEvent struct{ Txs []*types.Transaction }
 type PendingLogsEvent struct {
 	Logs []*types.Log
 }
-
+// PendingLogsEvent is posted pre mining and notifies of pending logs.
+type PendingContractResultEvent struct {
+	Results []*types.ContractResult
+}
 // NewMinedBlockEvent is posted when a block has been imported.
 type NewMinedBlockEvent struct{ Block *types.Block }
 
@@ -38,7 +41,7 @@ type RemovedLogsEvent struct{ Logs []*types.Log }
 type ChainEvent struct {
 	Block *types.Block
 	Hash  common.Hash
-	Logs  []*types.Log
+	//Logs  []*types.Log
 }
 
 type ChainSideEvent struct {
@@ -48,12 +51,11 @@ type ChainSideEvent struct {
 type ChainHeadEvent struct{ Block *types.Block }
 type PoolChainEvent uint16
 
-var (
-	PoolEventChain        PoolChainEvent = 1
-	PoolEventChainTimeout PoolChainEvent = 2
-)
 
-type ShardPoolEvent struct {
-	Event PoolChainEvent
+type ChainMasterEvent struct {
 	Block *types.Block
 }
+type ChainMasterHeadEvent struct {
+	Header *types.Header
+}
+

@@ -19,9 +19,9 @@ package core
 import (
 	"container/list"
 
-	"github.com/EDXFund/MasterChain/core/types"
-	"github.com/EDXFund/MasterChain/ethdb"
-	"github.com/EDXFund/MasterChain/event"
+	"github.com/EDXFund/Validator/core/types"
+	"github.com/EDXFund/Validator/ethdb"
+	"github.com/EDXFund/Validator/event"
 )
 
 // Implement our EthTest Manager

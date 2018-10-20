@@ -24,10 +24,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/core/rawdb"
-	"github.com/EDXFund/MasterChain/core/types"
-	"github.com/EDXFund/MasterChain/ethdb"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/core/rawdb"
+	"github.com/EDXFund/Validator/core/types"
+	"github.com/EDXFund/Validator/ethdb"
 )
 
 // Runs multiple tests with randomized parameters.

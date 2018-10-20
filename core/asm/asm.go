@@ -21,7 +21,7 @@ import (
 	"encoding/hex"
 	"fmt"
 
-	"github.com/EDXFund/MasterChain/core/vm"
+	"github.com/EDXFund/Validator/core/vm"
 )
 
 // Iterator for disassembled EVM instructions

@@ -23,12 +23,12 @@ import (
 	"sort"
 	"sync"
 
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/core/types"
-	"github.com/EDXFund/MasterChain/crypto"
-	"github.com/EDXFund/MasterChain/log"
-	"github.com/EDXFund/MasterChain/rlp"
-	"github.com/EDXFund/MasterChain/trie"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/core/types"
+	"github.com/EDXFund/Validator/crypto"
+	"github.com/EDXFund/Validator/log"
+	"github.com/EDXFund/Validator/rlp"
+	"github.com/EDXFund/Validator/trie"
 )
 
 type revision struct {

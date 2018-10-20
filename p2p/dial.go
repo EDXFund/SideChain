@@ -24,9 +24,9 @@ import (
 	"net"
 	"time"
 
-	"github.com/EDXFund/MasterChain/log"
-	"github.com/EDXFund/MasterChain/p2p/discover"
-	"github.com/EDXFund/MasterChain/p2p/netutil"
+	"github.com/EDXFund/Validator/log"
+	"github.com/EDXFund/Validator/p2p/discover"
+	"github.com/EDXFund/Validator/p2p/netutil"
 )
 
 const (

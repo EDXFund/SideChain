@@ -29,11 +29,11 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/EDXFund/MasterChain/event"
-	"github.com/EDXFund/MasterChain/p2p"
-	"github.com/EDXFund/MasterChain/p2p/discover"
-	"github.com/EDXFund/MasterChain/p2p/simulations/adapters"
-	"github.com/EDXFund/MasterChain/rpc"
+	"github.com/EDXFund/Validator/event"
+	"github.com/EDXFund/Validator/p2p"
+	"github.com/EDXFund/Validator/p2p/discover"
+	"github.com/EDXFund/Validator/p2p/simulations/adapters"
+	"github.com/EDXFund/Validator/rpc"
 	"github.com/julienschmidt/httprouter"
 	"golang.org/x/net/websocket"
 )

@@ -26,9 +26,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/EDXFund/MasterChain/rpc"
-	"github.com/EDXFund/MasterChain/swarm"
-	"github.com/EDXFund/MasterChain/swarm/api"
+	"github.com/EDXFund/Validator/rpc"
+	"github.com/EDXFund/Validator/swarm"
+	"github.com/EDXFund/Validator/swarm/api"
 
 	"github.com/docker/docker/pkg/reexec"
 )

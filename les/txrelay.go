@@ -19,8 +19,8 @@ package les
 import (
 	"sync"
 
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/core/types"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/core/types"
 )
 
 type ltrInfo struct {

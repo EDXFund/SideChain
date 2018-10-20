@@ -32,14 +32,14 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/EDXFund/MasterChain/log"
-	"github.com/EDXFund/MasterChain/node"
-	"github.com/EDXFund/MasterChain/p2p"
-	"github.com/EDXFund/MasterChain/p2p/discover"
-	"github.com/EDXFund/MasterChain/p2p/simulations"
-	"github.com/EDXFund/MasterChain/p2p/simulations/adapters"
-	"github.com/EDXFund/MasterChain/rlp"
-	"github.com/EDXFund/MasterChain/rpc"
+	"github.com/EDXFund/Validator/log"
+	"github.com/EDXFund/Validator/node"
+	"github.com/EDXFund/Validator/p2p"
+	"github.com/EDXFund/Validator/p2p/discover"
+	"github.com/EDXFund/Validator/p2p/simulations"
+	"github.com/EDXFund/Validator/p2p/simulations/adapters"
+	"github.com/EDXFund/Validator/rlp"
+	"github.com/EDXFund/Validator/rpc"
 )
 
 // ProtocolTester is the tester environment used for unit testing protocol

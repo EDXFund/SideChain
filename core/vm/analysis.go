@@ -19,7 +19,7 @@ package vm
 import (
 	"math/big"
 
-	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/Validator/common"
 )
 
 // destinations stores one map per contract (keyed by hash of code).

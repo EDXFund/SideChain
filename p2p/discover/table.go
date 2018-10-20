@@ -32,10 +32,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/crypto"
-	"github.com/EDXFund/MasterChain/log"
-	"github.com/EDXFund/MasterChain/p2p/netutil"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/crypto"
+	"github.com/EDXFund/Validator/log"
+	"github.com/EDXFund/Validator/p2p/netutil"
 )
 
 const (

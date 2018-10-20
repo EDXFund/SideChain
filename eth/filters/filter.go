@@ -21,13 +21,13 @@ import (
 	"errors"
 	"math/big"
 
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/core"
-	"github.com/EDXFund/MasterChain/core/bloombits"
-	"github.com/EDXFund/MasterChain/core/types"
-	"github.com/EDXFund/MasterChain/ethdb"
-	"github.com/EDXFund/MasterChain/event"
-	"github.com/EDXFund/MasterChain/rpc"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/core"
+	"github.com/EDXFund/Validator/core/bloombits"
+	"github.com/EDXFund/Validator/core/types"
+	"github.com/EDXFund/Validator/ethdb"
+	"github.com/EDXFund/Validator/event"
+	"github.com/EDXFund/Validator/rpc"
 )
 
 type Backend interface {

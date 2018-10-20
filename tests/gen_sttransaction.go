@@ -6,8 +6,8 @@ import (
 	"encoding/json"
 	"math/big"
 
-	"github.com/EDXFund/MasterChain/common/hexutil"
-	"github.com/EDXFund/MasterChain/common/math"
+	"github.com/EDXFund/Validator/common/hexutil"
+	"github.com/EDXFund/Validator/common/math"
 )
 
 var _ = (*stTransactionMarshaling)(nil)

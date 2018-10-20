@@ -25,7 +25,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/EDXFund/MasterChain/log"
+	"github.com/EDXFund/Validator/log"
 )
 
 // walletDockerfile is the Dockerfile required to run a web wallet.

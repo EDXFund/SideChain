@@ -6,19 +6,20 @@ import (
 )
 
 type TestNode struct {
-	hash        uint64
+	hash 		uint64
 	blockNumber uint64
-	parentHash  uint64
-	td          uint64
+	parentHash 	uint64
+	td		   	uint64
 }
 
-func (ts *TestNode) Hash() uint64        { return ts.hash }
-func (ts *TestNode) BlockNumber() uint64 { return ts.blockNumber }
-func (ts *TestNode) ParentHash() uint64  { return ts.parentHash }
-func (ts *TestNode) Td() uint64          { return ts.td }
+
+func (ts *TestNode) Hash() uint64{ return ts. hash }
+func (ts *TestNode) BlockNumber() uint64{ return ts. blockNumber }
+func (ts *TestNode) ParentHash() uint64{ return ts. parentHash }
+func (ts *TestNode) Td() uint64{ return ts. td }
 
 const (
-	NODE1 = iota
+	NODE1  = iota
 	NODE11
 	NODE12
 	NODE111
@@ -35,7 +36,6 @@ const (
 	NODE11221
 	NODE11222
 )
-
 var nodes = []TestNode{
 	TestNode{1234, 1, 0, 10},
 	/*node11*/ TestNode{12345, 2, 1234, 20},
@@ -55,6 +55,7 @@ var nodes = []TestNode{
 	/*&node11222*/ TestNode{12345622, 5, 1234562, 51},
 }
 
+
 func Test_Base_1(t *testing.T) {
 	ts := NewQZTree(&nodes[NODE1])
 	if ts.Node().Hash() == nodes[NODE1].Hash() {
@@ -63,36 +64,36 @@ func Test_Base_1(t *testing.T) {
 
 	res := ts.AddNode(&nodes[NODE111])
 	if !res {
-		t.Log("Add invalid node")
+		t.Log( "Add invalid node")
 	} else {
-		t.Error("Add invalid node failed")
+		t.Error( "Add invalid node failed")
 	}
-	for i := NODE11; i <= NODE11121; i++ {
+	for i:= NODE11; i<= NODE11121;i++{
 		ts.AddNode(&nodes[i])
 	}
 
-	nodefailed := false
+	nodefailed := false;
 	for i := 0; i <= NODE11121; i++ {
 		if ts.FindNode(&nodes[i], func(n1, n2 Node) bool {
 			return n1.Hash() == n2.Hash()
-		}) == nil {
+		}) == nil  {
 			nodefailed = true
 			break
 		}
 	}
 
 	if nodefailed {
-		t.Error(" add node failed")
+		t.Error (" add node failed")
 	} else {
-		t.Log(" all nodes add ok")
+		t.Log( " all nodes add ok")
 	}
 }
-func Test_noduplication(t *testing.T) {
+func Test_noduplication (t *testing.T) {
 	ts := NewQZTree(&nodes[NODE1])
-	for i := NODE1; i <= NODE11; i++ {
+	for i:= NODE1; i<= NODE11;i++{
 		ts.AddNode(&nodes[i])
 	}
-	for i := NODE11; i <= NODE11121; i++ {
+	for i:= NODE11; i<= NODE11121;i++{
 		ts.AddNode(&nodes[i])
 	}
 
@@ -100,11 +101,11 @@ func Test_noduplication(t *testing.T) {
 	ts.Iterator(true, func(node Node) bool {
 		fmt.Println(node.(*TestNode))
 		hash := node.(*TestNode).Hash()
-		val, ok := counts[hash]
-		if !ok {
+		val,ok := counts[hash]
+		if(!ok) {
 			counts[hash] = 1
-		} else {
-			counts[hash] = val + 1
+		}else {
+			counts[hash] = val +1
 		}
 
 		return false
@@ -112,29 +113,29 @@ func Test_noduplication(t *testing.T) {
 
 	//check for all hash counts
 	duplicated := false
-	for _, val := range counts {
+	for _,val := range counts {
 		if val != 1 {
 			duplicated = true
 		}
 	}
 	if duplicated {
 		t.Error(" found duplicated!")
-	} else {
-		t.Log(" duplicated auto removed")
+	}else {
+		t.Log( " duplicated auto removed")
 	}
 }
 func Test_MaxTd_1(t *testing.T) {
 
 	ts := NewQZTree(&nodes[NODE1])
 
-	for i := 0; i <= NODE11121; i++ {
+	for i:= 0; i<= NODE11121;i++{
 		ts.AddNode(&nodes[i])
 	}
 
 	node := ts.GetMaxTdPath(nil)
 	if node != nil && node.self.Hash() == 111112356 {
-		t.Log(" Find Max TD PATH OK")
-	} else {
+		t.Log( " Find Max TD PATH OK")
+	}else {
 		t.Error(" Max TD Path failed!")
 	}
 }
@@ -143,15 +144,15 @@ func Test_MaxTd_2(t *testing.T) {
 
 	ts := NewQZTree(&nodes[NODE1])
 
-	for i := 0; i <= NODE11222; i++ {
+	for i:= 0; i<= NODE11222;i++{
 
 		ts.AddNode(&nodes[i])
 	}
 
 	node := ts.GetMaxTdPath(&nodes[NODE112])
-	if node != nil && node.self.Hash() == nodes[NODE11221].Hash() {
-		t.Log(" Find Special Max TD PATH OK")
-	} else {
+	if node != nil && node.self.Hash() == nodes[NODE11221].Hash()  {
+		t.Log( " Find Special Max TD PATH OK")
+	}else {
 		t.Error(" Max Special TD Path failed!")
 	}
 }
@@ -160,7 +161,7 @@ func Test_SeperateNode_1(t *testing.T) {
 
 	ts := NewQZTree(&nodes[NODE1])
 
-	for i := 0; i <= NODE11222; i++ {
+	for i:= 0; i<= NODE11222;i++{
 		if i != NODE112 {
 			ts.AddNode(&nodes[i])
 		}
@@ -169,25 +170,26 @@ func Test_SeperateNode_1(t *testing.T) {
 
 	if ts.FindNode(&nodes[NODE1121], func(n1, n2 Node) bool {
 		return n1.Hash() == n2.Hash()
-	}) == nil {
-		t.Log(" seperated node test ok")
-	} else {
+	}) == nil  {
+		t.Log( " seperated node test ok")
+	}else {
 		t.Error(" seperated node test  failed!")
 	}
 }
+
 
 func Test_MergeNode_1(t *testing.T) {
 
 	ts := NewQZTree(&nodes[NODE1])
 
-	for i := 0; i <= NODE11222; i++ {
+	for i:= 0; i<= NODE11222;i++{
 		if i != NODE112 {
 			ts.AddNode(&nodes[i])
 		}
 
 	}
 	ts2 := NewQZTree(&nodes[NODE112])
-	for i := 0; i <= NODE11222; i++ {
+	for i:= 0; i<= NODE11222;i++{
 
 		ts2.AddNode(&nodes[i])
 
@@ -214,26 +216,27 @@ func Test_MergeNode_1(t *testing.T) {
 	fmt.Println("---------")
 	if ts.FindNode(&nodes[NODE1121], func(n1, n2 Node) bool {
 		return n1.Hash() == n2.Hash()
-	}) != nil {
-		t.Log(" seperated node test ok")
-	} else {
+	}) != nil  {
+		t.Log( " seperated node test ok")
+	}else {
 		t.Error(" seperated node test  failed!")
 	}
 }
+
 
 func Test_ClearAll_1(t *testing.T) {
 
 	ts := NewQZTree(&nodes[NODE1])
 
-	for i := 0; i <= NODE11222; i++ {
+	for i:= 0; i<= NODE11222;i++{
 		ts.AddNode(&nodes[i])
 	}
 
-	ts.Remove(nil, false)
+	ts.Remove(nil,false)
 
-	if ts.children.Len() == 0 {
-		t.Log(" Clear All nodes ok")
-	} else {
+	if ts.children.Len() == 0  {
+		t.Log( " Clear All nodes ok")
+	}else {
 		t.Error(" Clear all Node failed!")
 	}
 }
@@ -242,36 +245,37 @@ func Test_ClearByNode_1(t *testing.T) {
 
 	ts := NewQZTree(&nodes[NODE1])
 
-	for i := 0; i <= NODE11222; i++ {
+	for i:= 0; i<= NODE11222;i++{
 		ts.AddNode(&nodes[i])
 	}
 
-	ts.Remove(&nodes[NODE11222], false)
+	ts.Remove( &nodes[NODE11222],false)
 	remain := ts.FindNode(&nodes[NODE11222], func(n1, n2 Node) bool {
 		return n1.Hash() == n2.Hash()
 	})
-	if remain != nil && (remain.children.Len() == 0) {
-		t.Log(" Clear Special nodes ok")
-	} else {
+	if remain != nil && (remain.children.Len() == 0)  {
+		t.Log( " Clear Special nodes ok")
+	}else {
 		t.Error(" Clear Special Node failed!")
 	}
 }
+
 
 func Test_ClearByNode_2(t *testing.T) {
 
 	ts := NewQZTree(&nodes[NODE1])
 
-	for i := 0; i <= NODE11222; i++ {
+	for i:= 0; i<= NODE11222;i++{
 		ts.AddNode(&nodes[i])
 	}
 
-	ts.Remove(&nodes[NODE11222], true)
+	ts.Remove( &nodes[NODE11222],true)
 	remain := ts.FindNode(&nodes[NODE11222], func(n1, n2 Node) bool {
 		return n1.Hash() == n2.Hash()
 	})
-	if remain == nil {
-		t.Log(" Clear Special nodes ok")
-	} else {
+	if remain == nil  {
+		t.Log( " Clear Special nodes ok")
+	}else {
 		t.Error(" Clear Special Node failed!")
 	}
 }

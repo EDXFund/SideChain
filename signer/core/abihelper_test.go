@@ -25,8 +25,8 @@ import (
 	"math/big"
 	"reflect"
 
-	"github.com/EDXFund/MasterChain/accounts/abi"
-	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/Validator/accounts/abi"
+	"github.com/EDXFund/Validator/common"
 )
 
 func verify(t *testing.T, jsondata, calldata string, exp []interface{}) {

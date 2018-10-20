@@ -20,8 +20,8 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/params"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/params"
 )
 
 type dummyContractRef struct {

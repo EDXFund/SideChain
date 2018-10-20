@@ -20,8 +20,8 @@ import (
 	"fmt"
 	"sync/atomic"
 
-	"github.com/EDXFund/MasterChain/common/math"
-	"github.com/EDXFund/MasterChain/params"
+	"github.com/EDXFund/Validator/common/math"
+	"github.com/EDXFund/Validator/params"
 )
 
 // Config are the configuration options for the Interpreter

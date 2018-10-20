@@ -22,13 +22,13 @@ import (
 	"sync"
 	"time"
 
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/common/mclock"
-	"github.com/EDXFund/MasterChain/consensus"
-	"github.com/EDXFund/MasterChain/core/rawdb"
-	"github.com/EDXFund/MasterChain/core/types"
-	"github.com/EDXFund/MasterChain/light"
-	"github.com/EDXFund/MasterChain/log"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/common/mclock"
+	"github.com/EDXFund/Validator/consensus"
+	"github.com/EDXFund/Validator/core/rawdb"
+	"github.com/EDXFund/Validator/core/types"
+	"github.com/EDXFund/Validator/light"
+	"github.com/EDXFund/Validator/log"
 )
 
 const (

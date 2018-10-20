@@ -22,9 +22,9 @@ import (
 	"math/big"
 	"sort"
 
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/core/types"
-	"github.com/EDXFund/MasterChain/log"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/core/types"
+	"github.com/EDXFund/Validator/log"
 )
 
 // nonceHeap is a heap.Interface implementation over 64bit unsigned integers for

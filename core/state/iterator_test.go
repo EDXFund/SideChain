@@ -20,8 +20,8 @@ import (
 	"bytes"
 	"testing"
 
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/ethdb"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/ethdb"
 )
 
 // Tests that the node iterator indeed walks over the entire database contents.

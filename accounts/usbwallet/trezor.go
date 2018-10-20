@@ -27,12 +27,12 @@ import (
 	"io"
 	"math/big"
 
-	"github.com/EDXFund/MasterChain/accounts"
-	"github.com/EDXFund/MasterChain/accounts/usbwallet/internal/trezor"
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/common/hexutil"
-	"github.com/EDXFund/MasterChain/core/types"
-	"github.com/EDXFund/MasterChain/log"
+	"github.com/EDXFund/Validator/accounts"
+	"github.com/EDXFund/Validator/accounts/usbwallet/internal/trezor"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/common/hexutil"
+	"github.com/EDXFund/Validator/core/types"
+	"github.com/EDXFund/Validator/log"
 	"github.com/golang/protobuf/proto"
 )
 

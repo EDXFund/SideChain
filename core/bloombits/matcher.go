@@ -26,8 +26,8 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/EDXFund/MasterChain/common/bitutil"
-	"github.com/EDXFund/MasterChain/crypto"
+	"github.com/EDXFund/Validator/common/bitutil"
+	"github.com/EDXFund/Validator/crypto"
 )
 
 // bloomIndexes represents the bit indexes inside the bloom filter that belong

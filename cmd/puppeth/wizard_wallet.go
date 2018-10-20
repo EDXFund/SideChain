@@ -21,7 +21,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/EDXFund/MasterChain/log"
+	"github.com/EDXFund/Validator/log"
 )
 
 // deployWallet creates a new web wallet based on some user input.

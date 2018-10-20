@@ -22,10 +22,10 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/EDXFund/MasterChain/cmd/utils"
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/log"
-	"github.com/EDXFund/MasterChain/swarm/storage"
+	"github.com/EDXFund/Validator/cmd/utils"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/log"
+	"github.com/EDXFund/Validator/swarm/storage"
 	"gopkg.in/urfave/cli.v1"
 )
 

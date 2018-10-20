@@ -26,7 +26,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/Validator/common"
 	"golang.org/x/tools/imports"
 )
 

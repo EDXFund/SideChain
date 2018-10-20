@@ -22,7 +22,7 @@ import (
 	"math/big"
 	"time"
 
-	"github.com/EDXFund/MasterChain/rpc"
+	"github.com/EDXFund/Validator/rpc"
 )
 
 // In this example, our client whishes to track the latest 'block number'

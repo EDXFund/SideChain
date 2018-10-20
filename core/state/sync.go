@@ -19,9 +19,9 @@ package state
 import (
 	"bytes"
 
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/rlp"
-	"github.com/EDXFund/MasterChain/trie"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/rlp"
+	"github.com/EDXFund/Validator/trie"
 )
 
 // NewStateSync create a new state trie download scheduler.

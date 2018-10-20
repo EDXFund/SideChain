@@ -23,7 +23,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/Validator/common"
 )
 
 const testSectionSize = 4096

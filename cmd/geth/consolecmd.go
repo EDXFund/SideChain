@@ -24,10 +24,10 @@ import (
 	"strings"
 	"syscall"
 
-	"github.com/EDXFund/MasterChain/cmd/utils"
-	"github.com/EDXFund/MasterChain/console"
-	"github.com/EDXFund/MasterChain/node"
-	"github.com/EDXFund/MasterChain/rpc"
+	"github.com/EDXFund/Validator/cmd/utils"
+	"github.com/EDXFund/Validator/console"
+	"github.com/EDXFund/Validator/node"
+	"github.com/EDXFund/Validator/rpc"
 	"gopkg.in/urfave/cli.v1"
 )
 

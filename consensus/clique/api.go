@@ -17,10 +17,10 @@
 package clique
 
 import (
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/consensus"
-	"github.com/EDXFund/MasterChain/core/types"
-	"github.com/EDXFund/MasterChain/rpc"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/consensus"
+	"github.com/EDXFund/Validator/core/types"
+	"github.com/EDXFund/Validator/rpc"
 )
 
 // API is a user facing RPC API to allow controlling the signer and voting

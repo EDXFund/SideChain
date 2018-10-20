@@ -27,12 +27,12 @@ import (
 	"testing"
 	"time"
 
-	"github.com/EDXFund/MasterChain/event"
-	"github.com/EDXFund/MasterChain/node"
-	"github.com/EDXFund/MasterChain/p2p"
-	"github.com/EDXFund/MasterChain/p2p/discover"
-	"github.com/EDXFund/MasterChain/p2p/simulations/adapters"
-	"github.com/EDXFund/MasterChain/rpc"
+	"github.com/EDXFund/Validator/event"
+	"github.com/EDXFund/Validator/node"
+	"github.com/EDXFund/Validator/p2p"
+	"github.com/EDXFund/Validator/p2p/discover"
+	"github.com/EDXFund/Validator/p2p/simulations/adapters"
+	"github.com/EDXFund/Validator/rpc"
 )
 
 // testService implements the node.Service interface and provides protocols

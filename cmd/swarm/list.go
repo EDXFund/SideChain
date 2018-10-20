@@ -22,8 +22,8 @@ import (
 	"strings"
 	"text/tabwriter"
 
-	"github.com/EDXFund/MasterChain/cmd/utils"
-	swarm "github.com/EDXFund/MasterChain/swarm/api/client"
+	"github.com/EDXFund/Validator/cmd/utils"
+	swarm "github.com/EDXFund/Validator/swarm/api/client"
 	"gopkg.in/urfave/cli.v1"
 )
 

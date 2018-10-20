@@ -25,10 +25,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/EDXFund/MasterChain/crypto"
-	"github.com/EDXFund/MasterChain/crypto/sha3"
-	"github.com/EDXFund/MasterChain/log"
-	"github.com/EDXFund/MasterChain/p2p/discover"
+	"github.com/EDXFund/Validator/crypto"
+	"github.com/EDXFund/Validator/crypto/sha3"
+	"github.com/EDXFund/Validator/log"
+	"github.com/EDXFund/Validator/p2p/discover"
 )
 
 func init() {

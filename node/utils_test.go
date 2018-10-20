@@ -22,8 +22,8 @@ package node
 import (
 	"reflect"
 
-	"github.com/EDXFund/MasterChain/p2p"
-	"github.com/EDXFund/MasterChain/rpc"
+	"github.com/EDXFund/Validator/p2p"
+	"github.com/EDXFund/Validator/rpc"
 )
 
 // NoopService is a trivial implementation of the Service interface.

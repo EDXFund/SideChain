@@ -23,10 +23,10 @@ import (
 	"io/ioutil"
 	"os"
 
-	"github.com/EDXFund/MasterChain/core/state"
-	"github.com/EDXFund/MasterChain/core/vm"
-	"github.com/EDXFund/MasterChain/log"
-	"github.com/EDXFund/MasterChain/tests"
+	"github.com/EDXFund/Validator/core/state"
+	"github.com/EDXFund/Validator/core/vm"
+	"github.com/EDXFund/Validator/log"
+	"github.com/EDXFund/Validator/tests"
 
 	cli "gopkg.in/urfave/cli.v1"
 )

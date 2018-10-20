@@ -21,7 +21,7 @@ import (
 	"sort"
 	"sync"
 
-	"github.com/EDXFund/MasterChain/event"
+	"github.com/EDXFund/Validator/event"
 )
 
 // Manager is an overarching account manager that can communicate with various

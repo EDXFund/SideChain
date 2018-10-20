@@ -17,8 +17,8 @@
 package les
 
 import (
-	"github.com/EDXFund/MasterChain/metrics"
-	"github.com/EDXFund/MasterChain/p2p"
+	"github.com/EDXFund/Validator/metrics"
+	"github.com/EDXFund/Validator/p2p"
 )
 
 var (

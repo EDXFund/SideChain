@@ -19,8 +19,8 @@ package vm
 import (
 	"math/big"
 
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/common/math"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/common/math"
 )
 
 // calculates the memory size required for a step

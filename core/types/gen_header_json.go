@@ -7,7 +7,7 @@ import (
 	"errors"
 	"math/big"
 
-	"github.com/EDXFund/MasterChain/common/hexutil"
+	"github.com/EDXFund/Validator/common/hexutil"
 )
 
 var _ = (*HeaderMarshal)(nil)
@@ -15,46 +15,22 @@ var _ = (*HeaderMarshal)(nil)
 func  (h *Header) MarshalJSON() ([]byte, error) {
 
 	var enc HeaderMarshal
-	if(h.ShardId != 0xFFFF) {  //ShardChain
-		enc.ShardId = h.ShardId
-		enc.ParentHash = h.ParentHash
-		enc.Coinbase = h.Coinbase
+	enc.ShardId = h.ShardId
+	enc.ParentHash = h.ParentHash
+	enc.Coinbase = h.Coinbase
 
-		enc.TxHash = h.TxHash
-		enc.ReceiptHash = h.ReceiptHash
-		enc.Bloom = h.Bloom
-		enc.Difficulty = (*hexutil.Big)(h.Difficulty)
-		enc.Number = (*hexutil.Big)(h.Number)
-		enc.GasLimit = hexutil.Uint64(h.GasLimit)
-		enc.GasUsed = hexutil.Uint64(h.GasUsed)
-		enc.Time = (*hexutil.Big)(h.Time)
-		enc.Extra = h.Extra
-		enc.MixDigest = h.MixDigest
-		enc.Nonce = h.Nonce
-		enc.Hash = h.Hash()
-	}else { //master chain
-		
-		enc.ShardId = h.ShardId
-		enc.ParentHash = h.ParentHash
-		enc.Coinbase = h.Coinbase
-		enc.Root = h.Root
-		enc.ShardHash = h.ShardHash
-		enc.ShardMask = h.ShardMask
-		enc.ShardEnabled = h.ShardEnabled
-		enc.TxHash = h.TxHash
-		enc.RjHash = h.RjHash
-		enc.Bloom = h.Bloom
-		enc.Difficulty = (*hexutil.Big)(h.Difficulty)
-		enc.Number = (*hexutil.Big)(h.Number)
-		enc.GasLimit = hexutil.Uint64(h.GasLimit)
-		enc.GasUsed = hexutil.Uint64(h.GasUsed)
-		enc.Time = (*hexutil.Big)(h.Time)
-		enc.Extra = h.Extra
-		enc.MixDigest = h.MixDigest
-		enc.Nonce = h.Nonce
-		enc.Hash = h.Hash()
-	
-	}
+	enc.TxHash = h.TxHash
+	enc.ReceiptHash = h.ReceiptHash
+	enc.Bloom = h.Bloom
+	enc.Difficulty = (*hexutil.Big)(h.Difficulty)
+	enc.Number = (*hexutil.Big)(h.Number)
+	enc.GasLimit = hexutil.Uint64(h.GasLimit)
+	enc.GasUsed = hexutil.Uint64(h.GasUsed)
+	enc.Time = (*hexutil.Big)(h.Time)
+	enc.Extra = h.Extra
+	enc.MixDigest = h.MixDigest
+	enc.Nonce = h.Nonce
+	enc.Hash = h.Hash()
 	return json.Marshal(&enc)
 }
 
@@ -65,36 +41,18 @@ func (h *Header)UnmarshalJSON(input []byte) error {
 	if err := json.Unmarshal(input, &dec); err != nil {
 		return err
 	}
-	if(dec.ShardId == 0xFFFF) {
-
-		if dec.ShardHash == nil {
-			return errors.New("missing required field 'ShardHash' for Header")
-		}
-		h.ShardHash = *dec.ShardHash
-		h.ShardMask = dec.ShardMask
-		if dec.ShardEnabled == nil {
-			return errors.New("missing required field 'ShardEnabled' for Header")
-		}
-		h.ShardEnabled = *dec.ShardEnabled
-
-		if dec.RjHash == nil {
-			return errors.New("missing required field 'RjHash' for Header")
-		}
-		h.RjHash = *dec.RjHash
-	}else {
-		if dec.TxHash == nil {
-			return errors.New("missing required field 'transactionsRoot' for Header")
-		}
-		h.TxHash = *dec.TxHash
-		if dec.ReceiptHash == nil {
-			return errors.New("missing required field 'receiptsRoot' for Header")
-		}
-		h.ReceiptHash = *dec.ReceiptHash
-		if dec.Bloom == nil {
-			return errors.New("missing required field 'logsBloom' for Header")
-		}
-		h.Bloom = *dec.Bloom
+	if dec.TxHash == nil {
+		return errors.New("missing required field 'transactionsRoot' for Header")
 	}
+	h.TxHash = *dec.TxHash
+	if dec.ReceiptHash == nil {
+		return errors.New("missing required field 'receiptsRoot' for Header")
+	}
+	h.ReceiptHash = *dec.ReceiptHash
+	if dec.Bloom == nil {
+		return errors.New("missing required field 'logsBloom' for Header")
+	}
+	h.Bloom = *dec.Bloom
 	if dec.ParentHash == nil {
 		return errors.New("missing required field 'parentHash' for Header")
 	}

@@ -9,8 +9,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/core/types"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/core/types"
 )
 
 // Tests whether remote HTTP servers are correctly notified of new work.

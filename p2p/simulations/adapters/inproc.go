@@ -23,13 +23,13 @@ import (
 	"net"
 	"sync"
 
-	"github.com/EDXFund/MasterChain/event"
-	"github.com/EDXFund/MasterChain/log"
-	"github.com/EDXFund/MasterChain/node"
-	"github.com/EDXFund/MasterChain/p2p"
-	"github.com/EDXFund/MasterChain/p2p/discover"
-	"github.com/EDXFund/MasterChain/p2p/simulations/pipes"
-	"github.com/EDXFund/MasterChain/rpc"
+	"github.com/EDXFund/Validator/event"
+	"github.com/EDXFund/Validator/log"
+	"github.com/EDXFund/Validator/node"
+	"github.com/EDXFund/Validator/p2p"
+	"github.com/EDXFund/Validator/p2p/discover"
+	"github.com/EDXFund/Validator/p2p/simulations/pipes"
+	"github.com/EDXFund/Validator/rpc"
 )
 
 // SimAdapter is a NodeAdapter which creates in-memory simulation nodes and

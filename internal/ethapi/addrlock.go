@@ -19,7 +19,7 @@ package ethapi
 import (
 	"sync"
 
-	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/Validator/common"
 )
 
 type AddrLocker struct {

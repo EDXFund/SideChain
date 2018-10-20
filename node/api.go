@@ -22,12 +22,12 @@ import (
 	"strings"
 	"time"
 
-	"github.com/EDXFund/MasterChain/common/hexutil"
-	"github.com/EDXFund/MasterChain/crypto"
-	"github.com/EDXFund/MasterChain/metrics"
-	"github.com/EDXFund/MasterChain/p2p"
-	"github.com/EDXFund/MasterChain/p2p/discover"
-	"github.com/EDXFund/MasterChain/rpc"
+	"github.com/EDXFund/Validator/common/hexutil"
+	"github.com/EDXFund/Validator/crypto"
+	"github.com/EDXFund/Validator/metrics"
+	"github.com/EDXFund/Validator/p2p"
+	"github.com/EDXFund/Validator/p2p/discover"
+	"github.com/EDXFund/Validator/rpc"
 )
 
 // PrivateAdminAPI is the collection of administrative API methods exposed only

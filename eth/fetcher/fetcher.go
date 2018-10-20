@@ -22,11 +22,11 @@ import (
 	"math/rand"
 	"time"
 
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/common/prque"
-	"github.com/EDXFund/MasterChain/consensus"
-	"github.com/EDXFund/MasterChain/core/types"
-	"github.com/EDXFund/MasterChain/log"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/common/prque"
+	"github.com/EDXFund/Validator/consensus"
+	"github.com/EDXFund/Validator/core/types"
+	"github.com/EDXFund/Validator/log"
 )
 
 const (
@@ -95,8 +95,8 @@ type bodyFilterTask struct {
 	transactions [][]*types.Transaction // Collection of transactions per block bodies
 	receiptions	[][]*types.ContractResult
 
-	blockInfos [][]*types.ShardBlockInfo // Collection of transactions per block bodies
-	rejectInfos [][]*types.RejectInfo
+//	blockInfos [][]*types.ShardBlockInfo // Collection of transactions per block bodies
+//	rejectInfos [][]*types.RejectInfo
 //	uncles       [][]*types.Header      // Collection of uncles per block bodies
 	time         time.Time              // Arrival time of the blocks' contents
 }
@@ -252,8 +252,9 @@ func (f *Fetcher) FilterHeaders(peer string, headers []*types.Header, time time.
 
 // FilterBodies extracts all the block bodies that were explicitly requested by
 // the fetcher, returning those that should be handled differently.
-func (f *Fetcher) FilterBodies(peer string, blockInfos [][]*types.ShardBlockInfo, rejectInfos [][]*types.RejectInfo, time time.Time) ([][]*types.ShardBlockInfo, [][]*types.RejectInfo) {
-	log.Trace("Filtering bodies", "peer", peer, "blks", len(blockInfos), "rejects", len(rejectInfos))
+////MUST to do find usage and santinize it
+func (f *Fetcher) FilterBodies(peer string, txs [][]*types.Transaction, results [][]*types.ContractResult, time time.Time) ([][]*types.Transaction, [][]*types.ContractResult) {
+	log.Trace("Filtering bodies", "peer", peer, "blks", len(txs), "rejects", len(results))
 
 	// Send the filter channel to the fetcher
 	filter := make(chan *bodyFilterTask)
@@ -265,14 +266,14 @@ func (f *Fetcher) FilterBodies(peer string, blockInfos [][]*types.ShardBlockInfo
 	}
 	// Request the filtering of the body list
 	select {
-	case filter <- &bodyFilterTask{peer: peer, blockInfos: blockInfos, rejectInfos: rejectInfos, time: time}:
+	case filter <- &bodyFilterTask{peer: peer, transactions: txs, receiptions: results, time: time}:
 	case <-f.quit:
 		return nil, nil
 	}
 	// Retrieve the bodies remaining after filtering
 	select {
 	case task := <-filter:
-		return task.blockInfos, task.rejectInfos
+		return task.transactions, task.receiptions
 	case <-f.quit:
 		return nil, nil
 	}
@@ -517,17 +518,17 @@ func (f *Fetcher) loop() {
 			case <-f.quit:
 				return
 			}
-			bodyFilterInMeter.Mark(int64(len(task.blockInfos)))
+			bodyFilterInMeter.Mark(int64(len(task.transactions)))
 
 			blocks := []*types.Block{}
 			//////////MUST  TODO  this should be rebuild
-			for i := 0; i < len(task.blockInfos) && i < len(task.rejectInfos); i++ {
+			for i := 0; i < len(task.transactions) ; i++ {
 				// Match up a body to any possible completion request
 				matched := false
 
 				for hash, announce := range f.completing {
 					if f.queued[hash] == nil {
-						txnHash := types.DeriveSha(types.ShardBlockInfos(task.blockInfos[i]))
+						txnHash := types.DeriveSha(types.Transactions(task.transactions[i]))
 						//uncleHash := types.CalcUncleHash(task.uncles[i])
 
 						if txnHash == announce.header.TxHash && announce.origin == task.peer {
@@ -535,7 +536,7 @@ func (f *Fetcher) loop() {
 							matched = true
 
 							if f.getBlock(hash) == nil {
-								block := types.NewBlockWithHeader(announce.header).WithBody(task.transactions[i],task.receiptions[i],task.blockInfos[i], task.rejectInfos[i])
+								block := types.NewBlockWithHeader(announce.header).WithBody(task.transactions[i],task.receiptions[i])
 								block.ReceivedAt = task.time
 
 								blocks = append(blocks, block)
@@ -546,14 +547,14 @@ func (f *Fetcher) loop() {
 					}
 				}
 				if matched {
-					task.blockInfos = append(task.blockInfos[:i], task.blockInfos[i+1:]...)
-					task.rejectInfos = append(task.rejectInfos[:i], task.rejectInfos[i+1:]...)
+					task.transactions = append(task.transactions[:i], task.transactions[i+1:]...)
+					task.receiptions = append(task.receiptions[:i], task.receiptions[i+1:]...)
 					i--
 					continue
 				}
 			}
 
-			bodyFilterOutMeter.Mark(int64(len(task.blockInfos)))
+			bodyFilterOutMeter.Mark(int64(len(task.transactions)))
 			select {
 			case filter <- task:
 			case <-f.quit:

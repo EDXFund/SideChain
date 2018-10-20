@@ -20,8 +20,8 @@ import (
 	"bytes"
 	"testing"
 
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/ethdb"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/ethdb"
 )
 
 // makeTestTrie create a sample test trie to test node-wise reconstruction.

@@ -24,7 +24,7 @@ import (
 	"math/big"
 	"strings"
 
-	"github.com/EDXFund/MasterChain/rlp"
+	"github.com/EDXFund/Validator/rlp"
 )
 
 // RLPTest is the JSON structure of a single RLP test.

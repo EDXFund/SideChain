@@ -19,7 +19,7 @@ package vm
 import (
 	"math/big"
 
-	"github.com/EDXFund/MasterChain/common/math"
+	"github.com/EDXFund/Validator/common/math"
 )
 
 func memorySha3(stack *Stack) *big.Int {

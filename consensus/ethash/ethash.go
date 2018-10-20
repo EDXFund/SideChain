@@ -33,12 +33,12 @@ import (
 	"time"
 	"unsafe"
 
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/consensus"
-	"github.com/EDXFund/MasterChain/core/types"
-	"github.com/EDXFund/MasterChain/log"
-	"github.com/EDXFund/MasterChain/metrics"
-	"github.com/EDXFund/MasterChain/rpc"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/consensus"
+	"github.com/EDXFund/Validator/core/types"
+	"github.com/EDXFund/Validator/log"
+	"github.com/EDXFund/Validator/metrics"
+	"github.com/EDXFund/Validator/rpc"
 	mmap "github.com/edsrzf/mmap-go"
 	"github.com/hashicorp/golang-lru/simplelru"
 )

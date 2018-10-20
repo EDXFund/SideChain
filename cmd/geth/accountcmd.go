@@ -20,12 +20,12 @@ import (
 	"fmt"
 	"io/ioutil"
 
-	"github.com/EDXFund/MasterChain/accounts"
-	"github.com/EDXFund/MasterChain/accounts/keystore"
-	"github.com/EDXFund/MasterChain/cmd/utils"
-	"github.com/EDXFund/MasterChain/console"
-	"github.com/EDXFund/MasterChain/crypto"
-	"github.com/EDXFund/MasterChain/log"
+	"github.com/EDXFund/Validator/accounts"
+	"github.com/EDXFund/Validator/accounts/keystore"
+	"github.com/EDXFund/Validator/cmd/utils"
+	"github.com/EDXFund/Validator/console"
+	"github.com/EDXFund/Validator/crypto"
+	"github.com/EDXFund/Validator/log"
 	"gopkg.in/urfave/cli.v1"
 )
 

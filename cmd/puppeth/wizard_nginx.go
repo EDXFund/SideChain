@@ -19,7 +19,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/EDXFund/MasterChain/log"
+	"github.com/EDXFund/Validator/log"
 )
 
 // ensureVirtualHost checks whether a reverse-proxy is running on the specified

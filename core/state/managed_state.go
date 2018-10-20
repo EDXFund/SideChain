@@ -19,7 +19,7 @@ package state
 import (
 	"sync"
 
-	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/Validator/common"
 )
 
 type account struct {

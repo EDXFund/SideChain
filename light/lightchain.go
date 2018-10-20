@@ -24,17 +24,17 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/consensus"
-	"github.com/EDXFund/MasterChain/core"
-	"github.com/EDXFund/MasterChain/core/rawdb"
-	"github.com/EDXFund/MasterChain/core/state"
-	"github.com/EDXFund/MasterChain/core/types"
-	"github.com/EDXFund/MasterChain/ethdb"
-	"github.com/EDXFund/MasterChain/event"
-	"github.com/EDXFund/MasterChain/log"
-	"github.com/EDXFund/MasterChain/params"
-	"github.com/EDXFund/MasterChain/rlp"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/consensus"
+	"github.com/EDXFund/Validator/core"
+	"github.com/EDXFund/Validator/core/rawdb"
+	"github.com/EDXFund/Validator/core/state"
+	"github.com/EDXFund/Validator/core/types"
+	"github.com/EDXFund/Validator/ethdb"
+	"github.com/EDXFund/Validator/event"
+	"github.com/EDXFund/Validator/log"
+	"github.com/EDXFund/Validator/params"
+	"github.com/EDXFund/Validator/rlp"
 	"github.com/hashicorp/golang-lru"
 )
 
@@ -250,7 +250,7 @@ func (self *LightChain) GetBodyRLP(ctx context.Context, hash common.Hash) (rlp.R
 	if number == nil {
 		return nil, errors.New("unknown block")
 	}
-	body, err := GetBodyRLP(ctx, self.odr, hash, *number)
+	body, err := GetBodyRLP(ctx, self.odr, hash, self.shardId,*number)
 	if err != nil {
 		return nil, err
 	}
@@ -273,7 +273,7 @@ func (self *LightChain) GetBlock(ctx context.Context, hash common.Hash, number u
 	if block, ok := self.blockCache.Get(hash); ok {
 		return block.(*types.Block), nil
 	}
-	block, err := GetBlock(ctx, self.odr, hash, number)
+	block, err := GetBlock(ctx, self.odr, hash,self.shardId, number)
 	if err != nil {
 		return nil, err
 	}
@@ -295,7 +295,7 @@ func (self *LightChain) GetBlockByHash(ctx context.Context, hash common.Hash) (*
 // GetBlockByNumber retrieves a block from the database or ODR service by
 // number, caching it (associated with its hash) if found.
 func (self *LightChain) GetBlockByNumber(ctx context.Context, number uint64) (*types.Block, error) {
-	hash, err := GetCanonicalHash(ctx, self.odr, number)
+	hash, err := GetCanonicalHash(ctx, self.odr, self.shardId, number)
 	if hash == (common.Hash{}) || err != nil {
 		return nil, err
 	}
@@ -429,7 +429,7 @@ func (self *LightChain) GetHeaderByHash(hash common.Hash) *types.Header {
 // HasHeader checks if a block header is present in the database or not, caching
 // it if present.
 func (bc *LightChain) HasHeader(hash common.Hash, number uint64) bool {
-	return bc.hc.HasHeader(bc.ShardId,hash, number)
+	return bc.hc.HasHeader(hash, number)
 }
 
 // GetBlockHashesFromHash retrieves a number of block hashes starting at a given
@@ -462,7 +462,7 @@ func (self *LightChain) GetHeaderByNumberOdr(ctx context.Context, number uint64)
 	if header := self.hc.GetHeaderByNumber(number); header != nil {
 		return header, nil
 	}
-	return GetHeaderByNumber(ctx, self.odr, number)
+	return GetHeaderByNumber(ctx, self.odr, self.shardId,number)
 }
 
 // Config retrieves the header chain's chain configuration.
@@ -485,7 +485,7 @@ func (self *LightChain) SyncCht(ctx context.Context) bool {
 		return false
 	}
 	// Retrieve the latest useful header and update to it
-	if header, err := GetHeaderByNumber(ctx, self.odr, latest); header != nil && err == nil {
+	if header, err := GetHeaderByNumber(ctx, self.odr, self.shardId,latest); header != nil && err == nil {
 		self.mu.Lock()
 		defer self.mu.Unlock()
 

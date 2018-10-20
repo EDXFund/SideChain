@@ -21,7 +21,7 @@ package p2p
 import (
 	"net"
 
-	"github.com/EDXFund/MasterChain/metrics"
+	"github.com/EDXFund/Validator/metrics"
 )
 
 var (

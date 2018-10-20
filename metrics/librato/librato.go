@@ -7,7 +7,7 @@ import (
 	"regexp"
 	"time"
 
-	"github.com/EDXFund/MasterChain/metrics"
+	"github.com/EDXFund/Validator/metrics"
 )
 
 // a regexp for extracting the unit from time.Duration.String

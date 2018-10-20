@@ -19,7 +19,7 @@
 package fetcher
 
 import (
-	"github.com/EDXFund/MasterChain/metrics"
+	"github.com/EDXFund/Validator/metrics"
 )
 
 var (

@@ -25,10 +25,10 @@ import (
 	"math/rand"
 	"time"
 
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/core"
-	"github.com/EDXFund/MasterChain/log"
-	"github.com/EDXFund/MasterChain/params"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/core"
+	"github.com/EDXFund/Validator/log"
+	"github.com/EDXFund/Validator/params"
 )
 
 // makeGenesis creates a new genesis struct based on some user input.

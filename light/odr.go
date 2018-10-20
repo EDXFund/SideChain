@@ -23,11 +23,11 @@ import (
 	"errors"
 	"math/big"
 
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/core"
-	"github.com/EDXFund/MasterChain/core/rawdb"
-	"github.com/EDXFund/MasterChain/core/types"
-	"github.com/EDXFund/MasterChain/ethdb"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/core"
+	"github.com/EDXFund/Validator/core/rawdb"
+	"github.com/EDXFund/Validator/core/types"
+	"github.com/EDXFund/Validator/ethdb"
 )
 
 // NoOdr is the default context passed to an ODR capable function when the ODR
@@ -128,7 +128,7 @@ type ReceiptsRequest struct {
 	Hash     common.Hash
 	ShardId  uint16
 	Number   uint64
-	Receipts types.Receipts
+	Receipts types.ContractResults
 }
 
 // StoreResult stores the retrieved data in local database

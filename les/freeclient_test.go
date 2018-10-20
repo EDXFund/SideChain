@@ -24,8 +24,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/EDXFund/MasterChain/common/mclock"
-	"github.com/EDXFund/MasterChain/ethdb"
+	"github.com/EDXFund/Validator/common/mclock"
+	"github.com/EDXFund/Validator/ethdb"
 )
 
 func TestFreeClientPoolL10C100(t *testing.T) {

@@ -24,9 +24,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/EDXFund/MasterChain/crypto"
-	"github.com/EDXFund/MasterChain/p2p"
-	"github.com/EDXFund/MasterChain/rpc"
+	"github.com/EDXFund/Validator/crypto"
+	"github.com/EDXFund/Validator/p2p"
+	"github.com/EDXFund/Validator/rpc"
 )
 
 var (

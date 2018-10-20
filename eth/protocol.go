@@ -21,11 +21,11 @@ import (
 	"io"
 	"math/big"
 
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/core"
-	"github.com/EDXFund/MasterChain/core/types"
-	"github.com/EDXFund/MasterChain/event"
-	"github.com/EDXFund/MasterChain/rlp"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/core"
+	"github.com/EDXFund/Validator/core/types"
+	"github.com/EDXFund/Validator/event"
+	"github.com/EDXFund/Validator/rlp"
 )
 
 // Constants to match up protocol versions and messages

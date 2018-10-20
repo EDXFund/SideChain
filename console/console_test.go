@@ -26,12 +26,12 @@ import (
 	"testing"
 	"time"
 
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/consensus/ethash"
-	"github.com/EDXFund/MasterChain/core"
-	"github.com/EDXFund/MasterChain/eth"
-	"github.com/EDXFund/MasterChain/internal/jsre"
-	"github.com/EDXFund/MasterChain/node"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/consensus/ethash"
+	"github.com/EDXFund/Validator/core"
+	"github.com/EDXFund/Validator/eth"
+	"github.com/EDXFund/Validator/internal/jsre"
+	"github.com/EDXFund/Validator/node"
 )
 
 const (

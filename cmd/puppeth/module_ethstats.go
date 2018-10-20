@@ -25,7 +25,7 @@ import (
 	"strings"
 	"text/template"
 
-	"github.com/EDXFund/MasterChain/log"
+	"github.com/EDXFund/Validator/log"
 )
 
 // ethstatsDockerfile is the Dockerfile required to build an ethstats backend

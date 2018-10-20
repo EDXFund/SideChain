@@ -19,8 +19,8 @@ package miner
 import (
 	"testing"
 
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/core/types"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/core/types"
 )
 
 // noopChainRetriever is an implementation of headerRetriever that always

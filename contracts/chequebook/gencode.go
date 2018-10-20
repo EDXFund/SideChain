@@ -25,11 +25,11 @@ import (
 	"io/ioutil"
 	"math/big"
 
-	"github.com/EDXFund/MasterChain/accounts/abi/bind"
-	"github.com/EDXFund/MasterChain/accounts/abi/bind/backends"
-	"github.com/EDXFund/MasterChain/contracts/chequebook/contract"
-	"github.com/EDXFund/MasterChain/core"
-	"github.com/EDXFund/MasterChain/crypto"
+	"github.com/EDXFund/Validator/accounts/abi/bind"
+	"github.com/EDXFund/Validator/accounts/abi/bind/backends"
+	"github.com/EDXFund/Validator/contracts/chequebook/contract"
+	"github.com/EDXFund/Validator/core"
+	"github.com/EDXFund/Validator/crypto"
 )
 
 var (

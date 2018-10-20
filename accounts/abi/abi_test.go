@@ -27,8 +27,8 @@ import (
 
 	"reflect"
 
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/crypto"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/crypto"
 )
 
 const jsondata = `

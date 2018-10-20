@@ -19,8 +19,8 @@ package les
 import (
 	"time"
 
-	"github.com/EDXFund/MasterChain/common/bitutil"
-	"github.com/EDXFund/MasterChain/light"
+	"github.com/EDXFund/Validator/common/bitutil"
+	"github.com/EDXFund/Validator/light"
 )
 
 const (

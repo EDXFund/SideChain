@@ -25,7 +25,7 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/EDXFund/MasterChain/ethdb"
+	"github.com/EDXFund/Validator/ethdb"
 )
 
 func newTestLDB() (*ethdb.LDBDatabase, func()) {

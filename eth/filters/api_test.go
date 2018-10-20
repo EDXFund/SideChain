@@ -21,8 +21,8 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/rpc"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/rpc"
 )
 
 func TestUnmarshalJSONNewFilterArgs(t *testing.T) {

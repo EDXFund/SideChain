@@ -20,7 +20,7 @@ import (
 	"errors"
 	"math/big"
 
-	"github.com/EDXFund/MasterChain/params"
+	"github.com/EDXFund/Validator/params"
 )
 
 type (

@@ -42,7 +42,7 @@ import (
 	"fmt"
 	"hash"
 
-	ethcrypto "github.com/EDXFund/MasterChain/crypto"
+	ethcrypto "github.com/EDXFund/Validator/crypto"
 )
 
 var (

@@ -20,14 +20,14 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/consensus"
-	"github.com/EDXFund/MasterChain/consensus/misc"
-	"github.com/EDXFund/MasterChain/core/state"
-	"github.com/EDXFund/MasterChain/core/types"
-	"github.com/EDXFund/MasterChain/core/vm"
-	"github.com/EDXFund/MasterChain/ethdb"
-	"github.com/EDXFund/MasterChain/params"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/consensus"
+	"github.com/EDXFund/Validator/consensus/misc"
+	"github.com/EDXFund/Validator/core/state"
+	"github.com/EDXFund/Validator/core/types"
+	"github.com/EDXFund/Validator/core/vm"
+	"github.com/EDXFund/Validator/ethdb"
+	"github.com/EDXFund/Validator/params"
 )
 
 // BlockGen creates blocks for testing.
@@ -42,11 +42,10 @@ type BlockGen struct {
 
 	gasPool  *GasPool
 	txs      []*types.Transaction
-	receipts []*types.Receipt
+	receipts []*types.ContractResult
 	//for shard chain
-	contractResults []*types.ContractResult
-	blocksInfo      []*types.ShardBlockInfo
-	rejections      []*types.RejectInfo
+//	contractResults []*types.ContractResult
+
 
 	config *params.ChainConfig
 	engine consensus.Engine
@@ -113,7 +112,7 @@ func (b *BlockGen) Number() *big.Int {
 //
 // AddUncheckedReceipt will cause consensus failures when used during real
 // chain processing. This is best used in conjunction with raw block insertion.
-func (b *BlockGen) AddUncheckedReceipt(receipt *types.Receipt) {
+func (b *BlockGen) AddUncheckedReceipt(receipt *types.ContractResult) {
 	b.receipts = append(b.receipts, receipt)
 }
 
@@ -167,12 +166,12 @@ func (b *BlockGen) OffsetTime(seconds int64) {
 // Blocks created by GenerateChain do not contain valid proof of work
 // values. Inserting them into BlockChain requires use of FakePow or
 // a similar non-validating proof of work implementation.
-func GenerateChain(config *params.ChainConfig, parent *types.Block, engine consensus.Engine, db ethdb.Database, n int, shardId uint16, gen func(int, *BlockGen)) ([]*types.Block, []types.Receipts) {
+func GenerateChain(config *params.ChainConfig, parent *types.Block, engine consensus.Engine, db ethdb.Database, n int, shardId uint16, gen func(int, *BlockGen)) ([]*types.Block, []*types.ContractResult) {
 	if config == nil {
 		config = params.TestChainConfig
 	}
-	blocks, receipts := make(types.Blocks, n), make([]types.Receipts, n)
-	genblock := func(i int, parent *types.Block, statedb *state.StateDB) (*types.Block, types.Receipts) {
+	blocks, receipts := make(types.Blocks, n), make([]*types.ContractResult, n)
+	genblock := func(i int, parent *types.Block, statedb *state.StateDB) (*types.Block, types.ContractResults) {
 		// TODO(karalabe): This is needed for clique, which depends on multiple blocks.
 		// It's nonetheless ugly to spin up a blockchain here. Get rid of this somehow.
 		blockchain, _ := NewBlockChain(db, nil, config, engine, vm.Config{}, shardId)
@@ -199,7 +198,7 @@ func GenerateChain(config *params.ChainConfig, parent *types.Block, engine conse
 		}
 
 		if b.engine != nil {
-			block, _ := b.engine.Finalize(b.chainReader, b.header, statedb, b.txs, b.receipts, b.blocksInfo, b.rejections)
+			block, _ := b.engine.Finalize(b.chainReader, b.header, statedb, b.txs, b.receipts)
 			// Write state changes to db
 			root, err := statedb.Commit(config.IsEIP158(b.header.Number))
 			if err != nil {
@@ -219,7 +218,7 @@ func GenerateChain(config *params.ChainConfig, parent *types.Block, engine conse
 		}
 		block, receipt := genblock(i, parent, statedb)
 		blocks[i] = block
-		receipts[i] = receipt
+		receipts[i] = receipt[0]
 		parent = block
 	}
 	return blocks, receipts

@@ -9,11 +9,11 @@ import (
 	"time"
 	"unsafe"
 
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/common/hexutil"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/common/hexutil"
 
-	"github.com/EDXFund/MasterChain/crypto/sha3"
-	"github.com/EDXFund/MasterChain/rlp"
+	"github.com/EDXFund/Validator/crypto/sha3"
+	"github.com/EDXFund/Validator/rlp"
 )
 
 var (
@@ -117,18 +117,13 @@ type BlockIntf interface {
 type Header struct {
 	ShardId    uint16      `json:"shardId"			gencodec:"required"`
 	ParentHash common.Hash `json:"parentHash"       gencodec:"required"`
-	//hash of all  lastest blocks of shards
-	ShardHash    common.Hash `json:"shardHash,omitempty"       	gencodec:"nil"`
-	ShardMask    uint16      `json:"shardMask,omitempty"		gencodec:"nil"`
-	ShardEnabled []byte      `json:"shardEnabled,omitempty"		gencodec:"nil"`
+
 
 	Coinbase common.Address `json:"miner"            gencodec:"required"`
 	Root     common.Hash    `json:"stateRoot,omitempty"        gencodec:"nil"`
 	TxHash   common.Hash    `json:"transactionsRoot,omitempty" gencodec:"nil"`
-	// hash of shard block included in this master block
-	BkHash      common.Hash `json:"blocksRoot,omitempty" 		gencodec:"nil"`
-	RjHash      common.Hash `json:"rejectRoot,omitempty"     	gencodec:"nil"`
 	ReceiptHash common.Hash `json:"receiptsRoot,omitempty"     gencodec:"nil"`
+
 	Bloom       Bloom       `json:"logsBloom"        gencodec:"required"`
 	Difficulty  *big.Int    `json:"difficulty"       gencodec:"required"`
 	Number      *big.Int    `json:"number"           gencodec:"required"`
@@ -143,16 +138,10 @@ type Header struct {
 type HeaderMarshal struct {
 	ShardId    uint16      `json:"shardId"			gencodec:"required"`
 	ParentHash common.Hash `json:"parentHash"       gencodec:"required"`
-	//hash of most lasted blocks of shards
-	ShardHash    common.Hash    `json:"shardHash"       	gencodec:"required"`
-	ShardMask    uint16         `json:"shardMask"		gencodec:"required"`
-	ShardEnabled hexutil.Bytes  `json:"shardEnabled"		gencodec:"required"`
 	Coinbase     common.Address `json:"miner"            gencodec:"required"`
 	Root         common.Hash    `json:"stateRoot"        gencodec:"required"`
 	TxHash       common.Hash    `json:"transactionsRoot" gencodec:"required"`
 	// hash of shard block included in this master block
-	BkHash      common.Hash    `json:"blocksRoot" 		gencodec:"required"`
-	RjHash      common.Hash    `json:"rejectRoot"     	gencodec:"required"`
 	ReceiptHash common.Hash    `json:"receiptsRoot"     gencodec:"required"`
 	Bloom       Bloom          `json:"logsBloom"        gencodec:"required"`
 	Difficulty  *hexutil.Big   `json:"difficulty"       gencodec:"required"`
@@ -168,16 +157,9 @@ type HeaderMarshal struct {
 type HeaderUnmarshal struct {
 	ShardId    uint16       `json:"shardId"			gencodec:"required"`
 	ParentHash *common.Hash `json:"parentHash"       gencodec:"required"`
-	//hash of most lasted blocks of shards
-	ShardHash    *common.Hash    `json:"shardHash"       	gencodec:"required"`
-	ShardMask    uint16          `json:"shardMask"		gencodec:"required"`
-	ShardEnabled *hexutil.Bytes  `json:"shardEnabled"		gencodec:"required"`
 	Coinbase     *common.Address `json:"miner"            gencodec:"required"`
 	Root         *common.Hash    `json:"stateRoot"        gencodec:"required"`
 	TxHash       *common.Hash    `json:"transactionsRoot" gencodec:"required"`
-	// hash of shard block included in this master block
-	BkHash      *common.Hash    `json:"blocksRoot" 		gencodec:"required"`
-	RjHash      *common.Hash    `json:"rejectRoot"     	gencodec:"required"`
 	ReceiptHash *common.Hash    `json:"receiptsRoot"     gencodec:"required"`
 	Bloom       *Bloom          `json:"logsBloom"        gencodec:"required"`
 	Difficulty  *big.Int        `json:"difficulty"       gencodec:"required"`
@@ -211,46 +193,11 @@ func (h *Header) Hash() common.Hash {
 // Size returns the approximate memory used by all internal contents. It is used
 // to approximate and limit the memory consumption of various caches.
 func (h *Header) Size() common.StorageSize {
-	return common.StorageSize(unsafe.Sizeof(*h)) + common.StorageSize(len(h.ShardEnabled)+len(h.Extra)+(h.Difficulty.BitLen()+h.Number.BitLen()+h.Time.BitLen())/8)
+	return common.StorageSize(unsafe.Sizeof(*h)) + common.StorageSize(len(h.Extra)+(h.Difficulty.BitLen()+h.Number.BitLen()+h.Time.BitLen())/8)
 }
 
-type RejectInfo struct {
-	TxHash common.Hash
-	Reason uint16
-}
-type RejectInfos []*RejectInfo
 
-// Len returns the length of s.
-func (s RejectInfos) Len() int { return len(s) }
 
-// Swap swaps the i'th and the j'th element in s.
-func (s RejectInfos) Swap(i, j int) { s[i], s[j] = s[j], s[i] }
-
-// GetRlp implements Rlpable and returns the i'th element of s in rlp.
-func (s RejectInfos) GetRlp(i int) []byte {
-	enc, _ := rlp.EncodeToBytes(s[i])
-	return enc
-}
-
-type ShardBlockInfo struct {
-	ShardId uint16
-	Number  *big.Int
-	Hash    common.Hash
-}
-
-type ShardBlockInfos []*ShardBlockInfo
-
-// Len returns the length of s.
-func (s ShardBlockInfos) Len() int { return len(s) }
-
-// Swap swaps the i'th and the j'th element in s.
-func (s ShardBlockInfos) Swap(i, j int) { s[i], s[j] = s[j], s[i] }
-
-// GetRlp implements Rlpable and returns the i'th element of s in rlp.
-func (s ShardBlockInfos) GetRlp(i int) []byte {
-	enc, _ := rlp.EncodeToBytes(s[i])
-	return enc
-}
 
 // Body is a simple (mutable, non-safe) data container for storing and moving
 // a block's data contents (transactions and uncles) together.
@@ -260,10 +207,7 @@ type Body struct {
 	//receipts
 	Receipts ContractResults
 
-	//this is for master chain
-	BlockInfos []*ShardBlockInfo
 
-	RejectInfos []*RejectInfo
 }
 
 // Block represents an entire block in the Ethereum blockchain.
@@ -273,8 +217,7 @@ type Block struct {
 	transactions Transactions
 	receipts     ContractResults
 
-	blockinfos ShardBlockInfos
-	rejections RejectInfos
+
 	// caches
 	hash atomic.Value
 	size atomic.Value
@@ -326,7 +269,7 @@ type storageblock struct {
 // The values of TxHash, ReceiptHash and Bloom in header
 // are ignored and set to values derived from the given txs, uncles
 // and receipts.
-func NewBlock(header *Header, txs []*Transaction, receipts []*Receipt, blks []*ShardBlockInfo, rejections []*RejectInfo) *Block {
+func NewBlock(header *Header, txs []*Transaction, receipts []*ContractResult) *Block {
 	b := &Block{header: CopyHeader(header), td: new(big.Int)}
 
 	// TODO: panic if len(txs) != len(receipts)
@@ -341,24 +284,10 @@ func NewBlock(header *Header, txs []*Transaction, receipts []*Receipt, blks []*S
 	if len(receipts) == 0 {
 		b.header.ReceiptHash = EmptyRootHash
 	} else {
-		b.header.ReceiptHash = DeriveSha(Receipts(receipts))
+		b.header.ReceiptHash = DeriveSha(ContractResults(receipts))
 		b.header.Bloom = CreateBloom(receipts)
 	}
 
-	// MUST TODO
-	if len(blks) == 0 {
-		b.header.BkHash = EmptyRootHash
-	} else {
-		b.blockinfos = make(ShardBlockInfos, len(blks))
-		copy(b.blockinfos, blks)
-	}
-
-	if len(rejections) == 0 {
-		b.header.RjHash = EmptyRootHash
-	} else {
-		b.rejections = make(RejectInfos, len(rejections))
-		copy(b.rejections, rejections)
-	}
 
 	return b
 }
@@ -438,7 +367,7 @@ func (b *Block) ContractReceipts() ContractResults { return b.receipts }
 
 func (b *Block) ContrcatReceipt(hash common.Hash) *ContractResult {
 	for _, receipt := range b.receipts {
-		if *receipt.TxHash == hash {
+		if receipt.TxHash == hash {
 			return receipt
 		}
 	}
@@ -463,12 +392,11 @@ func (b *Block) ReceiptHash() common.Hash { return b.header.ReceiptHash }
 
 //func (b *Block) UncleHash() common.Hash   { return b.header.UncleHash }
 func (b *Block) Extra() []byte                 { return common.CopyBytes(b.header.Extra) }
-func (b *Block) BlockInfos() []*ShardBlockInfo { return b.blockinfos }
-func (b *Block) RejectInfos() []*RejectInfo    { return b.rejections }
+
 func (b *Block) Header() *Header               { return CopyHeader(b.header) }
 
 // Body returns the non-header content of the block.
-func (b *Block) Body() *Body { return &Body{b.transactions, b.receipts, b.blockinfos, b.rejections} }
+func (b *Block) Body() *Body { return &Body{b.transactions, b.receipts} }
 
 // Size returns the true RLP encoded storage size of the block, either by encoding
 // and returning it, or returning a previsouly cached value.
@@ -495,24 +423,15 @@ func (b *Block) WithSeal(header *Header) *Block {
 }
 
 // WithBody returns a new block with the given transaction and uncle contents.
-func (b *Block) WithBody(transactions []*Transaction, contractReceipts ContractResults, shardBlock []*ShardBlockInfo, rejectInfos RejectInfos) *Block {
+func (b *Block) WithBody(transactions []*Transaction, contractReceipts ContractResults) *Block {
 	block := &Block{
 		header: CopyHeader(b.header),
 	}
-	if b.header.ShardId == (uint16)(ShardMaster) {
+	block.transactions = make([]*Transaction, len(transactions))
+	block.receipts = make(ContractResults, len(contractReceipts))
 
-		block.blockinfos = make(ShardBlockInfos, len(shardBlock))
-		block.rejections = make(RejectInfos, len(rejectInfos))
-		copy(block.blockinfos, shardBlock)
-		copy(block.rejections, rejectInfos)
-	} else {
-
-		block.transactions = make([]*Transaction, len(transactions))
-		block.receipts = make(ContractResults, len(contractReceipts))
-
-		copy(block.transactions, transactions)
-		copy(block.receipts, contractReceipts)
-	}
+	copy(block.transactions, transactions)
+	copy(block.receipts, contractReceipts)
 
 	return block
 }

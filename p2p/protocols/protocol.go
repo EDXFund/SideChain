@@ -38,12 +38,12 @@ import (
 	"sync"
 	"time"
 
-	"github.com/EDXFund/MasterChain/log"
-	"github.com/EDXFund/MasterChain/metrics"
-	"github.com/EDXFund/MasterChain/p2p"
-	"github.com/EDXFund/MasterChain/rlp"
-	"github.com/EDXFund/MasterChain/swarm/spancontext"
-	"github.com/EDXFund/MasterChain/swarm/tracing"
+	"github.com/EDXFund/Validator/log"
+	"github.com/EDXFund/Validator/metrics"
+	"github.com/EDXFund/Validator/p2p"
+	"github.com/EDXFund/Validator/rlp"
+	"github.com/EDXFund/Validator/swarm/spancontext"
+	"github.com/EDXFund/Validator/swarm/tracing"
 	opentracing "github.com/opentracing/opentracing-go"
 )
 

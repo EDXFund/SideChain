@@ -21,10 +21,10 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/EDXFund/MasterChain/cmd/utils"
-	"github.com/EDXFund/MasterChain/log"
-	"github.com/EDXFund/MasterChain/swarm/api"
-	swarm "github.com/EDXFund/MasterChain/swarm/api/client"
+	"github.com/EDXFund/Validator/cmd/utils"
+	"github.com/EDXFund/Validator/log"
+	"github.com/EDXFund/Validator/swarm/api"
+	swarm "github.com/EDXFund/Validator/swarm/api/client"
 	"gopkg.in/urfave/cli.v1"
 )
 

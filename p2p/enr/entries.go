@@ -22,8 +22,8 @@ import (
 	"io"
 	"net"
 
-	"github.com/EDXFund/MasterChain/crypto"
-	"github.com/EDXFund/MasterChain/rlp"
+	"github.com/EDXFund/Validator/crypto"
+	"github.com/EDXFund/Validator/rlp"
 )
 
 // Entry is implemented by known node record entry types.

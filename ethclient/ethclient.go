@@ -25,11 +25,11 @@ import (
 	"math/big"
 
 	"github.com/EDXFund/MasterChain"
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/common/hexutil"
-	"github.com/EDXFund/MasterChain/core/types"
-	"github.com/EDXFund/MasterChain/rlp"
-	"github.com/EDXFund/MasterChain/rpc"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/common/hexutil"
+	"github.com/EDXFund/Validator/core/types"
+	"github.com/EDXFund/Validator/rlp"
+	"github.com/EDXFund/Validator/rpc"
 )
 
 // Client defines typed wrappers for the Ethereum RPC API.

@@ -20,7 +20,7 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/EDXFund/MasterChain/core/asm"
+	"github.com/EDXFund/Validator/core/asm"
 )
 
 func Compile(fn string, src []byte, debug bool) (string, error) {

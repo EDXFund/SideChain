@@ -24,7 +24,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/EDXFund/MasterChain/common"
+	"github.com/EDXFund/Validator/common"
 )
 
 // Hash represents the 32 byte Keccak256 hash of arbitrary data.

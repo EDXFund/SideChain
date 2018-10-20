@@ -23,10 +23,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/EDXFund/MasterChain/p2p"
-	"github.com/EDXFund/MasterChain/p2p/discover"
-	"github.com/EDXFund/MasterChain/p2p/simulations/adapters"
-	p2ptest "github.com/EDXFund/MasterChain/p2p/testing"
+	"github.com/EDXFund/Validator/p2p"
+	"github.com/EDXFund/Validator/p2p/discover"
+	"github.com/EDXFund/Validator/p2p/simulations/adapters"
+	p2ptest "github.com/EDXFund/Validator/p2p/testing"
 )
 
 // handshake message type

@@ -24,8 +24,8 @@ import (
 	"runtime"
 	"testing"
 
-	"github.com/EDXFund/MasterChain/crypto"
-	"github.com/EDXFund/MasterChain/p2p"
+	"github.com/EDXFund/Validator/crypto"
+	"github.com/EDXFund/Validator/p2p"
 )
 
 // Tests that datadirs can be successfully created, be them manually configured

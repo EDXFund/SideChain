@@ -20,8 +20,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/crypto"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/crypto"
 )
 
 // Event is an event potentially triggered by the EVM's LOG mechanism. The Event

@@ -21,7 +21,7 @@ import (
 	"strings"
 	"unicode"
 
-	"github.com/EDXFund/MasterChain/eth/tracers/internal/tracers"
+	"github.com/EDXFund/Validator/eth/tracers/internal/tracers"
 )
 
 // all contains all the built in JavaScript tracers by name.

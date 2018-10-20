@@ -28,7 +28,7 @@ import (
 	"text/template"
 	"unicode"
 
-	"github.com/EDXFund/MasterChain/accounts/abi"
+	"github.com/EDXFund/Validator/accounts/abi"
 	"golang.org/x/tools/imports"
 )
 

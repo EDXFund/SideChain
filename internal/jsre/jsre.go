@@ -26,8 +26,8 @@ import (
 	"math/rand"
 	"time"
 
-	"github.com/EDXFund/MasterChain/common"
-	"github.com/EDXFund/MasterChain/internal/jsre/deps"
+	"github.com/EDXFund/Validator/common"
+	"github.com/EDXFund/Validator/internal/jsre/deps"
 	"github.com/robertkrimen/otto"
 )
 

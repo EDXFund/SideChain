@@ -19,7 +19,7 @@ package bloombits
 import (
 	"errors"
 
-	"github.com/EDXFund/MasterChain/core/types"
+	"github.com/EDXFund/Validator/core/types"
 )
 
 var (

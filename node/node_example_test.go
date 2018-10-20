@@ -20,9 +20,9 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/EDXFund/MasterChain/node"
-	"github.com/EDXFund/MasterChain/p2p"
-	"github.com/EDXFund/MasterChain/rpc"
+	"github.com/EDXFund/Validator/node"
+	"github.com/EDXFund/Validator/p2p"
+	"github.com/EDXFund/Validator/rpc"
 )
 
 // SampleService is a trivial network service that can be attached to a node for
