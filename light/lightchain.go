@@ -230,7 +230,7 @@ func (self *LightChain) GetBody(ctx context.Context, hash common.Hash) (*types.B
 	if number == nil {
 		return nil, errors.New("unknown block")
 	}
-	body, err := GetBody(ctx, self.odr, hash, *number)
+	body, err := GetBody(ctx, self.odr, hash, self.shardId,*number)
 	if err != nil {
 		return nil, err
 	}

@@ -87,16 +87,16 @@ func (b *LesApiBackend) GetBlock(ctx context.Context, blockHash common.Hash) (*t
 	return b.eth.blockchain.GetBlockByHash(ctx, blockHash)
 }
 
-func (b *LesApiBackend) GetReceipts(ctx context.Context, hash common.Hash) (types.Receipts, error) {
+func (b *LesApiBackend) GetReceipts(ctx context.Context, hash common.Hash) (types.ContractResults, error) {
 	if shardId,number := rawdb.ReadHeaderNumber(b.eth.chainDb, hash); number != nil {
-		return light.GetBlockReceipts(ctx, b.eth.odr, shardId,hash, *number)
+		return light.GetBlockReceipts(ctx, b.eth.odr, hash,shardId, *number)
 	}
 	return nil, nil
 }
 
 func (b *LesApiBackend) GetLogs(ctx context.Context, hash common.Hash) ([][]*types.Log, error) {
 	if shardId,number := rawdb.ReadHeaderNumber(b.eth.chainDb, hash); number != nil {
-		return light.GetBlockLogs(ctx, b.eth.odr,shardId, hash, *number)
+		return light.GetBlockLogs(ctx, b.eth.odr, hash,shardId, *number)
 	}
 	return nil, nil
 }

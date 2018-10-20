@@ -46,22 +46,17 @@ func (p *headerPack) Stats() string  { return fmt.Sprintf("%d", len(p.headers)) 
 type bodyPack struct {
 	peerID       string
 	transactions [][]*types.Transaction
-	uncles       [][]*types.Header
+	results       [][]*types.ContractResult
 }
 
 func (p *bodyPack) PeerId() string { return p.peerID }
-func (p *bodyPack) Items() int {
-	if len(p.transactions) <= len(p.uncles) {
-		return len(p.transactions)
-	}
-	return len(p.uncles)
-}
-func (p *bodyPack) Stats() string { return fmt.Sprintf("%d:%d", len(p.transactions), len(p.uncles)) }
+func (p *bodyPack) Items() int {return len(p.transactions)}
+func (p *bodyPack) Stats() string { return fmt.Sprintf("%d:%d", len(p.transactions), len(p.results)) }
 
 // receiptPack is a batch of receipts returned by a peer.
 type receiptPack struct {
 	peerID   string
-	receipts [][]*types.Receipt
+	receipts [][]*types.ContractResult
 }
 
 func (p *receiptPack) PeerId() string { return p.peerID }

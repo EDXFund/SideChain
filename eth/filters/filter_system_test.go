@@ -25,7 +25,7 @@ import (
 	"testing"
 	"time"
 
-	ethereum "github.com/EDXFund/MasterChain"
+	ethereum "github.com/EDXFund/Validator"
 	"github.com/EDXFund/Validator/common"
 	"github.com/EDXFund/Validator/consensus/ethash"
 	"github.com/EDXFund/Validator/core"
@@ -83,7 +83,7 @@ func (b *testBackend) HeaderByHash(ctx context.Context, hash common.Hash) (*type
 	return rawdb.ReadHeader(b.db, hash, shardId,*number), nil
 }
 
-func (b *testBackend) GetReceipts(ctx context.Context, hash common.Hash) (types.Receipts, error) {
+func (b *testBackend) GetReceipts(ctx context.Context, hash common.Hash) (types.ContractResults, error) {
 	if shardId,number := rawdb.ReadHeaderNumber(b.db, hash); number != nil {
 		return rawdb.ReadReceipts(b.db, hash,  shardId, *number), nil
 	}

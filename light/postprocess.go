@@ -177,10 +177,11 @@ type ChtIndexerBackend struct {
 	section, sectionSize uint64
 	lastHash             common.Hash
 	trie                 *trie.Trie
+	shardId				 uint16
 }
 
 // NewChtIndexer creates a Cht chain indexer
-func NewChtIndexer(db ethdb.Database, odr OdrBackend, size, confirms uint64) *core.ChainIndexer {
+func NewChtIndexer(db ethdb.Database, odr OdrBackend, shardId uint16, size, confirms uint64) *core.ChainIndexer {
 	trieTable := ethdb.NewTable(db, ChtTablePrefix)
 	backend := &ChtIndexerBackend{
 		diskdb:      db,
@@ -188,8 +189,9 @@ func NewChtIndexer(db ethdb.Database, odr OdrBackend, size, confirms uint64) *co
 		trieTable:   trieTable,
 		triedb:      trie.NewDatabase(trieTable),
 		sectionSize: size,
+		shardId:	 shardId,
 	}
-	return core.NewChainIndexer(db, ethdb.NewTable(db, "chtIndex-"), backend, size, confirms, time.Millisecond*100, "cht")
+	return core.NewChainIndexer(db, ethdb.NewTable(db, "chtIndex-"), backend, shardId, size, confirms, time.Millisecond*100, "cht")
 }
 
 // fetchMissingNodes tries to retrieve the last entry of the latest trusted CHT from the
@@ -242,7 +244,7 @@ func (c *ChtIndexerBackend) Process(ctx context.Context, header *types.Header) e
 	hash, num := header.Hash(), header.Number.Uint64()
 	c.lastHash = hash
 
-	td := rawdb.ReadTd(c.diskdb, hash, num)
+	td := rawdb.ReadTd(c.diskdb, hash,c.shardId, num)
 	if td == nil {
 		panic(nil)
 	}

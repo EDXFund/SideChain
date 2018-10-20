@@ -69,7 +69,7 @@ func errResp(code errCode, format string, v ...interface{}) error {
 
 type BlockChain interface {
 	Config() *params.ChainConfig
-	HasHeader(shardId uint16,hash common.Hash, number uint64) bool
+	HasHeader(hash common.Hash, number uint64) bool
 	GetHeader(hash common.Hash, number uint64) *types.Header
 	GetHeaderByHash(hash common.Hash) *types.Header
 	CurrentHeader() *types.Header
@@ -81,6 +81,7 @@ type BlockChain interface {
 	GetAncestor(hash common.Hash, number, ancestor uint64, maxNonCanonical *uint64) (common.Hash, uint64)
 	Genesis() *types.Block
 	SubscribeChainHeadEvent(ch chan<- core.ChainHeadEvent) event.Subscription
+	ShardId() uint16
 }
 
 type txPool interface {
@@ -395,10 +396,11 @@ func (pm *ProtocolManager) handleMsg(p *peer) error {
 		}
 
 	case GetBlockHeadersMsg:
-		p.Log().Trace("Received block header request")
+	/*	p.Log().Trace("Received block header request")
 		// Decode the complex header query
 		var req struct {
 			ReqID uint64
+			ShardId uint16
 			Query getBlockHeadersData
 		}
 		if err := msg.Decode(&req); err != nil {
@@ -493,6 +495,7 @@ func (pm *ProtocolManager) handleMsg(p *peer) error {
 		bv, rcost := p.fcClient.RequestProcessed(costs.baseCost + query.Amount*costs.reqCost)
 		pm.server.fcCostStats.update(msg.Code, query.Amount, rcost)
 		return p.SendBlockHeaders(req.ReqID, bv, headers)
+*/
 
 	case BlockHeadersMsg:
 		if pm.downloader == nil {
@@ -503,6 +506,7 @@ func (pm *ProtocolManager) handleMsg(p *peer) error {
 		// A batch of headers arrived to one of our previous requests
 		var resp struct {
 			ReqID, BV uint64
+			ShardId	  uint16
 			Headers   []*types.Header
 		}
 		if err := msg.Decode(&resp); err != nil {
@@ -519,7 +523,7 @@ func (pm *ProtocolManager) handleMsg(p *peer) error {
 		}
 
 	case GetBlockBodiesMsg:
-		p.Log().Trace("Received block bodies request")
+/*		p.Log().Trace("Received block bodies request")
 		// Decode the retrieval message
 		var req struct {
 			ReqID  uint64
@@ -542,8 +546,8 @@ func (pm *ProtocolManager) handleMsg(p *peer) error {
 				break
 			}
 			// Retrieve the requested block body, stopping if enough was found
-			if number := rawdb.ReadHeaderNumber(pm.chainDb, hash); number != nil {
-				if data := rawdb.ReadBodyRLP(pm.chainDb, hash, *number); len(data) != 0 {
+			if shardId,number := rawdb.ReadHeaderNumber(pm.chainDb, hash); number != nil {
+				if data := rawdb.ReadBodyRLP(pm.chainDb, hash,shardId, *number); len(data) != 0 {
 					bodies = append(bodies, data)
 					bytes += len(data)
 				}
@@ -552,7 +556,7 @@ func (pm *ProtocolManager) handleMsg(p *peer) error {
 		bv, rcost := p.fcClient.RequestProcessed(costs.baseCost + uint64(reqCnt)*costs.reqCost)
 		pm.server.fcCostStats.update(msg.Code, uint64(reqCnt), rcost)
 		return p.SendBlockBodiesRLP(req.ReqID, bv, bodies)
-
+*/
 	case BlockBodiesMsg:
 		if pm.odr == nil {
 			return errResp(ErrUnexpectedResponse, "")
@@ -562,6 +566,7 @@ func (pm *ProtocolManager) handleMsg(p *peer) error {
 		// A batch of block bodies arrived to one of our previous requests
 		var resp struct {
 			ReqID, BV uint64
+			ShardId   uint16
 			Data      []*types.Body
 		}
 		if err := msg.Decode(&resp); err != nil {
@@ -596,7 +601,7 @@ func (pm *ProtocolManager) handleMsg(p *peer) error {
 		for _, req := range req.Reqs {
 			// Retrieve the requested state entry, stopping if enough was found
 			if shardId,number := rawdb.ReadHeaderNumber(pm.chainDb, req.BHash); number != nil {
-				if header := rawdb.ReadHeader(pm.chainDb, req.BHash, *number); header != nil {
+				if header := rawdb.ReadHeader(pm.chainDb, req.BHash, shardId,*number); header != nil {
 					statedb, err := pm.blockchain.State()
 					if err != nil {
 						continue
@@ -639,71 +644,6 @@ func (pm *ProtocolManager) handleMsg(p *peer) error {
 			Obj:     resp.Data,
 		}
 
-	case GetReceiptsMsg:
-		p.Log().Trace("Received receipts request")
-		// Decode the retrieval message
-		var req struct {
-			ReqID  uint64
-			Hashes []common.Hash
-		}
-		if err := msg.Decode(&req); err != nil {
-			return errResp(ErrDecode, "msg %v: %v", msg, err)
-		}
-		// Gather state data until the fetch or network limits is reached
-		var (
-			bytes    int
-			receipts []rlp.RawValue
-		)
-		reqCnt := len(req.Hashes)
-		if reject(uint64(reqCnt), MaxReceiptFetch) {
-			return errResp(ErrRequestRejected, "")
-		}
-		for _, hash := range req.Hashes {
-			if bytes >= softResponseLimit {
-				break
-			}
-			// Retrieve the requested block's receipts, skipping if unknown to us
-			var results types.Receipts
-			if number := rawdb.ReadHeaderNumber(pm.chainDb, hash); number != nil {
-				results = rawdb.ReadReceipts(pm.chainDb, hash, *number)
-			}
-			if results == nil {
-				if header := pm.blockchain.GetHeaderByHash(hash); header == nil || header.ReceiptHash != types.EmptyRootHash {
-					continue
-				}
-			}
-			// If known, encode and queue for response packet
-			if encoded, err := rlp.EncodeToBytes(results); err != nil {
-				log.Error("Failed to encode receipt", "err", err)
-			} else {
-				receipts = append(receipts, encoded)
-				bytes += len(encoded)
-			}
-		}
-		bv, rcost := p.fcClient.RequestProcessed(costs.baseCost + uint64(reqCnt)*costs.reqCost)
-		pm.server.fcCostStats.update(msg.Code, uint64(reqCnt), rcost)
-		return p.SendReceiptsRLP(req.ReqID, bv, receipts)
-
-	case ReceiptsMsg:
-		if pm.odr == nil {
-			return errResp(ErrUnexpectedResponse, "")
-		}
-
-		p.Log().Trace("Received receipts response")
-		// A batch of receipts arrived to one of our previous requests
-		var resp struct {
-			ReqID, BV uint64
-			Receipts  []types.Receipts
-		}
-		if err := msg.Decode(&resp); err != nil {
-			return errResp(ErrDecode, "msg %v: %v", msg, err)
-		}
-		p.fcServer.GotReply(resp.ReqID, resp.BV)
-		deliverMsg = &Msg{
-			MsgType: MsgReceipts,
-			ReqID:   resp.ReqID,
-			Obj:     resp.Receipts,
-		}
 
 	case GetProofsV1Msg:
 		p.Log().Trace("Received proofs request")

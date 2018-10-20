@@ -1290,14 +1290,16 @@ func (bc *BlockChain) reorg(oldBlock, newBlock *types.Block) error {
 			if number == nil {
 				return
 			}
-			receipts := rawdb.ReadReceipts(bc.db, hash, bc.ShardId(), *number)
+
+			//// MUST TODO delete from db
+			/*receipts := rawdb.ReadReceipts(bc.db, hash, bc.ShardId(), *number)
 			for _, receipt := range receipts {
 				for _, log := range receipt.Logs {
 					del := *log
 					del.Removed = true
 					deletedLogs = append(deletedLogs, &del)
 				}
-			}
+			}*/
 		}
 	)
 

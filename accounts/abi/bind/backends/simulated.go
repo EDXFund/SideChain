@@ -24,7 +24,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/EDXFund/MasterChain"
+	"github.com/EDXFund/Validator"
 	"github.com/EDXFund/Validator/accounts/abi/bind"
 	"github.com/EDXFund/Validator/common"
 	"github.com/EDXFund/Validator/common/math"
@@ -440,7 +440,7 @@ func (fb *filterBackend) HeaderByHash(ctx context.Context, hash common.Hash) (*t
 	return fb.bc.GetHeaderByHash(hash), nil
 }
 
-func (fb *filterBackend) GetReceipts(ctx context.Context, hash common.Hash) (types.Receipts, error) {
+func (fb *filterBackend) GetReceipts(ctx context.Context, hash common.Hash) (types.ContractResults, error) {
 	shardId, number := rawdb.ReadHeaderNumber(fb.db, hash)
 	if number == nil {
 		return nil, nil

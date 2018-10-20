@@ -124,29 +124,30 @@ func (p *FakePeer) RequestHeadersByNumber(number uint64, amount int, skip int, r
 func (p *FakePeer) RequestBodies(hashes []common.Hash) error {
 	var (
 		txs    [][]*types.Transaction
-		uncles [][]*types.Header
+		recpts [][]*types.ContractResult
 	)
 	////MUST TODO
 	for _, hash := range hashes {
 		block := rawdb.ReadBlock(p.db, hash, p.hc.ShardId(), *p.hc.GetBlockNumber(hash))
 
 		txs = append(txs, block.Transactions())
+		recpts = append(recpts,block.Receiptions())
 		//uncles = append(uncles, block.Uncles())
 	}
-	p.dl.DeliverBodies(p.id, txs, uncles)
+	p.dl.DeliverBodies(p.id, txs, recpts)
 	return nil
 }
 
 // RequestReceipts implements downloader.Peer, returning a batch of transaction
 // receipts corresponding to the specified block hashes.
-func (p *FakePeer) RequestReceipts(hashes []common.Hash) error {
-	var receipts [][]*types.Receipt
+/*func (p *FakePeer) RequestReceipts(hashes []common.Hash) error {
+	var receipts [][]*types.ContractResult
 	for _, hash := range hashes {
 		receipts = append(receipts, rawdb.ReadReceipts(p.db, hash, p.hc.ShardId(), *p.hc.GetBlockNumber(hash)))
 	}
 	p.dl.DeliverReceipts(p.id, receipts)
 	return nil
-}
+}*/
 
 // RequestNodeData implements downloader.Peer, returning a batch of state trie
 // nodes corresponding to the specified trie hashes.

@@ -424,7 +424,7 @@ func signHash(data []byte) []byte {
 //
 // The key used to calculate the signature is decrypted with the given password.
 //
-// https://github.com/EDXFund/MasterChain/wiki/Management-APIs#personal_sign
+// https://github.com/EDXFund/Validator/wiki/Management-APIs#personal_sign
 func (s *PrivateAccountAPI) Sign(ctx context.Context, data hexutil.Bytes, addr common.Address, passwd string) (hexutil.Bytes, error) {
 	// Look up the wallet containing the requested signer
 	account := accounts.Account{Address: addr}
@@ -451,7 +451,7 @@ func (s *PrivateAccountAPI) Sign(ctx context.Context, data hexutil.Bytes, addr c
 // Note, the signature must conform to the secp256k1 curve R, S and V values, where
 // the V value must be be 27 or 28 for legacy reasons.
 //
-// https://github.com/EDXFund/MasterChain/wiki/Management-APIs#personal_ecRecover
+// https://github.com/EDXFund/Validator/wiki/Management-APIs#personal_ecRecover
 func (s *PrivateAccountAPI) EcRecover(ctx context.Context, data, sig hexutil.Bytes) (common.Address, error) {
 	if len(sig) != 65 {
 		return common.Address{}, fmt.Errorf("signature must be 65 bytes long")
@@ -1014,7 +1014,7 @@ func (s *PublicTransactionPoolAPI) GetTransactionCount(ctx context.Context, addr
 // GetTransactionByHash returns the transaction for the given hash
 func (s *PublicTransactionPoolAPI) GetTransactionByHash(ctx context.Context, hash common.Hash) *RPCTransaction {
 	// Try to return an already finalized transaction
-	if tx,blockHash, shardId, blockNumber, index := rawdb.ReadTransaction(s.b.ChainDb(), hash); tx != nil {
+	if tx,blockHash, _, blockNumber, index := rawdb.ReadTransaction(s.b.ChainDb(), hash); tx != nil {
 		return newRPCTransaction(tx,blockHash, blockNumber, index)
 	}
 	// No finalized transaction, try to retrieve it from the pool
@@ -1072,8 +1072,8 @@ func (s *PublicTransactionPoolAPI) GetTransactionReceipt(ctx context.Context, ha
 		"gasUsed":           hexutil.Uint64(receipt.GasUsed),
 		"cumulativeGasUsed": hexutil.Uint64(receipt.CumulativeGasUsed),
 		"contractAddress":   nil,
-		"logs":              receipt.Logs,
-		"logsBloom":         receipt.Bloom,
+		//"logs":              receipt.Logs,
+		//"logsBloom":         receipt.Bloom,
 	}
 
 	// Assign receipt status or post state.
@@ -1082,13 +1082,13 @@ func (s *PublicTransactionPoolAPI) GetTransactionReceipt(ctx context.Context, ha
 	} else {
 		fields["status"] = hexutil.Uint(receipt.Status)
 	}
-	if receipt.Logs == nil {
-		fields["logs"] = [][]*types.Log{}
-	}
+	//if receipt.Logs == nil {
+	//	fields["logs"] = [][]*types.Log{}
+	//}
 	// If the ContractAddress is 20 0x0 bytes, assume it is not a contract creation
-	if receipt.ContractAddress != (common.Address{}) {
-		fields["contractAddress"] = receipt.ContractAddress
-	}
+	//if receipt.ContractAddress != (common.Address{}) {
+	//	fields["contractAddress"] = receipt.ContractAddress
+	//}
 	return fields, nil
 }
 

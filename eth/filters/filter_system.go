@@ -19,13 +19,13 @@
 package filters
 
 import (
-	"context"
+	//"context"
 	"errors"
 	"fmt"
 	"sync"
 	"time"
 
-	ethereum "github.com/EDXFund/MasterChain"
+	ethereum "github.com/EDXFund/Validator"
 	"github.com/EDXFund/Validator/common"
 	"github.com/EDXFund/Validator/core"
 	"github.com/EDXFund/Validator/core/rawdb"
@@ -406,7 +406,7 @@ func (es *EventSystem) lightFilterNewHead(newHeader *types.Header, callBack func
 
 // filter logs of a single header in light client mode
 func (es *EventSystem) lightFilterLogs(header *types.Header, addresses []common.Address, topics [][]common.Hash, remove bool) []*types.Log {
-	if bloomFilter(header.Bloom, addresses, topics) {
+/*	if bloomFilter(header.Bloom, addresses, topics) {
 		// Get the logs of the block
 		ctx, cancel := context.WithTimeout(context.Background(), time.Second*5)
 		defer cancel()
@@ -440,7 +440,7 @@ func (es *EventSystem) lightFilterLogs(header *types.Header, addresses []common.
 			logs = filterLogs(unfiltered, nil, nil, addresses, topics)
 		}
 		return logs
-	}
+	}*/
 	return nil
 }
 

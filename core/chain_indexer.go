@@ -121,7 +121,7 @@ func NewChainIndexer(chainDb, indexDb ethdb.Database, backend ChainIndexerBacken
 
 	return c
 }
-
+func (c *ChainIndexer) ShardId() uint16 { return c.shardId}
 // AddCheckpoint adds a checkpoint. Sections are never processed and the chain
 // is not expected to be available before this point. The indexer assumes that
 // the backend has sufficient information available to process subsequent sections.

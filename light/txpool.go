@@ -66,7 +66,7 @@ type TxPool struct {
 	pending      map[common.Hash]*types.Transaction   // pending transactions by tx hash
 	mined        map[common.Hash][]*types.Transaction // mined transactions by block hash
 	clearIdx     uint64                               // earliest block nr that can contain mined tx info
-
+	shardId      uint16
 	homestead bool
 }
 
@@ -101,6 +101,7 @@ func NewTxPool(config *params.ChainConfig, chain *LightChain, relay TxRelayBacke
 		chainDb:     chain.Odr().Database(),
 		head:        chain.CurrentHeader().Hash(),
 		clearIdx:    chain.CurrentHeader().Number.Uint64(),
+		shardId:     chain.shardId,
 	}
 	// Subscribe events from blockchain
 	pool.chainHeadSub = pool.chain.SubscribeChainHeadEvent(pool.chainHeadCh)
@@ -167,7 +168,7 @@ func (pool *TxPool) checkMinedTxs(ctx context.Context, hash common.Hash, number 
 	if len(pool.pending) == 0 {
 		return nil
 	}
-	block, err := GetBlock(ctx, pool.odr, hash, number)
+	block, err := GetBlock(ctx, pool.odr, hash, pool.shardId, number)
 	if err != nil {
 		return err
 	}
@@ -181,7 +182,7 @@ func (pool *TxPool) checkMinedTxs(ctx context.Context, hash common.Hash, number 
 	// If some transactions have been mined, write the needed data to disk and update
 	if list != nil {
 		// Retrieve all the receipts belonging to this block and write the loopup table
-		if _, err := GetBlockReceipts(ctx, pool.odr, hash, number); err != nil { // ODR caches, ignore results
+		if _, err := GetBlockReceipts(ctx, pool.odr, hash, pool.shardId, number); err != nil { // ODR caches, ignore results
 			return err
 		}
 		rawdb.WriteTxLookupEntries(pool.chainDb, block)
@@ -260,7 +261,7 @@ func (pool *TxPool) reorgOnNewHead(ctx context.Context, newHeader *types.Header)
 		idx2 := idx - txPermanent
 		if len(pool.mined) > 0 {
 			for i := pool.clearIdx; i < idx2; i++ {
-				hash := rawdb.ReadCanonicalHash(pool.chainDb, i)
+				hash := rawdb.ReadCanonicalHash(pool.chainDb, pool.shardId, i)
 				if list, ok := pool.mined[hash]; ok {
 					hashes := make([]common.Hash, len(list))
 					for i, tx := range list {

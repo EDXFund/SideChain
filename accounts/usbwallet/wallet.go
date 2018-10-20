@@ -25,7 +25,7 @@ import (
 	"sync"
 	"time"
 
-	ethereum "github.com/EDXFund/MasterChain"
+	ethereum "github.com/EDXFund/Validator"
 	"github.com/EDXFund/Validator/accounts"
 	"github.com/EDXFund/Validator/common"
 	"github.com/EDXFund/Validator/core/types"

@@ -20,7 +20,7 @@ import (
 	"context"
 	"sync"
 
-	ethereum "github.com/EDXFund/MasterChain"
+	ethereum "github.com/EDXFund/Validator"
 	"github.com/EDXFund/Validator/event"
 	"github.com/EDXFund/Validator/rpc"
 )

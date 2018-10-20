@@ -22,7 +22,7 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/EDXFund/MasterChain"
+	"github.com/EDXFund/Validator"
 	"github.com/EDXFund/Validator/accounts/abi"
 	"github.com/EDXFund/Validator/common"
 	"github.com/EDXFund/Validator/core/types"

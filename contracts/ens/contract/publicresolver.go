@@ -7,7 +7,7 @@ import (
 	"math/big"
 	"strings"
 
-	ethereum "github.com/EDXFund/MasterChain"
+	ethereum "github.com/EDXFund/Validator"
 	"github.com/EDXFund/Validator/accounts/abi"
 	"github.com/EDXFund/Validator/accounts/abi/bind"
 	"github.com/EDXFund/Validator/common"

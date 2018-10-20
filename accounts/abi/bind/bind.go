@@ -17,7 +17,7 @@
 // Package bind generates Ethereum contract Go bindings.
 //
 // Detailed usage document and tutorial available on the go-ethereum Wiki page:
-// https://github.com/EDXFund/MasterChain/wiki/Native-DApps:-Go-bindings-to-Ethereum-contracts
+// https://github.com/EDXFund/Validator/wiki/Native-DApps:-Go-bindings-to-Ethereum-contracts
 package bind
 
 import (

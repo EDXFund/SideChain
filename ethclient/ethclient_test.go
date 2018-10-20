@@ -16,7 +16,7 @@
 
 package ethclient
 
-import "github.com/EDXFund/MasterChain"
+import "github.com/EDXFund/Validator"
 
 // Verify that Client implements the ethereum interfaces.
 var (

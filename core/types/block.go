@@ -84,35 +84,6 @@ type HeaderIntf interface {
 	MixDigest() common.Hash
 }
 
-type BlockIntf interface {
-	EncodeRLP(io.Writer)
-	Transactions() Transactions
-	Transaction(hash common.Hash) *Transaction
-	Number() *big.Int
-	GasLimit() uint64
-	GasUsed() uint64
-	Difficulty() *big.Int
-	Time() *big.Int
-
-	NumberU64() uint64
-	MixDigest() common.Hash
-	Nonce() uint64
-	Bloom() Bloom
-	Coinbase() common.Address
-	Root() common.Hash
-	ParentHash() common.Hash
-	TxHash() common.Hash
-	ReceiptHash() common.Hash
-
-	Extra() []byte
-
-	Header() *HeaderIntf
-
-	// Size returns the true RLP encoded storage size of the block, either by encoding
-	// and returning it, or returning a previsouly cached value.
-	Size() common.StorageSize
-}
-
 // Header represents a block header in the Ethereum blockchain.
 type Header struct {
 	ShardId    uint16      `json:"shardId"			gencodec:"required"`
@@ -352,8 +323,10 @@ func (b *StorageBlock) DecodeRLP(s *rlp.Stream) error {
 
 // TODO: copies
 
-//func (b *Block) Uncles() []*Header          { return b.uncles }
+
 func (b *Block) Transactions() Transactions { return b.transactions }
+
+func (b *Block) Receiptions() ContractResults { return b.receipts }
 
 func (b *Block) Transaction(hash common.Hash) *Transaction {
 	for _, transaction := range b.transactions {

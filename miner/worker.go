@@ -643,7 +643,7 @@ func (w *worker) commitTransactions(txs *types.TransactionsByPriceAndNonce, coin
 		w.current.gasPool = new(core.GasPool).AddGas(w.current.header.GasLimit)
 	}
 
-	 coalescedLogs := make([]*types.ContractResults,1)
+	 coalescedLogs := make([]*types.ContractResult,1)
 
 	for {
 		// In the following three cases, we will interrupt the execution of the transaction.
@@ -711,7 +711,7 @@ func (w *worker) commitTransactions(txs *types.TransactionsByPriceAndNonce, coin
 
 		case nil:
 			// Everything ok, collect the logs and shift in the next transaction from the same account
-			coalescedLogs = append(coalescedLogs, receipt...)
+			coalescedLogs = append(coalescedLogs, receipt)
 			w.current.tcount++
 			txs.Shift()
 

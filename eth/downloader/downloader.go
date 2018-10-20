@@ -25,7 +25,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	ethereum "github.com/EDXFund/MasterChain"
+	ethereum "github.com/EDXFund/Validator"
 	"github.com/EDXFund/Validator/common"
 	"github.com/EDXFund/Validator/core/rawdb"
 	"github.com/EDXFund/Validator/core/types"
@@ -196,7 +196,7 @@ type BlockChain interface {
 	InsertChain(types.Blocks) (int, error)
 
 	// InsertReceiptChain inserts a batch of receipts into the local chain.
-	InsertReceiptChain(types.Blocks, []types.Receipts) (int, error)
+	InsertReceiptChain(types.Blocks, []types.ContractResults) (int, error)
 }
 
 // New creates a new downloader to fetch hashes and blocks from remote peers.
@@ -932,7 +932,7 @@ func (d *Downloader) fetchBodies(from uint64) error {
 	var (
 		deliver = func(packet dataPack) (int, error) {
 			pack := packet.(*bodyPack)
-			return d.queue.DeliverBodies(pack.peerID, pack.transactions, pack.uncles)
+			return d.queue.DeliverBodies(pack.peerID, pack.transactions, pack.results)
 		}
 		expire   = func() map[string]int { return d.queue.ExpireBodies(d.requestTTL()) }
 		fetch    = func(p *peerConnection, req *fetchRequest) error { return p.FetchBodies(req) }
@@ -1499,10 +1499,10 @@ func (d *Downloader) commitFastSyncData(results []*fetchResult, stateSync *state
 		"lastnumn", last.Number, "lasthash", last.Hash(),
 	)
 	blocks := make([]*types.Block, len(results))
-	receipts := make([]types.Receipts, len(results))
+	receipts := make([]types.ContractResults, len(results))
 	for i, result := range results {
 		//MUST TODO
-		blocks[i] = types.NewBlockWithHeader(result.Header).WithBody(result.Transactions, nil)
+		blocks[i] = types.NewBlockWithHeader(result.Header).WithBody(result.Transactions, result.Receipts)
 		receipts[i] = result.Receipts
 	}
 	if index, err := d.blockchain.InsertReceiptChain(blocks, receipts); err != nil {
@@ -1516,7 +1516,7 @@ func (d *Downloader) commitPivotBlock(result *fetchResult) error {
 	////MUST TODO
 	block := types.NewBlockWithHeader(result.Header).WithBody(result.Transactions, nil)
 	log.Debug("Committing fast sync pivot as new head", "number", block.Number(), "hash", block.Hash())
-	if _, err := d.blockchain.InsertReceiptChain([]*types.Block{block}, []types.Receipts{result.Receipts}); err != nil {
+	if _, err := d.blockchain.InsertReceiptChain([]*types.Block{block}, []types.ContractResults{result.Receipts}); err != nil {
 		return err
 	}
 	if err := d.blockchain.FastSyncCommitHead(block.Hash()); err != nil {
@@ -1533,14 +1533,14 @@ func (d *Downloader) DeliverHeaders(id string, headers []*types.Header) (err err
 }
 
 // DeliverBodies injects a new batch of block bodies received from a remote node.
-func (d *Downloader) DeliverBodies(id string, transactions [][]*types.Transaction, uncles [][]*types.Header) (err error) {
-	return d.deliver(id, d.bodyCh, &bodyPack{id, transactions, uncles}, bodyInMeter, bodyDropMeter)
+func (d *Downloader) DeliverBodies(id string, transactions [][]*types.Transaction, results [][]*types.ContractResult) (err error) {
+	return d.deliver(id, d.bodyCh, &bodyPack{id, transactions, results}, bodyInMeter, bodyDropMeter)
 }
 
 // DeliverReceipts injects a new batch of receipts received from a remote node.
-func (d *Downloader) DeliverReceipts(id string, receipts [][]*types.Receipt) (err error) {
+/*func (d *Downloader) DeliverReceipts(id string, receipts [][]*types.ContractResult) (err error) {
 	return d.deliver(id, d.receiptCh, &receiptPack{id, receipts}, receiptInMeter, receiptDropMeter)
-}
+}*/
 
 // DeliverNodeData injects a new batch of node state data received from a remote node.
 func (d *Downloader) DeliverNodeData(id string, data [][]byte) (err error) {

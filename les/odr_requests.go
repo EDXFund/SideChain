@@ -58,8 +58,7 @@ func LesRequest(req light.OdrRequest) LesOdrRequest {
 	switch r := req.(type) {
 	case *light.BlockRequest:
 		return (*BlockRequest)(r)
-	case *light.ReceiptsRequest:
-		return (*ReceiptsRequest)(r)
+
 	case *light.TrieRequest:
 		return (*TrieRequest)(r)
 	case *light.CodeRequest:
@@ -116,9 +115,6 @@ func (r *BlockRequest) Validate(db ethdb.Database, msg *Msg) error {
 	}
 	if header.TxHash != types.DeriveSha(types.Transactions(body.Transactions)) {
 		return errTxHashMismatch
-	}
-	if header.UncleHash != types.CalcUncleHash(body.Uncles) {
-		return errUncleHashMismatch
 	}
 	// Validations passed, encode and store RLP
 	data, err := rlp.EncodeToBytes(body)

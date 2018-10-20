@@ -508,19 +508,20 @@ func (pm *ProtocolManager) handleMsg(p *peer) error {
 		}
 		// Deliver them all to the downloader for queuing
 		transactions := make([][]*types.Transaction, len(request))
-		uncles := make([][]*types.Header, len(request))
+		results := make([][]*types.ContractResult, len(request))
 
 		for i, body := range request {
 			transactions[i] = body.Transactions
-			uncles[i] = body.Uncles
+			results[i] = body.Results
+		//	uncles[i] = body.Uncles
 		}
 		// Filter out any explicitly requested bodies, deliver the rest to the downloader
-		filter := len(transactions) > 0 || len(uncles) > 0
+		filter := len(transactions) > 0 || len(results) > 0
 		if filter {
-			transactions, uncles = pm.fetcher.FilterBodies(p.id, transactions, uncles, time.Now())
+			transactions, results = pm.fetcher.FilterBodies(p.id, transactions, results, time.Now())
 		}
-		if len(transactions) > 0 || len(uncles) > 0 || !filter {
-			err := pm.downloader.DeliverBodies(p.id, transactions, uncles)
+		if len(transactions) > 0 || len(results) > 0 || !filter {
+			err := pm.downloader.DeliverBodies(p.id, transactions, results)
 			if err != nil {
 				log.Debug("Failed to deliver bodies", "err", err)
 			}
@@ -601,7 +602,8 @@ func (pm *ProtocolManager) handleMsg(p *peer) error {
 		return p.SendReceiptsRLP(receipts)
 
 	case p.version >= eth63 && msg.Code == ReceiptsMsg:
-		// A batch of receipts arrived to one of our previous requests
+		// receipts was delivered by body in shard chain
+		/*// A batch of receipts arrived to one of our previous requests
 		var receipts [][]*types.Receipt
 		if err := msg.Decode(&receipts); err != nil {
 			return errResp(ErrDecode, "msg %v: %v", msg, err)
@@ -609,7 +611,7 @@ func (pm *ProtocolManager) handleMsg(p *peer) error {
 		// Deliver all to the downloader
 		if err := pm.downloader.DeliverReceipts(p.id, receipts); err != nil {
 			log.Debug("Failed to deliver receipts", "err", err)
-		}
+		}*/
 
 	case msg.Code == NewBlockHashesMsg:
 		var announces newBlockHashesData

@@ -58,9 +58,9 @@ type fetchResult struct {
 	Hash    common.Hash // Hash of the header to prevent recalculating
 
 	Header       *types.Header
-	Uncles       []*types.Header
+	//Uncles       []*types.Header
 	Transactions types.Transactions
-	Receipts     types.Receipts
+	Receipts     types.ContractResults
 }
 
 // queue represents hashes that are either need fetching or are being fetched
@@ -386,9 +386,9 @@ func (q *queue) Results(block bool) []*fetchResult {
 		// Recalculate the result item weights to prevent memory exhaustion
 		for _, result := range results {
 			size := result.Header.Size()
-			for _, uncle := range result.Uncles {
+			/*for _, uncle := range result.Uncles {
 				size += uncle.Size()
-			}
+			}*/
 			for _, receipt := range result.Receipts {
 				size += receipt.Size()
 			}
@@ -764,7 +764,7 @@ func (q *queue) DeliverHeaders(id string, headers []*types.Header, headerProcCh 
 // DeliverBodies injects a block body retrieval response into the results queue.
 // The method returns the number of blocks bodies accepted from the delivery and
 // also wakes any threads waiting for data delivery.
-func (q *queue) DeliverBodies(id string, txLists [][]*types.Transaction, uncleLists [][]*types.Header) (int, error) {
+func (q *queue) DeliverBodies(id string, txLists [][]*types.Transaction, receipts [][]*types.ContractResult) (int, error) {
 	q.lock.Lock()
 	defer q.lock.Unlock()
 
@@ -773,7 +773,7 @@ func (q *queue) DeliverBodies(id string, txLists [][]*types.Transaction, uncleLi
 			return errInvalidBody
 		}
 		result.Transactions = txLists[index]
-		result.Uncles = uncleLists[index]
+		result.Receipts = receipts[index]
 		return nil
 	}
 	return q.deliver(id, q.blockTaskPool, q.blockTaskQueue, q.blockPendPool, q.blockDonePool, bodyReqTimer, len(txLists), reconstruct)
@@ -782,12 +782,12 @@ func (q *queue) DeliverBodies(id string, txLists [][]*types.Transaction, uncleLi
 // DeliverReceipts injects a receipt retrieval response into the results queue.
 // The method returns the number of transaction receipts accepted from the delivery
 // and also wakes any threads waiting for data delivery.
-func (q *queue) DeliverReceipts(id string, receiptList [][]*types.Receipt) (int, error) {
+func (q *queue) DeliverReceipts(id string, receiptList [][]*types.ContractResult) (int, error) {
 	q.lock.Lock()
 	defer q.lock.Unlock()
 
 	reconstruct := func(header *types.Header, index int, result *fetchResult) error {
-		if types.DeriveSha(types.Receipts(receiptList[index])) != header.ReceiptHash {
+		if types.DeriveSha(types.ContractResults(receiptList[index])) != header.ReceiptHash {
 			return errInvalidReceipt
 		}
 		result.Receipts = receiptList[index]

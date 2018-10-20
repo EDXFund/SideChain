@@ -20,7 +20,7 @@ package accounts
 import (
 	"math/big"
 
-	ethereum "github.com/EDXFund/MasterChain"
+	ethereum "github.com/EDXFund/Validator"
 	"github.com/EDXFund/Validator/common"
 	"github.com/EDXFund/Validator/core/types"
 	"github.com/EDXFund/Validator/event"
